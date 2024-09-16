@@ -1,0 +1,6 @@
+source ~/vimfiles/custom_example/config.vim
+source ~/vimfiles/custom/config.vim
+source ~/vimfiles/vimrcs/basic.vim
+source ~/vimfiles/vimrcs/plugin.vim
+source ~/vimfiles/vimrcs/mapping.vim
+source ~/vimfiles/vimrcs/ideavim.vim

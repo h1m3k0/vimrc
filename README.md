@@ -1,12 +1,12 @@
 ## 结构说明
 
-- `main`可用做自定义入口文件, 已添加`.gitignore`, ***需手动创建***, 用于修改默认环境
 - `vimrc`默认的入口文件
 - `vimrcs/`vim配置
-  -   `basic.vim` 基础配置
+  - `basic.vim` 基础配置
   - `plugin.vim` 启用插件配置
   - `mapping.vim` 映射配置
   - `ideavim.vim` IdeaVim的特殊配置
+  - `startify.vim` 首页配置
 - `custom_example`自定义配置样例
   - `config.vim` 自定义配置
   - `main` Linux自定义入口样例

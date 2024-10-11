@@ -7,10 +7,8 @@
     - `mapping.vim` 映射配置
     - `ideavim.vim` IdeaVim的特殊配置
     - `startify.vim` 首页配置
-- `custom_example`自定义配置样例
-    - `config.vim` 自定义配置
-    - `main` Linux自定义入口样例
-- `custom`自定义配置，需将`custom_example`**复制**并修改其中自定义内容
+    - `comfig_example.vim` 自定义配置样例
+    - `config.vim` 自定义配置，需要**复制**`config_example.vim`并修改
 
 ## Vim配置
 

@@ -1,5 +1,5 @@
-source ~/vimfiles/custom_example/config.vim
-source ~/vimfiles/custom/config.vim
+source ~/vimfiles/vimrcs/config_example.vim
+source ~/vimfiles/vimrcs/config.vim
 source ~/vimfiles/vimrcs/basic.vim
 source ~/vimfiles/vimrcs/plugin.vim
 source ~/vimfiles/vimrcs/mapping.vim

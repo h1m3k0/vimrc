@@ -1,5 +1,5 @@
 .idea
 plugged
-custom
+vimrcs/config.vim
 autoload/plug.vim.old
 

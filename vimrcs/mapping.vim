@@ -2,7 +2,7 @@
 " ========== 基础映射 开始 ==========
 "
 " leader键
-noremap <leader> <nop>
+noremap  <leader>  <nop>
 
 " s和x删除 => 不进入缓存
 noremap  s  "_s
@@ -11,13 +11,13 @@ noremap  x  "_x
 noremap  X  "_X
 
 " 水平移动时保留光标
-xnoremap <  <gv
-xnoremap >  >gv
+xnoremap  <  <gv
+xnoremap  >  >gv
 
 " @/为空时n/N搜索 => 不报错
 if !has('ide')  " ideavim不存在这个问题
-    noremap  <silent> n  :call Extension_n('n')<cr>
-    noremap  <silent> N  :call Extension_n('N')<cr>
+    noremap  <silent>  n  :call Extension_n('n')<cr>
+    noremap  <silent>  N  :call Extension_n('N')<cr>
 endif
 
 " ---------- 基础映射 结束 ----------
@@ -39,9 +39,9 @@ if g:custom_config_keyboard == 0
 endif
 
 " 不常用键映射
-noremap H ^
-noremap L $
-map M %
+noremap  H  ^
+noremap  L  $
+map  M  %
 
 " 可视模式直接搜索当前选择内容
 xnoremap  <silent> /  <esc>:call VisualRegSearch()<cr>/<cr>N

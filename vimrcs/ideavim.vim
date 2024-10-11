@@ -24,7 +24,7 @@ map  <space>v  <Action>(IntroduceVariable)
 " 全局查找 
 map  <space>f  <Action>(FindInPath)
 " 补全 c-s-enter
-map  <space><enter>  <Action>(EditorCompleteStatement)
+map  <space>;  <Action>(EditorCompleteStatement)
 " 优化导入 c-a-o
 map  <space>o  <Action>(OptimizeImports)
 " 格式化 c-a-l
@@ -36,16 +36,16 @@ map  <space>i  <Action>(ShowIntentionActions)
 " 全局搜索 shift-shift
 map  <space>s  <Action>(SearchEverywhere)
 " 方法跳转到子类实现
-map  <c-n>  <Action>(GotoImplementation)
+map  <space>j  <Action>(GotoImplementation)
 " 方法跳转到父类定义
-map  <c-m>  <Action>(GotoSuperMethod)
+map  <space>k  <Action>(GotoSuperMethod)
 " ---------- 自定义映射Action 结束 ----------
 
 
 " ========== 自定义命令Action 开始 ==========
 "
-" Reload 重新加载ideavimrc
-command!  Reload  call  IdeaVimAction('IdeaVim.ReloadVimRc.reload')
+" VimReload 重新加载ideavimrc
+command!  VimReload  call  IdeaVimAction('IdeaVim.ReloadVimRc.reload')
 " Run
 command!  Run  call  IdeaVimAction('Run')
 " RunClass

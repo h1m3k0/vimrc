@@ -1,17 +1,3 @@
-## 结构说明
-
-- `vimrc`默认的入口文件
-- `vimrcs/`vim配置
-    - `basic.vim` 基础配置
-    - `plugin.vim` 启用插件配置
-    - `mapping.vim` 映射配置
-    - `ideavim.vim` IdeaVim的特殊配置
-    - `startify.vim` 首页配置
-    - `comfig_example.vim` 自定义配置样例
-    - `config.vim` 自定义配置，需要**复制**`config_example.vim`并修改
-
-## Vim配置
-
 - Windows
 
     - `vim`

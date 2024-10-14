@@ -1,4 +1,5 @@
 " IdeaVim额外的配置
+let g:mapleader = g:config_ideavim_mapleader
 " ========== ideavim额外的set配置 开始 ==========
 "
 " set ideacopypreprocess
@@ -16,29 +17,29 @@ set trackactionids
 " ========== 自定义映射Action 开始 ========== 
 "
 " 映射Action启用<space>作为前缀
-map  <space>  <nop>
+map  <leader>  <nop>
 " 重命名
-map  <space>r  <Action>(RenameElement)
+map  <leader>r  <Action>(RenameElement)
 " 引入变量 
-map  <space>v  <Action>(IntroduceVariable)
+map  <leader>v  <Action>(IntroduceVariable)
 " 全局查找 
-map  <space>f  <Action>(FindInPath)
+map  <leader>f  <Action>(FindInPath)
 " 补全 c-s-enter
-map  <space>;  <Action>(EditorCompleteStatement)
+map  <leader>;  <Action>(EditorCompleteStatement)
 " 优化导入 c-a-o
-map  <space>o  <Action>(OptimizeImports)
+map  <leader>o  <Action>(OptimizeImports)
 " 格式化 c-a-l
-map  <space>l  <Action>(ReformatCode)
+map  <leader>l  <Action>(ReformatCode)
 " 环绕 c-a-t
-map  <space>t  <Action>(SurroundWith)
+map  <leader>t  <Action>(SurroundWith)
 " 提示 a-enter
-map  <space>i  <Action>(ShowIntentionActions)
+map  <leader>i  <Action>(ShowIntentionActions)
 " 全局搜索 shift-shift
-map  <space>s  <Action>(SearchEverywhere)
+map  <leader>s  <Action>(SearchEverywhere)
 " 方法跳转到子类实现
-map  <space>j  <Action>(GotoImplementation)
+map  <leader>j  <Action>(GotoImplementation)
 " 方法跳转到父类定义
-map  <space>k  <Action>(GotoSuperMethod)
+map  <leader>k  <Action>(GotoSuperMethod)
 " ---------- 自定义映射Action 结束 ----------
 
 

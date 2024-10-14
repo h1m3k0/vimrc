@@ -25,7 +25,7 @@ endif
 " ========== 功能映射 开始 ==========
 
 " 全模式 方向键
-if g:custom_config_keyboard == 0 && g:custom_config_environment == 0
+if g:config_keyboard == 0 && g:config_environment == 0
     noremap <c-h>  <left>|inoremap <c-h>  <left>|cnoremap <c-h>  <left>
     noremap <c-j>  <down>|inoremap <c-j>  <down>|cnoremap <c-j>  <down>
     noremap <c-k>    <up>|inoremap <c-k>    <up>|cnoremap <c-k>    <up>
@@ -33,7 +33,7 @@ if g:custom_config_keyboard == 0 && g:custom_config_environment == 0
 endif
 
 " Insert模式 jk 退出
-if g:custom_config_keyboard == 0
+if g:config_keyboard == 0
     inoremap  jk  <esc>
     inoremap  jj  j
 endif

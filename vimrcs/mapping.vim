@@ -38,11 +38,11 @@ noremap  L  $
 map  M  %
 
 " 可视模式直接搜索当前选择内容
-xnoremap  <silent> /  <esc>:call VisualRegSearch()<cr>/<cr>N
-xnoremap  <silent> ?  <esc>:call VisualRegSearch()<cr>?<cr>N
+xnoremap  <silent> /  <esc>:<c-u>call VisualRegSearch()<cr>/<cr>N
+xnoremap  <silent> ?  <esc>:<c-u>call VisualRegSearch()<cr>?<cr>N
 
 " 取消搜索高亮
-nnoremap  <silent> <leader>/  <esc>:nohlsearch<cr>
+nnoremap  <silent> <leader>/  <esc>:<c-u>nohlsearch<cr>
 
 " ---------- 功能映射 结束 ----------
 

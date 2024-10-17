@@ -9,9 +9,9 @@ catch
 endtry
 
 " << NERDTree >>
-nnoremap  <leader>nn  <esc>:NERDTree
-nnoremap  <leader>nf  <esc>:NERDTreeFind<cr>
-nnoremap  <leader>nt  <esc>:NERDTreeToggle<cr>
+nnoremap  <leader>nn  <esc>:<c-u>NERDTree
+nnoremap  <leader>nf  <esc>:<c-u>NERDTreeFind<cr>
+nnoremap  <leader>nt  <esc>:<c-u>NERDTreeToggle<cr>
 
 " << EasyMotion >>
 map  <leader>f  <Plug>(easymotion-bd-f)
@@ -35,6 +35,3 @@ command!  Smaps  call  fzf#vim#maps('s', 0)
 command!  Omaps  call  fzf#vim#maps('o', 0)
 command!  Tmaps  call  fzf#vim#maps('t', 0)
 command!  Lmaps  call  fzf#vim#maps('l', 0)
-
-" << startify >>
-runtime vimrcs/startify.vim

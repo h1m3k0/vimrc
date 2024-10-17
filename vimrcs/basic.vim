@@ -66,6 +66,7 @@ set backspace=eol,start,indent
 
 " 搜索智能大小写 高亮 动态显示
 set ignorecase smartcase hlsearch incsearch
+nohlsearch
 
 " Don't redraw while executing macros (good performance config)
 set lazyredraw

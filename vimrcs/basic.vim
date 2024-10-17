@@ -38,11 +38,11 @@ endif
 " => 用户界面
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 光标上下两侧最少保留的屏幕行数
-set scrolloff=999
+set scrolloff=5
 
 " 光标左右两侧最少保留的屏幕列数
 set nowrap
-set sidescrolloff=999
+set sidescrolloff=20
 set sidescroll=1
 
 

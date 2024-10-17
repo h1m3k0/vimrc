@@ -14,12 +14,6 @@ noremap  X  "_X
 xnoremap  <  <gv
 xnoremap  >  >gv
 
-" @/为空时n/N搜索 => 不报错
-if !has('ide')  " ideavim不存在这个问题
-    noremap  <silent>  n  :call Extension_n('n')<cr>
-    noremap  <silent>  N  :call Extension_n('N')<cr>
-endif
-
 " ---------- 基础映射 结束 ----------
 
 " ========== 功能映射 开始 ==========
@@ -47,12 +41,8 @@ map  M  %
 xnoremap  <silent> /  <esc>:call VisualRegSearch()<cr>/<cr>N
 xnoremap  <silent> ?  <esc>:call VisualRegSearch()<cr>?<cr>N
 
-" 清空搜索
-nnoremap  <silent> <leader>/  <esc>:let @/ = ''<cr>
-if has('ide')  " ideavim
-    " ideavim需要额外/<esc>, :s匹配后清除需要手动搜索一次
-    nnoremap  <leader>/  <esc>:let @/ = ''<cr>/<esc>
-endif
+" 取消搜索高亮
+nnoremap  <silent> <leader>/  <esc>:nohlsearch<cr>
 
 " ---------- 功能映射 结束 ----------
 
@@ -63,16 +53,6 @@ smapclear
 
 
 " ========== Function 开始 ==========
-"
-" vim的n/N搜索
-function! Extension_n(n)
-    if @/ != '' && ( a:n == 'n' || a:n == 'N' )
-        try
-            execute 'norm! '.a:n
-        catch
-        endtry
-    endif
-endfunction
 
 " 可视模式直接搜索当前选择内容
 function! VisualRegSearch()

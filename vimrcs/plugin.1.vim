@@ -10,8 +10,6 @@ endif
 Plug 'yianwillis/vimcdoc'
 
 " 主题色
-Plug 'altercation/vim-colors-solarized'
-Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
 
 " IdeaVim支持的插件
@@ -33,7 +31,7 @@ Plug 'unblevable/quick-scope'           " 高亮每个单词中唯一的字符
 if has('ide')
     set quickscope
 endif
-Plug 'liuchengxu/vim-which-key'         " 实时显示组合键
+" Plug 'liuchengxu/vim-which-key'         " 实时显示组合键
 " if has('ide')
 "     set which-key
 " endif

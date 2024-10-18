@@ -1,4 +1,5 @@
 " IdeaVim额外的配置
+" 设置ideavim的leader
 let g:mapleader = g:config_ideavim_mapleader
 " ========== ideavim额外的set配置 开始 ==========
 "
@@ -73,3 +74,5 @@ function! IdeaVimAction(actions)
     endfor
 endfunction
 " ---------- Function ----------
+" 恢复vim的leader
+let g:mapleader = g:config_vim_mapleader

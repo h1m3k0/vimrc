@@ -1,11 +1,11 @@
-" """"""""""""""""""""""""""
-" """" 插件加载(顺序: 1)
-" """"""""""""""""""""""""""
-if (exists('g:config_plugged_path') && g:config_plugged_path != '')
-  call plug#begin(g:config_plugged_path)
-else
-  call plug#begin()
-endif
+""""""""""""""""""""""""""""
+"""""" 插件加载(顺序: 1)
+""""""""""""""""""""""""""""
+" " 使用git ssh
+" let g:plug_url_format = 'git@github.com:%s.git'
+" " 插件下载位置
+" let g:plug_home = 
+call plug#begin()
 " 中文文档
 Plug 'yianwillis/vimcdoc'
 

@@ -1,15 +1,27 @@
 """"""""""""""""""""""""""""
 """""" 插件加载前的配置(顺序: 0)
 """"""""""""""""""""""""""""
-" << NERDTree >>
-" 切换目录时自动切换vim根目录
-let NERDTreeChDirMode = 2
 
 " << EasyMotion >>
 " 智能大小写
 let g:EasyMotion_smartcase = 1
 " 禁用默认映射
 let g:EasyMotion_do_mapping = 0
+
+" << NERDTree >>
+" 切换目录时自动切换vim根目录
+let NERDTreeChDirMode = 2
+
+" << multi-cursors >>
+let g:multi_cursor_use_default_mapping = 0
+let g:multi_cursor_start_word_key      = '<A-n>'
+let g:multi_cursor_select_all_word_key = '<Nop>'
+let g:multi_cursor_start_key           = 'g<A-n>'
+let g:multi_cursor_select_all_key      = '<Nop>'
+let g:multi_cursor_next_key            = '<A-n>'
+let g:multi_cursor_prev_key            = '<A-p>'
+let g:multi_cursor_skip_key            = '<A-x>'
+let g:multi_cursor_quit_key            = '<Esc>'
 
 " << argtextobj >>
 " ideavim 泛型
@@ -25,13 +37,3 @@ endif
 " << quick-scope >>
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
-" << multi-cursors >>
-let g:multi_cursor_use_default_mapping = 0
-let g:multi_cursor_start_word_key      = '<A-n>'
-let g:multi_cursor_select_all_word_key = '<Nop>'
-let g:multi_cursor_start_key           = 'g<A-n>'
-let g:multi_cursor_select_all_key      = '<Nop>'
-let g:multi_cursor_next_key            = '<A-n>'
-let g:multi_cursor_prev_key            = '<A-p>'
-let g:multi_cursor_skip_key            = '<A-x>'
-let g:multi_cursor_quit_key            = '<Esc>'

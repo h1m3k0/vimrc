@@ -81,7 +81,7 @@ set gdefault
 set nrformats=bin,hex,unsigned
 
 " 取消提示音
-set noerrorbells visualbell
+set noerrorbells belloff=all novisualbell t_vb=
 autocmd VimEnter * set t_vb=
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => 颜色字体

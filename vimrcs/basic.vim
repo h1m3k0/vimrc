@@ -5,7 +5,7 @@
 " 取消兼容模式
 set nocompatible
 
-" Sets how many lines of history VIM has to remember
+" 历史命令数量
 set history=500
 
 " 映射的超时时间
@@ -15,7 +15,7 @@ set timeoutlen=1500
 set ttimeout
 set ttimeoutlen=10
 
-" Enable filetype plugins
+" 启用filetype插件
 filetype plugin on
 filetype indent on
 
@@ -56,7 +56,8 @@ set ruler
 set showcmd
 
 " 显示行号 相对行号
-set number relativenumber
+set number
+set relativenumber
 
 " 高亮显示当前行
 set cursorline
@@ -65,7 +66,10 @@ set cursorline
 set backspace=eol,start,indent
 
 " 搜索智能大小写 高亮 动态显示
-set ignorecase smartcase hlsearch incsearch
+set ignorecase 
+set smartcase 
+set hlsearch 
+set incsearch
 nohlsearch
 
 " Don't redraw while executing macros (good performance config)
@@ -81,7 +85,9 @@ set gdefault
 set nrformats=bin,hex,unsigned
 
 " 取消提示音
-set noerrorbells belloff=all novisualbell t_vb=
+set noerrorbells 
+set novisualbell 
+set t_vb=
 autocmd VimEnter * set t_vb=
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => 颜色字体
@@ -110,7 +116,9 @@ set fileformats=unix,dos,mac
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => 备份文件
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nobackup nowritebackup noswapfile
+set nobackup 
+set nowritebackup 
+set noswapfile
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => 文本
@@ -140,7 +148,7 @@ set laststatus=2
 " => GVim
 """"""""""""""""""""""""""""""
 if has('gui_running') && (has('win64') || has('win32'))
-  " 设置字体大小 "
+  " 设置字体大小
   let dpi = str2nr(strpart(matchstr(substitute(
     \system('wmic desktopmonitor get PixelsPerXLogicalInch /value'),
     \'\%x01\|\%x0a\|\%x0a\|\%xff\|\%xfe', '', 'g'),
@@ -150,7 +158,8 @@ if has('gui_running') && (has('win64') || has('win32'))
   else
     let &guifont = 'Consolas:h10'
   endif
-
-  set columns=120 " 设置宽度
-  set lines=30 " 设置高度
+  " 设置宽度
+  set columns=120
+  " 设置高度
+  set lines=30
 endif

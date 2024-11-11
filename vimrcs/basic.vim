@@ -86,7 +86,7 @@ set nrformats=bin,hex,unsigned
 
 " 取消提示音
 set noerrorbells 
-set novisualbell 
+set visualbell 
 set t_vb=
 autocmd VimEnter * set t_vb=
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

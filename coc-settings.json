@@ -1,0 +1,5 @@
+{
+  "suggest": {
+   "labelMaxLength": 60,  // 提示框宽度
+  },
+}

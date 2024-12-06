@@ -69,6 +69,9 @@ nohlsearch
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
 
+" 默认有标号
+set signcolumn=yes
+
 " 正则表达式引擎
 set regexpengine=0
 
@@ -113,6 +116,7 @@ set fileformats=unix,dos,mac
 set nobackup 
 set nowritebackup 
 set noswapfile
+set updatetime=300
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => 文本

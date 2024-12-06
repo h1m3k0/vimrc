@@ -9,11 +9,9 @@ set nocompatible
 set history=500
 
 " 映射的超时时间
-set timeout
-set timeoutlen=1500
+set timeout timeoutlen=1500
 " 键码的超时时间 解决部分终端由转义引起的"卡键"现象
-set ttimeout
-set ttimeoutlen=10
+set ttimeout ttimeoutlen=10
 
 " 启用filetype插件
 filetype plugin on
@@ -56,8 +54,7 @@ set ruler
 set showcmd
 
 " 显示行号 相对行号
-set number
-set relativenumber
+set number relativenumber
 
 " 高亮显示当前行
 set cursorline
@@ -66,10 +63,7 @@ set cursorline
 set backspace=eol,start,indent
 
 " 搜索智能大小写 高亮 动态显示
-set ignorecase 
-set smartcase 
-set hlsearch 
-set incsearch
+set ignorecase smartcase hlsearch incsearch
 nohlsearch
 
 " Don't redraw while executing macros (good performance config)

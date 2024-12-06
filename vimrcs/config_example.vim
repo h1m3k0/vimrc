@@ -12,3 +12,7 @@ let g:config_environment = 1
 " 0: 其他键盘
 " 1: 60键键盘
 let g:config_keyboard = 1
+
+" vim-plug默认使用ssh
+let g:plug_url_format = 'git@github.com:%s.git'
+" unlet g:plug_url_format

@@ -187,7 +187,23 @@ if !has("ide")
   " Resume latest coc list
   nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-  " 用json5打开CocConfig
+  " :CocConfig5 用json5格式打开:CocConfig
   command! CocConfig5 execute ':CocConfig' | set filetype=json5
+
+  " :HS 在当前项目路径下搜索 (<c-n>下一个 <c-p>上一个)
+  function HawkSearch(pattern)
+    let current = getcwd()
+    let current_length = len(current)
+    for workspace in g:WorkspaceFolders
+      let workspace_length = len(workspace)
+      if workspace_length > current_length
+        continue
+      endif
+      if current[0:workspace_length-1] == workspace
+        execute "CocSearch " . a:pattern . " " . workspace
+      endif
+    endfor                                                                                                                                                                                                                                   
+  endfunction
+  command -bang -nargs=1 HS call HawkSearch(<f-args>)
 endif
 

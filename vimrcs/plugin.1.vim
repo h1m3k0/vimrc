@@ -46,3 +46,9 @@ Plug 'vim-airline/vim-airline-themes'   " 状态栏主题
 Plug 'neoclide/coc.nvim', {'branch': 'release'}  " coc
 Plug 'mhinz/vim-startify'               " 启动页面
 call plug#end()
+
+try 
+  colorscheme onedark
+  set background=dark
+catch
+endtry

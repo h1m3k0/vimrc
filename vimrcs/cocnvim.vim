@@ -1,14 +1,4 @@
-""""""""""""""""""""""""""""
-"""""" 插件加载后的配置(顺序: 3)  不含ideavim
-""""""""""""""""""""""""""""
-" colorscheme
-try
-  colorscheme onedark
-  set background=dark
-catch
-endtry
-" << coc >>
-"
+" COC 配置
 " Use tab for trigger completion with characters ahead and navigate
 " NOTE: There's always complete item selected by default, you may want to enable
 " no select by `"suggest.noselect": true` in your configuration file
@@ -47,7 +37,7 @@ endfunction
 if has('nvim')
   inoremap <silent><expr> <c-space> coc#refresh()
 else
-  inoremap <silent><expr> <c-@> coc#refresh()
+  inoremap <silent><expr> <c-q> coc#refresh()
 endif
 
 " Use `[g` and `]g` to navigate diagnostics

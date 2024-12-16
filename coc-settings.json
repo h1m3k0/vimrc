@@ -1,6 +1,6 @@
 {
   "suggest": {
-   "labelMaxLength": 60,  // 提示框宽度
+    "labelMaxLength": 60,  // 提示框宽度
   },
   "java": {
     "compile": {

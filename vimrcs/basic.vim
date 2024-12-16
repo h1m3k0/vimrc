@@ -24,6 +24,9 @@ autocmd FocusGained,BufEnter * checktime
 " 不显示默认启动信息
 set shortmess+=I
 
+" 允许不保存跳转buffer
+set hidden
+
 " 共享系统剪切板
 set clipboard^=unnamed,unnamedplus
 " 鼠标 (不支持共享系统剪切板时不启用鼠标, 鼠标用于复制)
@@ -93,17 +96,17 @@ autocmd VimEnter * set t_vb=
 syntax enable
 
 " Enable 256 colors palette in Gnome Terminal
-if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
-endif
+" if $COLORTERM == 'gnome-terminal'
+"     set t_Co=256
+" endif
 
-" Set extra options when running in GUI mode
-if has('gui_running')
-    set guioptions-=T
-    set guioptions-=e
-    set t_Co=256
-    set guitablabel=%M\ %t
-endif
+" " Set extra options when running in GUI mode
+" if has('gui_running')
+"     set guioptions-=T
+"     set guioptions-=e
+"     set t_Co=256
+"     set guitablabel=%M\ %t
+" endif
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8

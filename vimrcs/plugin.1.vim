@@ -44,7 +44,5 @@ Plug 'junegunn/vim-easy-align'          " 对齐
 Plug 'vim-airline/vim-airline'          " 状态栏
 Plug 'vim-airline/vim-airline-themes'   " 状态栏主题
 Plug 'neoclide/coc.nvim', {'branch': 'release'}  " coc
-" Plug 'junegunn/fzf',{'do':{->fzf#install()}}
-" Plug 'junegunn/fzf.vim'                 " fzf
 Plug 'mhinz/vim-startify'               " 启动页面
 call plug#end()

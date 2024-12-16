@@ -7,20 +7,6 @@ try
   set background=dark
 catch
 endtry
-
-" << fzf >>
-" 映射搜索
-command!  Nmaps  call  fzf#vim#maps('n', 0)
-command!  Imaps  call  fzf#vim#maps('i', 0)
-command!  Cmaps  call  fzf#vim#maps('c', 0)
-command!  Vmaps  call  fzf#vim#maps('v', 0)
-command!  Xmaps  call  fzf#vim#maps('x', 0)
-command!  Smaps  call  fzf#vim#maps('s', 0)
-command!  Omaps  call  fzf#vim#maps('o', 0)
-command!  Tmaps  call  fzf#vim#maps('t', 0)
-command!  Lmaps  call  fzf#vim#maps('l', 0)
-
-
 " << coc >>
 "
 " Use tab for trigger completion with characters ahead and navigate
@@ -28,6 +14,19 @@ command!  Lmaps  call  fzf#vim#maps('l', 0)
 " no select by `"suggest.noselect": true` in your configuration file
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config
+let g:coc_global_extensions = [
+      \  'coc-marketplace', 
+      \  'coc-emmet',
+      \  'coc-highlight',
+      \  'coc-lists',
+      \  'coc-pairs',
+      \  'coc-prettier',
+      \  'coc-snippets',
+      \  'coc-yank',
+      \  'coc-git',
+      \  'coc-vimlsp',
+      \]
+autocmd CursorHold * silent call CocActionAsync('highlight')
 inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1) :
       \ CheckBackspace() ? "\<Tab>" :

@@ -17,30 +17,30 @@ set trackactionids
 
 " ========== 自定义映射Action 开始 ========== 
 "
-" 映射Action启用<space>作为前缀
-map  <leader>  <nop>
+" 映射Action启用<Space>作为前缀
+map  <Leader>  <Nop>
 " 重命名
-map  <leader>r  <Action>(RenameElement)
+map  <Leader>r  <Action>(RenameElement)
 " 引入变量 
-map  <leader>v  <Action>(IntroduceVariable)
+map  <Leader>v  <Action>(IntroduceVariable)
 " 全局查找 
-map  <leader>f  <Action>(FindInPath)
+map  <Leader>f  <Action>(FindInPath)
 " 补全 c-s-enter
-map  <leader>;  <Action>(EditorCompleteStatement)
+map  <Leader>;  <Action>(EditorCompleteStatement)
 " 优化导入 c-a-o
-map  <leader>o  <Action>(OptimizeImports)
+map  <Leader>o  <Action>(OptimizeImports)
 " 格式化 c-a-l
-map  <leader>l  <Action>(ReformatCode)
+map  <Leader>l  <Action>(ReformatCode)
 " 环绕 c-a-t
-map  <leader>t  <Action>(SurroundWith)
+map  <Leader>t  <Action>(SurroundWith)
 " 提示 a-enter
-map  <leader>i  <Action>(ShowIntentionActions)
+map  <Leader>i  <Action>(ShowIntentionActions)
 " 全局搜索 shift-shift
-map  <leader>s  <Action>(SearchEverywhere)
+map  <Leader>s  <Action>(SearchEverywhere)
 " 方法跳转到子类实现
-map  <leader>j  <Action>(GotoImplementation)
+map  <Leader>j  <Action>(GotoImplementation)
 " 方法跳转到父类定义
-map  <leader>k  <Action>(GotoSuperMethod)
+map  <Leader>k  <Action>(GotoSuperMethod)
 " ---------- 自定义映射Action 结束 ----------
 
 

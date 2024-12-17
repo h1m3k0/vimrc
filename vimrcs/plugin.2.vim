@@ -2,15 +2,15 @@
 """""" 插件加载后的配置(顺序: 2)
 """"""""""""""""""""""""""""
 " << EasyMotion >>
-map  <leader>f  <Plug>(easymotion-bd-f)
-map  <leader>F  <Plug>(easymotion-bd-f)
-map  <leader>t  <Plug>(easymotion-bd-t)
-map  <leader>T  <Plug>(easymotion-bd-t)
+map  <Leader>f  <Plug>(easymotion-bd-f)
+map  <Leader>F  <Plug>(easymotion-bd-f)
+map  <Leader>t  <Plug>(easymotion-bd-t)
+map  <Leader>T  <Plug>(easymotion-bd-t)
 
 " << NERDTree >>
-nnoremap  <leader>nn  <esc>:<c-u>NERDTree
-nnoremap  <leader>nf  <esc>:<c-u>NERDTreeFind<cr>
-nnoremap  <leader>nt  <esc>:<c-u>NERDTreeToggle<cr>
+nnoremap  <Leader>nn  <Esc>:<C-u>NERDTree
+nnoremap  <Leader>nf  <Esc>:<C-u>NERDTreeFind<CR>
+nnoremap  <Leader>nt  <Esc>:<C-u>NERDTreeToggle<CR>
 
 " << quickscope >>
 " 禁止操作符等待时高亮

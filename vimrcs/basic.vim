@@ -81,7 +81,7 @@ set regexpengine=0
 " :substitute 设置默认flag为g
 set gdefault
 
-" <c-a>和<c-x> 处理数字格式(二进制, 十六进制, 无符号数)
+" <C-a>和<C-x> 处理数字格式(二进制, 十六进制, 无符号数)
 set nrformats=bin,hex,unsigned
 
 " 取消提示音

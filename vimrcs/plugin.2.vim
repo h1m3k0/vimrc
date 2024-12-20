@@ -19,3 +19,6 @@ onoremap  F  F
 onoremap  t  t
 onoremap  T  T
 
+" << easy-align >>
+nmap  ga  <Plug>(EasyAlign)
+xmap  ga  <Plug>(EasyAlign)

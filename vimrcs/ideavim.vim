@@ -1,6 +1,4 @@
 " IdeaVim额外的配置
-" 设置ideavim的leader
-let g:mapleader = g:config_ideavim_mapleader
 " ========== ideavim额外的set配置 开始 ==========
 "
 " set ideacopypreprocess
@@ -18,32 +16,34 @@ set trackactionids
 " ========== 自定义映射Action 开始 ========== 
 "
 " 映射Action启用<Space>作为前缀
-map  <Leader>  <Nop>
-" 重命名
-map  <Leader>r  <Action>(RenameElement)
-" 引入变量 
-map  <Leader>v  <Action>(IntroduceVariable)
-" 全局查找 
-map  <Leader>f  <Action>(FindInPath)
-" 补全 c-s-enter
-map  <Leader>;  <Action>(EditorCompleteStatement)
-" 优化导入 c-a-o
-map  <Leader>o  <Action>(OptimizeImports)
-" 格式化 c-a-l
-map  <Leader>l  <Action>(ReformatCode)
-" 环绕 c-a-t
-map  <Leader>t  <Action>(SurroundWith)
-" 提示 a-enter
-map  <Leader>i  <Action>(ShowIntentionActions)
-" 全局搜索 shift-shift
-map  <Leader>s  <Action>(SearchEverywhere)
-" 方法跳转到子类实现
-map  <Leader>j  <Action>(GotoImplementation)
-" 方法跳转到父类定义
-map  <Leader>k  <Action>(GotoSuperMethod)
+map  <Space>   <Nop>
+" 重命名 Shift-F6
+map  <Space>r  <Action>(RenameElement)
+" 全局搜索 Ctrl-Shift-F
+map  <Space>s  <Action>(FindInPath)
+" 格式化 Alt-Ctrl-L
+map  <Space>l  <Action>(ReformatCode)
+" 选择 Ctrl-w
+map  <C-s>     <Action>(EditorSelectWord)
+" 跳转到定义 Ctrl-B
+map  <Space>k  <Action>(GotoDeclaration)
+" 跳转到实现 Alt-Ctrl-B
+map  <Space>j  <Action>(GotoImplementation)
 " ---------- 自定义映射Action 结束 ----------
 
-
+" ========== coc未实现的Action 开始 ==========
+" 引入变量 Alt-Ctrl-V
+map  <Space>v  <Action>(IntroduceVariable)
+" 补全 Ctrl-Shift-Enter
+map  <Space>;  <Action>(EditorCompleteStatement)
+" 优化导入 Ctrl-Shift-O
+map  <Space>o  <Action>(OptimizeImports)
+" 环绕 Alt-Ctrl-T
+map  <Space>t  <Action>(SurroundWith)
+" 提示 Alt-Enter
+map  <Space>i  <Action>(ShowIntentionActions)
+" ---------- coc未实现的Action 结束 ----------
+"
 " ========== 自定义命令Action 开始 ==========
 "
 " VimReload 重新加载ideavimrc
@@ -74,5 +74,3 @@ function! IdeaVimAction(actions)
     endfor
 endfunction
 " ---------- Function ----------
-" 恢复vim的leader
-let g:mapleader = g:config_vim_mapleader

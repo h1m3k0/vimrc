@@ -2,6 +2,12 @@
   "suggest": {
     "labelMaxLength": 60,  // 提示框宽度
   },
+  "translator": {  // coc-translator
+    "engines": [  // 需要取消google
+      "haici",
+      "youdao",
+    ],
+  },
   "java": {
     "compile": {
       "nullAnalysis": {

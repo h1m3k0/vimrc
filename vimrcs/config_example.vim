@@ -1,9 +1,6 @@
 " 自定义参数
 " Leader键
-let g:config_vim_mapleader = "'"
-let g:config_ideavim_mapleader = " "
-
-let g:mapleader = g:config_vim_mapleader
+let g:mapleader = "'"
 
 " 0: 当前是开发环境
 " 1: 当前是生产环境

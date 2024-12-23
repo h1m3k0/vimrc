@@ -1,6 +1,6 @@
 " 自定义参数
 " Leader键
-let g:mapleader = "'"
+let g:mapleader = " "
 
 " 0: 当前是开发环境
 " 1: 当前是生产环境

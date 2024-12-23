@@ -58,7 +58,7 @@ augroup idea
   nmap <silent> <S-F2> <Plug>(coc-diagnostic-prev)
   nmap <silent> <F2>   <Plug>(coc-diagnostic-next)
   " C-] 的高级实现
-  nmap <silent> <C-]>  <Plug>(coc-references)
+  nmap <silent> <C-]>  <Plug>(coc-references-used)
   " K 的高级实现
   nnoremap <silent> K :call ShowDocumentation()<CR>
 
@@ -67,19 +67,19 @@ augroup end
 augroup IdeaVimAction
 
   " 重命名
-  nmap <Space>r <Plug>(coc-rename)
+  nmap <Leader>r <Plug>(coc-rename)
   " 全局搜索
-  nnoremap <Space>s :HS 
+  nnoremap <Leader>s :HS 
   " 格式化
-  xmap <Space>l  <Plug>(coc-format-selected)
-  nmap <Space>l  <Plug>(coc-format-selected)
+  xmap <Leader>l  <Plug>(coc-format-selected)
+  nmap <Leader>l  <Plug>(coc-format-selected)
   " 选择
   nmap <silent> <C-s> <Plug>(coc-range-select)
   xmap <silent> <C-s> <Plug>(coc-range-select)
   " 跳转到定义
-  nmap <silent> <Space>k <Plug>(coc-definition)
+  nmap <silent> <Leader>k <Plug>(coc-definition)
   " 跳转到实现
-  nmap <silent> <Space>j <Plug>(coc-implementation)
+  nmap <silent> <Leader>j <Plug>(coc-implementation)
 
 augroup end
 
@@ -152,21 +152,21 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
 " Show all diagnostics
-" nnoremap <silent><nowait> <Space>a  :<C-u>CocList diagnostics<CR>
+" nnoremap <silent><nowait> <Leader>a  :<C-u>CocList diagnostics<CR>
 " Manage extensions
-" nnoremap <silent><nowait> <Space>e  :<C-u>CocList extensions<CR>
+" nnoremap <silent><nowait> <Leader>e  :<C-u>CocList extensions<CR>
 " Show commands
-" nnoremap <silent><nowait> <Space>c  :<C-u>CocList commands<CR>
+" nnoremap <silent><nowait> <Leader>c  :<C-u>CocList commands<CR>
 " Find symbol of current document
-" nnoremap <silent><nowait> <Space>o  :<C-u>CocList outline<CR>
+" nnoremap <silent><nowait> <Leader>o  :<C-u>CocList outline<CR>
 " Search workspace symbols
-" nnoremap <silent><nowait> <Space>s  :<C-u>CocList -I symbols<CR>
+" nnoremap <silent><nowait> <Leader>s  :<C-u>CocList -I symbols<CR>
 " Do default action for next item
-" nnoremap <silent><nowait> <Space>j  :<C-u>CocNext<CR>
+" nnoremap <silent><nowait> <Leader>j  :<C-u>CocNext<CR>
 " Do default action for previous item
-" nnoremap <silent><nowait> <Space>k  :<C-u>CocPrev<CR>
+" nnoremap <silent><nowait> <Leader>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
-" nnoremap <silent><nowait> <Space>p  :<C-u>CocListResume<CR>
+" nnoremap <silent><nowait> <Leader>p  :<C-u>CocListResume<CR>
 
 " :CocConfig5 用json5格式打开:CocConfig
 command! CocConfig5 execute ':CocConfig' | set filetype=json5
@@ -188,4 +188,4 @@ endfunction
 command -bang -nargs=1 HS call HawkSearch(<f-args>)
 
 " coc-translator
-nmap <Space>? <Plug>(coc-translator-p)
+nmap <Leader>? <Plug>(coc-translator-p)

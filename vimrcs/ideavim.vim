@@ -15,33 +15,31 @@ set trackactionids
 
 " ========== 自定义映射Action 开始 ========== 
 "
-" 映射Action启用<Space>作为前缀
-map  <Space>   <Nop>
 " 重命名 Shift-F6
-map  <Space>r  <Action>(RenameElement)
+map  <Leader>r  <Action>(RenameElement)
 " 全局搜索 Ctrl-Shift-F
-map  <Space>s  <Action>(FindInPath)
+map  <Leader>s  <Action>(FindInPath)
 " 格式化 Alt-Ctrl-L
-map  <Space>l  <Action>(ReformatCode)
+map  <Leader>l  <Action>(ReformatCode)
 " 选择 Ctrl-w
 map  <C-s>     <Action>(EditorSelectWord)
 " 跳转到定义 Ctrl-B
-map  <Space>k  <Action>(GotoDeclaration)
+map  <Leader>k  <Action>(GotoDeclaration)
 " 跳转到实现 Alt-Ctrl-B
-map  <Space>j  <Action>(GotoImplementation)
+map  <Leader>j  <Action>(GotoImplementation)
 " ---------- 自定义映射Action 结束 ----------
 
 " ========== coc未实现的Action 开始 ==========
 " 引入变量 Alt-Ctrl-V
-map  <Space>v  <Action>(IntroduceVariable)
+map  <Leader>v  <Action>(IntroduceVariable)
 " 补全 Ctrl-Shift-Enter
-map  <Space>;  <Action>(EditorCompleteStatement)
+map  <Leader>;  <Action>(EditorCompleteStatement)
 " 优化导入 Ctrl-Shift-O
-map  <Space>o  <Action>(OptimizeImports)
+map  <Leader>o  <Action>(OptimizeImports)
 " 环绕 Alt-Ctrl-T
-map  <Space>t  <Action>(SurroundWith)
+map  <Leader>t  <Action>(SurroundWith)
 " 提示 Alt-Enter
-map  <Space>i  <Action>(ShowIntentionActions)
+map  <Leader>i  <Action>(ShowIntentionActions)
 " ---------- coc未实现的Action 结束 ----------
 "
 " ========== 自定义命令Action 开始 ==========

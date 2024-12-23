@@ -55,12 +55,19 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 augroup idea
 
   " 跳转告警
-  nmap <silent> <S-F2> <Plug>(coc-diagnostic-prev)
-  nmap <silent> <F2>   <Plug>(coc-diagnostic-next)
-  " C-] 的高级实现
-  nmap <silent> <C-]>  <Plug>(coc-references-used)
-  " K 的高级实现
-  nnoremap <silent> K :call ShowDocumentation()<CR>
+  nmap     <silent> <S-F2> <Plug>(coc-diagnostic-prev)
+  nmap     <silent> <F2>   <Plug>(coc-diagnostic-next)
+  " 上移下移
+  nnoremap <C-S-Up>    :<c-u>execute 'move -1-'. v:count1<cr>
+  nnoremap <C-S-Down>  :<c-u>execute 'move +'  . v:count1<cr>
+  autocmd FileType Rust nnoremap <silent> <C-S-Up>   <Esc>:<C-u>CocCommand rust-analyzer.moveItemUp<Cr>
+  autocmd FileType Rust nnoremap <silent> <C-S-Down> <Esc>:<C-u>CocCommand rust-analyzer.moveItemDown<Cr>
+  " <C-]> 的原始实现
+  nnoremap <silent> <C-}> <C-]>
+  " <C-]> 的高级实现
+  nmap     <silent> <C-]> <Plug>(coc-references-used)
+  "  K    的高级实现
+  nnoremap <silent>  K  :call ShowDocumentation()<CR>
 
 augroup end
 
@@ -73,6 +80,8 @@ augroup IdeaVimAction
   " 格式化
   xmap <Leader>l  <Plug>(coc-format-selected)
   nmap <Leader>l  <Plug>(coc-format-selected)
+  autocmd FileType Rust nnoremap <silent> <Leader>l <Esc>:<C-u>RustFmt<Cr>
+
   " 选择
   nmap <silent> <C-s> <Plug>(coc-range-select)
   xmap <silent> <C-s> <Plug>(coc-range-select)

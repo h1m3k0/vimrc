@@ -8,7 +8,7 @@ map  <Leader>t  <Plug>(easymotion-bd-t)
 map  <Leader>T  <Plug>(easymotion-bd-t)
 
 " << NERDTree >>
-nnoremap  <Leader>nn  <Esc>:<C-u>NERDTree
+nnoremap  <Leader>nn  <Esc>:<C-u>NERDTree 
 nnoremap  <Leader>nf  <Esc>:<C-u>NERDTreeFind<CR>
 nnoremap  <Leader>nt  <Esc>:<C-u>NERDTreeToggle<CR>
 

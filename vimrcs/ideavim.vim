@@ -24,7 +24,7 @@ map  <Leader>l  <Action>(ReformatCode)
 " 选择 Ctrl-w
 map  <C-s>     <Action>(EditorSelectWord)
 " 跳转到定义 Ctrl-B
-map  <Leader>k  <Action>(GotoDeclarationOnly)
+map  <Leader>k  <Action>(GotoDeclaration)
 " 跳转到实现 Alt-Ctrl-B
 map  <Leader>j  <Action>(GotoImplementation)
 " ---------- 自定义映射Action 结束 ----------

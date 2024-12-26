@@ -55,8 +55,22 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 augroup idea
 
   " 跳转告警
-  nmap     <silent> <S-F2> <Plug>(coc-diagnostic-prev)
-  nmap     <silent> <F2>   <Plug>(coc-diagnostic-next)
+  noremap     <silent> <S-F2> <Esc>:<C-u>call GotoNextError('Previous')<CR>
+  noremap     <silent> <F2>   <Esc>:<C-u>call GotoNextError('Next')<CR>
+  function! GotoNextError(Next) 
+    let s:list = CocAction('diagnosticList')
+    let s:count = 0
+    for obj in s:list
+      if has_key(obj, 'severity') && obj.severity == 'Error'
+        let s:count += 1
+      endif
+    endfor
+    if s:count > 0
+      execute "call CocActionAsync('diagnostic".a:Next."', 'error')"
+    else
+      execute "call CocActionAsync('diagnostic".a:Next."')"
+    endif
+  endfunction
   " 上移下移
   nnoremap <C-S-Up>    :<C-u>execute 'move -1-'. v:count1<CR>
   nnoremap <C-S-Down>  :<C-u>execute 'move +'  . v:count1<CR>

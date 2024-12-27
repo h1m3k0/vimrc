@@ -14,14 +14,14 @@ let NERDTreeChDirMode = 2
 
 " << multi-cursors >>
 let g:multi_cursor_use_default_mapping = 0
-let g:multi_cursor_start_word_key      = '<a-n>'
-let g:multi_cursor_select_all_word_key = '<nop>'
-let g:multi_cursor_start_key           = 'g<a-n>'
-let g:multi_cursor_select_all_key      = '<nop>'
-let g:multi_cursor_next_key            = '<a-n>'
-let g:multi_cursor_prev_key            = '<a-p>'
-let g:multi_cursor_skip_key            = '<a-x>'
-let g:multi_cursor_quit_key            = '<esc>'
+let g:multi_cursor_start_word_key      = '<A-n>'
+let g:multi_cursor_select_all_word_key = '<A-C-n>'
+let g:multi_cursor_start_key           = 'g<A-n>'
+let g:multi_cursor_select_all_key      = 'g<A-C-n>'
+let g:multi_cursor_next_key            = '<A-n>'
+let g:multi_cursor_prev_key            = '<A-p>'
+let g:multi_cursor_skip_key            = '<A-x>'
+let g:multi_cursor_quit_key            = '<Esc>'
 
 " << argtextobj >>
 " ideavim 泛型

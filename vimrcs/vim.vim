@@ -4,55 +4,62 @@
 " no select by `"suggest.noselect": true` in your configuration file
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config
-let g:coc_global_extensions = [
-      \  'coc-marketplace', 
-      \  'coc-emmet',
-      \  'coc-highlight',
-      \  'coc-lists',
-      \  'coc-pairs',
-      \  'coc-prettier',
-      \  'coc-snippets',
-      \  'coc-yank',
-      \  'coc-git',
-      \  'coc-vimlsp',
-      \  'coc-translator',
-      \]
-autocmd CursorHold * silent call CocActionAsync('highlight')
-inoremap <silent><expr> <Tab>
-      \ coc#pum#visible() ? coc#pum#next(1) :
-      \ CheckBackspace() ? "\<Tab>" :
-      \ coc#refresh()
-inoremap <expr><S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
-" Make <CR> to accept selected completion item or notify coc.nvim to format
-" <C-g>u breaks current undo, please make your own choice
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-      \: "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
 
-function! CheckBackspace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+augroup CocBasic
+  " coc默认插件
+  let g:coc_global_extensions = [
+        \  'coc-marketplace', 
+        \  'coc-emmet',
+        \  'coc-highlight',
+        \  'coc-lists',
+        \  'coc-pairs',
+        \  'coc-prettier',
+        \  'coc-snippets',
+        \  'coc-yank',
+        \  'coc-git',
+        \  'coc-vimlsp',
+        \  'coc-translator',
+        \]
+  " Highlight the symbol and its references when holding the cursor
+  autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Use `[g` and `]g` to navigate diagnostics
-" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
+  " Tab的实现
+  inoremap <silent><expr> <Tab>
+        \ coc#pum#visible() ? coc#pum#next(1) :
+        \ CheckBackspace() ? "\<Tab>" :
+        \ coc#refresh()
+  inoremap <expr><S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
-" GoTo code navigation
+  function! CheckBackspace() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+  endfunction
 
-" Use K to show documentation in preview window
+  " CR的实现
+  inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+        \: "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
 
-function! ShowDocumentation()
-  if CocAction('hasProvider', 'hover')
-    call CocActionAsync('doHover')
-  else
-    call feedkeys('K', 'in')
-  endif
-endfunction
+  " function/class text-objects
+  xmap if <Plug>(coc-funcobj-i)
+  omap if <Plug>(coc-funcobj-i)
+  xmap af <Plug>(coc-funcobj-a)
+  omap af <Plug>(coc-funcobj-a)
+  xmap ic <Plug>(coc-classobj-i)
+  omap ic <Plug>(coc-classobj-i)
+  xmap ac <Plug>(coc-classobj-a)
+  omap ac <Plug>(coc-classobj-a)
+augroup END
 
-" Highlight the symbol and its references when holding the cursor
-autocmd CursorHold * silent call CocActionAsync('highlight')
+augroup CocSelf
+  " :CocConfig5 用json5格式打开:CocConfig
+  command! CocConfig5 execute ':CocConfig' | set filetype=json5
+  " coc-translator
+  nmap <Leader>? <Plug>(coc-translator-p)
+augroup END
 
-augroup idea
+
+augroup Idea
 
   " 跳转告警
   noremap     <silent> <S-F2> <Esc>:<C-u>call GotoError('diagnosticPrevious')<CR>
@@ -82,6 +89,14 @@ augroup idea
   nmap     <silent> <C-]> <Plug>(coc-references-used)
   "  K       的高级实现
   nnoremap <silent>  K  :call ShowDocumentation()<CR>
+  function! ShowDocumentation()
+    if CocAction('hasProvider', 'hover')
+      call CocActionAsync('doHover')
+    else
+      call feedkeys('K', 'in')
+    endif
+  endfunction
+
   " NERDTree 的高级实现
   nnoremap <nowait> <silent> <Leader>e <Esc>:<C-u>CocCommand explorer<CR>
 
@@ -92,7 +107,22 @@ augroup IdeaVimAction
   " 重命名
   nmap <Leader>r <Plug>(coc-rename)
   " 全局搜索
-  nnoremap <Leader>s :HS 
+  nnoremap <Leader>s :HawkSearch 
+  function HawkSearch(pattern)
+    let current = getcwd()
+    let current_length = len(current)
+    for workspace in g:WorkspaceFolders
+      let workspace_length = len(workspace)
+      if workspace_length > current_length
+        continue
+      endif
+      if current[0:workspace_length-1] == workspace
+        execute "CocSearch " . a:pattern . " " . workspace
+      endif
+    endfor                                                                                                                                                                                                                                   
+  endfunction
+  command -bang -nargs=1 HawkSearch call HawkSearch(<f-args>)
+
   " 格式化
   nmap <Leader>l  <Plug>(coc-format)
   xmap <Leader>l  <Plug>(coc-format-selected)
@@ -107,6 +137,10 @@ augroup IdeaVimAction
 
 augroup end
 
+augroup Plug_EasyAlign
+  nmap  ga  <Plug>(EasyAlign)
+  xmap  ga  <Plug>(EasyAlign)
+augroup end
 
 augroup mygroup
   autocmd!
@@ -138,14 +172,6 @@ nmap <Leader>cl  <Plug>(coc-codelens-action)
 
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server
-xmap if <Plug>(coc-funcobj-i)
-omap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap af <Plug>(coc-funcobj-a)
-xmap ic <Plug>(coc-classobj-i)
-omap ic <Plug>(coc-classobj-i)
-xmap ac <Plug>(coc-classobj-a)
-omap ac <Plug>(coc-classobj-a)
 
 " Remap <C-f> and <C-b> to scroll float windows/popups
 if has('nvim-0.4.0') || has('patch-8.2.0750')
@@ -192,24 +218,3 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " Resume latest coc list
 " nnoremap <silent><nowait> <Leader>p  :<C-u>CocListResume<CR>
 
-" :CocConfig5 用json5格式打开:CocConfig
-command! CocConfig5 execute ':CocConfig' | set filetype=json5
-
-" :HS 在当前项目路径下搜索 (<C-n>下一个 <C-p>上一个)
-function HawkSearch(pattern)
-  let current = getcwd()
-  let current_length = len(current)
-  for workspace in g:WorkspaceFolders
-    let workspace_length = len(workspace)
-    if workspace_length > current_length
-      continue
-    endif
-    if current[0:workspace_length-1] == workspace
-      execute "CocSearch " . a:pattern . " " . workspace
-    endif
-  endfor                                                                                                                                                                                                                                   
-endfunction
-command -bang -nargs=1 HS call HawkSearch(<f-args>)
-
-" coc-translator
-nmap <Leader>? <Plug>(coc-translator-p)

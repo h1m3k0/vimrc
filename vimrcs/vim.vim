@@ -79,10 +79,10 @@ augroup Idea
     endif
   endfunction
   " 上移下移
-  nnoremap <C-S-Up>    move -1-
-  nnoremap <C-S-Down>  move +
-  xnoremap <C-S-Up>    :m '<-2<Cr>gv=gv
-  xnoremap <C-S-Down>  :m '>+1<Cr>gv=gv
+  nnoremap <silent> <C-S-Up>   <Esc>:<C-u>execute "move -1-"<Cr>
+  nnoremap <silent> <C-S-Down> <Esc>:<C-u>execute "move +"<Cr>
+  xnoremap <silent> <C-S-Up>   :m '<-2<Cr>gv=gv
+  xnoremap <silent> <C-S-Down> :m '>+1<Cr>gv=gv
   " <C-]>    的原始实现
   nnoremap <silent> <C-}> <C-]>
   " <C-]>    的高级实现

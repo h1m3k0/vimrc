@@ -55,9 +55,9 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 augroup idea
 
   " 跳转告警
-  noremap     <silent> <S-F2> <Esc>:<C-u>call GotoNextError('Previous')<CR>
-  noremap     <silent> <F2>   <Esc>:<C-u>call GotoNextError('Next')<CR>
-  function! GotoNextError(Next) 
+  noremap     <silent> <S-F2> <Esc>:<C-u>call GotoError('diagnosticPrevious')<CR>
+  noremap     <silent> <F2>   <Esc>:<C-u>call GotoError('diagnosticNext')<CR>
+  function! GotoError(action) 
     let s:list = CocAction('diagnosticList')
     let s:count = 0
     for obj in s:list
@@ -66,16 +66,16 @@ augroup idea
       endif
     endfor
     if s:count > 0
-      execute "call CocActionAsync('diagnostic".a:Next."', 'error')"
+      execute "call CocActionAsync('".a:action."', 'error')"
     else
-      execute "call CocActionAsync('diagnostic".a:Next."')"
+      execute "call CocActionAsync('".a:action."')"
     endif
   endfunction
   " 上移下移
-  nnoremap <C-S-Up>    :<C-u>execute 'move -1-'. v:count1<CR>
-  nnoremap <C-S-Down>  :<C-u>execute 'move +'  . v:count1<CR>
-  autocmd FileType Rust nnoremap <silent> <C-S-Up>   <Esc>:<C-u>CocCommand rust-analyzer.moveItemUp<CR>
-  autocmd FileType Rust nnoremap <silent> <C-S-Down> <Esc>:<C-u>CocCommand rust-analyzer.moveItemDown<CR>
+  nnoremap <C-S-Up>    move -1-
+  nnoremap <C-S-Down>  move +
+  xnoremap <C-S-Up>    :m '<-2<Cr>gv=gv
+  xnoremap <C-S-Down>  :m '>+1<Cr>gv=gv
   " <C-]>    的原始实现
   nnoremap <silent> <C-}> <C-]>
   " <C-]>    的高级实现
@@ -94,9 +94,8 @@ augroup IdeaVimAction
   " 全局搜索
   nnoremap <Leader>s :HS 
   " 格式化
+  nmap <Leader>l  <Plug>(coc-format)
   xmap <Leader>l  <Plug>(coc-format-selected)
-  nmap <Leader>l  <Plug>(coc-format-selected)
-  autocmd FileType Rust nnoremap <silent> <Leader>l <Esc>:<C-u>RustFmt<CR>
 
   " 选择
   nmap <silent> <C-s> <Plug>(coc-range-select)

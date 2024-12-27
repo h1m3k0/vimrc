@@ -7,4 +7,4 @@ source <sfile>:h/vimrcs/plugin.0.vim
 source <sfile>:h/vimrcs/plugin.1.vim
 source <sfile>:h/vimrcs/plugin.2.vim
 source <sfile>:h/vimrcs/mapping.vim
-source <sfile>:h/vimrcs/cocnvim.vim
+source <sfile>:h/vimrcs/vim.vim

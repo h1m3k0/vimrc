@@ -22,7 +22,7 @@ map  <Leader>s  <Action>(FindInPath)
 " 格式化 Alt-Ctrl-L
 map  <Leader>l  <Action>(ReformatCode)
 " 选择 Ctrl-w
-map  <C-s>     <Action>(EditorSelectWord)
+map  <C-S>     <Action>(EditorSelectWord)
 " 跳转到定义 Ctrl-B
 map  <Leader>k  <Action>(GotoDeclaration)
 " 跳转到实现 Alt-Ctrl-B

@@ -29,7 +29,7 @@ augroup CocBasic
         \ coc#pum#visible() ? coc#pum#next(1) :
         \ CheckBackspace() ? "\<Tab>" :
         \ coc#refresh()
-  inoremap <expr><S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+  inoremap <expr><S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<C-H>"
 
   function! CheckBackspace() abort
     let col = col('.') - 1
@@ -38,7 +38,7 @@ augroup CocBasic
 
   " CR的实现
   inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-        \: "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
+        \: "\<C-G>u\<CR>\<C-R>=coc#on_enter()\<CR>"
 
   " function/class text-objects
   xmap if <Plug>(coc-funcobj-i)
@@ -79,10 +79,10 @@ augroup Idea
     endif
   endfunction
   " 上移下移
-  nnoremap <silent> <C-S-Up>   <Esc>:<C-u>execute "move -1-"<Cr>
-  nnoremap <silent> <C-S-Down> <Esc>:<C-u>execute "move +"<Cr>
-  xnoremap <silent> <C-S-Up>   :m '<-2<Cr>gv=gv
-  xnoremap <silent> <C-S-Down> :m '>+1<Cr>gv=gv
+  nnoremap <silent> <C-S-Up>   <Esc>:<C-U>execute "move -1-"<CR>
+  nnoremap <silent> <C-S-Down> <Esc>:<C-U>execute "move +"<CR>
+  xnoremap <silent> <C-S-Up>   :m '<-2<CR>gv=gv
+  xnoremap <silent> <C-S-Down> :m '>+1<CR>gv=gv
   " <C-]>    的原始实现
   nnoremap <silent> <C-}> <C-]>
   " <C-]>    的高级实现
@@ -98,7 +98,7 @@ augroup Idea
   endfunction
 
   " NERDTree 的高级实现
-  nnoremap <nowait> <silent> <Leader>e <Esc>:<C-u>CocCommand explorer<CR>
+  nnoremap <nowait> <silent> <Leader>e <Esc>:<C-U>CocCommand explorer<CR>
 
 augroup end
 
@@ -128,8 +128,8 @@ augroup IdeaVimAction
   xmap <Leader>l  <Plug>(coc-format-selected)
 
   " 选择
-  nmap <silent> <C-s> <Plug>(coc-range-select)
-  xmap <silent> <C-s> <Plug>(coc-range-select)
+  nmap <silent> <C-S> <Plug>(coc-range-select)
+  xmap <silent> <C-S> <Plug>(coc-range-select)
   " 跳转到定义
   nmap <silent> <Leader>k <Plug>(coc-definition)
   " 跳转到实现
@@ -175,12 +175,12 @@ nmap <Leader>cl  <Plug>(coc-codelens-action)
 
 " Remap <C-f> and <C-b> to scroll float windows/popups
 if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<C-r>=coc#float#scroll(1)\<CR>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<C-r>=coc#float#scroll(0)\<CR>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  nnoremap <silent><nowait><expr> <C-F> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-F>"
+  nnoremap <silent><nowait><expr> <C-B> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-B>"
+  inoremap <silent><nowait><expr> <C-F> coc#float#has_scroll() ? "\<C-R>=coc#float#scroll(1)\<CR>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-B> coc#float#has_scroll() ? "\<C-R>=coc#float#scroll(0)\<CR>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <C-F> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-F>"
+  vnoremap <silent><nowait><expr> <C-B> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-B>"
 endif
 
 " Use CTRL-S for selections ranges

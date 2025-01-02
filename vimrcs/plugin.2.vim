@@ -8,9 +8,9 @@ map  <Leader>t  <Plug>(easymotion-bd-t)
 map  <Leader>T  <Plug>(easymotion-bd-t)
 
 " << NERDTree >>
-nnoremap  <Leader>ee  <Esc>:<C-u>NERDTree
-nnoremap  <Leader>ef  <Esc>:<C-u>NERDTreeFind<CR>
-nnoremap  <Leader>et  <Esc>:<C-u>NERDTreeToggle<CR>
+nnoremap  <Leader>ee  <Esc>:<C-U>NERDTree
+nnoremap  <Leader>ef  <Esc>:<C-U>NERDTreeFind<CR>
+nnoremap  <Leader>et  <Esc>:<C-U>NERDTreeToggle<CR>
 
 " << quickscope >>
 " 禁止操作符等待时高亮

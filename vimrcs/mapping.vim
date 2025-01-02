@@ -20,10 +20,10 @@ xnoremap  >  >gv
 
 " 全模式 方向键
 if g:config_keyboard == 0 && g:config_environment == 0
-    noremap <C-h>  <Left>|inoremap <C-h>  <Left>|cnoremap <C-h>  <Left>
-    noremap <C-j>  <Down>|inoremap <C-j>  <Down>|cnoremap <C-j>  <Down>
-    noremap <C-k>    <Up>|inoremap <C-k>    <Up>|cnoremap <C-k>    <Up>
-    noremap <C-l> <Right>|inoremap <C-l> <Right>|cnoremap <C-l> <Right>
+    noremap <C-H>  <Left>|inoremap <C-H>  <Left>|cnoremap <C-H>  <Left>
+    noremap <C-J>  <Down>|inoremap <C-J>  <Down>|cnoremap <C-J>  <Down>
+    noremap <C-K>    <Up>|inoremap <C-K>    <Up>|cnoremap <C-K>    <Up>
+    noremap <C-L> <Right>|inoremap <C-L> <Right>|cnoremap <C-L> <Right>
 endif
 
 " Insert模式 jk 退出
@@ -45,11 +45,11 @@ cnoremap  <C-P>  <Up>
 cnoremap  <C-N>  <Down>
 
 " 可视模式直接搜索当前选择内容
-xnoremap  <silent> /  <Esc>:<C-u>call VisualRegSearch()<CR>/<CR>N
-xnoremap  <silent> ?  <Esc>:<C-u>call VisualRegSearch()<CR>?<CR>N
+xnoremap  <silent> /  <Esc>:<C-U>call VisualRegSearch()<CR>/<CR>N
+xnoremap  <silent> ?  <Esc>:<C-U>call VisualRegSearch()<CR>?<CR>N
 
 " 取消搜索高亮
-nnoremap  <silent> <Leader>/  <Esc>:<C-u>nohlsearch<CR>
+nnoremap  <silent> <Leader>/  <Esc>:<C-U>nohlsearch<CR>
 
 " ---------- 功能映射 结束 ----------
 

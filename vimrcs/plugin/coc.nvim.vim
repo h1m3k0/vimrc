@@ -19,8 +19,12 @@ let g:coc_global_extensions = [
       \  'coc-vimlsp',
       \  'coc-translator',
       \]
-" Highlight the symbol and its references when holding the cursor
-autocmd CursorHold * silent call CocActionAsync('highlight')
+for extension in g:coc_global_extensions
+  try
+    execute 'source <sfile>:h/coc.nvim/'.extension.'.vim'
+  catch
+  endtry
+endfor
 
 " Tab的实现
 inoremap <silent><expr> <Tab>
@@ -51,8 +55,6 @@ omap ac <Plug>(coc-classobj-a)
 
 " :CocConfig5 用json5格式打开:CocConfig
 command! CocConfig5 execute ':CocConfig' | set filetype=json5
-" coc-translator
-nmap <Leader>? <Plug>(coc-translator-p)
 
 
 " 跳转告警

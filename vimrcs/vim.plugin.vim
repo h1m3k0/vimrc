@@ -1,17 +1,5 @@
-""""""""""""""""""""""""""""
-"""""" 插件加载(顺序: 1)
-""""""""""""""""""""""""""""
-" " 使用git ssh
-" let g:plug_url_format = 'git@github.com:%s.git'
-" " 插件下载位置
-" let g:plug_home = 
+" PlugVim加载插件
 call plug#begin()
-" 中文文档
-Plug 'yianwillis/vimcdoc'
-
-" 主题色
-Plug 'joshdick/onedark.vim'
-
 " IdeaVim支持的插件
 Plug 'easymotion/vim-easymotion'        " 快速跳转 [motions]
 " Plug 'justinmk/vim-sneak'
@@ -36,15 +24,26 @@ endif
 "     set which-key
 " endif
 
+
+" 中文文档
+Plug 'yianwillis/vimcdoc'
+
+" 主题色
+Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
+
+
 " 其他插件
 Plug 'ZSaberLv0/vim-easymotion-chs'     " easymotion中文扩展
 Plug 'tpope/vim-repeat'                 " tpope的点扩展
+Plug 'wellle/targets.vim'               " 符号间的文本对象
 Plug 'kana/vim-textobj-user'            " 自定义文本对象 (vim-textobj-entire前置插件)
 Plug 'junegunn/vim-easy-align'          " 对齐 [operator] ga/ga*/ga**
 Plug 'vim-airline/vim-airline'          " 状态栏
 Plug 'vim-airline/vim-airline-themes'   " 状态栏主题
 Plug 'neoclide/coc.nvim', {'branch': 'release'}  " coc
 Plug 'mhinz/vim-startify'               " 启动页面
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 try 

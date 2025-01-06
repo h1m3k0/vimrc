@@ -21,7 +21,7 @@ set quickscope                          " 高亮每个单词中唯一的字符
 source ~/vimfiles/vimrcs/plugin/vim-easymotion.vim
 " source ~/vimfiles/vimrcs/plugin/vim-sneak.vim
 source ~/vimfiles/vimrcs/plugin/nerdtree.vim
-source ~/vimfiles/vimrcs/plugin/nerdtree.vim
+source ~/vimfiles/vimrcs/plugin/vim-surround.vim
 source ~/vimfiles/vimrcs/plugin/vim-multiple-cursors.vim
 source ~/vimfiles/vimrcs/plugin/vim-commentary.vim
 source ~/vimfiles/vimrcs/plugin/ReplaceWithRegister.vim

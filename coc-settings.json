@@ -5,6 +5,7 @@
   "explorer": {
     "icon": {
       "enableNerdfont": true,
+      "source": "vim-devicons",
     },
   },
   "translator": {  // coc-translator

@@ -40,8 +40,12 @@ Plug 'mhinz/vim-startify'               " 启动页面
 Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
-try 
-  colorscheme onedark
-  set background=dark
-catch
-endtry
+for [_, name] in items(g:plugs_order)
+    if has_key(g:plugs, name) && isdirectory(g:plugs[name].dir)
+      try
+        " 载入插件配置, 允许文件不存在
+        execute 'source <sfile>:h/plugin/'.name.'.vim'
+      catch
+      endtry
+    endif
+endfor

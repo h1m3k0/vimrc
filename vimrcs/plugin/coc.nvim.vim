@@ -6,6 +6,7 @@
 " no select by `"suggest.noselect": true` in your configuration file
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config
+let g:coc_config_home = expand('<sfile>:h:h:h')
 let g:coc_global_extensions = [
       \  'coc-marketplace', 
       \  'coc-emmet',

@@ -1,10 +1,9 @@
 " 载入默认配置
 source <sfile>:h/vimrcs/config/config_example.vim
-try
-  " 载入自定义配置, 允许文件不存在
+if filereadable(expand('<sfile>:p:h').'vimrcs/config/config.vim')
+  " 载入自定义配置
   source <sfile>:h/vimrcs/config/config.vim
-catch
-endtry
+endif
 
 " 载入基础配置(set)
 source <sfile>:h/vimrcs/setting.vim

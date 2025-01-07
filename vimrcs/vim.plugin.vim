@@ -1,5 +1,5 @@
 " PlugVim加载插件
-call plug#begin()
+call plug#begin(expand('<sfile>:h:h').'/plugged')
 " IdeaVim支持的插件
 Plug 'easymotion/vim-easymotion'        " 快速跳转 [motions]
 " Plug 'justinmk/vim-sneak'
@@ -26,8 +26,6 @@ Plug 'yianwillis/vimcdoc'
 Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
 
-
-" 其他插件
 Plug 'ZSaberLv0/vim-easymotion-chs'     " easymotion中文扩展
 Plug 'tpope/vim-repeat'                 " tpope的点扩展
 Plug 'wellle/targets.vim'               " 符号间的文本对象
@@ -38,14 +36,20 @@ Plug 'vim-airline/vim-airline-themes'   " 状态栏主题
 Plug 'neoclide/coc.nvim', {'branch': 'release'}  " coc
 Plug 'mhinz/vim-startify'               " 启动页面
 Plug 'ryanoasis/vim-devicons'
+
+if has('nvim')
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
+  Plug 'keaising/im-select.nvim'
+endif
+
 call plug#end()
 
-for [_, name] in items(g:plugs_order)
-    if has_key(g:plugs, name) && isdirectory(g:plugs[name].dir)
-      try
-        " 载入插件配置, 允许文件不存在
-        execute 'source <sfile>:h/plugin/'.name.'.vim'
-      catch
-      endtry
-    endif
+for name in g:plugs_order
+  if has_key(g:plugs, name) 
+        \ && isdirectory(g:plugs[name].dir) 
+        \ && filereadable(expand('<sfile>:h').'/plugin/'.name.'.vim')
+    execute 'source <sfile>:h/plugin/'.name.'.vim'
+  endif
 endfor

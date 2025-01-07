@@ -10,3 +10,7 @@ xnoremap <silent> <C-S-Down> :m '>+<CR>gv=gv
 " GUI 字体大小
 command! Bigger  :let &guifont = substitute(&guifont, '\d\+$', '\=submatch(0)+1', '')
 command! Smaller :let &guifont = substitute(&guifont, '\d\+$', '\=submatch(0)-1', '')
+
+if has ('nvim')
+  source <sfile>:h/neovim.vim
+endif

@@ -3,11 +3,71 @@
 
 " 输入法
 augroup ime_input
-    autocmd!
-    " 插入模式允许使用输入法
-    autocmd InsertLeave * execute "let g:neovide_input_ime=v:false"
-    autocmd InsertEnter * execute "let g:neovide_input_ime=v:true"
-    " 命令行模式搜索时允许使用输入法
-    autocmd CmdlineLeave /,? execute "let g:neovide_input_ime=v:false"
-    autocmd CmdlineEnter /,? execute "let g:neovide_input_ime=v:true"
+  autocmd!
+  let g:neovide_input_ime = v:false
+  " 插入模式允许使用输入法
+  autocmd InsertEnter * execute "let g:neovide_input_ime=v:true"
+  autocmd InsertLeave * execute "let g:neovide_input_ime=v:false"
+  " 命令行模式<C-Space>切换输入法可用
+  autocmd CmdlineEnter :  cnoremap <C-Space> <C-R>=Neovide_cmd_ime()<CR>
+  autocmd CmdlineEnter :  execute "let g:neovide_input_ime=v:false"
+  function! Neovide_cmd_ime() abort
+    let g:neovide_input_ime=v:true
+    return ''
+  endfunction
+  " 命令行模式搜索时允许使用输入法
+  autocmd CmdlineEnter /  execute "let g:neovide_input_ime=v:true"
+  autocmd CmdlineEnter \? execute "let g:neovide_input_ime=v:true"
+  autocmd CmdlineLeave /  execute "let g:neovide_input_ime=v:false"
+  autocmd CmdlineLeave \? execute "let g:neovide_input_ime=v:false"
 augroup END
+
+command! NeovideCool call NeovideCool()
+function! NeovideCool() abort
+  " 与第一个参数比较
+  if g:neovide_position_animation_length != 0
+    " 位置动画长度
+    let g:neovide_position_animation_length = 0
+    " 滚动动画长度
+    let g:neovide_scroll_animation_length = 0
+    " 滚动远线
+    let g:neovide_scroll_animation_far_lines = 0
+    " 触摸拖动超时 
+    let g:neovide_touch_drag_timeout = 0
+    " 动画长度
+    let g:neovide_cursor_animation_length = 0
+    " 动画轨迹大小
+    let g:neovide_cursor_trail_size = 0
+    " 插入模式下制作动画
+    let g:neovide_cursor_animate_in_insert_mode = v:false
+    " 切换命令行也有动画
+    let g:neovide_cursor_animate_command_line = v:false
+    " 光标闪烁动画
+    let g:neovide_cursor_smooth_blink = v:false
+    " 光标粒子 railgun torpedo pixiedust sonicboom ripple wireframe
+    let g:neovide_cursor_vfx_mode = ""
+  else
+    " 位置动画长度
+    let g:neovide_position_animation_length = 0.15
+    " 滚动动画长度
+    let g:neovide_scroll_animation_length = 0.3
+    " 滚动远线
+    let g:neovide_scroll_animation_far_lines = 1
+    " 触摸拖动超时 
+    let g:neovide_touch_drag_timeout = 0.1
+    " 动画长度
+    let g:neovide_cursor_animation_length = 0.1
+    " 动画轨迹大小
+    let g:neovide_cursor_trail_size = 0.5
+    " 插入模式下制作动画
+    let g:neovide_cursor_animate_in_insert_mode = v:true
+    " 切换命令行也有动画
+    let g:neovide_cursor_animate_command_line = v:true
+    " 光标闪烁动画
+    let g:neovide_cursor_smooth_blink = v:true
+    " 光标粒子 railgun torpedo pixiedust sonicboom ripple wireframe
+    let g:neovide_cursor_vfx_mode = "wireframe"
+  endif
+endfunction
+call NeovideCool()
+call NeovideCool()

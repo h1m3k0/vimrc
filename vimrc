@@ -1,3 +1,4 @@
+source <sfile>:h/autoload/plug.vim
 " 载入默认配置
 source <sfile>:h/vimrcs/config/config_example.vim
 if filereadable(expand('<sfile>:p:h').'vimrcs/config/config.vim')

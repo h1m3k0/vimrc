@@ -8,7 +8,7 @@ let g:startify_lists= [
       \ {'type': 'sessions',  'header':[]},
       \ {'type': 'bookmarks', 'header': [' Bookmarks']       },
   \ ]
-let g:startify_files_number = 10
+let g:startify_files_number = 9
 let g:startify_commands = [
       \ {'n': ['new Typed buffer: 输入文件类型',
       \        'enew | execute "set filetype=".input("filetype=")']},

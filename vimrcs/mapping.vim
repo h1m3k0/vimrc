@@ -41,8 +41,6 @@ map  M  %
 " NOTE: 与Shell命令行保持一致
 cnoremap  <C-A>  <Home>
 cnoremap  <C-E>  <End>
-cnoremap  <C-P>  <Up>
-cnoremap  <C-N>  <Down>
 
 " 可视模式直接搜索当前选择内容
 xnoremap  <silent> /  <Esc>:<C-U>call VisualRegSearch()<CR>/<CR>N

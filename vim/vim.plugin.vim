@@ -46,9 +46,12 @@ endif
 call plug#end()
 
 for name in g:plugs_order
-  if has_key(g:plugs, name) 
-        \ && isdirectory(g:plugs[name].dir) 
-        \ && filereadable(expand('<sfile>:h').'/plugin/'.name.'.vim')
-    execute 'source <sfile>:h/plugin/'.name.'.vim'
+  if has_key(g:plugs, name) && isdirectory(g:plugs[name].dir) 
+    if filereadable(expand('<sfile>:h').'/plugin/'.name.'.vim')
+      execute 'source <sfile>:h/plugin/'.name.'.vim'
+    endif
+    if filereadable(expand('<sfile>:h:h').'/lua/plugin/'.name.'.lua')
+      execute 'luafile '.expand('<sfile>:h:h').'/lua/plugin/'.name.'.lua'
+    endif
   endif
 endfor

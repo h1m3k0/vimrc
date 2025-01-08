@@ -1,6 +1,6 @@
-source ~/vimfiles/vimrcs/config/config_example.vim
-source ~/vimfiles/vimrcs/config/config.vim
-source ~/vimfiles/vimrcs/setting.vim
-source ~/vimfiles/vimrcs/mapping.vim
-source ~/vimfiles/vimrcs/ideavim.plugin.vim
-source ~/vimfiles/vimrcs/ideavim.vim
+source ~/vimfiles/vim/config/config_example.vim
+source ~/vimfiles/vim/config/config.vim
+source ~/vimfiles/vim/setting.vim
+source ~/vimfiles/vim/mapping.vim
+source ~/vimfiles/vim/ideavim.plugin.vim
+source ~/vimfiles/vim/ideavim.vim

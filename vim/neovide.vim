@@ -6,20 +6,19 @@ augroup NeovideIme
   autocmd!
   let g:neovide_input_ime = v:false
   " 插入模式允许使用输入法
-  autocmd InsertEnter * execute "let g:neovide_input_ime=v:true"
-  autocmd InsertLeave * execute "let g:neovide_input_ime=v:false"
-  " 命令行模式<C-Space>切换输入法可用
-  autocmd CmdlineEnter :  cnoremap <C-Space> <C-R>=Neovide_cmd_ime()<CR>
-  autocmd CmdlineEnter :  execute "let g:neovide_input_ime=v:false"
+  autocmd InsertEnter * let g:neovide_input_ime=v:true
+  autocmd InsertLeave * let g:neovide_input_ime=v:false
   function! Neovide_cmd_ime() abort
     let g:neovide_input_ime=v:true
     return ''
   endfunction
-  " 命令行模式搜索时允许使用输入法
-  autocmd CmdlineEnter /  execute "let g:neovide_input_ime=v:true"
-  autocmd CmdlineEnter ? execute "let g:neovide_input_ime=v:true"
-  autocmd CmdlineLeave /  execute "let g:neovide_input_ime=v:false"
-  autocmd CmdlineLeave ? execute "let g:neovide_input_ime=v:false"
+  " 命令行模式 搜索时允许使用输入法 命令允许<C-Space>开启输入法
+  cnoremap <C-Space> <C-R>=Neovide_cmd_ime()<CR>
+  autocmd CmdlineEnter  / let g:neovide_input_ime=v:true
+  autocmd CmdlineEnter \? let g:neovide_input_ime=v:true
+  autocmd CmdlineLeave  : let g:neovide_input_ime=v:false
+  autocmd CmdlineLeave  / let g:neovide_input_ime=v:false
+  autocmd CmdlineLeave \? let g:neovide_input_ime=v:false
 augroup END
 
 augroup NeovideCool

@@ -1,4 +1,4 @@
-source ~/vimfiles/vimrcs/plugin/quick-scope.vim
+source ~/vimfiles/vim/plugin/quick-scope.vim
 
 Plug 'easymotion/vim-easymotion'        " 快速跳转 [motions]
 " Plug 'justinmk/vim-sneak'
@@ -14,24 +14,23 @@ Plug 'machakann/vim-highlightedyank'    " 复制高亮
 Plug 'dbakker/vim-paragraph-motion'     " 大括号增强 (只含有空格的行)
 Plug 'michaeljsmith/vim-indent-object'  " 缩进文本对象 [text-objects] ii当前 ai包含上一行 aI包含上下
 Plug 'chrisbra/matchit'                 " 百分号增强 (自定义匹配内容, IdeaVim中默认可匹配 HTML标签/if-else 等)
-Plug 'unblevable/quick-scope'           
 set quickscope                          " 高亮每个单词中唯一的字符
 " set which-key                           " 实时显示组合键
 
-source ~/vimfiles/vimrcs/plugin/vim-easymotion.vim
-" source ~/vimfiles/vimrcs/plugin/vim-sneak.vim
-source ~/vimfiles/vimrcs/plugin/nerdtree.vim
-source ~/vimfiles/vimrcs/plugin/vim-surround.vim
-source ~/vimfiles/vimrcs/plugin/vim-multiple-cursors.vim
-source ~/vimfiles/vimrcs/plugin/vim-commentary.vim
-source ~/vimfiles/vimrcs/plugin/ReplaceWithRegister.vim
-source ~/vimfiles/vimrcs/plugin/argtextobj.vim.vim
-source ~/vimfiles/vimrcs/plugin/vim-exchange.vim
-source ~/vimfiles/vimrcs/plugin/vim-textobj-entire.vim
-source ~/vimfiles/vimrcs/plugin/vim-highlightedyank.vim
-source ~/vimfiles/vimrcs/plugin/vim-paragraph-motion.vim
-source ~/vimfiles/vimrcs/plugin/vim-indent-object.vim
-source ~/vimfiles/vimrcs/plugin/matchit.vim
-source ~/vimfiles/vimrcs/plugin/quick-scope.vim
-" source ~/vimfiles/vimrcs/plugin/whick-key.vim
+source ~/vimfiles/vim/plugin/vim-easymotion.vim
+" source ~/vimfiles/vim/plugin/vim-sneak.vim
+source ~/vimfiles/vim/plugin/nerdtree.vim
+source ~/vimfiles/vim/plugin/vim-surround.vim
+source ~/vimfiles/vim/plugin/vim-multiple-cursors.vim
+source ~/vimfiles/vim/plugin/vim-commentary.vim
+source ~/vimfiles/vim/plugin/ReplaceWithRegister.vim
+source ~/vimfiles/vim/plugin/argtextobj.vim.vim
+source ~/vimfiles/vim/plugin/vim-exchange.vim
+source ~/vimfiles/vim/plugin/vim-textobj-entire.vim
+source ~/vimfiles/vim/plugin/vim-highlightedyank.vim
+source ~/vimfiles/vim/plugin/vim-paragraph-motion.vim
+source ~/vimfiles/vim/plugin/vim-indent-object.vim
+source ~/vimfiles/vim/plugin/matchit.vim
+source ~/vimfiles/vim/plugin/quick-scope.vim
+" source ~/vimfiles/vim/plugin/whick-key.vim
 

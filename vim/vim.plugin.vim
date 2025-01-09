@@ -17,6 +17,7 @@ Plug 'michaeljsmith/vim-indent-object'  " 缩进文本对象 [text-objects] ii�
 Plug 'chrisbra/matchit'                 " 百分号增强
 Plug 'unblevable/quick-scope'           " 高亮每个单词中唯一的字符
 " Plug 'liuchengxu/vim-which-key'         " 实时显示组合键
+Plug 'junegunn/vim-peekaboo'
 
 
 " 中文文档

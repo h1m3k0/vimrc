@@ -1,6 +1,6 @@
 .idea
 plugged
 sessions
-vimrcs/config.vim
+vim/config/config.vim
 autoload/plug.vim.old
 

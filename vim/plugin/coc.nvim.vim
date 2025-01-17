@@ -8,23 +8,20 @@
 " other plugin before putting this into your config
 let g:coc_config_home = expand('<sfile>:h:h:h')
 let g:coc_global_extensions = [
-      \  'coc-marketplace', 
-      \  'coc-emmet',
-      \  'coc-highlight',
-      \  'coc-lists',
-      \  'coc-pairs',
-      \  'coc-prettier',
-      \  'coc-snippets',
-      \  'coc-yank',
-      \  'coc-git',
-      \  'coc-vimlsp',
-      \  'coc-translator',
+      \ 'coc-marketplace',
+      \ 'coc-highlight', 
+      \ 'coc-lists', 
+      \ 'coc-pairs', 
+      \ 'coc-prettier', 
+      \ 'coc-yank', 
+      \ 'coc-git',
+      \ 'coc-explorer',
+      \ 'coc-translator',
       \]
 for extension in g:coc_global_extensions
-  try
+  if filereadable(expand('<sfile>:h').'/coc.nvim/'.extension.'.vim')
     execute 'source <sfile>:h/coc.nvim/'.extension.'.vim'
-  catch
-  endtry
+  endif
 endfor
 
 " Tab的实现

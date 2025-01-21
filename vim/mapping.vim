@@ -35,7 +35,7 @@ endif
 " 不常用键映射
 noremap  H  ^
 noremap  L  $
-map  M  %
+noremap  M  %
 
 " 命令行模式
 " NOTE: 与Shell命令行保持一致

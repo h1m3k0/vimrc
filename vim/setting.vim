@@ -146,21 +146,10 @@ set autoindent smartindent
 set laststatus=2
 
 """"""""""""""""""""""""""""""
-" => GVim
+" => GUI
 """"""""""""""""""""""""""""""
-if has('gui_running') && (has('win64') || has('win32'))
-  " 设置字体大小
-  let dpi = str2nr(strpart(matchstr(substitute(
-    \system('wmic desktopmonitor get PixelsPerXLogicalInch /value'),
-    \'\%x01\|\%x0a\|\%x0a\|\%xff\|\%xfe', '', 'g'),
-    \'=.*$'), 1))/10
-  if dpi > 10
-    let &guifont = 'Consolas:h'.dpi
-  else
-    let &guifont = 'Consolas:h10'
-  endif
-  " 设置宽度
+if has('gui_running')
+  let &guifont = 'Consolas:h12'
   set columns=120
-  " 设置高度
   set lines=30
 endif

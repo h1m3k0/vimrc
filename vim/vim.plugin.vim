@@ -25,6 +25,8 @@ Plug 'yianwillis/vimcdoc'
 " 主题色
 Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
+Plug 'sainnhe/everforest'
+Plug 'altercation/vim-colors-solarized'
 
 Plug 'ZSaberLv0/vim-easymotion-chs'     " easymotion中文扩展
 Plug 'tpope/vim-repeat'                 " tpope的点扩展
@@ -34,8 +36,13 @@ Plug 'junegunn/vim-easy-align'          " 对齐 [operator] ga/ga*/ga**
 Plug 'vim-airline/vim-airline'          " 状态栏
 Plug 'vim-airline/vim-airline-themes'   " 状态栏主题
 Plug 'mhinz/vim-startify'               " 启动页面
-Plug 'ryanoasis/vim-devicons'
 call plug#end()
+
+colorscheme everforest
+try
+  set guifont=CaskaydiaMono_NFM:h11
+catch
+endtry
 
 for name in g:plugs_order
   if has_key(g:plugs, name) && isdirectory(g:plugs[name].dir) 

@@ -1,8 +1,8 @@
 -- Bootstrap lazy.nvim
-local rootpath = vim.fn.fnamemodify(vim.fn.getenv('MYVIMRC'), ':h') .. '/lazy'
-if not (vim.uv or vim.loop).fs_stat(rootpath .. '/data/lazy.nvim') then
+local rootpath = vim.fn.getenv('MYVIMDIR')..'/local/lazy'
+if not (vim.uv or vim.loop).fs_stat(rootpath .. '/plugins/lazy.nvim') then
   local lazyrepo = "git@github.com:folke/lazy.nvim.git"
-  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, rootpath .. '/data/lazy.nvim' })
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, rootpath .. '/plugins/lazy.nvim' })
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
@@ -13,33 +13,33 @@ if not (vim.uv or vim.loop).fs_stat(rootpath .. '/data/lazy.nvim') then
     os.exit(1)
   end
 end
-vim.opt.rtp:prepend(rootpath .. '/data/lazy.nvim')
+vim.opt.rtp:prepend(rootpath .. '/plugins/lazy.nvim')
 
 -- Setup lazy.nvim
 require("lazy").setup({
-  root = rootpath .. '/data',
+  root = rootpath .. '/plugins',
   spec = {
     -- import your plugins
-    { import = 'plugin/interface' },
-    { import = 'plugin/vim-plug' },
-    { import = 'plugin/nvim-plug' },
+    { import = 'plugins/interface' },
+    { import = 'plugins/vim-plugs' },
+    { import = 'plugins/nvim-plugs' },
   },
-  lockfile = rootpath .. '/config/lazy-lock.json',
+  lockfile = rootpath .. '/lazy-lock.json',
   git = {
     url_format = vim.g.plug_url_format,
   },
   pkg = {
-    cache = rootpath .. '/state/pkg-cache.lua',
+    cache = rootpath .. '/pkg-cache.lua',
   },
   rocks = {
-    root = rootpath .. '/data/lazy-rocks',
+    root = rootpath .. '/plugins/lazy-rocks',
   },
   change_detection = {
     enabled = true,
     notify = false,
   },
   readme = {
-    root = rootpath .. '/state/lazy/readme',
+    root = rootpath .. '/readme',
   },
-  state = rootpath .. '/state/state.json',
+  state = rootpath .. '/state.json',
 })

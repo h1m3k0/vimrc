@@ -152,7 +152,7 @@ set laststatus=2
 " => GUI
 """"""""""""""""""""""""""""""
 if has('gui_running')
-  let &guifont = 'Consolas:h12'
+  set guifont=Consolas:h12
   set columns=120
   set lines=30
 endif

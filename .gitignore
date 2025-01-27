@@ -1,8 +1,7 @@
 .idea
 *.iml
-plugged
+local
 sessions
 vim/config/config.vim
 autoload/plug.vim.old
-lazy
 

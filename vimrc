@@ -1,11 +1,11 @@
 let $MYVIMRC = substitute(expand('<sfile>'), '\', '/', 'g')
-let g:MYVIMRC_ROOT = fnamemodify($MYVIMRC, ':h')
+let $MYVIMDIR = fnamemodify($MYVIMRC, ':h')
 
 " 载入默认配置
-source <sfile>:h/vim/config/config_example.vim
-if filereadable(expand('<sfile>:p:h').'vim/config/config.vim')
+source <sfile>:h/vim/configs/config_example.vim
+if filereadable($MYVIMDIR.'/vim/configs/config.vim')
   " 载入自定义配置
-  source <sfile>:h/vim/config/config.vim
+  source <sfile>:h/vim/configs/config.vim
 endif
 
 " 载入基础配置(set)
@@ -22,3 +22,6 @@ else
 endif
 " 载入vim配置
 source <sfile>:h/vim/vim.vim
+if has('nvim')
+  luafile <sfile>:h/lua/neovim.lua
+endif

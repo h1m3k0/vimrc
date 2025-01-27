@@ -1,5 +1,5 @@
 " PlugVim加载插件
-call plug#begin(expand('<sfile>:h:h').'/plugged')
+call plug#begin($MYVIMDIR.'/local/vim-plug/plugins')
 " IdeaVim支持的插件
 Plug 'easymotion/vim-easymotion'        " 快速跳转 [motions]
 Plug 'justinmk/vim-sneak'
@@ -46,8 +46,8 @@ endtry
 
 for name in g:plugs_order
   if has_key(g:plugs, name) && isdirectory(g:plugs[name].dir) 
-    if filereadable(expand('<sfile>:h').'/plugin/'.name.'.vim')
-      execute 'source <sfile>:h/plugin/'.name.'.vim'
+    if filereadable($MYVIMDIR.'/vim/plugins/'.name.'.vim')
+      execute 'source '.$MYVIMDIR.'/vim/plugins/'.name.'.vim'
     endif
   endif
 endfor

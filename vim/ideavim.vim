@@ -16,17 +16,17 @@ set trackactionids
 " ========== 自定义映射Action 开始 ========== 
 "
 " 重命名 Shift-F6
-map  <Leader>r  <Action>(RenameElement)
+map  <Leader>r <Action>(RenameElement)
 " 全局搜索 Ctrl-Shift-F
-map  <Leader>s  <Action>(FindInPath)
+map  <Leader>s <Action>(FindInPath)
 " 格式化 Alt-Ctrl-L
-map  <Leader>l  <Action>(ReformatCode)
+map  <Leader>l <Action>(ReformatCode)
 " 选择 Ctrl-w
 map  <C-S>     <Action>(EditorSelectWord)
 " 跳转到定义 Ctrl-B
-map  <Leader>k  <Action>(GotoDeclaration)
+map  <Leader>k <Action>(GotoDeclaration)
 " 跳转到实现 Alt-Ctrl-B
-map  <Leader>j  <Action>(GotoImplementation)
+map  <Leader>j <Action>(GotoImplementation)
 " ---------- 自定义映射Action 结束 ----------
 
 " ========== coc未实现的Action 开始 ==========
@@ -45,22 +45,22 @@ map  <Leader>i  <Action>(ShowIntentionActions)
 " ========== 自定义命令Action 开始 ==========
 "
 " VimReload 重新加载ideavimrc
-command!  VimReload  call  IdeaVimAction('IdeaVim.ReloadVimRc.reload')
+command! VimReload   call IdeaVimAction('IdeaVim.ReloadVimRc.reload')
 " Run
-command!  Run  call  IdeaVimAction('Run')
+command! Run         call IdeaVimAction('Run')
 " RunClass
-command!  RunClass  call  IdeaVimAction('RunClass')
+command! RunClass    call IdeaVimAction('RunClass')
 " Debug
-command!  Debug  call  IdeaVimAction('Debug')
+command! Debug       call IdeaVimAction('Debug')
 " Stop
-command!  Stop  call  IdeaVimAction('Stop')
+command! Stop        call IdeaVimAction('Stop')
 " ActivateTerminalToolWindow 打开终端
-command!  Terminal  call  IdeaVimAction('ActivateTerminalToolWindow')
+command! Terminal    call IdeaVimAction('ActivateTerminalToolWindow')
 " MavenReload 重新加载maven
-command!  MavenReload  call  IdeaVimAction('Maven.Reimport Maven.UpdateFolders')
-command!  Git  call  IdeaVimAction('Git.Menu')
+command! MavenReload call IdeaVimAction('Maven.Reimport Maven.UpdateFolders')
+command! Git         call IdeaVimAction('Git.Menu')
 " Vim 关闭ideavim
-command!  Vim  call  IdeaVimAction('VimPluginToggle')
+command! Vim         call IdeaVimAction('VimPluginToggle')
 " ---------- 自定义命令Action 结束 ----------
 
 " ========== Function ========== 

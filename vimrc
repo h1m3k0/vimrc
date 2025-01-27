@@ -1,4 +1,5 @@
-source <sfile>:h/autoload/plug.vim
+let $MYVIMRC = substitute(expand('<sfile>'), '\', '/', 'g')
+
 " 载入默认配置
 source <sfile>:h/vim/config/config_example.vim
 if filereadable(expand('<sfile>:p:h').'vim/config/config.vim')
@@ -11,6 +12,10 @@ source <sfile>:h/vim/setting.vim
 " 载入映射(map)
 source <sfile>:h/vim/mapping.vim
 " 载入插件(PlugVim)
-source <sfile>:h/vim/vim.plugin.vim
+if !has('nvim')
+  source <sfile>:h/vim/vim.plugin.vim
+else
+  luafile <sfile>:h/lua/lazy.nvim.lua
+endif
 " 载入vim配置
 source <sfile>:h/vim/vim.vim

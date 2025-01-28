@@ -20,9 +20,7 @@ require("lazy").setup({
   root = rootpath .. '/plugins',
   spec = {
     -- import your plugins
-    { import = 'plugins/interface' },
-    { import = 'plugins/vim-plugs' },
-    { import = 'plugins/nvim-plugs' },
+    { import = 'plugins' },
   },
   lockfile = rootpath .. '/lazy-lock.json',
   git = {

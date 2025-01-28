@@ -1,7 +1,7 @@
 -- 初始不允许使用舒服法
 vim.g.neovide_input_ime = false
 
-local ime_input = vim.api.nvim_create_augroup("ime_input", { clear = true })
+local ime_input = vim.api.nvim_create_augroup('ime_input', { clear = true })
 
 -- 插入模式允许使用输入法
 vim.api.nvim_create_autocmd('InsertEnter', {
@@ -21,7 +21,7 @@ vim.keymap.set('c', '<C-Space>', function() vim.g.neovide_input_ime = true end, 
 vim.api.nvim_create_autocmd('CmdlineEnter', {
     group = ime_input,
     pattern = { '/', '?' },
-    callback = function() vim.g.neovide_input_ime = false end,
+    callback = function() vim.g.neovide_input_ime = true end,
 })
 vim.api.nvim_create_autocmd('CmdlineLeave', {
     group = ime_input,

@@ -69,9 +69,6 @@ set backspace=eol,start,indent
 set ignorecase smartcase hlsearch incsearch
 nohlsearch
 
-" Don't redraw while executing macros (good performance config)
-set lazyredraw
-
 " 默认有标号
 set signcolumn=yes
 

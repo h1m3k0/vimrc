@@ -3,7 +3,6 @@
 " source ~/vimfiles/init.vim
 "
 
-execute 'set runtimepath^='.expand('<sfile>:p:h')
-execute 'set runtimepath+='.expand('<sfile>:p:h').'after'
+execute 'set runtimepath+='.expand('<sfile>:p:h')
 let &packpath = &runtimepath
 source <sfile>:h/vimrc

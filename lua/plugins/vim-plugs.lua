@@ -83,6 +83,10 @@ return {
   { 'tpope/vim-commentary' },
   { 'vim-scripts/ReplaceWithRegister' },
   { 'tommcdo/vim-exchange' },
+  { 
+    'kana/vim-textobj-entire',
+    dependencies = { 'kana/vim-textobj-user' },
+  },
   {
     'machakann/vim-highlightedyank',
     init = function()
@@ -113,11 +117,6 @@ return {
       vim.keymap.set('o', 'T', 'T', { noremap = true })
     end,
   },
-  { 
-    'folke/which-key.nvim',
-    event = 'VeryLazy',
-  },
-  { 'junegunn/vim-peekaboo' },
   { 'wellle/targets.vim' },
   {
     'junegunn/vim-easy-align',

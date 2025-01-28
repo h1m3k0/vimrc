@@ -17,7 +17,7 @@ vim.api.nvim_create_autocmd('InsertLeave', {
 -- 命令行模式
 -- 搜索时允许使用输入法
 -- 命令允许通过<C-Space>开启输入法
-vim.keymap.set('c', '<C-Space>', function() vim.g.neovide_input_ime = true end, { noremap = true})
+vim.keymap.set('c', '<C-Space>', function() vim.g.neovide_input_ime = true end, { noremap = true })
 vim.api.nvim_create_autocmd('CmdlineEnter', {
     group = ime_input,
     pattern = { '/', '?' },

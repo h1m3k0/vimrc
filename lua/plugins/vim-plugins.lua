@@ -38,31 +38,6 @@ return {
     dependencies = { 'easymotion/vim-easymotion' },
   },
   {
-    'justinmk/vim-sneak',
-    init = function()
-      vim.g['sneak#f_reset']    = 1
-      vim.g['sneak#t_reset']    = 1
-      -- ignorecase & smartcase
-      vim.g['sneak#use_ic_scs'] = 1
-    end,
-    config = function()
-      vim.keymap.set({'n','x','o'}, 's', '<Plug>Sneak_s')
-      vim.keymap.set({'n','x','o'}, 'S', '<Plug>Sneak_S')
-    end,
-  },
-  {
-    'preservim/nerdtree',
-    init = function()
-      -- 切换目录时自动切换vim根目录
-      vim.g.NERDTreeChDirMode = 2
-    end,
-    config = function()
-      vim.keymap.set('n', '<Leader>ee', '<Esc>:<C-U>NERDTree ', { noremap = true, desc = 'NERDTree' })
-      vim.keymap.set('n', '<Leader>ef', '<CMD>NERDTreeFind<CR>', noremap('NERDTreeFind'))
-      vim.keymap.set('n', '<Leader>et', '<CMD>NERDTreeToggle<CR>', noremap('NERDTreeToggle'))
-    end,
-  },
-  {
     'tpope/vim-surround',
     dependencies = { 'tpope/vim-repeat' },
   },
@@ -102,19 +77,6 @@ return {
     'chrisbra/matchit',
     config = function()
       vim.keymap.set({'n','x','o'}, 'M', '%')
-    end,
-  },
-  {
-    'unblevable/quick-scope',
-    enabled = false, -- 与vim-sneak冲突
-    init = function()
-      vim.g.qs_highlight_on_keys = { 'f', 'F', 't', 'T' }
-    end,
-    config = function()
-      vim.keymap.set('o', 'f', 'f', { noremap = true })
-      vim.keymap.set('o', 'F', 'F', { noremap = true })
-      vim.keymap.set('o', 't', 't', { noremap = true })
-      vim.keymap.set('o', 'T', 'T', { noremap = true })
     end,
   },
   { 'wellle/targets.vim' },

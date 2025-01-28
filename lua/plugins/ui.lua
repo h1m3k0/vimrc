@@ -26,17 +26,13 @@ return {
     opts = {
     },
     dependencies = { 'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify' },
-
   },
   {
     'nvim-neo-tree/neo-tree.nvim',
-    config = true,
+    config = function()
+      vim.keymap.set('n', '<Leader>e', '<CMD>Neotree<CR>', { noremap = true } )
+    end,
     dependencies = { 'nvim-lua/plenary.nvim', 'nvim-tree/nvim-web-devicons', 'MunifTanjim/nui.nvim', },
-  },
-  {
-    'nvim-tree/nvim-tree.lua',
-    config = true,
-    dependencies = { 'nvim-tree/nvim-web-devicons', },
   },
   { 
     'folke/which-key.nvim',

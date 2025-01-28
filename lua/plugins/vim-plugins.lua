@@ -79,7 +79,6 @@ return {
       vim.keymap.set({'n','x','o'}, 'M', '%')
     end,
   },
-  { 'wellle/targets.vim' },
   {
     'junegunn/vim-easy-align',
     config = function()

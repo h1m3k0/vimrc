@@ -8,6 +8,7 @@ Plug 'tpope/vim-surround'               " 环绕操作
 Plug 'terryma/vim-multiple-cursors'     " 多光标
 Plug 'tpope/vim-commentary'             " 注释操作
 Plug 'vim-scripts/ReplaceWithRegister'  " 替换操作
+Plug 'vim-scripts/argtextobj.vim'       " 参数文本对象
 Plug 'tommcdo/vim-exchange'             " 互换操作
 Plug 'kana/vim-textobj-entire'          " 全文文本对象
 Plug 'machakann/vim-highlightedyank'    " 复制高亮
@@ -30,7 +31,6 @@ Plug 'altercation/vim-colors-solarized'
 
 Plug 'ZSaberLv0/vim-easymotion-chs'     " easymotion中文扩展
 Plug 'tpope/vim-repeat'                 " tpope的点扩展
-Plug 'wellle/targets.vim'               " 符号间的文本对象
 Plug 'kana/vim-textobj-user'            " 自定义文本对象 (vim-textobj-entire前置插件)
 Plug 'junegunn/vim-easy-align'          " 对齐 [operator] ga/ga*/ga**
 Plug 'vim-airline/vim-airline'          " 状态栏

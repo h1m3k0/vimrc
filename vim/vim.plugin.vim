@@ -1,4 +1,5 @@
 " PlugVim加载插件
+let g:plug_url_format = g:config_github
 call plug#begin($MYVIMDIR.'/local/vim-plug/plugins')
 " IdeaVim支持的插件
 Plug 'easymotion/vim-easymotion'        " 快速跳转 [motions]

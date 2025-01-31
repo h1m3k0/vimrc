@@ -1,5 +1,5 @@
 -- Bootstrap lazy.nvim
-local rootpath = vim.fn.getenv('MYVIMDIR') .. '/local/lazy'
+local rootpath = vim.env.MYVIMDIR .. '/local/lazy'
 if not (vim.uv or vim.loop).fs_stat(rootpath .. '/plugins/lazy.nvim') then
   local lazyrepo = "git@github.com:folke/lazy.nvim.git"
   local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, rootpath .. '/plugins/lazy.nvim' })
@@ -22,15 +22,8 @@ require("lazy").setup({
     -- import your plugins
     { import = 'plugins' },
   },
-  lockfile = rootpath .. '/lazy-lock.json',
   git = {
-    url_format = vim.g.plug_url_format,
-  },
-  pkg = {
-    cache = rootpath .. '/pkg-cache.lua',
-  },
-  rocks = {
-    root = rootpath .. '/plugins/lazy-rocks',
+    url_format = vim.g.config_github,
   },
   change_detection = {
     enabled = true,
@@ -42,5 +35,4 @@ require("lazy").setup({
   readme = {
     root = rootpath .. '/readme',
   },
-  state = rootpath .. '/state.json',
 })

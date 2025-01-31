@@ -2,11 +2,8 @@ return {
   {
     -- lsp配置
     'neovim/nvim-lspconfig',
+    dependencies = { 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim', },
     opts = {
-    },
-    dependencies = {
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
     },
     config = function()
       -- require('lspconfig').language_server.setup({})

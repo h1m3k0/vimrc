@@ -10,22 +10,22 @@ return {
   },
   {
     'akinsho/bufferline.nvim',
+    dependencies = 'nvim-tree/nvim-web-devicons',
     event = 'VeryLazy',
     config = true,
-    dependencies = 'nvim-tree/nvim-web-devicons',
   },
   {
     'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
     event = 'VeryLazy',
     config = true,
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
   },
   {
     'folke/noice.nvim',
+    dependencies = { 'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify' },
     event = 'VeryLazy',
     opts = {
     },
-    dependencies = { 'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify' },
   },
   {
     'nvim-neo-tree/neo-tree.nvim',

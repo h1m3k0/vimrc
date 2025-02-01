@@ -22,6 +22,9 @@ require("lazy").setup({
     -- import your plugins
     { import = 'plugins' },
   },
+  install = {
+    colorscheme = { 'everforest', 'habamax' },
+  },
   git = {
     url_format = vim.g.config_github,
   },

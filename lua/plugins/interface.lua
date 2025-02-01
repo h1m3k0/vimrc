@@ -1,5 +1,5 @@
 return {
-  { 
+  {
     'neanias/everforest-nvim',
     lazy = false,
     priority = 1000,
@@ -38,7 +38,7 @@ return {
       window = {
         mappings = {
           ['o'] = 'open',
-          ['oc'] = 'none', ['od'] = 'none', ['og'] = 'none', ['om'] = 'none', 
+          ['oc'] = 'none', ['od'] = 'none', ['og'] = 'none', ['om'] = 'none',
           ['on'] = 'none', ['os'] = 'none', ['ot'] = 'none',
         },
       },
@@ -80,19 +80,21 @@ return {
           if state.tree:get_node():get_id() == state.tree:get_nodes()[1]:get_id() then
             -- 是root, 将根目录设为上级目录
             state.commands.navigate_up(state)
-          else 
+          else
             -- 不是root, 将根目录切换为当前节点
             state.commands.set_root(state)
+            -- gg0 但gg不生效
+            vim.api.nvim_feedkeys('0', 'n', true)
           end
         end,
       }
     },
   },
-  { 
+  {
     'folke/which-key.nvim',
     event = 'VeryLazy',
   },
-  { 
+  {
     'junegunn/vim-peekaboo',
     event = 'VeryLazy',
   },

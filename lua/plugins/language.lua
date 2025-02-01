@@ -35,7 +35,7 @@ return {
     'saghen/blink.cmp',
     dependencies = 'rafamadriz/friendly-snippets',
     opts = {
-      keymap = { 
+      keymap = {
         preset     = 'none',
         ['<CR>']   = { 'accept', 'fallback' },
         ['<Tab>']  = { 'snippet_forward', 'select_and_accept', 'fallback' },
@@ -50,7 +50,7 @@ return {
         list = {
           selection = {
             preselect = false,
-            auto_insert = true,
+            auto_insert = false,
           },
         },
       },

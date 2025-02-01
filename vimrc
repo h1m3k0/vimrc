@@ -17,7 +17,7 @@ source <sfile>:h/vim/vim.vim
 if has('nvim')
   " 加载neovim的配置
   luafile <sfile>:h/lua/neovim.lua
-  if exists(g:neovide)
+  if exists('g:neovide')
     " 加载neovide的配置
     luafile <sfile>:h/lua/neovide.lua
   endif

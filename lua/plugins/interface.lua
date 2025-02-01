@@ -29,7 +29,8 @@ return {
   },
   {
     'nvim-neo-tree/neo-tree.nvim',
-    dpendencies = { 'nvim-lua/plenary.nvim', 'nvim-tree/nvim-web-devicons', 'MunifTanjim/nui.nvim', },
+    dependencies = { 'nvim-lua/plenary.nvim', 'nvim-tree/nvim-web-devicons', 'MunifTanjim/nui.nvim', },
+    event = 'VeryLazy',
     init = function()
       vim.keymap.set('n', '<Leader>e', '<CMD>Neotree<CR>', { noremap = true } )
     end,

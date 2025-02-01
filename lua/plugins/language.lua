@@ -13,7 +13,7 @@ return {
       install_root_dir = vim.env.MYVIMDIR .. '/local/mason',
     },
   },
-  { 
+  {
     'williamboman/mason-lspconfig.nvim',
     dependencies = { 'williamboman/mason.nvim', 'neovim/nvim-lspconfig' },
     opts = {

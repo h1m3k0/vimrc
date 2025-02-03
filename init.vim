@@ -2,12 +2,11 @@
 "
 " source THIS_DIR/init.vim
 "
-
-execute 'set runtimepath+='.expand('<sfile>:p:h')
-let &packpath = &runtimepath
-
 let $MYVIMRC = substitute(expand('<sfile>'), '\', '/', 'g')
 let $MYVIMDIR = fnamemodify($MYVIMRC, ':h')
+
+execute 'set runtimepath+='.$MYVIMDIR
+let &packpath = &runtimepath
 
 " 加载默认配置
 source <sfile>:h/vim/configs/config_example.vim

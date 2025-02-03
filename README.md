@@ -1,53 +1,50 @@
-- Windows
+### 使用
 
-    - `vim`
+1. `git clone` 到任意位置（如 `D:/.vim`）
 
-      进入`C:/Users/用户名`目录
+   ~~~shell
+   git clone git@github.com:h1m3k0/.vim.git D:/.vim
+   ~~~
 
-      ~~~bat
-      git clone --depth 1 https://github.com/h1m3k0/vimrc.git vimfiles
-      ~~~
+2. 引入启动文件
 
-    - `ideavim`
+   - vim
 
-      将`C:/Users/用户名/.ideavimrc`内容修改为
+     文件 `~/vimfiles/vimrc`
 
-        ~~~vimscript
-        source ~/vimfiles/.ideavimrc
-        ~~~
+     ~~~vimscript
+     execute D:/.vim/vimrc
+     ~~~
 
-- Linux
+   - neovim
 
-    - 个人
+     文件 `~/AppData/Local/nvim/init.vim`
 
-      ~~~shell
-      cd ~
-      git clone --depth 1 https://github.com/h1m3k0/vimrc.git .vim
-      ~~~
+     ~~~vimscript
+     execute D:/.vim/init.vim
+     ~~~
 
-    - 服务器
+   - ideavim
 
-      多人共用时，为了不影响其他人使用，可以将配置保存在自定义目录，并设置自定义运行命令。
-      例如配置文件保存在`/xxxx/.vimx`，使用`vimx`命令运行
-      中添加脚本快捷启动
+     文件 `~/.ideavimrc`
 
-        1. 拉取配置
+     ~~~vimscript
+     let g:VIMRC_DIR = 'D:/.vim'
+     execute 'source '.g:VIMRC_DIR.'/.ideavimrc'
+     ~~~
 
-           ~~~shell
-           git clone --depth 1 https://github.com/h1m3k0/vimrc.git .vimx
-           ~~~
+3. 初始化
 
-        2. 创建`vimx`命令为`vim -u ~/.vimx/main`
+   复制 `D:/.vim/vim/configs/config_example.vim` 到 `D:/.vim/vim/configs/config.vim`，修改默认配置
 
-           在`/usr/bin/`创建文件`vimx`, 内容为
+   - vim
 
-              ~~~vimx
-              #!/bin/bash
-              exec vim -u /xxxx/.vimx/vimrc "$@"
-              ~~~
+     启动后执行 `:PlugInstall` 安装插件
 
-           修改`vimx`权限
+   - neovim
 
-              ~~~shell
-              chomd +x vimx
-              ~~~
+     `lazy.nvim` 自动安装插件，部分插件有额外环境需求（c）
+
+   - ideavim
+
+     手动安装 `ideavim.plugin.vim` 中通过`set`引入的插件

@@ -1,6 +1,11 @@
-source ~/vimfiles/vim/configs/config_example.vim
-source ~/vimfiles/vim/configs/config.vim
-source ~/vimfiles/vim/setting.vim
-source ~/vimfiles/vim/mapping.vim
-source ~/vimfiles/vim/ideavim.plugin.vim
-source ~/vimfiles/vim/ideavim.vim
+" ideavim启动文件(~/.ideavimrc)引入此文件
+"
+" let g:VIMRC_DIR = 'THIS_PATH'
+" execute 'source '.g:VIMRC_DIR.'/.ideavimrc'
+"
+execute 'source '.g:VIMRC_DIR.'/vim/configs/config_example.vim'
+execute 'source '.g:VIMRC_DIR.'/vim/configs/config.vim'
+execute 'source '.g:VIMRC_DIR.'/vim/setting.vim'
+execute 'source '.g:VIMRC_DIR.'/vim/mapping.vim'
+execute 'source '.g:VIMRC_DIR.'/vim/ideavim.plugin.vim'
+execute 'source '.g:VIMRC_DIR.'/vim/ideavim.vim'

@@ -35,7 +35,4 @@ require("lazy").setup({
   performance = {
     reset_packpath = false,
   },
-  readme = {
-    root = rootpath .. '/readme',
-  },
 })

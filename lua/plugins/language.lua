@@ -10,7 +10,6 @@ return {
     -- 安装lsp
     'williamboman/mason.nvim',
     opts = {
-      install_root_dir = vim.env.MYVIMDIR .. '/local/mason',
     },
   },
   {

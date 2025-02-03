@@ -32,6 +32,7 @@ return {
     -- 需要安装c语言环境
     build = ':TSUpdate',
     opts = {
+      ensure_installed = { 'vim', 'regex', 'lua', 'bash', 'markdown', 'markdown_inline', },
       auto_install = true,
       highlight = {
         enable = true,

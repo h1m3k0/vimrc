@@ -28,6 +28,10 @@ return {
     },
   },
   {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+  },
+  {
     'nvim-treesitter/nvim-treesitter',
     -- 需要安装c语言环境
     build = ':TSUpdate',
@@ -50,8 +54,29 @@ return {
         keymaps = {
           init_selection    = '<C-S>',
           node_incremental  = '<C-S>',
-          scope_incremental = '<Tab>',
-          node_decremental  = '<BS>',
+          -- scope_incremental = '<Tab>',
+          node_decremental  = '<C-S-S>',
+        },
+      },
+      textobjects = {
+        select = {
+          enable = true,
+          lookahead = true,
+          keymaps = {
+            ['af'] = '@function.outer',
+            ['if'] = '@function.inner',
+            ['ac'] = '@class.outer',
+            ['ic'] = '@class.inner',
+            ['as'] = { query = '@local.scope', query_group = 'locals' },
+            ['is'] = { query = '@local.scope', query_group = 'locals' },
+            -- ['aa'] = '@parameter.outer',
+            -- ['ia'] = '@parameter.inner',
+          },
+          selection_modes = {
+            ['@function.outer'] = 'V', -- linewise
+            ['@class.outer']    = 'V',
+          },
+          include_surrounding_whitespace = true,
         },
       },
     },

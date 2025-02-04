@@ -23,6 +23,8 @@ return {
   {
     'folke/noice.nvim',
     dependencies = { 'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify' },
+    -- 暂时需要最新版
+    version = false,
     event = 'VeryLazy',
     opts = {
       lsp = {

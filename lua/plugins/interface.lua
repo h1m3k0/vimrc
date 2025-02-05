@@ -1,14 +1,5 @@
 return {
   {
-    'neanias/everforest-nvim',
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme('everforest')
-      vim.o.background = 'dark'
-    end,
-  },
-  {
     'akinsho/bufferline.nvim',
     dependencies = 'nvim-tree/nvim-web-devicons',
     event = 'VeryLazy',
@@ -107,5 +98,15 @@ return {
   {
     'junegunn/vim-peekaboo',
     event = 'VeryLazy',
+  },
+  {
+    'folke/snacks.nvim',
+    opts = {
+      dashboard = {
+        preset = {
+          header = [[]],
+        },
+      },
+    },
   },
 }

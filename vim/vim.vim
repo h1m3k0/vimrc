@@ -8,5 +8,10 @@ xnoremap <silent> <C-S-Up>   :m '<-2<CR>gv=gv
 xnoremap <silent> <C-S-Down> :m '>+<CR>gv=gv
 
 " GUI 字体大小
-command! Bigger  :let &guifont = substitute(&guifont, '\d\+$', '\=submatch(0)+1', '')
-command! Smaller :let &guifont = substitute(&guifont, '\d\+$', '\=submatch(0)-1', '')
+if has('gui_running')
+  command! Bigger  let &guifont = substitute(&guifont, '\d\+$', '\=submatch(0)+1', '')
+  command! Smaller let &guifont = substitute(&guifont, '\d\+$', '\=submatch(0)-1', '')
+endif
+
+nnoremap <silent> <A-Left>  <Esc>:<C-U>bprevious<CR>
+nnoremap <silent> <A-Right> <Esc>:<C-U>bnext<CR>

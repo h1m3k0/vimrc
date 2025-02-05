@@ -28,69 +28,6 @@ return {
     },
   },
   {
-    'nvim-treesitter/nvim-treesitter-textobjects',
-    dependencies = { 'nvim-treesitter/nvim-treesitter' },
-  },
-  {
-    'nvim-treesitter/nvim-treesitter',
-    -- 需要安装c语言环境
-    build = ':TSUpdate',
-    opts = {
-      ensure_installed = { 'vim', 'regex', 'lua', 'bash', 'markdown', 'markdown_inline', },
-      auto_install = true,
-      highlight = {
-        enable = true,
-        disable = function(_, buf)  -- 100KB以上的文件禁用
-            local max_filesize = 100 * 1024 -- 100 KB
-            local ok, stats = pcall(vim.uv.fs_stat, vim.api.nvim_buf_get_name(buf))
-            if ok and stats and stats.size > max_filesize then
-                return true
-            end
-        end,
-        additional_vim_regex_highlighting = false,
-      },
-      incremental_selection = {  -- 范围选取
-        enable =  true,
-        keymaps = {
-          init_selection    = '<C-S>',
-          node_incremental  = '<C-S>',
-          -- scope_incremental = '<Tab>',
-          node_decremental  = '<C-S-S>',
-        },
-      },
-      textobjects = {
-        select = {
-          enable = true,
-          lookahead = true,
-          keymaps = {
-            ['af'] = '@function.outer',
-            ['if'] = '@function.inner',
-            ['ac'] = '@class.outer',
-            ['ic'] = '@class.inner',
-            ['as'] = { query = '@local.scope', query_group = 'locals' },
-            ['is'] = { query = '@local.scope', query_group = 'locals' },
-            -- ['aa'] = '@parameter.outer',
-            -- ['ia'] = '@parameter.inner',
-          },
-          selection_modes = {
-            ['@function.outer'] = 'V', -- linewise
-            ['@class.outer']    = 'V',
-          },
-          include_surrounding_whitespace = true,
-        },
-      },
-    },
-    config = function(_, opts)
-      require'nvim-treesitter.configs'.setup(opts)
-      -- 使用git下载
-      require'nvim-treesitter.install'.prefer_git = true
-      -- 将git地址从https改为ssh (非官方 不稳定) 下载失败尝试关闭VPN
-      for _, setting in pairs(require'nvim-treesitter.parsers'.list) do
-        setting.install_info.url = vim.fn.substitute(setting.install_info.url, 'https://github.com/', 'git@github.com:', 'g')
-      end
-    end,
-  },
-  {
     'saghen/blink.cmp',
     dependencies = 'rafamadriz/friendly-snippets',
     opts = {

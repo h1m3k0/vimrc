@@ -62,6 +62,7 @@ return {
           fuzzy_finder_mappings = {
           },
         },
+        group_empty_dirs = true,
       },
       buffers = {
         window = {

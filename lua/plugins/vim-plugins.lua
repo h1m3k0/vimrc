@@ -46,10 +46,6 @@ return {
     end,
   },
   {
-    'tpope/vim-commentary',
-    event = 'VeryLazy',
-  },
-  {
     'vim-scripts/ReplaceWithRegister',
     event = 'VeryLazy',
   },

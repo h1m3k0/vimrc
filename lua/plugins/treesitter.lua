@@ -91,4 +91,9 @@ return {
       vim.keymap.set({'n','x','o'}, 'M', '%', { remap = true })
     end,
   },
+  {
+    'folke/ts-comments.nvim',
+    event = 'VeryLazy',
+    opts = {},
+  },
 }

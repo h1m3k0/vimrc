@@ -6,7 +6,6 @@ return {
     event = 'VeryLazy',
     opts = {
       -- /neo-tree.nvim/lua/neo-tree/defaults.lua
-      enable_cursor_hijack = true,
       window = {
         mappings = {
           ['o'] = 'open',
@@ -65,6 +64,7 @@ return {
       vim.keymap.set('n', '<Leader>e', '<Esc>:<C-U>Neotree', { noremap = true } )
       vim.keymap.set('n', '<Leader>ee', '<CMD>Neotree<CR>', { noremap = true } )
       vim.keymap.set('n', '<Leader>ef', '<CMD>Neotree reveal<CR>', { noremap = true } )
+      vim.keymap.set('n', '<Leader>ev', '<CMD>Neotree $MYVIMDIR<CR>', { noremap = true } )
     end,
   },
 }

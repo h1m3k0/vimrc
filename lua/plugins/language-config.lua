@@ -4,18 +4,21 @@ return {
     -- lsp配置
     'neovim/nvim-lspconfig',
     dependencies = { 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim', },
+    event = 'VeryLazy',
     config = function()
     end,
   },
   {
     -- 安装lsp
     'williamboman/mason.nvim',
+    event = 'VeryLazy',
     opts = {
     },
   },
   {
     'williamboman/mason-lspconfig.nvim',
     dependencies = { 'williamboman/mason.nvim', 'neovim/nvim-lspconfig' },
+    event = 'VeryLazy',
     opts = {
       ensure_installed = { 'vimls', 'lua_ls' },
       automatic_installation = true,

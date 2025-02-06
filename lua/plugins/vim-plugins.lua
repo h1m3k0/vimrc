@@ -6,6 +6,7 @@ return {
   },
   {
     'easymotion/vim-easymotion',
+    event = 'VeryLazy',
     init = function()
       -- 智能大小写
       vim.g.EasyMotion_smartcase = 1
@@ -22,13 +23,16 @@ return {
   {
     'ZSaberLv0/vim-easymotion-chs',
     dependencies = { 'easymotion/vim-easymotion' },
+    event = 'VeryLazy',
   },
   {
     'tpope/vim-surround',
     dependencies = { 'tpope/vim-repeat' },
+    event = 'VeryLazy',
   },
   {
     'mg979/vim-visual-multi',
+    event = 'VeryLazy',
     init = function()
       vim.g.VM_maps = {
         -- 这里的映射配置是大小写敏感的
@@ -41,32 +45,49 @@ return {
       }
     end,
   },
-  { 'tpope/vim-commentary' },
-  { 'vim-scripts/ReplaceWithRegister' },
-  { 'tommcdo/vim-exchange' },
+  {
+    'tpope/vim-commentary',
+    event = 'VeryLazy',
+  },
+  {
+    'vim-scripts/ReplaceWithRegister',
+    event = 'VeryLazy',
+  },
+  {
+    'tommcdo/vim-exchange',
+    event = 'VeryLazy',
+  },
   {
     'kana/vim-textobj-entire',
     dependencies = { 'kana/vim-textobj-user' },
+    event = 'VeryLazy',
   },
   {
     'machakann/vim-highlightedyank',
+    event = 'VeryLazy',
     init = function()
       vim.g.highlightedyank_highlight_duration = 2000
     end,
   },
-  { 'dbakker/vim-paragraph-motion' },
+  {
+    'dbakker/vim-paragraph-motion',
+    event = 'VeryLazy',
+  },
   {
     'michaeljsmith/vim-indent-object',
     dependencies = { 'kana/vim-textobj-user' },
+    event = 'VeryLazy',
   },
   {
     'chrisbra/matchit',
+    event = 'VeryLazy',
     config = function()
       vim.keymap.set({'n','x','o'}, 'M', '%')
     end,
   },
   {
     'junegunn/vim-easy-align',
+    event = 'VeryLazy',
     config = function()
       vim.keymap.set({'n','x','o'}, 'ga', '<Plug>(EasyAlign)')
     end,

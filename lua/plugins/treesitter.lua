@@ -4,6 +4,7 @@ return {
     'nvim-treesitter/nvim-treesitter',
     -- 需要安装c语言环境
     build = ':TSUpdate',
+    event = 'VeryLazy',
     opts = {
       ensure_installed = { 'vim', 'regex', 'lua', 'bash', 'markdown', 'markdown_inline', },
       auto_install = true,
@@ -65,16 +66,19 @@ return {
     -- 文本对象
     'nvim-treesitter/nvim-treesitter-textobjects',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    event = 'VeryLazy',
   },
   {
     -- 将当前函数显示为窗口顶部的浮动窗口
     'nvim-treesitter/nvim-treesitter-context',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    event = 'VeryLazy',
   },
   {
     -- 自动Tag
     'windwp/nvim-ts-autotag',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    event = 'VeryLazy',
     config = true,
   },
 }

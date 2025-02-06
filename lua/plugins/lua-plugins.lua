@@ -2,22 +2,25 @@
 return {
   {
     'folke/flash.nvim',
-    config=true,
+    event = 'VeryLazy',
+    config = true,
   },
   {
     'windwp/nvim-autopairs',
-    event = "InsertEnter",
+    event = 'VeryLazy',
     config = true,
   },
   {
     -- git相关
     'lewis6991/gitsigns.nvim',
+    event = 'VeryLazy',
     config = true,
   },
   {
     -- 文件/关键字 搜索
     'nvim-telescope/telescope.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
+    event = 'VeryLazy',
     config = function()
       local builtin = require('telescope.builtin')
       vim.keymap.set('n', '<Leader>ff', builtin.find_files, {})
@@ -25,6 +28,7 @@ return {
     end,
   },
   {
-    'echasnovski/mini.nvim'
+    'echasnovski/mini.nvim',
+    event = 'VeryLazy',
   },
 }

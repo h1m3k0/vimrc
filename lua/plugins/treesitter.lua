@@ -96,4 +96,14 @@ return {
     event = 'VeryLazy',
     opts = {},
   },
+  {
+    'windwp/nvim-autopairs',
+    event = 'VeryLazy',
+    opts = {
+      modes = { insert = true, command = true, terminal = false },
+      check_ts = true,
+      skip_ts = { 'string' },
+      skip_unbalanced = true,
+    },
+  },
 }

@@ -6,11 +6,6 @@ return {
     config = true,
   },
   {
-    'windwp/nvim-autopairs',
-    event = 'VeryLazy',
-    config = true,
-  },
-  {
     -- git相关
     'lewis6991/gitsigns.nvim',
     event = 'VeryLazy',

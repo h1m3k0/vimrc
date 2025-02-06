@@ -2,8 +2,7 @@
 return {
   {
     'nvim-treesitter/nvim-treesitter',
-    -- 需要安装c语言环境
-    build = ':TSUpdate',
+    build = ':TSUpdate',  -- 需要安装c语言环境
     event = 'VeryLazy',
     opts = {
       ensure_installed = { 'vim', 'regex', 'lua', 'bash', 'markdown', 'markdown_inline', },
@@ -29,7 +28,8 @@ return {
           node_decremental  = '<C-S-S>',
         },
       },
-      textobjects = {  -- 文本对象
+      -- 文本对象
+      textobjects = {
         select = {
           enable = true,
           lookahead = true,
@@ -50,7 +50,7 @@ return {
           include_surrounding_whitespace = true,
         },
       },
-      matchup = {
+      matchup = {  -- % 匹配
         enable = true,
       },
     },
@@ -71,7 +71,7 @@ return {
     event = 'VeryLazy',
   },
   {
-    -- 将当前函数显示为窗口顶部的浮动窗口
+    -- 显示代码上下文
     'nvim-treesitter/nvim-treesitter-context',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     event = 'VeryLazy',
@@ -84,6 +84,7 @@ return {
     config = true,
   },
   {
+    -- % 匹配
     'andymass/vim-matchup',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     event = 'VeryLazy',
@@ -92,11 +93,13 @@ return {
     end,
   },
   {
+    -- 注释
     'folke/ts-comments.nvim',
     event = 'VeryLazy',
     opts = {},
   },
   {
+    -- 自动括号
     'windwp/nvim-autopairs',
     event = 'VeryLazy',
     opts = {

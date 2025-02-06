@@ -1,32 +1,5 @@
+---@type LazySpec
 return {
-  {
-    -- lsp配置
-    'neovim/nvim-lspconfig',
-    dependencies = { 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim', },
-    config = function()
-    end,
-  },
-  {
-    -- 安装lsp
-    'williamboman/mason.nvim',
-    opts = {
-    },
-  },
-  {
-    'williamboman/mason-lspconfig.nvim',
-    dependencies = { 'williamboman/mason.nvim', 'neovim/nvim-lspconfig' },
-    opts = {
-      ensure_installed = { 'vimls', 'lua_ls' },
-      automatic_installation = true,
-      handlers = {
-        function (server_name)
-          require('lspconfig')[server_name].setup {}
-        end,
-        -- ['server_name'] = function()
-        -- end,
-      }
-    },
-  },
   {
     'saghen/blink.cmp',
     dependencies = 'rafamadriz/friendly-snippets',
@@ -77,12 +50,5 @@ return {
       },
     },
     opts_extend = { 'sources.default' },
-  },
-  { 'mfussenegger/nvim-lint' },
-  { 'stevearc/conform.nvim' },
-  {
-    'folke/lazydev.nvim',
-    ft = 'lua',
-    opts = {},
   },
 }

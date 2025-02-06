@@ -29,8 +29,7 @@ return {
           node_decremental  = '<C-S-S>',
         },
       },
-      -- 文本对象
-      textobjects = {
+      textobjects = {  -- 文本对象
         select = {
           enable = true,
           lookahead = true,
@@ -50,6 +49,9 @@ return {
           },
           include_surrounding_whitespace = true,
         },
+      },
+      matchup = {
+        enable = true,
       },
     },
     config = function(_, opts)
@@ -80,5 +82,13 @@ return {
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     event = 'VeryLazy',
     config = true,
+  },
+  {
+    'andymass/vim-matchup',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    event = 'VeryLazy',
+    config = function()
+      vim.keymap.set({'n','x','o'}, 'M', '%', { remap = true })
+    end,
   },
 }

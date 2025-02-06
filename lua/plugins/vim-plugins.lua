@@ -79,13 +79,6 @@ return {
     event = 'VeryLazy',
   },
   {
-    'chrisbra/matchit',
-    event = 'VeryLazy',
-    config = function()
-      vim.keymap.set({'n','x','o'}, 'M', '%')
-    end,
-  },
-  {
     'junegunn/vim-easy-align',
     event = 'VeryLazy',
     config = function()

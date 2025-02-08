@@ -87,6 +87,7 @@ return {
     -- % 匹配
     'andymass/vim-matchup',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    version = false,  -- 最新版
     event = 'VeryLazy',
     config = function()
       vim.keymap.set({'n','x','o'}, 'M', '%', { remap = true })

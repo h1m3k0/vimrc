@@ -26,8 +26,8 @@ return {
         function (server_name)
           require('lspconfig')[server_name].setup {}
         end,
-        -- ['server_name'] = function()
-        -- end,
+        ['jdtls'] = function()
+        end,
       }
     },
   },
@@ -43,4 +43,7 @@ return {
       enabled = true,
     },
   },
+  {
+    import = 'plugins/languages'
+  }
 }

@@ -18,8 +18,6 @@ call IdeaVimSourcePlugin('tommcdo/vim-exchange')
 call IdeaVimSourcePlugin('kana/vim-textobj-entire')
 " highlightedyank 复制高亮
 call IdeaVimSourcePlugin('machakann/vim-highlightedyank')
-" vim-pagragraph-motion 大括号增强 (只含有空格的行)
-call IdeaVimSourcePlugin('dbakker/vim-paragraph-motion')
 " vim-indent-obj 缩进文本对象 [text-objects] ii当前 ai包含上一行 aI包含上下
 call IdeaVimSourcePlugin('michaeljsmith/vim-indent-object')
 " matchit 百分号增强 (自定义匹配内容, IdeaVim中默认可匹配 HTML标签/if-else 等)

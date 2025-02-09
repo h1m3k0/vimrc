@@ -66,10 +66,6 @@ return {
     end,
   },
   {
-    'dbakker/vim-paragraph-motion',
-    event = 'VeryLazy',
-  },
-  {
     'michaeljsmith/vim-indent-object',
     dependencies = { 'kana/vim-textobj-user' },
     event = 'VeryLazy',

@@ -3,7 +3,6 @@ let g:plug_url_format = g:config_github
 call plug#begin($MYVIMDIR.'/local/vim-plug/plugins')
 " IdeaVim支持的插件
 Plug 'easymotion/vim-easymotion'        " 快速跳转 [motions]
-Plug 'justinmk/vim-sneak'
 Plug 'preservim/nerdtree'               " 文件树
 Plug 'tpope/vim-surround'               " 环绕操作
 Plug 'terryma/vim-multiple-cursors'     " 多光标
@@ -13,11 +12,9 @@ Plug 'vim-scripts/argtextobj.vim'       " 参数文本对象
 Plug 'tommcdo/vim-exchange'             " 互换操作
 Plug 'kana/vim-textobj-entire'          " 全文文本对象
 Plug 'machakann/vim-highlightedyank'    " 复制高亮
-Plug 'dbakker/vim-paragraph-motion'     " 大括号增强
 Plug 'michaeljsmith/vim-indent-object'  " 缩进文本对象 [text-objects] ii当前 ai包含上一行 aI包含上下
 Plug 'chrisbra/matchit'                 " 百分号增强
-" Plug 'unblevable/quick-scope'           " 高亮每个单词中唯一的字符
-" Plug 'liuchengxu/vim-which-key'         " 实时显示组合键
+Plug 'unblevable/quick-scope'           " 高亮每个单词中唯一的字符
 Plug 'junegunn/vim-peekaboo'
 
 
@@ -39,7 +36,10 @@ Plug 'vim-airline/vim-airline-themes'   " 状态栏主题
 Plug 'mhinz/vim-startify'               " 启动页面
 call plug#end()
 
-colorscheme everforest
+try
+  colorscheme everforest
+catch
+endtry
 try
   set guifont=CaskaydiaMono_NFM:h11
 catch

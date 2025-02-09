@@ -50,7 +50,8 @@ return {
           include_surrounding_whitespace = true,
         },
       },
-      matchup = {  -- % 匹配
+      -- % 匹配
+      matchup = {
         enable = true,
       },
     },
@@ -60,7 +61,11 @@ return {
       require'nvim-treesitter.install'.prefer_git = true
       -- 将git地址从https改为ssh (非官方 不稳定) 下载失败尝试关闭VPN
       for _, setting in pairs(require'nvim-treesitter.parsers'.list) do
-        setting.install_info.url = vim.fn.substitute(setting.install_info.url, 'https://github.com/', 'git@github.com:', 'g')
+        setting.install_info.url = vim.fn.substitute(
+          setting.install_info.url,
+          'https://github.com/',
+          'git@github.com:',
+          'g')
       end
     end,
   },

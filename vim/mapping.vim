@@ -4,11 +4,15 @@
 " leader键
 noremap  <Leader>  <Nop>
 
-" s和x删除 => 不进入缓存
+" 删除不进入缓存
 noremap  s  "_s
 noremap  S  "_S
 noremap  x  "_x
 noremap  X  "_X
+noremap <Leader>c "_c
+noremap <Leader>C "_C
+noremap <Leader>d "_d
+noremap <Leader>D "_D
 
 " 水平移动时保留光标
 xnoremap  <  <gv

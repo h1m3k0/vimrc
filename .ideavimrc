@@ -3,9 +3,23 @@
 " let g:MYVIMDIR = 'THIS_PATH'
 " execute 'source '.g:MYVIMDIR.'/.ideavimrc'
 "
-execute 'source '.g:MYVIMDIR.'/vim/configs/config_example.vim'
-execute 'source '.g:MYVIMDIR.'/vim/configs/config.vim'
-execute 'source '.g:MYVIMDIR.'/vim/setting.vim'
-execute 'source '.g:MYVIMDIR.'/vim/mapping.vim'
-execute 'source '.g:MYVIMDIR.'/vim/ideavim.plugin.vim'
-execute 'source '.g:MYVIMDIR.'/vim/ideavim.vim'
+if exists('g:MYVIMDIR')
+  " 路径以/开头
+  let s:flag = g:MYVIMDIR[0] == '/'
+  " 将路径中的\转为/
+  let g:MYVIMDIR = join(split(g:MYVIMDIR, '\'), '/')
+  " 去掉路径结尾的/
+  let g:MYVIMDIR = join(split(g:MYVIMDIR, '/'), '/')
+  " 如果路径以/开头, 最后在前面加上/
+  if s:flag
+    let g:MYVIMDIR = '/'.g:MYVIMDIR
+  end
+  execute 'source '.g:MYVIMDIR.'/vim/configs/config_example.vim'
+  execute 'source '.g:MYVIMDIR.'/vim/configs/config.vim'
+  execute 'source '.g:MYVIMDIR.'/vim/setting.vim'
+  execute 'source '.g:MYVIMDIR.'/vim/mapping.vim'
+  execute 'source '.g:MYVIMDIR.'/vim/ideavim.plugin.vim'
+  execute 'source '.g:MYVIMDIR.'/vim/ideavim.vim'
+else
+  echo '~/.ideavimrc source the init file successfully but has NOT config the "let g:MYVIMDIR = "'
+end

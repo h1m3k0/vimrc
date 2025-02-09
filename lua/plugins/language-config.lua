@@ -5,7 +5,8 @@ return {
     'neovim/nvim-lspconfig',
     dependencies = { 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim', },
     event = 'VeryLazy',
-    opts = {},
+    config = function()
+    end,
   },
   {
     -- 安装lsp

@@ -30,16 +30,4 @@ return {
     'folke/which-key.nvim',
     event = 'VeryLazy',
   },
-  {
-    'folke/snacks.nvim',
-    priority = 999,
-    lazy = false,
-    opts = {
-      dashboard = {
-        preset = {
-          header = [[]],
-        },
-      },
-    },
-  },
 }

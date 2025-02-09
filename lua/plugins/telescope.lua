@@ -4,6 +4,7 @@ return {
     -- 文件/关键字 搜索
     'nvim-telescope/telescope.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
+    version = '*',
     event = 'VeryLazy',
     config = function()
       local builtin = require('telescope.builtin')

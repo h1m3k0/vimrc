@@ -3,6 +3,7 @@ return {
   {
     'akinsho/bufferline.nvim',
     dependencies = 'nvim-tree/nvim-web-devicons',
+    version = '*',
     event = 'VeryLazy',
     config = true,
   },
@@ -16,8 +17,6 @@ return {
     'folke/noice.nvim',
     dependencies = { 'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify' },
     event = 'VeryLazy',
-    -- 暂时需要最新版
-    version = false,
     opts = {
       lsp = {
         override = {
@@ -32,11 +31,9 @@ return {
     event = 'VeryLazy',
   },
   {
-    'junegunn/vim-peekaboo',
-    event = 'VeryLazy',
-  },
-  {
     'folke/snacks.nvim',
+    priority = 999,
+    lazy = false,
     opts = {
       dashboard = {
         preset = {

@@ -77,4 +77,8 @@ return {
       vim.keymap.set({'n','x','o'}, 'ga', '<Plug>(EasyAlign)')
     end,
   },
+  {
+    'junegunn/vim-peekaboo',
+    event = 'VeryLazy',
+  },
 }

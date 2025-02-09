@@ -76,7 +76,11 @@ set regexpengine=0
 set gdefault
 
 " <C-A>和<C-X> 处理数字格式(二进制, 十六进制, 无符号数)
-set nrformats=bin,hex,unsigned
+set nrformats-=octal
+try
+  set nrformats+=unsigned
+catch
+endtry
 
 " 取消提示音
 set noerrorbells 
@@ -94,15 +98,15 @@ if has('termguicolors')
 endif
 " Enable 256 colors palette in Gnome Terminal
 if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
+  set t_Co=256
 endif
 
 " " Set extra options when running in GUI mode
 if has('gui_running')
-    set guioptions-=T
-    set guioptions-=e
-    set t_Co=256
-    set guitablabel=%M\ %t
+  set guioptions-=T
+  set guioptions-=e
+  set t_Co=256
+  set guitablabel=%M\ %t
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language

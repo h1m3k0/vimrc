@@ -18,8 +18,10 @@ Plug 'unblevable/quick-scope'           " 高亮每个单词中唯一的字符
 Plug 'junegunn/vim-peekaboo'
 
 
-" 中文文档
-Plug 'yianwillis/vimcdoc'
+if v:version >= 900
+  " 中文文档
+  Plug 'yianwillis/vimcdoc'
+endif
 
 " 主题色
 Plug 'morhetz/gruvbox'
@@ -37,7 +39,11 @@ Plug 'mhinz/vim-startify'               " 启动页面
 call plug#end()
 
 try
-  colorscheme everforest
+  if has('termguicolors')
+    colorscheme everforest
+  else
+    colorscheme onedark
+  endif
 catch
 endtry
 try

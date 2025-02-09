@@ -1,10 +1,6 @@
 ---@type LazySpec 
 return {
   {
-    'yianwillis/vimcdoc',
-    event = 'VeryLazy',
-  },
-  {
     'easymotion/vim-easymotion',
     event = 'VeryLazy',
     init = function()

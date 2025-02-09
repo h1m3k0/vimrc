@@ -69,9 +69,6 @@ set backspace=eol,start,indent
 set ignorecase smartcase hlsearch incsearch
 nohlsearch
 
-" 默认有标号
-set signcolumn=yes
-
 " 正则表达式引擎
 set regexpengine=0
 

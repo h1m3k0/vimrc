@@ -46,10 +46,6 @@ try
   endif
 catch
 endtry
-try
-  set guifont=CaskaydiaMono_NFM:h11
-catch
-endtry
 
 for name in g:plugs_order
   if has_key(g:plugs, name) && isdirectory(g:plugs[name].dir) 

@@ -134,7 +134,6 @@ if has('gui_running')
   set guioptions-=e
   set t_Co=256
   set guitablabel=%M\ %t
-  set guifont=Consolas:h12
   set columns=120
   set lines=30
 endif

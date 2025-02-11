@@ -1,6 +1,20 @@
 ---@type LazySpec 
 return {
   {
+    'preservim/nerdtree',
+    event = 'VeryLazy',
+    init = function()
+      vim.g.NERDTreeChDirMode = 2
+    end,
+    keys = {
+      { '<Leader>ee', '<Esc>:<C-U>NERDTree' },
+      { '<Leader>ef', '<CMD>NERDTreeFind<CR>' },
+      { '<Leader>et', '<CMD>NERDTreeToggle<CR>' },
+      { '<Leader>ev', '<CMD>NERDTree $MYVIMDIR<CR>' },
+      { '<Leader>eh', '<CMD>NERDTree $HOME<CR>' },
+    },
+  },
+  {
     'easymotion/vim-easymotion',
     event = 'VeryLazy',
     init = function()

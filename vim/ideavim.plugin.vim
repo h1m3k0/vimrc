@@ -36,20 +36,21 @@ set functiontextobj
 " Plug 并且 source
 " 或 只有set (需要手动再调用IdeaVimSource引入配置)
 function! IdeaVimSourcePlugin(plug)
-  let l:splits = split(a:plug, '/')
-  if len(l:splits) == 2
+  let splits = split(plug, '/')
+  if len(splits) == 2
     " 执行Plugin
-    execute 'Plug "'.a:plug.'"'
-    call IdeaVimSource('/vim/plugins/'.l:splits[1].'.vim')
+    execute 'Plug "'.plug.'"'
+    let g:test = plug
+    call IdeaVimSource('/vim/plugins/'.splits[1].'.vim')
   else
-    execute 'set '.a:plug
+    execute 'set '.plug
   endif
 endfunction
 
 " 在g:MYVIMDIR下 引入配置文件
 function! IdeaVimSource(path)
-  let l:path = join(split(a:path, '\'), '/')
-  let l:path = join(split(l:path, '/'), '/')
-  let l:path = '/'.l:path
-  execute 'source '.g:MYVIMDIR.l:path
+  let path = join(split(path, '\'), '/')
+  let path = join(split(path, '/'), '/')
+  let path = '/'.path
+  execute 'source '.g:MYVIMDIR.path
 endfunction

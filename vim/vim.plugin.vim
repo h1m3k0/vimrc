@@ -31,8 +31,10 @@ Plug 'altercation/vim-colors-solarized'
 
 Plug 'ZSaberLv0/vim-easymotion-chs'     " easymotion中文扩展
 Plug 'tpope/vim-repeat'                 " tpope的点扩展
+Plug 'jiangmiao/auto-pairs'             " 自动括号
 Plug 'kana/vim-textobj-user'            " 自定义文本对象 (vim-textobj-entire前置插件)
 Plug 'junegunn/vim-easy-align'          " 对齐 [operator] ga/ga*/ga**
+Plug 'mattn/emmet-vim'                  " html/css
 Plug 'vim-airline/vim-airline'          " 状态栏
 Plug 'vim-airline/vim-airline-themes'   " 状态栏主题
 Plug 'mhinz/vim-startify'               " 启动页面

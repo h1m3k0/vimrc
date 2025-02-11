@@ -77,4 +77,11 @@ return {
     'junegunn/vim-peekaboo',
     event = 'VeryLazy',
   },
+  {
+    'mattn/emmet-vim',
+    event = 'VeryLazy',
+    init = function()
+      vim.g.user_emmet_expandabbr_key = '<Tab>'
+    end,
+  },
 }

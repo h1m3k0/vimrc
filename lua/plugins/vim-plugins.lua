@@ -7,7 +7,7 @@ return {
       vim.g.NERDTreeChDirMode = 2
     end,
     keys = {
-      { '<Leader>ee', '<Esc>:<C-U>NERDTree' },
+      { '<Leader>e',  '<Esc>:<C-U>NERDTree' },
       { '<Leader>ef', '<CMD>NERDTreeFind<CR>' },
       { '<Leader>et', '<CMD>NERDTreeToggle<CR>' },
       { '<Leader>ev', '<CMD>NERDTree $MYVIMDIR<CR>' },

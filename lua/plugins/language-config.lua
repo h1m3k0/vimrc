@@ -6,6 +6,10 @@ return {
     dependencies = { 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim', },
     event = 'VeryLazy',
     config = function()
+      vim.keymap.set('n', 'gD', vim.lsp.buf.declaration)
+      vim.keymap.set('n', 'gI', vim.lsp.buf.implementation)
+      vim.keymap.set('n', '<Leader>cr', vim.lsp.buf.rename)
+      vim.keymap.set('n', '<Leader>ca', vim.lsp.buf.code_action)
     end,
   },
   {

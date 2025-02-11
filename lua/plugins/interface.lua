@@ -14,6 +14,11 @@ return {
     config = true,
   },
   {
+    'stevearc/dressing.nvim',
+    event = 'VeryLazy',
+    opts = {},
+  },
+  {
     'folke/noice.nvim',
     dependencies = { 'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify' },
     event = 'VeryLazy',

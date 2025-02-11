@@ -2,7 +2,6 @@
 return {
   {
     'preservim/nerdtree',
-    dependencies = { 'ryanoasis/vim-devicons' },
     event = 'VeryLazy',
     init = function()
       vim.g.NERDTreeChDirMode = 2
@@ -14,6 +13,16 @@ return {
       { '<Leader>ev', '<CMD>NERDTree $MYVIMDIR<CR>' },
       { '<Leader>eh', '<CMD>NERDTree $HOME<CR>' },
     },
+  },
+  {
+    'Xuyuanp/nerdtree-git-plugin',
+    dependencies = { 'preservim/nerdtree' },
+    event = 'VeryLazy',
+  },
+  {
+    'ryanoasis/vim-devicons',
+    dependencies = { 'Xuyuanp/nerdtree-git-plugin' },
+    event = 'VeryLazy',
   },
   {
     'easymotion/vim-easymotion',

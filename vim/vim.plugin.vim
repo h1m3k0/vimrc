@@ -35,6 +35,7 @@ Plug 'jiangmiao/auto-pairs'             " 自动括号
 Plug 'kana/vim-textobj-user'            " 自定义文本对象 (vim-textobj-entire前置插件)
 Plug 'junegunn/vim-easy-align'          " 对齐 [operator] ga/ga*/ga**
 Plug 'mattn/emmet-vim'                  " html/css
+Plug 'Xuyuanp/nerdtree-git-plugin'      " NERDTree+Git
 Plug 'ryanoasis/vim-devicons'           " 图标
 Plug 'vim-airline/vim-airline'          " 状态栏
 Plug 'vim-airline/vim-airline-themes'   " 状态栏主题

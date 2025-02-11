@@ -45,8 +45,7 @@ return {
             ['ia'] = '@parameter.inner',
           },
           selection_modes = {
-            ['@function.outer'] = 'V', -- linewise
-            ['@class.outer']    = 'V',
+            ['@class.outer']    = 'V', -- linewise
           },
           include_surrounding_whitespace = true,
         },

@@ -16,14 +16,6 @@
      execute D:/.vim/vimrc
      ~~~
 
-   - neovim
-
-     文件 `~/AppData/Local/nvim/init.vim`
-
-     ~~~vimscript
-     execute D:/.vim/init.vim
-     ~~~
-
    - ideavim
 
      文件 `~/.ideavimrc`
@@ -32,7 +24,7 @@
      let g:VIMRC_DIR = 'D:/.vim'
      execute 'source '.g:VIMRC_DIR.'/.ideavimrc'
      ~~~
-
+   
 3. 初始化
 
    复制 `D:/.vim/vim/configs/config_example.vim` 到 `D:/.vim/vim/configs/config.vim`，修改默认配置

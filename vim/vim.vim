@@ -2,10 +2,10 @@ vim9script
 
 # 设置字体
 try
-  set guifont=JetBrainsMono_NFM:12
+  set guifont=JetBrainsMono_NFM:h12
 catch
   try
-    set guifont=Consolas:12
+    set guifont=Consolas:h12
   endtry
 endtry
 

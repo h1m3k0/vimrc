@@ -1,7 +1,7 @@
 .idea
 *.iml
-local
 sessions
+plugged
 vim/config/config.vim
 autoload/plug.vim.old
 

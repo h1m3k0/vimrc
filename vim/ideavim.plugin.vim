@@ -10,7 +10,7 @@ endfunction
 
 " 引入配置
 function! IdeaVimSource(file)
-  execute 'source '.g:MYVIMDIR.'/vim/plugins/'.a:file.'.vim'
+  execute 'source '.g:vimrc_home.'/vim/plugins/'.a:file.'.vim'
 endfunction
 
 " easymotion 快速跳转 [motions]

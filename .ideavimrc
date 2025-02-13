@@ -1,25 +1,25 @@
 " ideavim启动文件(~/.ideavimrc)引入此文件
 "
-" let g:MYVIMDIR = 'THIS_PATH'
-" execute 'source '.g:MYVIMDIR.'/.ideavimrc'
+" let g:vimrc_home = '~/vimfiles'
+" execute 'source '.g:vimrc_home.'/.ideavimrc'
 "
-if exists('g:MYVIMDIR')
+if exists('g:vimrc_home')
   " 路径以/开头
-  let s:flag = g:MYVIMDIR[0] == '/'
+  let s:flag = g:vimrc_home[0] == '/'
   " 将路径中的\转为/
-  let g:MYVIMDIR = join(split(g:MYVIMDIR, '\'), '/')
+  let g:vimrc_home = join(split(g:vimrc_home, '\'), '/')
   " 去掉路径结尾的/
-  let g:MYVIMDIR = join(split(g:MYVIMDIR, '/'), '/')
+  let g:vimrc_home = join(split(g:vimrc_home, '/'), '/')
   " 如果路径以/开头, 最后在前面加上/
   if s:flag
-    let g:MYVIMDIR = '/'.g:MYVIMDIR
+    let g:vimrc_home = '/'.g:vimrc_home
   end
-  execute 'source '.g:MYVIMDIR.'/vim/configs/config_example.vim'
-  execute 'source '.g:MYVIMDIR.'/vim/configs/config.vim'
-  execute 'source '.g:MYVIMDIR.'/vim/setting.vim'
-  execute 'source '.g:MYVIMDIR.'/vim/mapping.vim'
-  execute 'source '.g:MYVIMDIR.'/vim/ideavim.plugin.vim'
-  execute 'source '.g:MYVIMDIR.'/vim/ideavim.vim'
+  execute 'source '.g:vimrc_home.'/vim/configs/config_example.vim'
+  execute 'source '.g:vimrc_home.'/vim/configs/config.vim'
+  execute 'source '.g:vimrc_home.'/vim/setting.vim'
+  execute 'source '.g:vimrc_home.'/vim/mapping.vim'
+  execute 'source '.g:vimrc_home.'/vim/ideavim.plugin.vim'
+  execute 'source '.g:vimrc_home.'/vim/ideavim.vim'
 else
-  echo '~/.ideavimrc source the init file successfully but has NOT config the "let g:MYVIMDIR = "'
+  echo '~/.ideavimrc source the init file successfully but has NOT config the "let g:vimrc_home = "'
 end

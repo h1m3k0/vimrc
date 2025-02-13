@@ -1,5 +1,4 @@
 " IdeaVim额外的配置
-" ========== ideavim额外的set配置 开始 ==========
 "
 " set ideacopypreprocess
 " set ideaglobalmode
@@ -11,10 +10,8 @@ set ideajoin
 " set lookupkeys=
 set trackactionids
 " set visualdelay=
-" ---------- ideavim额外的set配置 结束 ----------
 
-" ========== 自定义映射Action 开始 ========== 
-"
+" Action mapping
 " 重命名 Shift-F6
 map  <Leader>r <Action>(RenameElement)
 " 全局搜索 Ctrl-Shift-F
@@ -27,22 +24,20 @@ map  <C-S>     <Action>(EditorSelectWord)
 map  <Leader>k <Action>(GotoDeclaration)
 " 跳转到实现 Alt-Ctrl-B
 map  <Leader>j <Action>(GotoImplementation)
-" ---------- 自定义映射Action 结束 ----------
 
-" ========== coc未实现的Action 开始 ==========
 " 引入变量 Alt-Ctrl-V
-map  <Leader>v  <Action>(IntroduceVariable)
+map  <Leader>v <Action>(IntroduceVariable)
 " 补全 Ctrl-Shift-Enter
-map  <Leader>;  <Action>(EditorCompleteStatement)
+map  <Leader>; <Action>(EditorCompleteStatement)
 " 优化导入 Ctrl-Shift-O
-map  <Leader>o  <Action>(OptimizeImports)
+map  <Leader>o <Action>(OptimizeImports)
 " 环绕 Alt-Ctrl-T
-map  <Leader>t  <Action>(SurroundWith)
+map  <Leader>t <Action>(SurroundWith)
 " 提示 Alt-Enter
-map  <Leader>i  <Action>(ShowIntentionActions)
-" ---------- coc未实现的Action 结束 ----------
-"
-" ========== 自定义命令Action 开始 ==========
+map  <Leader>i <Action>(ShowIntentionActions)
+
+
+" Action command
 "
 " VimReload 重新加载ideavimrc
 command! VimReload   call IdeaVimAction('IdeaVim.ReloadVimRc.reload')
@@ -61,9 +56,8 @@ command! MavenReload call IdeaVimAction('Maven.Reimport Maven.UpdateFolders')
 command! Git         call IdeaVimAction('Git.Menu')
 " Vim 关闭ideavim
 command! Vim         call IdeaVimAction('VimPluginToggle')
-" ---------- 自定义命令Action 结束 ----------
 
-" ========== Function ========== 
+" ========== Function ==========
 " 执行IdeaVimAction 多个命令根据<space>切分
 function! IdeaVimAction(actions)
     let l:actions = split(a:actions, ' ') 
@@ -71,4 +65,3 @@ function! IdeaVimAction(actions)
         execute 'action '.l:action
     endfor
 endfunction
-" ---------- Function ----------

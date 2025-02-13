@@ -26,6 +26,8 @@ Plug 'joshdick/onedark.vim'
 Plug 'sainnhe/everforest'
 Plug 'altercation/vim-colors-solarized'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+Plug 'nordtheme/vim', { 'as': 'nord' }
+Plug 'karoliskoncevicius/sacredforest-vim'
 
 Plug 'ZSaberLv0/vim-easymotion-chs'     " easymotion中文扩展
 Plug 'tpope/vim-repeat'                 " tpope的点扩展

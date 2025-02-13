@@ -22,5 +22,24 @@ if has('gui_running')
   command! Smaller let &guifont = substitute(&guifont, '\d\+$', '\=submatch(0)-1', '')
 endif
 
-nnoremap <silent> <A-Left>  <Esc>:<C-U>bprevious<CR>
-nnoremap <silent> <A-Right> <Esc>:<C-U>bnext<CR>
+" 切换 buffer or tag
+nnoremap <silent> <A-Left>  <Esc>:<C-U>call My_PrevPage()<CR>
+nnoremap <silent> <A-Right> <Esc>:<C-U>call My_NextPage()<CR>
+
+" next (bp or tabp)
+function! My_NextPage()
+  if tabpagenr('$') == 1
+    bnext
+  else
+    tabnext
+  endif
+endfunction
+
+" prev (bn or tabn)
+function! g:My_PrevPage()
+  if tabpagenr('$') == 1
+    bprevious
+  else
+    tabprevious
+  endif
+endfunction

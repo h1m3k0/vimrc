@@ -23,15 +23,11 @@ xnoremap  >  >gv
 " ========== 功能映射 开始 ==========
 
 " 全模式 方向键
-if g:config_keyboard == 0 && g:config_environment == 0
+if g:config_keyboard == 0
     noremap <C-H>  <Left>|inoremap <C-H>  <Left>|cnoremap <C-H>  <Left>
     noremap <C-J>  <Down>|inoremap <C-J>  <Down>|cnoremap <C-J>  <Down>
     noremap <C-K>    <Up>|inoremap <C-K>    <Up>|cnoremap <C-K>    <Up>
     noremap <C-L> <Right>|inoremap <C-L> <Right>|cnoremap <C-L> <Right>
-endif
-
-" Insert模式 jk 退出
-if g:config_keyboard == 0
     inoremap  jk  <Esc>
     inoremap  jj  j
 endif
@@ -51,7 +47,7 @@ xnoremap  <silent> /  <Esc>:<C-U>call VisualRegSearch()<CR>/<CR>N
 xnoremap  <silent> ?  <Esc>:<C-U>call VisualRegSearch()<CR>?<CR>N
 
 " 取消搜索高亮
-nnoremap  <silent> <Leader>/  <Esc>:<C-U>nohlsearch<CR>
+nnoremap  <silent> <Leader>/  <Esc>:<C-U>noh<CR>
 
 " ---------- 功能映射 结束 ----------
 
@@ -65,9 +61,9 @@ smapclear
 
 " 可视模式直接搜索当前选择内容
 function! VisualRegSearch()
-    let l:temp = @"
+    let l:tmp = @"
     normal! gvy
     let @/ = @"
-    let @" = l:temp
+    let @" = l:tmp
 endfunction
 " ---------- Function 结束 ----------

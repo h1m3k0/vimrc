@@ -1,6 +1,5 @@
 " PlugVim加载插件
-let g:plug_url_format = g:config_github
-call plug#begin($MYVIMDIR.'/local/vim-plug/plugins')
+call plug#begin(g:vimrc_home.'/plugged')
 " IdeaVim支持的插件
 Plug 'easymotion/vim-easymotion'        " 快速跳转 [motions]
 Plug 'preservim/nerdtree'               " 文件树
@@ -18,10 +17,8 @@ Plug 'unblevable/quick-scope'           " 高亮每个单词中唯一的字符
 Plug 'junegunn/vim-peekaboo'
 
 
-if v:version >= 900
-  " 中文文档
-  Plug 'yianwillis/vimcdoc'
-endif
+" 中文文档
+Plug 'yianwillis/vimcdoc'
 
 " 主题色
 Plug 'morhetz/gruvbox'
@@ -41,7 +38,7 @@ Plug 'ryanoasis/vim-devicons'           " 图标
 Plug 'vim-airline/vim-airline'          " 状态栏
 Plug 'vim-airline/vim-airline-themes'   " 状态栏主题
 Plug 'mhinz/vim-startify'               " 启动页面
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 try

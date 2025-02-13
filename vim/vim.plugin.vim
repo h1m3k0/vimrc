@@ -54,8 +54,8 @@ endtry
 
 for name in g:plugs_order
   if has_key(g:plugs, name) && isdirectory(g:plugs[name].dir) 
-    if filereadable($MYVIMDIR.'/vim/plugins/'.name.'.vim')
-      execute 'source '.$MYVIMDIR.'/vim/plugins/'.name.'.vim'
+    if filereadable(g:vimrc_home.'/vim/plugins/'.name.'.vim')
+      execute 'source '.g:vimrc_home.'/vim/plugins/'.name.'.vim'
     endif
   endif
 endfor

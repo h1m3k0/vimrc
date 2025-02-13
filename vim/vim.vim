@@ -2,11 +2,10 @@ vim9script
 
 # 设置字体
 try
-  set guifont=JetBrainsMono_NFM:h12
+  set guifont=JetBrainsMono_NFM:12
 catch
   try
-    set guifont=Consolas:h12
-  catch
+    set guifont=Consolas:12
   endtry
 endtry
 
@@ -18,8 +17,8 @@ xnoremap <silent> <C-S-Down> :m '>+<CR>gv=gv
 
 # GUI 字体大小
 if has('gui_running')
-  command! Bigger  let &guifont = substitute(&guifont, '\d\+$', '\=submatch(0)+1', '')
-  command! Smaller let &guifont = substitute(&guifont, '\d\+$', '\=submatch(0)-1', '')
+  command! Bigger  &guifont = substitute(&guifont, '\d\+$', '\=str2nr(submatch(0)) + 1', '')
+  command! Smaller &guifont = substitute(&guifont, '\d\+$', '\=str2nr(submatch(0)) - 1', '')
 endif
 
 # 切换 buffer or tag

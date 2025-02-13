@@ -32,7 +32,7 @@ Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 
 Plug 'ZSaberLv0/vim-easymotion-chs'     " easymotion中文扩展
 Plug 'tpope/vim-repeat'                 " tpope的点扩展
-Plug 'jiangmiao/auto-pairs'             " 自动括号
+Plug 'LunarWatcher/auto-pairs'          " 自动括号
 Plug 'kana/vim-textobj-user'            " 自定义文本对象 (vim-textobj-entire前置插件)
 Plug 'junegunn/vim-easy-align'          " 对齐 [operator] ga/ga*/ga**
 Plug 'mattn/emmet-vim'                  " html/css

@@ -1,8 +1,8 @@
-" vim配置
+vim9script
 
-" 设置字体
+# 设置字体
 try
-  set guifont=CaskaydiaMono_NFM:h12
+  set guifont=JetBrainsMono_NFM:h12
 catch
   try
     set guifont=Consolas:h12
@@ -10,36 +10,37 @@ catch
   endtry
 endtry
 
-" 上移下移
-nnoremap <silent> <C-S-Up>   <Esc>:<C-U>m-2<CR>
-nnoremap <silent> <C-S-Down> <Esc>:<C-U>m+<CR>
+# 上移下移
+nnoremap <silent> <C-S-Up>   <Cmd>m--<CR>
+nnoremap <silent> <C-S-Down> <Cmd>m+<CR>
 xnoremap <silent> <C-S-Up>   :m '<-2<CR>gv=gv
 xnoremap <silent> <C-S-Down> :m '>+<CR>gv=gv
 
-" GUI 字体大小
+# GUI 字体大小
 if has('gui_running')
   command! Bigger  let &guifont = substitute(&guifont, '\d\+$', '\=submatch(0)+1', '')
   command! Smaller let &guifont = substitute(&guifont, '\d\+$', '\=submatch(0)-1', '')
 endif
 
-" 切换 buffer or tag
-nnoremap <silent> <A-Left>  <Esc>:<C-U>call My_PrevPage()<CR>
-nnoremap <silent> <A-Right> <Esc>:<C-U>call My_NextPage()<CR>
+# 切换 buffer or tag
+nnoremap <silent> <A-Left>  <Cmd>My_PrevPage()<CR>
+nnoremap <silent> <A-Right> <Cmd>My_NextPage()<CR>
 
-" next (bp or tabp)
-function! My_NextPage()
+# next (bp or tabp)
+def My_NextPage()
   if tabpagenr('$') == 1
     bnext
   else
     tabnext
   endif
-endfunction
+enddef
 
-" prev (bn or tabn)
-function! g:My_PrevPage()
+
+# prev (bn or tabn)
+def My_PrevPage()
   if tabpagenr('$') == 1
     bprevious
   else
     tabprevious
   endif
-endfunction
+enddef

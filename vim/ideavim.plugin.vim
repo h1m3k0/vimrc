@@ -1,3 +1,18 @@
+" 设置插件(并引入配置)
+function! IdeaVimSourcePlugin(plug)
+  let l:splits = split(a:plug, '/')
+  if len(l:splits) == 2
+    " 执行Plugin
+    execute 'Plug "'.a:plug.'"'
+    call IdeaVimSource(l:splits[1])
+  endif
+endfunction
+
+" 引入配置
+function! IdeaVimSource(file)
+  execute 'source '.g:MYVIMDIR.'/vim/plugins/'.a:file.'.vim'
+endfunction
+
 " easymotion 快速跳转 [motions]
 call IdeaVimSourcePlugin('easymotion/vim-easymotion')
 " NERDTree 文件树
@@ -25,32 +40,9 @@ call IdeaVimSourcePlugin('chrisbra/matchit')
 
 " 后面的需要单独安装idea插件
 
-" quickscope 高亮f/t的跳转
-call IdeaVimSourcePlugin('unblevable/quick-scope')
+" quickscope 高亮f/t
+call IdeaVimSource('quick-scope')
 " peekaboo 显示寄存器
 set peekaboo
 " functiontextobj 方法文本对象 if af
 set functiontextobj
-
-" 设置插件
-" Plug 并且 source
-" 或 只有set (需要手动再调用IdeaVimSource引入配置)
-function! IdeaVimSourcePlugin(plug)
-  let splits = split(plug, '/')
-  if len(splits) == 2
-    " 执行Plugin
-    execute 'Plug "'.plug.'"'
-    let g:test = plug
-    call IdeaVimSource('/vim/plugins/'.splits[1].'.vim')
-  else
-    execute 'set '.plug
-  endif
-endfunction
-
-" 在g:MYVIMDIR下 引入配置文件
-function! IdeaVimSource(path)
-  let path = join(split(path, '\'), '/')
-  let path = join(split(path, '/'), '/')
-  let path = '/'.path
-  execute 'source '.g:MYVIMDIR.path
-endfunction

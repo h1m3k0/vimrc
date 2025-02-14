@@ -1,4 +1,4 @@
-" {{{ 1. 通用
+" 1. 通用 {{{
 " 取消兼容模式
 set nocompatible
 " 历史命令数量
@@ -12,7 +12,7 @@ set t_vb=
 autocmd VimEnter * set t_vb=
 " }}}
 
-" {{{ 2. 键入
+" 2. 键入 {{{
 " 共享系统剪切板
 set clipboard^=unnamed,unnamedplus
 " 鼠标 (不支持共享系统剪切板时不启用鼠标, 鼠标用于复制)
@@ -31,7 +31,7 @@ set backspace=eol,start,indent
 set winaltkeys=no
 " }}}
 
-" {{{ 3. 界面
+" 3. 界面 {{{
 " 不自动换行
 set nowrap
 " 光标上下两侧最少保留的屏幕行数
@@ -49,9 +49,11 @@ set cursorline
 set showcmd
 " 始终显示状态栏
 set laststatus=2
+" 懒重绘 提高性能
+set lazyredraw
 " }}}
 
-" {{{ 4. 编辑
+" 4. 编辑 {{{
 " 命令行补全
 set wildmenu
 " 搜索智能大小写 高亮 动态显示
@@ -79,7 +81,7 @@ catch
 endtry
 " }}}
 
-" {{{ 5. 文件
+" 5. 文件 {{{
 " 根据文件类型自动设置缩进
 if has('autocmd')
   filetype plugin indent on
@@ -95,7 +97,7 @@ set nowritebackup
 set noswapfile
 " }}}
 
-" {{{ 6. 编码
+" 6. 编码 {{{
 if has('multi_byte')
 	" 内部工作编码
 	set encoding=utf-8
@@ -112,7 +114,7 @@ set formatoptions+=B
 set fileformats=unix,dos,mac
 " }}}
 
-" {{{ 7. 样式 
+" 7. 样式  {{{
 " 高亮
 if has('syntax')
   syntax enable
@@ -140,7 +142,7 @@ if has('gui_running')
 endif
 " }}}
 
-" {{{ 扩展名
+" 扩展名 {{{
 set suffixes=.bak,~,.o,.h,.info,.swp,.obj,.pyc,.pyo,.egg-info,.class
 
 set wildignore=*.o,*.obj,*~,*.exe,*.a,*.pdb,*.lib "stuff to ignore when tab completing

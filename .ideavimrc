@@ -18,7 +18,6 @@ if exists('g:vimrc_home')
   execute 'source '.g:vimrc_home.'/vim/configs/config.vim'
   execute 'source '.g:vimrc_home.'/vim/setting.vim'
   execute 'source '.g:vimrc_home.'/vim/mapping.vim'
-  execute 'source '.g:vimrc_home.'/vim/ideavim.plugin.vim'
   execute 'source '.g:vimrc_home.'/vim/ideavim.vim'
 else
   echo '~/.ideavimrc source the init file successfully but has NOT config the "let g:vimrc_home = "'

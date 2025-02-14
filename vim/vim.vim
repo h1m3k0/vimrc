@@ -1,6 +1,4 @@
-" vim配置
-
-" 设置字体
+" 设置字体 {{{
 try
   set guifont=JetBrainsMono_NFM:h12
 catch
@@ -9,20 +7,23 @@ catch
   catch
   endtry
 endtry
+" }}}
 
-" 上移下移
+" 上移下移 {{{
 nnoremap <silent> <C-S-Up>   <Cmd>m--<CR>
 nnoremap <silent> <C-S-Down> <Cmd>m+<CR>
 xnoremap <silent> <C-S-Up>   :m '<--<CR>gv=gv
 xnoremap <silent> <C-S-Down> :m '>+<CR>gv=gv
+" }}}
 
-" GUI 字体大小
+" GUI 字体大小 {{{
 if has('gui_running')
   command! Bigger  let &guifont = substitute(&guifont, '\d\+$', '\=submatch(0)+1', '')
   command! Smaller let &guifont = substitute(&guifont, '\d\+$', '\=submatch(0)-1', '')
 endif
+" }}}
 
-" 切换 buffer or tag
+" 切换 buffer or tag {{{
 nnoremap <silent> <A-Left>  <Esc>:<C-U>call My_PrevPage()<CR>
 nnoremap <silent> <A-Right> <Esc>:<C-U>call My_NextPage()<CR>
 
@@ -43,3 +44,4 @@ function! g:My_PrevPage()
     tabprevious
   endif
 endfunction
+" }}}

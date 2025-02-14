@@ -1,17 +1,84 @@
-" IdeaVim额外的配置
-"
-" set ideacopypreprocess
-" set ideaglobalmode
+" IdeaVim Plugins {{{
+" quickscope 高亮f {{{
+set quickscope
+let g:qs_highlight_on_keys = ['f', 'F']
+" }}}
+" easymotion 快速跳转 [motions] {{{
+set easymotion
+" 智能大小写
+let g:EasyMotion_smartcase = 1
+" 禁用默认映射
+let g:EasyMotion_do_mapping = 0
+map  <Leader>f  <Plug>(easymotion-bd-f)
+map  <Leader>F  <Plug>(easymotion-bd-f)
+map  <Leader>t  <Plug>(easymotion-bd-t)
+map  <Leader>T  <Plug>(easymotion-bd-t)
+"  }}}
+" NERDTree 文件树 {{{
+set NERDTree
+nnoremap  <Leader>e  <Esc>:NERDTreeFind<CR>
+" }}}
+" surround 环绕操作 [operator] (y/c/d)s {{{
+set surround
+" }}}
+" multiple-cursors 多光标 {{{
+set multiple-curcors
+" }}}
+" commentary 注释操作 [operator] gc {{{
+set commentary
+" }}}
+" ReplaceWithRegister 替换操作 [operator] gr {{{
+set ReplaceWithRegister
+" }}}
+" argtextobj 参数文本对象 [text-objects] (i/a)a {{{
+set argtextobj
+let g:argtextobj_pairs='(:),{:},[:],<:>'
+" }}}
+" exchange 互换操作 [operator] cx {{{
+set exchange
+" }}}
+" textobj-entire 全文文本对象 [text-objects] (i/a)e {{{
+set textobj-entire
+" }}}
+" highlightedyank 复制高亮 {{{
+set highlightedyank
+let g:highlightedyank_highlight_duration = '2000'
+" }}}
+" vim-indent-obj 缩进文本对象 [text-objects] ii当前 ai包含上一行 aI包含上下 {{{
+set textobj-indent
+" }}}
+" matchit 百分号增强 {{{
+set matchit
+map M %
+" }}}
+" peekaboo 显示寄存器 {{{
+set peekaboo
+" }}}
+" functiontextobj 方法文本对象 if af {{{
+set functiontextobj
+" }}}
+" quickscope 后续 {{{
+onoremap f f
+onoremap F F
+" }}}
+" }}}
+
+" IdeaVim settings {{{
+set noideacopypreprocess
+set noideaglobalmode=off
 set ideajoin
-" set ideamarks
-" set idearefactormode=
-" set ideastatusicon=
-" set ideawrite=
+set noideamarks
+set idearefactormode=select
+set ideastatusicon=enabled
+set ideavimsupport=dialog
+set ideawrite=all
 " set lookupkeys=
 set trackactionids
-" set visualdelay=
+set visualdelay=100
+" }}}
 
-" Action mapping
+" IdeaVim Action {{{
+" Mappings {{{
 " 重命名 Shift-F6
 map  <Leader>r <Action>(RenameElement)
 " 全局搜索 Ctrl-Shift-F
@@ -35,10 +102,9 @@ map  <Leader>o <Action>(OptimizeImports)
 map  <Leader>t <Action>(SurroundWith)
 " 提示 Alt-Enter
 map  <Leader>i <Action>(ShowIntentionActions)
+" }}}
 
-
-" Action command
-"
+" Commands {{{
 " VimReload 重新加载ideavimrc
 command! VimReload   call IdeaVimAction('IdeaVim.ReloadVimRc.reload')
 " Run
@@ -56,8 +122,8 @@ command! MavenReload call IdeaVimAction('Maven.Reimport Maven.UpdateFolders')
 command! Git         call IdeaVimAction('Git.Menu')
 " Vim 关闭ideavim
 command! Vim         call IdeaVimAction('VimPluginToggle')
-
-" ========== Function ==========
+" }}}
+" Function {{{
 " 执行IdeaVimAction 多个命令根据<space>切分
 function! IdeaVimAction(actions)
     let l:actions = split(a:actions, ' ') 
@@ -65,3 +131,5 @@ function! IdeaVimAction(actions)
         execute 'action '.l:action
     endfor
 endfunction
+" }}}
+" }}}

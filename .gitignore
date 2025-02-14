@@ -2,6 +2,6 @@
 *.iml
 sessions
 plugged
-vim/config/config.vim
+vim/configs/config.vim
 autoload/plug.vim.old
 

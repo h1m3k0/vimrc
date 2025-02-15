@@ -3,11 +3,12 @@ Plug 'preservim/nerdtree'
 " NERDTree 配置 {{{
 " 切换目录时自动切换vim根目录
 let NERDTreeChDirMode = 2
-nnoremap  <Leader>e   <Esc>:<C-U>NERDTree
-nnoremap  <Leader>ef  <Esc>:<C-U>NERDTreeFind<CR>
-nnoremap  <Leader>et  <Esc>:<C-U>NERDTreeToggle<CR>
-nnoremap  <Leader>ev  <Esc>:<C-U>NERDTree $MYVIMDIR<CR>
-nnoremap  <Leader>eh  <Esc>:<C-U>NERDTree $HOME<CR>
+nnoremap <silent> <Leader>e   <Esc>:<C-U>NERDTree
+nnoremap <silent> <Leader>ef  <Esc>:<C-U>NERDTreeFind<CR>
+nnoremap <silent> <Leader>ee  <Esc>:<C-U>NERDTreeMirror<CR>:NERDTreeFocus<CR>
+nnoremap <silent> <Leader>et  <Esc>:<C-U>NERDTreeMirror<CR>:NERDTreeToggle<CR>
+nnoremap <silent> <Leader>ev  <Esc>:<C-U>NERDTree $MYVIMDIR<CR>
+nnoremap <silent> <Leader>eh  <Esc>:<C-U>NERDTree $HOME<CR>
 " }}}}}}
 
 " operator . ys cs ds gc gr ga {{{

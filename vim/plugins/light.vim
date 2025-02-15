@@ -53,7 +53,11 @@ Plug 'LunarWatcher/auto-pairs' " => 自动括号 {{{2
 Plug 'tpope/vim-endwise' " => 轻量结尾补全 {{{2
 
 Plug 'mattn/emmet-vim' " => html/css {{{2
+  " 使用<Tab>键
   let g:user_emmet_expandabbr_key = '<Tab>'
+  " 按文件加载
+  let g:user_emmet_install_global = 0
+  autocmd FileType xml,html,jsx,tsx,css,sass,less EmmetInstall
 
 
 " 样式 {{{1

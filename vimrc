@@ -12,9 +12,7 @@ endif
 source <sfile>:h/vim/setting.vim
 " 加载映射(map)
 source <sfile>:h/vim/mapping.vim
-if v:version >= 900
-  " 加载vim的配置
-  source <sfile>:h/vim/vim.vim
-  " 加载vim插件(vim-plug)
-  source <sfile>:h/vim/vim.plugin.vim
-endif
+" 加载vim的配置
+source <sfile>:h/vim/vim.vim
+" 加载vim插件(vim-plug)
+source <sfile>:h/vim/vim.plugin.vim

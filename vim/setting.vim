@@ -1,4 +1,4 @@
-" 1. 通用 {{{
+" 1. 通用 {{{2
 " 取消兼容模式
 set nocompatible
 " 历史命令数量
@@ -10,9 +10,8 @@ set noerrorbells
 set visualbell 
 set t_vb=
 autocmd VimEnter * set t_vb=
-" }}}
 
-" 2. 键入 {{{
+" 2. 键入 {{{2
 " 共享系统剪切板
 set clipboard^=unnamed,unnamedplus
 " 鼠标 (不支持共享系统剪切板时不启用鼠标, 鼠标用于复制)
@@ -29,9 +28,8 @@ set ttimeout ttimeoutlen=10
 set backspace=eol,start,indent
 " Windows禁用Alt菜单
 set winaltkeys=no
-" }}}
 
-" 3. 界面 {{{
+" 3. 界面 {{{2
 " 不自动换行
 set nowrap
 " 光标上下两侧最少保留的屏幕行数
@@ -51,9 +49,8 @@ set showcmd
 set laststatus=2
 " 懒重绘 提高性能
 set lazyredraw
-" }}}
 
-" 4. 编辑 {{{
+" 4. 编辑 {{{2
 " 命令行补全
 set wildmenu
 " 搜索智能大小写 高亮 动态显示
@@ -79,9 +76,8 @@ try
   set nrformats+=unsigned
 catch
 endtry
-" }}}
 
-" 5. 文件 {{{
+" 5. 文件 {{{2
 " 根据文件类型自动设置缩进
 if has('autocmd')
   filetype plugin indent on
@@ -95,9 +91,8 @@ set hidden
 set nobackup 
 set nowritebackup 
 set noswapfile
-" }}}
 
-" 6. 编码 {{{
+" 6. 编码 {{{2
 if has('multi_byte')
 	" 内部工作编码
 	set encoding=utf-8
@@ -112,9 +107,8 @@ set formatoptions+=m
 set formatoptions+=B
 " 文件换行符，默认使用 unix 换行符
 set fileformats=unix,dos,mac
-" }}}
 
-" 7. 样式  {{{
+" 7. 样式  {{{2
 " 高亮
 if has('syntax')
   syntax enable
@@ -123,6 +117,7 @@ endif
 if has('folding')
   set foldenable
   set foldmethod=marker
+  set foldlevel=5
 endif
 " 真色彩
 if has('termguicolors')
@@ -140,9 +135,8 @@ if has('gui_running')
   set columns=120
   set lines=30
 endif
-" }}}
 
-" 扩展名 {{{
+" 扩展名 {{{2
 set suffixes=.bak,~,.o,.h,.info,.swp,.obj,.pyc,.pyo,.egg-info,.class
 
 set wildignore=*.o,*.obj,*~,*.exe,*.a,*.pdb,*.lib "stuff to ignore when tab completing

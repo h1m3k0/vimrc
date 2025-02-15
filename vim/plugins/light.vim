@@ -1,85 +1,69 @@
-" 文件树 {{{
-Plug 'preservim/nerdtree'
-" NERDTree 配置 {{{
-" 切换目录时自动切换vim根目录
-let NERDTreeChDirMode = 2
-nnoremap <silent> <Leader>e   <Esc>:<C-U>NERDTree
-nnoremap <silent> <Leader>ef  <Esc>:<C-U>NERDTreeFind<CR>
-nnoremap <silent> <Leader>ee  <Esc>:<C-U>NERDTreeMirror<CR>:NERDTreeFocus<CR>
-nnoremap <silent> <Leader>et  <Esc>:<C-U>NERDTreeMirror<CR>:NERDTreeToggle<CR>
-nnoremap <silent> <Leader>ev  <Esc>:<C-U>NERDTree $MYVIMDIR<CR>
-nnoremap <silent> <Leader>eh  <Esc>:<C-U>NERDTree $HOME<CR>
-" }}}}}}
+" 文件树 {{{1
+Plug 'preservim/nerdtree' " => 文件树 {{{2
+  " 切换目录时自动切换vim根目录
+  let NERDTreeChDirMode = 2
+  nnoremap <silent> <Leader>e   <Esc>:<C-U>NERDTree
+  nnoremap <silent> <Leader>ef  <Esc>:<C-U>NERDTreeFind<CR>
+  nnoremap <silent> <Leader>ee  <Esc>:<C-U>NERDTreeMirror<CR>:NERDTreeFocus<CR>
+  nnoremap <silent> <Leader>et  <Esc>:<C-U>NERDTreeMirror<CR>:NERDTreeToggle<CR>
+  nnoremap <silent> <Leader>ev  <Esc>:<C-U>NERDTree $MYVIMDIR<CR>
+  nnoremap <silent> <Leader>eh  <Esc>:<C-U>NERDTree $HOME<CR>
 
-" operator . ys cs ds gc gr ga {{{
-" 重复 .
-Plug 'tpope/vim-repeat'
-" 环绕 ys cs ds
-Plug 'tpope/vim-surround'
-" 注释 gc
-Plug 'tpope/vim-commentary'
-" 替换 gr
-Plug 'vim-scripts/ReplaceWithRegister'
-" 对齐 ga
-Plug 'junegunn/vim-easy-align'
-" easy-align 配置 {{{
-nmap  ga  <Plug>(EasyAlign)
-xmap  ga  <Plug>(EasyAlign)
-" }}}}}}
+" operator => .  y/c/d+s  gc  gr  ga  {{{1
+Plug 'tpope/vim-repeat' " => 重复 . {{{2
 
-" motion {{{
-" 自定义文本对象 
-Plug 'kana/vim-textobj-user'
-" 全文文本对象
-Plug 'kana/vim-textobj-entire'
-" 缩进文本对象
-Plug 'michaeljsmith/vim-indent-object'
-" 参数文本对象
-Plug 'vim-scripts/argtextobj.vim'
-" argtextobj 配置 {{{
-let g:argtextobj_pairs = '(:),{:},[:],<:>'
-" }}}
-" 匹配
-Plug 'chrisbra/matchit'
-" {{{
-nmap M %
-xmap M %
-omap M %
-" }}}
-" easymotion
-Plug 'easymotion/vim-easymotion'
-" easymotion中文
-Plug 'ZSaberLv0/vim-easymotion-chs'
-" easymotion 配置 {{{
-" 智能大小写
-let g:EasyMotion_smartcase = 1
-" 禁用默认映射
-let g:EasyMotion_do_mapping = 0
-map  <Leader>f  <Plug>(easymotion-bd-f)
-map  <Leader>F  <Plug>(easymotion-bd-f)
-map  <Leader>t  <Plug>(easymotion-bd-t)
-map  <Leader>T  <Plug>(easymotion-bd-t)
-" }}}}}}
+Plug 'tpope/vim-surround' " => 环绕 y/c/d+s {{{2
 
-" 编辑 {{{
-Plug 'LunarWatcher/auto-pairs'         " 自动括号
-" auto-pairs 配置 {{{
-" 右边为非空字符时不自动添加括号
-let g:AutoPairsCompleteOnlyOnSpace = 1
-" 轻量补全
-Plug 'tpope/vim-endwise'
-" }}}}}}
+Plug 'tpope/vim-commentary' " => 注释 gc {{{2
 
-" 样式 {{{
-" 色彩方案
-Plug 'sainnhe/everforest'
-" 复制高亮
-Plug 'machakann/vim-highlightedyank'
-" highlightedyank 配置 {{{
-if !exists('##TextYankPost')
-  nmap y <Plug>(highlightedyank)
-  xmap y <Plug>(highlightedyank)
-  omap y <Plug>(highlightedyank)
+Plug 'vim-scripts/ReplaceWithRegister' " => 替换 gr {{{2
+
+Plug 'junegunn/vim-easy-align' " => 对齐 ga {{{2
+  nmap  ga  <Plug>(EasyAlign)
+  xmap  ga  <Plug>(EasyAlign)
+
+" motion => i/a+e  i/a+i/I  i/a+a  %  <L>f/F  {{{1
+Plug 'kana/vim-textobj-user' " => 自定义文本对象 {{{2
+
+Plug 'kana/vim-textobj-entire' " => 全文文本对象 {{{2
+
+Plug 'michaeljsmith/vim-indent-object' " => 缩进文本对象 {{{2
+
+Plug 'vim-scripts/argtextobj.vim' " => 参数文本对象 {{{2
+  let g:argtextobj_pairs = '(:),{:},[:],<:>'
+Plug 'chrisbra/matchit' " => 匹配 {{{2
+  nmap M %
+  xmap M %
+  omap M %
+Plug 'easymotion/vim-easymotion' " {{{2
+  Plug 'ZSaberLv0/vim-easymotion-chs'
+  " 智能大小写
+  let g:EasyMotion_smartcase = 1
+  " 禁用默认映射
+  let g:EasyMotion_do_mapping = 0
+  map  <Leader>f  <Plug>(easymotion-bd-f)
+  map  <Leader>F  <Plug>(easymotion-bd-f)
+  map  <Leader>t  <Plug>(easymotion-bd-t)
+  map  <Leader>T  <Plug>(easymotion-bd-t)
+
+" 编辑 {{{1
+Plug 'LunarWatcher/auto-pairs' " => 自动括号 {{{2
+  " 右边为非空字符时不自动添加括号
+  let g:AutoPairsCompleteOnlyOnSpace = 1
+Plug 'tpope/vim-endwise' " => 轻量结尾补全 {{{2
+
+Plug 'mattn/emmet-vim' " => html/css {{{2
+  let g:user_emmet_expandabbr_key = '<Tab>'
+
+
+" 样式 {{{1
+Plug 'sainnhe/everforest' " => 色彩方案 {{{2
+
+if g:light | Plug 'machakann/vim-highlightedyank' " => 复制高亮 {{{2
+  if !exists('##TextYankPost')
+    nmap y <Plug>(highlightedyank)
+    xmap y <Plug>(highlightedyank)
+    omap y <Plug>(highlightedyank)
+  endif
+  let g:highlightedyank_highlight_duration = 2000
 endif
-let g:highlightedyank_highlight_duration = 2000
-" }}}}}}

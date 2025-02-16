@@ -47,9 +47,6 @@ Plug 'easymotion/vim-easymotion' " {{{2
   map  <Leader>T  <Plug>(easymotion-bd-t)
 
 " 编辑 {{{1
-Plug 'LunarWatcher/auto-pairs' " => 自动括号 {{{2
-  " 右边为非空字符时不自动添加括号
-  let g:AutoPairsCompleteOnlyOnSpace = 1
 Plug 'tpope/vim-endwise' " => 轻量结尾补全 {{{2
 
 Plug 'mattn/emmet-vim' " => html/css {{{2

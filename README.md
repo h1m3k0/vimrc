@@ -3,7 +3,7 @@
 1. `git clone` 到任意位置（如 windows `~/vimfiles` 或 linux `~/.vim` ）
 
    ~~~shell
-   git clone --depth 1 git@github.com:h1m3k0/.vim.git ~/vimfiles
+   git clone --depth 1 git@github.com:h1m3k0/vimrc.git ~/vimfiles
    ~~~
 
 2. 引入启动文件

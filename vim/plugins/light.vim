@@ -2,12 +2,12 @@
 Plug 'preservim/nerdtree' " => 文件树 {{{2
   " 切换目录时自动切换vim根目录
   let NERDTreeChDirMode = 2
-  nnoremap <silent> <Leader>e   <Esc>:<C-U>NERDTree
-  nnoremap <silent> <Leader>ef  <Esc>:<C-U>NERDTreeFind<CR>
-  nnoremap <silent> <Leader>ee  <Esc>:<C-U>NERDTreeMirror<CR>:NERDTreeFocus<CR>
-  nnoremap <silent> <Leader>et  <Esc>:<C-U>NERDTreeMirror<CR>:NERDTreeToggle<CR>
-  nnoremap <silent> <Leader>ev  <Esc>:<C-U>NERDTree $MYVIMDIR<CR>
-  nnoremap <silent> <Leader>eh  <Esc>:<C-U>NERDTree $HOME<CR>
+  nnoremap <Leader>e <Esc>:<C-U>NERDTree
+  nnoremap <silent> <Leader>ef <Esc>:<C-U>NERDTreeFind<CR>
+  nnoremap <silent> <Leader>ee <Esc>:<C-U>NERDTreeMirror<CR>:NERDTreeFocus<CR>
+  nnoremap <silent> <Leader>et <Esc>:<C-U>NERDTreeMirror<CR>:NERDTreeToggle<CR>
+  nnoremap <silent> <Leader>ev <Esc>:<C-U>NERDTree $MYVIMDIR<CR>
+  nnoremap <silent> <Leader>eh <Esc>:<C-U>NERDTree $HOME<CR>
 
 " operator => .  y/c/d+s  gc  gr  ga  {{{1
 Plug 'tpope/vim-repeat' " => 重复 . {{{2

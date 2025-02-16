@@ -4,6 +4,7 @@ execute 'source '.g:vimrc_home.'/vim/plugins/light.vim'
 if !g:light
   execute 'source '.g:vimrc_home.'/vim/plugins/extend.vim'
   execute 'source '.g:vimrc_home.'/vim/plugins/beauty.vim'
+  execute 'source '.g:vimrc_home.'/vim/plugins/todo.vim'
 endif
 call plug#end()
 try

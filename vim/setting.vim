@@ -117,20 +117,19 @@ endif
 if has('folding')
   set foldenable
   set foldmethod=marker
-  set foldlevel=5
+  set foldlevel=1
 endif
 " 真色彩
 if has('termguicolors')
   set termguicolors
 endif
-if $COLORTERM == 'gnome-terminal'
-  set t_Co=256
-endif
+set t_Co=256
 " gui设置
 if has('gui_running')
   set guioptions-=T
   set guioptions-=e
-  set t_Co=256
+  set guioptions-=m
+  set guioptions-=r
   set guitablabel=%M\ %t
   set columns=120
   set lines=30

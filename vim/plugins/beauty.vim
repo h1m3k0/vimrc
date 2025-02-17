@@ -1,7 +1,6 @@
 " 色彩方案 {{{1
-let g:everforest_background = 'soft'
 Plug 'sainnhe/everforest'
-Plug 'morhetz/gruvbox'
+Plug 'sainnhe/gruvbox-material'
 Plug 'joshdick/onedark.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }

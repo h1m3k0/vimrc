@@ -39,8 +39,8 @@ set sidescrolloff=20
 set sidescroll=1
 " 显示光标位置的行号和列号
 set ruler
-" 显示行号 相对行号
-set number relativenumber
+" 显示行号 " 相对行号(很少用到)
+set number " relativenumber
 " 高亮显示当前行
 set cursorline
 " 显示当前命令

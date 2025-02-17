@@ -9,6 +9,8 @@ Plug 'ryanoasis/vim-devicons'  " => 图标     {{{2
 
 Plug 'vim-airline/vim-airline' " => 状态栏   {{{2
   Plug 'vim-airline/vim-airline-themes'
+  " 兼容fern
+  let g:airline#extensions#fern#enabled = 0
   " 只有一个tab时 显示buffers
   let g:airline#extensions#tabline#enabled = 1
   " 标题显示 最简的(包+文件名)

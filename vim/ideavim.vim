@@ -107,3 +107,6 @@ function! IdeaVimAction(actions) " {{{2
         execute 'action '.l:action
     endfor
 endfunction
+
+" 清除选择模式的映射
+smapclear

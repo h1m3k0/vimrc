@@ -44,6 +44,3 @@ function! My_VisualRegSearch() " {{{3
   let @/ = @"
   let @" = l:tmp
 endfunction
-
-" 3. 清除选择模式  {{{1
-smapclear

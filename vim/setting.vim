@@ -48,7 +48,9 @@ set showcmd
 " 始终显示状态栏
 set laststatus=2
 " 懒重绘 提高性能
-set lazyredraw
+set nolazyredraw
+" (行号左边的)标号列 yes:始终保留, number:替换行号 (auto:会闪)
+set signcolumn=yes
 
 " 4. 编辑 {{{2
 " 命令行补全
@@ -126,10 +128,11 @@ endif
 set t_Co=256
 " gui设置
 if has('gui_running')
-  set guioptions-=T
-  set guioptions-=e
-  set guioptions-=m
-  set guioptions-=r
+  set guioptions-=T " 工具栏
+  set guioptions-=e " 标签
+  set guioptions-=m " 菜单栏
+  set guioptions-=r " 右侧滚动条
+  set guioptions-=L " 左侧滚动条
   set guitablabel=%M\ %t
   set columns=120
   set lines=30

@@ -16,12 +16,6 @@ nnoremap <silent> <C-S-Down> <Cmd>m+<CR>
 xnoremap <silent> <C-S-Up>   :m '<--<CR>gv=gv
 xnoremap <silent> <C-S-Down> :m '>+<CR>gv=gv
 
-" GUI 字体大小 {{{2
-if has('gui_running')
-  command! Bigger  let &guifont = substitute(&guifont, '\d\+$', '\=submatch(0)+1', '')
-  command! Smaller let &guifont = substitute(&guifont, '\d\+$', '\=submatch(0)-1', '')
-endif
-
 " 切换 buffer or tag {{{2
 nnoremap <silent> <A-Left>  <Esc>:<C-U>call My_PrevPage()<CR>
 nnoremap <silent> <A-Right> <Esc>:<C-U>call My_NextPage()<CR>
@@ -40,3 +34,12 @@ function! My_PrevPage() " {{{3
     tabprevious
   endif
 endfunction
+" GUI command {{{2
+if has('gui_running')
+  " 调大字体
+  command! GuiFontBigger  let &guifont = substitute(&guifont, '\d\+$', '\=submatch(0)+1', '')
+  " 调小字体
+  command! GuiFontSmaller let &guifont = substitute(&guifont, '\d\+$', '\=submatch(0)-1', '')
+  " 全屏(只是调大窗口, 并非全屏)
+  command! GuiFullScreen set columns=10000|set lines=1000
+endif

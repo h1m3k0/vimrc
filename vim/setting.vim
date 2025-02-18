@@ -126,18 +126,17 @@ if has('termguicolors')
   set termguicolors
 endif
 set t_Co=256
-" gui设置
+" 8. GUI {{{2
 if has('gui_running')
-  set guioptions-=T " 工具栏
-  set guioptions-=e " 标签
-  set guioptions-=m " 菜单栏
-  set guioptions-=r " 右侧滚动条
-  set guioptions-=L " 左侧滚动条
+  set guioptions-=T " 取消工具栏
+  set guioptions-=e " 取消标签
+  set guioptions-=m " 取消菜单栏
+  set guioptions-=r " 取消右侧滚动条
+  set guioptions-=L " 取消左侧滚动条
   set guitablabel=%M\ %t
-  set columns=120
-  set lines=30
+  set columns=120 " 宽
+  set lines=30 " 高
 endif
-
 " 扩展名 {{{2
 set suffixes=.bak,~,.o,.h,.info,.swp,.obj,.pyc,.pyo,.egg-info,.class
 

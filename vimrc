@@ -1,18 +1,21 @@
 let g:vimrc_home = fnamemodify(resolve(expand('<sfile>:p')), ':h')
 let g:vimrc_home = substitute(g:vimrc_home, '\', '/', 'g')
-source <sfile>:h/autoload/plug.vim
+command! -nargs=1 LoadScript execute 'source '.g:vimrc_home.'/'.'<args>'
+execute 'set runtimepath+='.g:vimrc_home
 " 加载默认配置
-source <sfile>:h/vim/configs/config_example.vim
+LoadScript vim/configs/config_example.vim
 if filereadable(g:vimrc_home.'/vim/configs/config.vim')
   " 加载自定义配置
-  source <sfile>:h/vim/configs/config.vim
+  LoadScript vim/configs/config.vim
 endif
 
 " 加载基础配置(set)
-source <sfile>:h/vim/setting.vim
+LoadScript vim/setting.vim
 " 加载映射(map)
-source <sfile>:h/vim/mapping.vim
+LoadScript vim/mapping.vim
 " 加载vim的配置
-source <sfile>:h/vim/vim.vim
+LoadScript vim/vim.vim
 " 加载vim插件(vim-plug)
-source <sfile>:h/vim/vim.plugin.vim
+LoadScript vim/vim.plugin.vim
+" 最后处理的事情
+LoadScript vim/finally.vim

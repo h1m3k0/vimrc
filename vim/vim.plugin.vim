@@ -1,17 +1,9 @@
 " PlugVim加载插件
 call plug#begin(g:vimrc_home.'/plugged')
-execute 'source '.g:vimrc_home.'/vim/plugins/light.vim'
+LoadScript vim/plugins/light.vim
 if !g:light
-  execute 'source '.g:vimrc_home.'/vim/plugins/extend.vim'
-  execute 'source '.g:vimrc_home.'/vim/plugins/beauty.vim'
-  execute 'source '.g:vimrc_home.'/vim/plugins/todo.vim'
+  LoadScript vim/plugins/extend.vim
+  LoadScript vim/plugins/beauty.vim
+  LoadScript vim/plugins/todo.vim
 endif
 call plug#end()
-try
-  if has('termguicolors')
-    colorscheme everforest
-  else
-    colorscheme onedark
-  endif
-catch
-endtry

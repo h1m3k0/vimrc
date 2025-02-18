@@ -30,6 +30,13 @@ Plug 'mhinz/vim-startify'      " => 启动页面 {{{2
         \        'enew | execute "set filetype=".input("filetype=")']},
         \ {'p': ['new Pasted buffer: 粘贴剪切板内容', 
         \        'enew | execute "normal i\<S-Insert>\<Esc>"']},
-        \ {'v': ['open Vimrc: '.substitute($MYVIMRC, '\\', '/', 'g'),
-        \        'e '.$MYVIMRC]}
-    \ ]
+        \ {'v': ['edit Vimrc: '.substitute($MYVIMRC, '\\', '/', 'g'),
+        \        'e '.$MYVIMRC]},
+        \ ]
+  if has('gui_running')
+    let g:startify_commands += [
+          \ {'b': ['font bigger: 调大字体', 'GuiFontBigger']},
+          \ {'s': ['font smaller: 调小字体', 'GuiFontSmaller']},
+          \ {'f': ['full screen: 全屏', 'GuiFullScreen']},
+          \ ]
+  endif

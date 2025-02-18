@@ -136,6 +136,7 @@ if has('gui_running')
   set guitablabel=%M\ %t
   set columns=120 " 宽
   set lines=30 " 高
+  set guicursor+=a:blinkon0 " 取消光标闪烁
 endif
 " 扩展名 {{{2
 set suffixes=.bak,~,.o,.h,.info,.swp,.obj,.pyc,.pyo,.egg-info,.class

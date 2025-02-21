@@ -40,6 +40,6 @@ if has('gui_running')
   command! GuiFontBigger  let &guifont = substitute(&guifont, '\d\+$', '\=submatch(0)+1', '')
   " 调小字体
   command! GuiFontSmaller let &guifont = substitute(&guifont, '\d\+$', '\=submatch(0)-1', '')
-  " 全屏(只是调大窗口, 并非全屏)
-  command! GuiFullScreen set columns=10000|set lines=1000
+  " 全屏
+  command! GuiFullScreen simalt ~x
 endif

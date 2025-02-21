@@ -54,7 +54,7 @@ Plug 'mattn/emmet-vim' " => html/css {{{2
   let g:user_emmet_expandabbr_key = '<Tab>'
   " 按文件加载
   let g:user_emmet_install_global = 0
-  autocmd FileType xml,html,jsx,tsx,css,sass,less EmmetInstall
+  autocmd FileType xml,html,javascriptreact,typescriptreact,css,sass,less EmmetInstall
 
 
 " 样式 {{{1

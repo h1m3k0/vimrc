@@ -64,10 +64,12 @@ map  <Leader>s <Action>(FindInPath)
 map  <Leader>l <Action>(ReformatCode)
 " <C-S> => EditorSelectWord => 选择 Ctrl-w {{{2
 map  <C-S>     <Action>(EditorSelectWord)
-" <Leader>k => GotoDeclaration => 跳转到定义 Ctrl-B {{{2
-map  <Leader>k <Action>(GotoDeclaration)
-" <Leader>j => GotoImplementation => 跳转到实现 Alt-Ctrl-B {{{2
-map  <Leader>j <Action>(GotoImplementation)
+" gd => GotoDeclaration => 跳转到定义 Ctrl-B {{{2
+map  gd <Action>(GotoDeclaration)
+" gI => GotoImplementation => 跳转到实现 Alt-Ctrl-B {{{2
+map  gI <Action>(GotoImplementation)
+" gy => GotoTypeDeclaration => 跳转到类型 Ctrl-Shift-B
+map  gy <Action>(GotoTypeDeclaration)
 
 " <Leader>v => IntroduceVariable => 引入变量 Alt-Ctrl-V {{{2
 map  <Leader>v <Action>(IntroduceVariable)

@@ -1,3 +1,13 @@
+" Config {{{1
+" g:map_arrow_key => 1:映射方向键; 0:不映射方向键 {{{2
+if exists('g:map_arrow_key')
+  let g:map_arrow_key = 0 " 默认最小配置
+endif
+" g:map_esc_key => 1:映射esc键; 0:不映射esc键 {{{2
+if exists('g:map_esc_key')
+  let g:map_esc_key = 0 " 默认最小配置
+endif
+"}}}}}}
 " Setting
 " List of Supported Options {{{1
 " clipboard => (共享系统剪切板) {{{2
@@ -195,14 +205,18 @@ noremap <Leader>D "_D
 xnoremap  <  <gv
 xnoremap  >  >gv
 " 方向键与Esc {{{2
-noremap <C-H>  <Left>|inoremap <C-H>  <Left>|cnoremap <C-H>  <Left>
-noremap <C-J>  <Down>|inoremap <C-J>  <Down>|cnoremap <C-J>  <Down>
-noremap <C-K>    <Up>|inoremap <C-K>    <Up>|cnoremap <C-K>    <Up>
-noremap <C-L> <Right>|inoremap <C-L> <Right>|cnoremap <C-L> <Right>
-inoremap  jk  <Esc>
-" 可以接受j+任意非k => 一下蹦两个字母就不用映射这个
-" 不能接受一下蹦两个字母, 想输入j的时候就jj=>j
-inoremap  jj  j
+if g:map_arrow_key == 0
+  noremap <C-H>  <Left>|inoremap <C-H>  <Left>|cnoremap <C-H>  <Left>
+  noremap <C-J>  <Down>|inoremap <C-J>  <Down>|cnoremap <C-J>  <Down>
+  noremap <C-K>    <Up>|inoremap <C-K>    <Up>|cnoremap <C-K>    <Up>
+  noremap <C-L> <Right>|inoremap <C-L> <Right>|cnoremap <C-L> <Right>
+endif
+if g:map_esc_key == 0
+  inoremap  jk  <Esc>
+  " 可以接受j+任意非k => 一下蹦两个字母就不用映射这个
+  " 不能接受一下蹦两个字母, 想输入j的时候就jj=>j
+  inoremap  jj  j
+endif
 " HLM映射 {{{2
 noremap  H  ^
 noremap  L  $

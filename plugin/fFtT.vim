@@ -7,7 +7,7 @@ vim9script
 var id: number
 var winid: number
 
-hi def link FfTtSubtle Comment
+hi def link FfTtSubtle IncSearch
 
 def HighligtClear(): string
     if id > 0
@@ -44,12 +44,12 @@ def HighligtChars(s: string): string
         var loc = reverse ? line->strridx(ch, start) : line->stridx(ch, start)
         while loc != -1
             freq[ch] = freq->get(ch, 0) + 1
-            if freq[ch] != v:count1
-                if freq[ch] > maxloc
-                    # If we encounter a super long line, there's no need to
-                    # search for locations that are off screen.
-                    break
-                endif
+            if freq[ch] > maxloc
+                # If we encounter a super long line, there's no need to
+                # search for locations that are off screen.
+                break
+            endif
+            if freq[ch] == v:count1
                 locations->add([lnum, loc + 1])
             endif
             loc = reverse ? line->strridx(ch, loc - 1) : line->stridx(ch, loc + 1)

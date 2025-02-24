@@ -126,6 +126,8 @@ if has('termguicolors')
   set termguicolors
 endif
 set t_Co=256
+" 光标颜色固定
+autocmd ColorScheme * highlight Cursor guibg=bg guifg=fg
 " 8. GUI {{{2
 if has('gui_running')
   set guioptions-=T " 取消工具栏

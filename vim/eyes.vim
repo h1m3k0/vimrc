@@ -1,1 +1,0 @@
-autocmd ColorScheme * highlight Cursor guibg=bg guifg=fg

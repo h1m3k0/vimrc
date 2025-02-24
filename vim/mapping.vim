@@ -1,9 +1,10 @@
-" 0. Leader键 {{{1 
+vim9script
+# 0. Leader键 {{{1 
 noremap  <Leader>  <Nop>
-" 1. 基础映射 {{{1
-" 1.1 更符合逻辑的映射 {{{2
+# 1. 基础映射 {{{1
+# 1.1 更符合逻辑的映射 {{{2
 map Y y$
-" 1.1 删除不进入缓存 {{{2
+# 1.1 删除不进入缓存 {{{2
 noremap  s  "_s
 noremap  S  "_S
 noremap  x  "_x
@@ -12,10 +13,10 @@ noremap <Leader>c "_c
 noremap <Leader>C "_C
 noremap <Leader>d "_d
 noremap <Leader>D "_D
-" 1.2 水平移动时保留光标 {{{2
+# 1.2 水平移动时保留光标 {{{2
 xnoremap  <  <gv
 xnoremap  >  >gv
-" 1.3 方向键与Esc键  {{{2
+# 1.3 方向键与Esc键  {{{2
 if g:config_keyboard == 0
   noremap <C-H>  <Left>|inoremap <C-H>  <Left>|cnoremap <C-H>  <Left>
   noremap <C-J>  <Down>|inoremap <C-J>  <Down>|cnoremap <C-J>  <Down>
@@ -24,23 +25,30 @@ if g:config_keyboard == 0
   inoremap  jk  <Esc>
   inoremap  jj  j
 endif
-" 1.4 不常用的HLM键  {{{2
+# 1.4 不常用的HLM键  {{{2
 noremap  H  ^
 noremap  L  $
 noremap  M  %
-" 1.5 命令行模式 与Shell保持一致  {{{2
+# 1.5 命令行模式 与Shell保持一致  {{{2
 cnoremap  <C-A>  <Home>
 cnoremap  <C-E>  <End>
 
-" 2. 额外功能  {{{1
-" 2.1 可视模式直接搜索当前选择内容  {{{2
-xnoremap  <silent> /  <Esc>:<C-U>call My_VisualRegSearch()<CR>/<CR>N
-xnoremap  <silent> ?  <Esc>:<C-U>call My_VisualRegSearch()<CR>?<CR>N
-" 2.2 取消搜索高亮 {{{2
-nnoremap  <silent> <Leader>/  <Esc>:<C-U>noh<CR>
-function! My_VisualRegSearch() " {{{3
-  let l:tmp = @"
-  normal! gvy
-  let @/ = @"
-  let @" = l:tmp
-endfunction
+# 2. 额外功能  {{{1
+# 2.1 可视模式直接搜索当前选择内容  {{{2
+xnoremap  <silent> /  /<C-R>=My_VisualSelection()<CR><CR>N
+xnoremap  <silent> ?  ?<C-R>=My_VisualSelection()<CR><CR>N
+# 2.2 取消搜索高亮 {{{2
+nnoremap  <silent> <Leader>/  <CMD>noh<CR>
+def g:My_VisualSelection(): string # {{{3
+    # 先保存寄存器的状态
+    var unnamed_reg_data = getreg('"')
+    var unnamed_reg_type = getregtype('"')
+    # 执行 "y" 命令来复制选中的文本到默认寄存器中
+    normal! y
+    # 获取默认寄存器的内容，即选中的文本
+    var selection = getreg('"')
+    # 恢复寄存器的状态
+    setreg('"', unnamed_reg_data, unnamed_reg_type)
+    # 返回选中的文本
+    return selection
+enddef

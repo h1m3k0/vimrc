@@ -2,6 +2,7 @@
 *.iml
 sessions
 plugged
+lazy
 vim/configs/config.vim
 autoload/plug.vim.old
 

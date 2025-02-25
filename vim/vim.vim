@@ -1,5 +1,4 @@
-vim9script
-# 设置字体 {{{2
+" 设置字体 {{{2
 if has('gui_running')
   try
     set guifont=JetBrainsMono_NFM:h12
@@ -11,36 +10,36 @@ if has('gui_running')
   endtry
 endif
 
-# 上移下移 {{{2
+" 上移下移 {{{2
 nnoremap <silent> <C-S-Up>   <Cmd>m--<CR>
 nnoremap <silent> <C-S-Down> <Cmd>m+<CR>
 xnoremap <silent> <C-S-Up>   :m '<--<CR>gv=gv
 xnoremap <silent> <C-S-Down> :m '>+<CR>gv=gv
 
-# 切换 buffer or tag {{{2
-nnoremap <silent> <A-Left>  <CMD>call My_PrevPage()<CR>
-nnoremap <silent> <A-Right> <CMD>call My_NextPage()<CR>
-def g:My_NextPage() # {{{3
+" 切换 buffer or tag {{{2
+nnoremap <silent> <A-Left>  <CMD>call GotoPrevPage()<CR>
+nnoremap <silent> <A-Right> <CMD>call GotoNextPage()<CR>
+function! GotoNextPage() " {{{3
   if tabpagenr('$') == 1
     bnext
   else
     tabnext
   endif
-enddef
+endfunction
 
-def g:My_PrevPage() # {{{3
+function! GotoPrevPage() " {{{3
   if tabpagenr('$') == 1
     bprevious
   else
     tabprevious
   endif
-enddef
-# GUI command {{{2
+endfunction
+" GUI command {{{2
 if has('gui_running')
-  # 调大字体
-  command! GuiFontBigger  &guifont = substitute(&guifont, '\d\+$', '\=str2nr(submatch(0)) + 1', '')
-  # 调小字体
-  command! GuiFontSmaller &guifont = substitute(&guifont, '\d\+$', '\=str2nr(submatch(0)) - 1', '')
-  # 全屏
+  " 调大字体
+  command! GuiFontBigger  let &guifont = substitute(&guifont, '\d\+$', '\=str2nr(submatch(0)) + 1', '')
+  " 调小字体
+  command! GuiFontSmaller let &guifont = substitute(&guifont, '\d\+$', '\=str2nr(submatch(0)) - 1', '')
+  " 全屏
   command! GuiFullScreen simalt ~x
 endif

@@ -2,7 +2,6 @@
 return {
   {
     'easymotion/vim-easymotion',
-
     init = function()
       vim.cmd [[
       " 智能大小写

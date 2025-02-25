@@ -56,17 +56,17 @@ return {
       },
     },
     config = function(_, opts)
+      require'nvim-treesitter.install'.prefer_git = true
+      -- 将git地址从https改为ssh 下载失败尝试关闭VPN
+      -- https://github.com/who/what => git@github.com:who/what
+      for _, config in pairs(require('nvim-treesitter.parsers').get_parser_configs()) do
+        config.install_info.url = config.install_info.url:gsub(
+        'https://github.com/',
+        'git@github.com:'
+        )
+      end
       require'nvim-treesitter.configs'.setup(opts)
       -- 使用git下载
-      require'nvim-treesitter.install'.prefer_git = true
-      -- 将git地址从https改为ssh (非官方 不稳定) 下载失败尝试关闭VPN
-      for _, setting in pairs(require'nvim-treesitter.parsers'.list) do
-        setting.install_info.url = vim.fn.substitute(
-          setting.install_info.url,
-          'https://github.com/',
-          'git@github.com:',
-          'g')
-      end
     end,
   },
   {
@@ -95,7 +95,6 @@ return {
     -- % 匹配
     'andymass/vim-matchup',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
-    version = '*',
     event = 'VeryLazy',
     config = function()
       vim.keymap.set({'n','x','o'}, 'M', '%', { remap = true })

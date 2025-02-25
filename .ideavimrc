@@ -225,8 +225,8 @@ noremap  M  %
 inoremap <C-A> <Home>|cnoremap  <C-A>  <Home>
 inoremap <C-E>  <End>|cnoremap  <C-E>   <End>
 " 可视模式直接搜索当前选择内容  {{{2
-xnoremap  <silent> /  <Esc>:<C-U>call My_VisualRegSearch()<CR>/<CR>N
-xnoremap  <silent> ?  <Esc>:<C-U>call My_VisualRegSearch()<CR>?<CR>N
+xnoremap  <silent> /  :call My_VisualRegSearch()<CR>/<CR>N
+xnoremap  <silent> ?  :call My_VisualRegSearch()<CR>?<CR>N
 function! My_VisualRegSearch() " {{{3
   let l:tmp = @"
   normal! gvy

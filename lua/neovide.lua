@@ -30,22 +30,20 @@ vim.api.nvim_create_autocmd('CmdlineLeave', {
 })
 
 -- 窗口位置改变的动画时间
-vim.g.neovide_position_animation_length = 0
+vim.g.neovide_position_animation_length = 0.075
 -- scroll的动画时间
-vim.g.neovide_scroll_animation_length = 0
+vim.g.neovide_scroll_animation_length = 0.15
 -- 滚动远线
 vim.g.neovide_scroll_animation_far_lines = 1
 -- 触摸拖动超时 
-vim.g.neovide_touch_drag_timeout = 0
+vim.g.neovide_touch_drag_timeout = 0.095
 -- 光标移动的动画时间
-vim.g.neovide_cursor_animation_length = 0
+vim.g.neovide_cursor_animation_length = 0.065
 -- 光标移动的拖尾长度
 vim.g.neovide_cursor_trail_size = 0
--- 插入模式下制作动画
-vim.g.neovide_cursor_animate_in_insert_mode = false
 -- 切换命令行也有动画
 vim.g.neovide_cursor_animate_command_line = false
 -- 光标闪烁动画
 vim.g.neovide_cursor_smooth_blink = true
 -- 光标粒子 railgun torpedo pixiedust sonicboom ripple wireframe
-vim.g.neovide_cursor_vfx_mode = ''
+vim.g.neovide_cursor_vfx_mode = 'wireframe'

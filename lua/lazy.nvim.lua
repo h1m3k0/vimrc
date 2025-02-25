@@ -1,5 +1,5 @@
 -- Bootstrap lazy.nvim
-local rootpath = vim.g.vimrc_home .. '/lazy'
+local rootpath = vim.env.MYVIMDIR .. '/lazy'
 if not vim.uv.fs_stat(rootpath .. '/lazy.nvim') then
   local lazyrepo = "git@github.com:folke/lazy.nvim.git"
   local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, rootpath .. '/lazy.nvim' })

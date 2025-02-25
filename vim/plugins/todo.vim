@@ -11,8 +11,5 @@ Plug 'mg979/vim-visual-multi' # 多光标
 
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
-# Plug 'neoclide/coc.nvim', {'branch': 'release'} " coc
-# source <sfile>:h/coc.nvim.vim
-
 
 Plug 'lambdalisue/vim-fern'

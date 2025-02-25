@@ -16,7 +16,7 @@ autocmd VimEnter * set t_vb=
 # 共享系统剪切板
 set clipboard^=unnamed,unnamedplus
 # 鼠标 (不支持共享系统剪切板时不启用鼠标, 鼠标用于复制)
-if has('clipboard') || has('ide')
+if has('clipboard')
     set mouse+=a
 else
     set mouse-=a
@@ -74,17 +74,11 @@ set regexpengine=0
 # 替换时默认为全局替换
 set gdefault
 # <C-A>和<C-X> 处理数字格式(二进制, 十六进制, 无符号数)
-set nrformats-=octal
-try
-  set nrformats+=unsigned
-catch
-endtry
+set nrformats=hex,bin,unsigned
 
 # 5. 文件 {{{2
 # 根据文件类型自动设置缩进
-if has('autocmd')
-  filetype plugin indent on
-endif
+filetype plugin indent on
 # 文件被外部修改后自动读入
 set autoread
 autocmd FocusGained,BufEnter * checktime
@@ -96,14 +90,12 @@ set nowritebackup
 set noswapfile
 
 # 6. 编码 {{{2
-if has('multi_byte')
-	# 内部工作编码
-	set encoding=utf-8
-	# 文件默认编码
-	set fileencoding=utf-8
-	# 打开文件时自动尝试下面顺序的编码
-	set fileencodings=ucs-bom,utf-8,gbk,gb18030,big5,euc-jp,latin1
-endif
+# 内部工作编码
+set encoding=utf-8
+# 文件默认编码
+set fileencoding=utf-8
+# 打开文件时自动尝试下面顺序的编码
+set fileencodings=ucs-bom,utf-8,gbk,gb18030,big5,euc-jp,latin1
 # 如遇Unicode值大于255的文本，不必等到空格再折行
 set formatoptions+=m
 # 合并两行中文时，不在中间加空格
@@ -113,37 +105,29 @@ set fileformats=unix,dos,mac
 
 # 7. 样式  {{{2
 # 高亮
-if has('syntax')
-  syntax enable
-  syntax on
-endif
-if has('folding')
-  set foldenable
-  set foldmethod=marker
-  set foldlevel=1
-endif
+syntax enable
+syntax on
+# 折叠
+set foldenable
+set foldmethod=marker
+set foldlevel=1
 # 真色彩
-if has('termguicolors')
-  set termguicolors
-endif
+set termguicolors
 set t_Co=256
 # 光标颜色固定
 autocmd ColorScheme * highlight Cursor guibg=bg guifg=fg
 # 8. GUI {{{2
-if has('gui_running')
-  set guioptions-=T # 取消工具栏
-  set guioptions-=e # 取消标签
-  set guioptions-=m # 取消菜单栏
-  set guioptions-=r # 取消右侧滚动条
-  set guioptions-=L # 取消左侧滚动条
-  set guitablabel=%M\ %t
-  set columns=120 # 宽
-  set lines=30 # 高
-  set guicursor+=a:blinkon0 # 取消光标闪烁
-endif
+set guioptions-=T # 取消工具栏
+set guioptions-=e # 取消标签
+set guioptions-=m # 取消菜单栏
+set guioptions-=r # 取消右侧滚动条
+set guioptions-=L # 取消左侧滚动条
+set guitablabel=%M\ %t
+set columns=120 # 宽
+set lines=30 # 高
+set guicursor+=a:blinkon0 # 取消光标闪烁
 # 扩展名 {{{2
 set suffixes=.bak,~,.o,.h,.info,.swp,.obj,.pyc,.pyo,.egg-info,.class
-
 set wildignore=*.o,*.obj,*~,*.exe,*.a,*.pdb,*.lib #stuff to ignore when tab completing
 set wildignore+=*.so,*.dll,*.swp,*.egg,*.jar,*.class,*.pyc,*.pyo,*.bin,*.dex
 set wildignore+=*.zip,*.7z,*.rar,*.gz,*.tar,*.gzip,*.bz2,*.tgz,*.xz    # MacOSX/Linux

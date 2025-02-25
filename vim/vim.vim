@@ -18,9 +18,9 @@ xnoremap <silent> <C-S-Up>   :m '<--<CR>gv=gv
 xnoremap <silent> <C-S-Down> :m '>+<CR>gv=gv
 
 # 切换 buffer or tag {{{2
-nnoremap <silent> <A-Left>  <Esc>:<C-U>call My_PrevPage()<CR>
-nnoremap <silent> <A-Right> <Esc>:<C-U>call My_NextPage()<CR>
-def My_NextPage() # {{{3
+nnoremap <silent> <A-Left>  <CMD>call My_PrevPage()<CR>
+nnoremap <silent> <A-Right> <CMD>call My_NextPage()<CR>
+def g:My_NextPage() # {{{3
   if tabpagenr('$') == 1
     bnext
   else
@@ -28,7 +28,7 @@ def My_NextPage() # {{{3
   endif
 enddef
 
-def My_PrevPage() # {{{3
+def g:My_PrevPage() # {{{3
   if tabpagenr('$') == 1
     bprevious
   else

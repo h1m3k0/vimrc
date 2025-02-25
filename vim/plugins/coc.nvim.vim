@@ -6,6 +6,7 @@
 " no select by `"suggest.noselect": true` in your configuration file
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " coc
 let g:coc_config_home = $MYVIMDIR
 let g:coc_global_extensions = [
       \ 'coc-marketplace',
@@ -77,22 +78,6 @@ augroup IdeaVimAction
 
   " 重命名
   nmap <Leader>r <Plug>(coc-rename)
-  " 全局搜索
-  nnoremap <Leader>s :HawkSearch
-  function HawkSearch(pattern)
-    let current = getcwd()
-    let current_length = len(current)
-    for workspace in g:WorkspaceFolders
-      let workspace_length = len(workspace)
-      if workspace_length > current_length
-        continue
-      endif
-      if current[0:workspace_length-1] == workspace
-        execute "CocSearch " . a:pattern . " " . workspace
-      endif
-    endfor
-  endfunction
-  command -bang -nargs=1 HawkSearch call HawkSearch(<f-args>)
 
   " 格式化
   nmap <Leader>l  <Plug>(coc-format)
@@ -103,16 +88,6 @@ augroup IdeaVimAction
   xmap <silent> <C-S> <Plug>(coc-range-select)
 
 augroup end
-
-
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s)
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
-
 
 " Applying code actions to the selected code block
 " Example: `<Leader>aap` for current paragraph

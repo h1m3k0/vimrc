@@ -41,4 +41,5 @@ return {
   'tpope/vim-fugitive',
   'tommcdo/vim-exchange',
   'yianwillis/vimcdoc',
+  'mattn/emmet-vim',
 }

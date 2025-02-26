@@ -13,4 +13,5 @@ return {
   'sainnhe/gruvbox-material',
   'altercation/vim-colors-solarized',
   { 'catppuccin/nvim', name = 'catppuccin' },
+  'Mofiqul/vscode.nvim',
 }

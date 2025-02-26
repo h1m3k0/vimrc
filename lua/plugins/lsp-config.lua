@@ -6,10 +6,8 @@ return {
     dependencies = { 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim', },
     version = '*',
     config = function()
-      vim.keymap.set('n', 'gD', vim.lsp.buf.declaration)
-      vim.keymap.set('n', 'gI', vim.lsp.buf.implementation)
+      vim.lsp.inlay_hint.enable(true)
       vim.keymap.set('n', '<Leader>r', vim.lsp.buf.rename)
-      vim.keymap.set('n', '<Leader>i', vim.lsp.buf.code_action)
       -- 定义最大长度（如20字符）
       local max_length = 20
 
@@ -64,7 +62,7 @@ return {
           require('lspconfig')[server_name].setup {}
         end,
         ['vtsls'] = function()
-          require('plugins.languages.typescript')
+          vim.cmd.luafile(vim.env.MYVIMDIR .. '/lua/plugins/languages/typescript.lua')
         end,
       }
     },

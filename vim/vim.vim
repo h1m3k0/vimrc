@@ -1,7 +1,7 @@
 " 设置字体 {{{2
 if has('gui_running')
   try
-    set guifont=JetBrainsMono_NFM:h12
+    set guifont=JetBrainsMonoNL_NFM:h12
   catch
     try
       set guifont=Consolas:h12

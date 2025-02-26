@@ -220,14 +220,14 @@ endif
 " HLM映射 {{{2
 noremap  H  ^
 noremap  L  $
-noremap  M  %
+" noremap  M  %  " 如果不用matchit
 " Emasc模式(Shell模式) {{{2
 inoremap <C-A> <Home>|cnoremap  <C-A>  <Home>
 inoremap <C-E>  <End>|cnoremap  <C-E>   <End>
 " 可视模式直接搜索当前选择内容  {{{2
-xnoremap  <silent> /  :call My_VisualRegSearch()<CR>/<CR>N
-xnoremap  <silent> ?  :call My_VisualRegSearch()<CR>?<CR>N
-function! My_VisualRegSearch() " {{{3
+xnoremap  <silent> /  :call VisualRegister()<CR>/<C-R>/<CR>N
+xnoremap  <silent> ?  :call VisualRegister()<CR>?<C-R>/<CR>N
+function! VisualRegister() " {{{3
   let l:tmp = @"
   normal! gvy
   let @/ = @"

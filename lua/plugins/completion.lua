@@ -20,29 +20,18 @@ return {
         ['<C-F>']   = { 'scroll_documentation_down', 'fallback' },
       },
       cmdline = {
-        keymap = {
-          preset      = 'none',
-          ['<Down>']  = { 'select_next', 'fallback' },
-          ['<Up>']    = { 'select_prev', 'fallback' },
-          ['<Tab>']   = { 'select_next', 'fallback' },
-          ['<S-Tab>'] = { 'select_prev', 'fallback' },
-          ['<C-N>']   = { 'select_next', 'fallback' },
-          ['<C-P>']   = { 'select_prev', 'fallback' },
-        }
+        enabled = false,
       },
       completion = {
         list = {
           selection = {
-            preselect = function(ctx)
-              return ctx.mode ~= 'cmdline'
-              and not require('blink.cmp').snippet_active{ direction = 1 }
-            end,
-            auto_insert = function(ctx) return ctx.mode == 'cmdline' end,
+            preselect = false,
+            auto_insert = false,
           },
         },
       },
       appearance = {
-        use_nvim_cmp_as_default = true,
+        use_nvim_cmp_as_default = false,
         nerd_font_variant = 'mono'
       },
       sources = {

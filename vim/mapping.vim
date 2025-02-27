@@ -33,8 +33,7 @@ cnoremap  <C-E>  <End>
 
 " 2. 额外功能  {{{1
 " 2.1 可视模式直接搜索当前选择内容  {{{2
-xnoremap  <silent> /  /<C-R>=VisualSelection()<CR><CR>N
-xnoremap  <silent> ?  ?<C-R>=VisualSelection()<CR><CR>N
+xnoremap  <silent> /  <CMD>let @/=VisualSelection()<CR><CMD>set hls<CR>
 " 2.2 取消搜索高亮 {{{2
 nnoremap  <silent> <Leader>/  <CMD>noh<CR>
 function! VisualSelection() " {{{3
@@ -46,7 +45,7 @@ function! VisualSelection() " {{{3
     " 获取默认寄存器的内容，即选中的文本
     let selection = getreg('"')
     " 恢复寄存器的状态
-    setreg('"', unnamed_reg_data, unnamed_reg_type)
+    call setreg('"', unnamed_reg_data, unnamed_reg_type)
     " 返回选中的文本
     return selection
 endfunction

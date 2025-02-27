@@ -8,6 +8,7 @@ return {
     config = function()
       vim.lsp.inlay_hint.enable(true)
       vim.keymap.set('n', '<Leader>r', vim.lsp.buf.rename)
+      vim.keymap.set({'n','x'}, '<Leader>l', vim.lsp.buf.format)
       -- 定义最大长度（如20字符）
       local max_length = 20
 
@@ -59,7 +60,7 @@ return {
       ensure_installed = { 'vimls', 'lua_ls' },
       handlers = {
         function (server_name)
-          require('lspconfig')[server_name].setup {}
+          -- require('lspconfig')[server_name].setup {}
         end,
         ['vtsls'] = function()
           vim.cmd.luafile(vim.env.MYVIMDIR .. '/lua/plugins/languages/typescript.lua')

@@ -21,6 +21,15 @@ return {
   'tommcdo/vim-exchange',
   { 'kana/vim-textobj-entire',       dependencies = 'kana/vim-textobj-user' },
   {
+      'vim-scripts/argtextobj.vim',
+      dependencies = 'kana/vim-textobj-user',
+      init = function()
+         vim.cmd [[
+         let g:argtextobj_pairs = '(:),{:},[:],<:>'
+         ]]
+      end,
+  },
+  {
     'machakann/vim-highlightedyank',
     init = function()
       vim.cmd [[

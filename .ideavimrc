@@ -225,8 +225,7 @@ noremap  L  $
 inoremap <C-A> <Home>|cnoremap  <C-A>  <Home>
 inoremap <C-E>  <End>|cnoremap  <C-E>   <End>
 " 可视模式直接搜索当前选择内容  {{{2
-xnoremap  <silent> /  :call VisualRegister()<CR>/<C-R>/<CR>N
-xnoremap  <silent> ?  :call VisualRegister()<CR>?<C-R>/<CR>N
+xnoremap  <silent> /  :call VisualRegister()<CR>:set hls<CR>
 function! VisualRegister() " {{{3
   let l:tmp = @"
   normal! gvy

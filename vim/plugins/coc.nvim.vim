@@ -25,7 +25,6 @@ inoremap <silent><expr> <Tab>
       \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
 inoremap <expr><S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<C-H>"
-
 function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
@@ -89,38 +88,10 @@ augroup IdeaVimAction
 
 augroup end
 
-" Applying code actions to the selected code block
-" Example: `<Leader>aap` for current paragraph
-xmap <Leader>a  <Plug>(coc-codeaction-selected)
-nmap <Leader>a  <Plug>(coc-codeaction-selected)
 
-" Remap keys for applying code actions at the cursor position
-nmap <Leader>ac  <Plug>(coc-codeaction-cursor)
-" Remap keys for apply code actions affect whole buffer
-nmap <Leader>as  <Plug>(coc-codeaction-source)
-" Apply the most preferred quickfix action to fix diagnostic on the current line
-nmap <Leader>qf  <Plug>(coc-fix-current)
-
-" Remap keys for applying refactor code actions
-nmap <silent> <Leader>re <Plug>(coc-codeaction-refactor)
-xmap <silent> <Leader>r  <Plug>(coc-codeaction-refactor-selected)
-nmap <silent> <Leader>r  <Plug>(coc-codeaction-refactor-selected)
-
-" Run the Code Lens action on the current line
-nmap <Leader>cl  <Plug>(coc-codelens-action)
-
-" Map function and class text objects
-" NOTE: Requires 'textDocument.documentSymbol' support from the language server
-
-" Remap <C-f> and <C-b> to scroll float windows/popups
-if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <C-F> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-F>"
-  nnoremap <silent><nowait><expr> <C-B> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-B>"
-  inoremap <silent><nowait><expr> <C-F> coc#float#has_scroll() ? "\<C-R>=coc#float#scroll(1)\<CR>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-B> coc#float#has_scroll() ? "\<C-R>=coc#float#scroll(0)\<CR>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <C-F> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-F>"
-  vnoremap <silent><nowait><expr> <C-B> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-B>"
-endif
+nmap <Leader>i  <Plug>(coc-codeaction-cursor)
+xmap <Leader>i  <Plug>(coc-codeaction-selected)
+nmap <Leader>;  <Plug>(coc-fix-current)
 
 " Use CTRL-S for selections ranges
 " Requires 'textDocument/selectionRange' support of language server

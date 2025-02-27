@@ -1,6 +1,6 @@
 local inlayHints = {
   parameterNames = {
-    enabled = 'all',
+    enabled = 'literals',
     suppressWhenArgumentMatchesNames = true,
   },
   parameterTypes = {
@@ -26,7 +26,7 @@ require('lspconfig').vtsls.setup {
     },
     javascript = {
       inlayHints = inlayHints,
-    }
+    },
   },
 }
 -- require('lspconfig').ts_ls.setup {}

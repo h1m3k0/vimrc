@@ -7,7 +7,7 @@ return {
     lazy = false,
     opts = {
       update_focused_file = {
-        enable = true,
+        -- enable = true,
         update_cwd = true,
       },
     },

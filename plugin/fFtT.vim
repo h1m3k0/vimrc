@@ -1,7 +1,11 @@
-highlight default link FfTtSubtle IncSearch
+function! FfTtColor()
+  highlight FfTtColor gui=reverse,bold,italic
+endfunction
+call FfTtColor()
+autocmd ColorScheme * call FfTtColor()
 let s:id = 0
 let s:winid = 0
-function! HighligtClear()
+function! HighlightClear()
     if s:id > 0
         let s:id = matchdelete(s:id, s:winid)
         :redraw
@@ -11,11 +15,11 @@ function! HighligtClear()
 endfunction
 
 augroup fFtTHighlight | autocmd!
-    autocmd CursorMoved,ModeChanged,TextChanged,WinEnter,WinLeave,CmdWinLeave,SafeState * call HighligtClear()
+    autocmd CursorMoved,ModeChanged,TextChanged,WinEnter,WinLeave,CmdWinLeave,SafeState * call HighlightClear()
 augroup END
 
 " Gather locations of characters to be dimmed.
-function! HighligtChars(s)
+function! HighlightChars(s)
     let [_, lnum, col, _] = getpos('.')
     let line = getline('.')
     " Extended ASCII characters can pose a challenge if we simply iterate over
@@ -53,17 +57,17 @@ function! HighligtChars(s)
             let s:id = matchdelete(s:id, s:winid)
         endif
         let s:winid = win_getid()
-        let s:id = matchaddpos('FfTtSubtle', locations, 1001)
+        let s:id = matchaddpos('FfTtColor', locations, 1001)
         :redraw
     endif
     return ''
 endfunction
 
-noremap <silent><expr> <Plug>(fFtT-f) HighligtChars('f')
-noremap <silent><expr> <Plug>(fFtT-F) HighligtChars('F')
-noremap <silent><expr> <Plug>(fFtT-t) HighligtChars('t')
-noremap <silent><expr> <Plug>(fFtT-T) HighligtChars('T')
-noremap <silent><expr> <Plug>(fFtT-esc) HighligtClear()
+noremap <silent><expr> <Plug>(fFtT-f) HighlightChars('f')
+noremap <silent><expr> <Plug>(fFtT-F) HighlightChars('F')
+noremap <silent><expr> <Plug>(fFtT-t) HighlightChars('t')
+noremap <silent><expr> <Plug>(fFtT-T) HighlightChars('T')
+noremap <silent><expr> <Plug>(fFtT-esc) HighlightClear()
 
 nnoremap f <Plug>(fFtT-f)f
 xnoremap f <Plug>(fFtT-f)f

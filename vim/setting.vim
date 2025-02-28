@@ -48,13 +48,14 @@ set showcmd
 " 始终显示状态栏
 set laststatus=2
 " 懒重绘
-set nolazyredraw
+set lazyredraw
 " (行号左边的)标号列 yes:始终保留, number:替换行号 (auto:会闪)
 set signcolumn=yes
 
 " 4. 编辑 {{{2
 " 命令行补全
 set wildmenu
+set wildoptions=fuzzy,pum
 " 搜索智能大小写 高亮 动态显示
 set ignorecase smartcase hlsearch incsearch
 nohlsearch

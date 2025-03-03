@@ -122,9 +122,6 @@ set trackactionids " 嫌烦再关闭
 " visualdelay => (TODO) {{{2
 " }}}
 " IdeaVim Plugins {{{1
-set quickscope " (需要安装插件)高亮f(这个特殊: 要等待一段时间再加载后半部分) {{{2
-  let g:qs_highlight_on_keys = ['f', 'F']
-
 set easymotion " (需要安装插件)快速跳转  {{{2
   " 智能大小写
   let g:EasyMotion_smartcase = 1
@@ -167,6 +164,13 @@ set textobj-indent " 缩进文本对象 (i/a)(i/I) {{{2
 
 set matchit " 百分号增强 {{{2
   map M %
+
+set quickscope " (需要安装插件)高亮f {{{2
+  let g:qs_highlight_on_keys = ['f', 'F']
+  " 命令符模式不高亮
+  onoremap f f
+  onoremap F F
+
 " (禁用) set mini-ai " (i/a)q 引号  (i/a)b 括号 {{{2
 
 set which-key " 显示组合键(需要安装插件) {{{2
@@ -179,10 +183,6 @@ set switch " 切换(需要安装插件) {{{2
   " 比如true切换false, !=切换==
   nnoremap - :Switch<CR>
   nnoremap + :Switch<CR>
-" quickscope(配置的后续) {{{2
-" 命令符模式不高亮
-onoremap f f
-onoremap F F
 " }}}
 
 " Basic Mappings
@@ -194,7 +194,7 @@ map Y y$
 " 删除不进入缓存 {{{2
 noremap  s  "_s
 " 如果用到surround, 这里不要映射xmap S
-nnoremap  S  "_S
+nnoremap S  "_S
 noremap  x  "_x
 noremap  X  "_X
 noremap <Leader>c "_c

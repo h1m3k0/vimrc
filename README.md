@@ -21,6 +21,9 @@
      " 启用映射esc键映射
      let g:map_esc_key = 1
      source ~/vimfiles/.ideavimrc
+     " 部分idea插件异步加载存在问题, 导致有的配置没有加载
+     " 通过再次source配置文件解决, 视情况可多次加载
+     source ~/vimfiles/.ideavimrc
      ~~~
    
 3. 初始化

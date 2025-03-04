@@ -8,6 +8,9 @@ if exists('g:map_esc_key')
   let g:map_esc_key = 0 " 默认最小配置
 endif
 "}}}}}}
+" Leader键 => <Space>
+let g:mapleader=' '
+noremap  <Leader>  <Nop>
 " Setting
 " List of Supported Options {{{1
 " clipboard => (共享系统剪切板) {{{2
@@ -186,9 +189,6 @@ set switch " 切换(需要安装插件) {{{2
 " }}}
 
 " Basic Mappings
-" Leader键 => <Space> {{{2
-let g:mapleader=' '
-noremap  <Leader>  <Nop>
 " 更符合逻辑的 Y => y$ {{{2
 map Y y$
 " 删除不进入缓存 {{{2
@@ -227,10 +227,10 @@ inoremap <C-E>  <End>|cnoremap  <C-E>   <End>
 " 可视模式直接搜索当前选择内容  {{{2
 xnoremap  <silent> /  :call VisualRegister()<CR>:set hls<CR>
 function! VisualRegister() " {{{3
-  let l:tmp = @"
+  let g:tmp = @"
   normal! gvy
   let @/ = @"
-  let @" = l:tmp
+  let @" = g:tmp
 endfunction
 " 取消搜索高亮 {{{2
 nnoremap  <silent> <Leader>/  <Esc>:<C-U>noh<CR>

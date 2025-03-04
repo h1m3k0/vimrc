@@ -46,6 +46,7 @@ function! VisualSelection() " {{{3
     let selection = getreg('"')
     " 恢复寄存器的状态
     call setreg('"', unnamed_reg_data, unnamed_reg_type)
+    call setreg('*', unnamed_reg_data, unnamed_reg_type)
     " 返回选中的文本
     return selection
 endfunction

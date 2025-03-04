@@ -227,10 +227,11 @@ inoremap <C-E>  <End>|cnoremap  <C-E>   <End>
 " 可视模式直接搜索当前选择内容  {{{2
 xnoremap  <silent> /  :call VisualRegister()<CR>:set hls<CR>
 function! VisualRegister() " {{{3
-  let g:tmp = @"
+  let l:tmp = @"
   normal! gvy
   let @/ = @"
-  let @" = g:tmp
+  let @" = l:tmp
+  let @* = l:tmp
 endfunction
 " 取消搜索高亮 {{{2
 nnoremap  <silent> <Leader>/  <Esc>:<C-U>noh<CR>

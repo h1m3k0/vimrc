@@ -86,7 +86,7 @@ def Press(type: Type): void
   var [_, lnum, _, _] = getpos('.')
   var mode = mode(true)
   if type ==# Type.f
-    echo type.ToString() .. ': '
+   # echo type.ToString() .. ': '
     var char = getchar()
     var col = TargetPosition(Action.new(type, char))
     var line = getline('.')
@@ -142,8 +142,15 @@ def TestFf(type: Type): void
   HighlightPrint(SelectPosition(type)->values())
   Press(type)
 enddef
-noremap <Plug>(test-f) <ScriptCmd>TestFf(Type.f)<CR>
-noremap f <Plug>(test-f)
+def Repeat(type: Type): string
+  return ''
+enddef
+def Test(): string
+  echo 'bb'
+  return ''
+enddef
+# 点操作时, 不会打印bb
+noremap f <Plug>(press)<Plug>(test-f)
 
 # noremap <Plug>(test-f) <ScriptCmd>TestFf(Type.f)<CR>
 # noremap <Plug>(test-t) <ScriptCmd>TestFf(Type.t)<CR>

@@ -161,8 +161,8 @@ set textobj-entire " 全文文本对象 (i/a)e {{{2
   " 使用iee/aee防止iw/aw误触
   unmap ie
   unmap ae
-  map   iee <Plug>textobj-entire-i
-  map   aee <Plug>textobj-entire-a
+  omap  iee <Plug>textobj-entire-i
+  omap  aee <Plug>textobj-entire-a
 
 set highlightedyank " 复制高亮 {{{2
   let g:highlightedyank_highlight_duration = '2000'

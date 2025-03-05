@@ -158,6 +158,11 @@ set argtextobj " 参数文本对象 (i/a)a {{{2
 set exchange " 互换 cx {{{2
 
 set textobj-entire " 全文文本对象 (i/a)e {{{2
+  " 使用iee/aee防止iw/aw误触
+  unmap ie
+  unmap ae
+  map   iee <Plug>textobj-entire-i
+  map   aee <Plug>textobj-entire-a
 
 set highlightedyank " 复制高亮 {{{2
   let g:highlightedyank_highlight_duration = '2000'
@@ -184,8 +189,9 @@ set functiontextobj " 方法文本对象(需要安装插件) (i/a)f {{{2
 
 set switch " 切换(需要安装插件) {{{2
   " 比如true切换false, !=切换==
-  nnoremap - :Switch<CR>
-  nnoremap + :Switch<CR>
+  let g:switch_definitions = 'group:basic'
+  nnoremap <Tab>   :Switch<CR>
+  nnoremap <S-Tab> :SwitchReverse<CR>
 " }}}
 
 " Basic Mappings

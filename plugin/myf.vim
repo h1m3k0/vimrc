@@ -1,8 +1,8 @@
-finish
 vim9script noclear
 
 var id: number
 var winid: number
+var is_dot_repeat: bool = true
 
 highlight ColorF gui=standout
 
@@ -45,6 +45,7 @@ class Action
   var type: Type
   var char: number
   public static var last_action: Action = null
+  public static var last_o_action: Action = null
   def new(this.type, this.char)
   enddef
   def newChar(type: Type, char: string)
@@ -87,16 +88,50 @@ def Press(type: Type): void
   var mode = mode(true)
   if type ==# Type.f
    # echo type.ToString() .. ': '
-    var char = getchar()
-    var col = TargetPosition(Action.new(type, char))
-    var line = getline('.')
-    if mode ==# 'n'
-      keepjump cursor(lnum, col + 1)
-    elseif mode ==# 'no'
-      normal! v
-      keepjump cursor(lnum, col + 1)
-    endif
-
+          if mode ==# 'n'
+                  var char = getchar()
+                  var col = TargetPosition(Action.new(type, char))
+                  if col !=# -1
+                    keepjump cursor(lnum, col + 1)
+                    Action.last_action = Action.new(type, char)
+                  endif
+          elseif mode ==# 'no'
+                  var char: number
+                  if is_dot_repeat
+                    char = Action.last_o_action.char
+                  else
+                    is_dot_repeat = true
+                    char = getchar()
+                  endif
+                  var col = TargetPosition(Action.new(type, char))
+                  if col !=# -1
+                    Action.last_action = Action.new(type, char)
+                    Action.last_o_action = Action.new(type, char)
+                    normal! v
+                    keepjump cursor(lnum, col + 1)
+                  else
+                    try
+                      undojoin
+                    catch
+                    endtry
+                  endif
+          endif
+    # var char = getchar()
+    # var col = TargetPosition(Action.new(type, char))
+    # if col !=# -1
+    #   var line = getline('.')
+    #   if mode ==# 'n'
+    #     keepjump cursor(lnum, col + 1)
+    #     Action.last_action = Action.newChar(type, char)
+    #   elseif mode ==# 'no'
+    #       normal! v
+    #       keepjump cursor(lnum, col + 1)
+    #       is_dot_repeat = true
+    #       Action.last_action = Action.newChar(type, char)
+    #       Action.last_o_action = Action.newChar(type, char)
+    #     endif
+    #   endif
+    # endif
   elseif type ==# Type.comma
     TargetPosition(Action.newComma())
   elseif type ==# Type.semicolon
@@ -139,18 +174,23 @@ def HighlightPrint(col_index_list: list<number>): void
 enddef
 
 def TestFf(type: Type): void
-  HighlightPrint(SelectPosition(type)->values())
+  var position = SelectPosition(type)
+  if !is_dot_repeat
+    HighlightPrint(position->values())
+  endif
   Press(type)
 enddef
 def Repeat(type: Type): string
   return ''
 enddef
-def Test(): string
-  echo 'bb'
+def IsNotDotRepeat(): string
+  is_dot_repeat = false
   return ''
 enddef
 # 点操作时, 不会打印bb
-noremap f <Plug>(press)<Plug>(test-f)
+noremap <Plug>(test-f) <ScriptCmd>TestFf(Type.f)<CR>
+noremap <expr><silent> <Plug>(is-not-dot-repeat) <SID>IsNotDotRepeat()
+noremap f <Plug>(is-not-dot-repeat)<Plug>(test-f)
 
 # noremap <Plug>(test-f) <ScriptCmd>TestFf(Type.f)<CR>
 # noremap <Plug>(test-t) <ScriptCmd>TestFf(Type.t)<CR>

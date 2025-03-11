@@ -20,13 +20,30 @@ return {
         ['<C-F>']   = { 'scroll_documentation_down', 'fallback' },
       },
       cmdline = {
-        enabled = false,
+        keymap = {
+          preset      = 'none',
+          ['<Down>']  = { 'select_next', 'fallback' },
+          ['<Up>']    = { 'select_prev', 'fallback' },
+          ['<Tab>'] = {
+            function(cmp)
+              if cmp.is_ghost_text_visible() and not cmp.is_menu_visible() then return cmp.accept() end
+            end,
+            'show_and_insert',
+            'select_next',
+          },
+          ['<S-Tab>'] = { 'select_prev', 'fallback' },
+          ['<C-N>']   = { 'select_next', 'fallback' },
+          ['<C-P>']   = { 'select_prev', 'fallback' },
+        },
       },
       completion = {
         list = {
           selection = {
-            preselect = false,
-            auto_insert = false,
+            preselect = function(ctx)
+              return ctx.mode ~= 'cmdline'
+              and not require('blink.cmp').snippet_active{ direction = 1 }
+            end,
+            auto_insert = function(ctx) return ctx.mode == 'cmdline' end,
           },
         },
       },

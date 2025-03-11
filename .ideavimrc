@@ -95,8 +95,8 @@ set sidescrolloff=20 " 值太大, 没怎么动就滚一下; 值太小, (因为�
 
 " number => (启用) 显示行号 {{{2
 set number
-" relativenumber => (禁用) 关闭相对行号 {{{2
-set norelativenumber " 不启用, j/k跳转很有用, 但少量行数可以一眼看出来, 多行用可视模式更有把握; 绝对行号在debug(尤其是用鼠标debug)时更有用
+" relativenumber => (启用) 关闭相对行号 {{{2
+set relativenumber
 " textwidth => (TODO)
 
 " wrap => (禁用) 长行不自动换行 {{{2

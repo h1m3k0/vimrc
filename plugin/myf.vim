@@ -78,8 +78,8 @@ def SelectPosition(type: Type): dict<number>
   var result: dict<number> = {}    # key: char, value: position_index
   var range: list<number>
   if type ==# Type.F || type ==# Type.T
-    # left 啊啊啊啊啊啊啊
-    range = range(0, col - 1)->reverse()
+    # left
+    range = range(0, col - 2)->reverse()
   else
     # right
     range = range(col, char_list->len() - 1)
@@ -200,19 +200,25 @@ def HighlightPrint(col_index_list: list<number>): void
 enddef
 def PrintBackground(type: Type, position: dict<number>): void
   var win_view = winsaveview()
-  var [_, lnum, col, _] = getcharpos('.')
+  var [_, lnum, col, _] = getpos('.')
+  # current 当前的字符
+  # current_add 当前字符为中文时, 
+  #   popup_create需要在当前字符结尾处展开(计算当前字符宽度)
+  var current = getline('.')[getcharpos('.')[2] - 1]
+  var current_add = strwidth(current) - 1
   # f的时候
   if type ==# Type.f || type ==# Type.t
       for [key, value] in position -> items()
+        var byte_position = strlen(getline('.')[0 : value - 1])
         # wincol()                                   当前光标在window中的列号
         # virtcol([lnum, col])                       当前光标的列号
         # wincol() - virtcol([lnum, col])            window左边的宽度
         # win_view.leftcol                           当前显示的最左的字符的列号
         # virtcol([lnum, value])                     目标列号
         # virtcol([lnum, value]) - win_view.leftcol  最左到目标的距离(需要小于宽度(减去最左多余的宽度))
-        if wincol() - virtcol([lnum, col]) + virtcol([lnum, value]) - win_view.leftcol <# winwidth(0)
+        if wincol() - virtcol([lnum, col]) + virtcol([lnum, byte_position]) - win_view.leftcol <# winwidth(0)
           popup_create(key->str2nr()->nr2char(), {
-            col: 'cursor+' .. (1 + virtcol([lnum, value]) - virtcol([lnum, col]))->string(),
+            col: 'cursor+' .. (1 + current_add + virtcol([lnum, byte_position]) - virtcol([lnum, col]))->string(),
             line: 'cursor',
             highlight: 'ColorF',
             posinvert: false,
@@ -227,10 +233,11 @@ def PrintBackground(type: Type, position: dict<number>): void
   # F的情况
   if type ==# Type.F || type ==# Type.T
       for [key, value] in position -> items()
+        var byte_position = strlen(getline('.')[0 : value - 1])
         # 当前列号要大于最左列号
-        if win_view.leftcol <=# virtcol([lnum, value]) 
+        if win_view.leftcol <=# virtcol([lnum, byte_position])
           popup_create(key->str2nr()->nr2char(), {
-            col: 'cursor-' .. -(1 + virtcol([lnum, value]) - virtcol([lnum, col])),
+            col: 'cursor-' .. -(1 + current_add + virtcol([lnum, byte_position]) - virtcol([lnum, col])),
             line: 'cursor',
             highlight: 'ColorF',
             posinvert: false,

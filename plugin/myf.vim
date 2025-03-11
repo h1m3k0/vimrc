@@ -1,3 +1,4 @@
+finish
 vim9script noclear
 
 var id: number
@@ -15,9 +16,9 @@ if prop_type_get('myf_prop_comment')->empty()
   prop_type_add('myf_prop_comment', { highlight: 'Comment' })
 endif
 def HighlightClear(): void
-  # if id > 0
-  #   id = id->matchdelete(winid)
-  # endif
+  if id > 0
+    id = id->matchdelete(winid)
+  endif
   popup_clear()
 enddef
 
@@ -207,7 +208,17 @@ def PrintBackground(type: Type, position: dict<number>): void
   var current = getline('.')[getcharpos('.')[2] - 1]
   var current_add = strwidth(current) - 1
   # f的时候
-  if type ==# Type.f || type ==# Type.t
+          popup_create(getline('.'), {
+            col: 'cursor',
+            line: 'cursor',
+            highlight: 'ColorF',
+            posinvert: false,
+            flip: false,
+            fixed: true,
+            wrap: true,
+            moved: 'any'
+          })
+  if false && type ==# Type.f || type ==# Type.t
       for [key, value] in position -> items()
         var byte_position = strlen(getline('.')[0 : value - 1])
         # wincol()                                   当前光标在window中的列号
@@ -255,7 +266,8 @@ enddef
 def TestFf(type: Type): void
   var position = SelectPosition(type)
   if !is_dot_repeat
-    PrintBackground(type, position)
+    # PrintBackground(type, position)
+    HighlightPrint(position->values())
   endif
   Press(type, position)
 enddef

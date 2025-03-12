@@ -130,10 +130,10 @@ set easymotion " (需要安装插件)快速跳转  {{{2
   let g:EasyMotion_smartcase = 1
   " 禁用默认映射
   let g:EasyMotion_do_mapping = 0
-  map  <Leader>f  <Plug>(easymotion-bd-f)
-  map  <Leader>F  <Plug>(easymotion-bd-f)
-  map  <Leader>t  <Plug>(easymotion-bd-t)
-  map  <Leader>T  <Plug>(easymotion-bd-t)
+  map  <Leader><Leader>f  <Plug>(easymotion-bd-f)
+  map  <Leader><Leader>F  <Plug>(easymotion-bd-f)
+  map  <Leader><Leader>t  <Plug>(easymotion-bd-t)
+  map  <Leader><Leader>T  <Plug>(easymotion-bd-t)
 " (禁用) set sneak " s跳转 {{{2
 "   map s <Plug>Sneak_s
 "   map S <Plug>Sneak_S
@@ -247,8 +247,10 @@ nnoremap  <silent> <Leader>/  <Esc>:<C-U>noh<CR>
 " Mappings {{{1
 " <Leader>r => RenameElement => 重命名 Shift-F6 {{{2
 map  <Leader>r <Action>(RenameElement)
-" <Leader>s => FindInPath => 全局搜索 Ctrl-Shift-F {{{2
-map  <Leader>s <Action>(FindInPath)
+" <Leader>ff => GotoFile => 跳转文件 Ctrl-Shift-N {{{2
+map  <Leader>ff <Action>(GotoFile)
+" <Leader>fg => FindInPath => 全局搜索 Ctrl-Shift-F {{{2
+map  <Leader>fg <Action>(FindInPath)
 " <Leader>l => ReformatCode => 格式化 Alt-Ctrl-L {{{2
 map  <Leader>l <Action>(ReformatCode)
 " <C-S> => EditorSelectWord => 选择 Ctrl-w {{{2

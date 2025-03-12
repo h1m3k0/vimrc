@@ -12,6 +12,8 @@ return {
       vim.keymap.set('n', 'gD', fzf.lsp_declarations)
       vim.keymap.set('n', 'gI', fzf.lsp_implementations)
       vim.keymap.set('n', '<Leader>i', fzf.lsp_code_actions)
+      vim.keymap.set('n', '<Leader>ff', fzf.files)
+      vim.keymap.set('n', '<Leader>fg', fzf.live_grep)
     end,
 
   }

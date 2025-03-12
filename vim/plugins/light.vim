@@ -42,10 +42,10 @@ Plug 'easymotion/vim-easymotion' # {{{2
   g:EasyMotion_smartcase = 1
   # 禁用默认映射
   g:EasyMotion_do_mapping = 0
-  map  <Leader>f  <Plug>(easymotion-bd-f)
-  map  <Leader>F  <Plug>(easymotion-bd-f)
-  map  <Leader>t  <Plug>(easymotion-bd-t)
-  map  <Leader>T  <Plug>(easymotion-bd-t)
+  map  <Leader><Leader>f  <Plug>(easymotion-bd-f)
+  map  <Leader><Leader>F  <Plug>(easymotion-bd-f)
+  map  <Leader><Leader>t  <Plug>(easymotion-bd-t)
+  map  <Leader><Leader>T  <Plug>(easymotion-bd-t)
 
 # 编辑 {{{1
 Plug 'tpope/vim-endwise' # => 轻量结尾补全 {{{2

@@ -8,10 +8,10 @@ return {
       let g:EasyMotion_smartcase = 1
       " 禁用默认映射
       let g:EasyMotion_do_mapping = 0
-      map  <Leader>f  <Plug>(easymotion-bd-f)
-      map  <Leader>F  <Plug>(easymotion-bd-f)
-      map  <Leader>t  <Plug>(easymotion-bd-t)
-      map  <Leader>T  <Plug>(easymotion-bd-t)
+      map  <Leader><Leader>f  <Plug>(easymotion-bd-f)
+      map  <Leader><Leader>F  <Plug>(easymotion-bd-f)
+      map  <Leader><Leader>t  <Plug>(easymotion-bd-t)
+      map  <Leader><Leader>T  <Plug>(easymotion-bd-t)
       ]]
     end,
   },

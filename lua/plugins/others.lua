@@ -28,12 +28,6 @@ return {
     dependencies = { 'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify' },
     event = 'VeryLazy',
     opts = {
-      message = {
-        enabled = false,
-      },
-      notify = {
-        enabled = false,
-      },
       lsp = {
         override = {
           ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
@@ -44,14 +38,14 @@ return {
   },
   {
     'akinsho/bufferline.nvim',
-    dependencies = 'ryanoasis/vim-devicons',
+    dependencies = 'nvim-tree/nvim-web-devicons',
     version = '*',
     event = 'VeryLazy',
     config = true,
   },
   {
     'nvim-lualine/lualine.nvim',
-    dependencies = { 'ryanoasis/vim-devicons' },
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
     event = 'VeryLazy',
     opts = {
       options = {
@@ -65,7 +59,9 @@ return {
     lazy = false,
     ---@type snacks.Config
     opts = {
+      bufdelete = {},
       input = {},
+      picker = {},
       dashboard = {
         preset = {
           header = [[]],

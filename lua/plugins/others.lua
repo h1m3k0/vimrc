@@ -21,7 +21,14 @@ return {
     -- git相关
     'lewis6991/gitsigns.nvim',
     event = 'VeryLazy',
-    config = true,
+    config = function()
+      local git = require('gitsigns')
+      git.setup()
+      -- 跳转到上一个更改
+      vim.keymap.set('n', '<F2>', function() git.next_hunk({navigation_message=false}) end, {buffer=bufnr})
+      -- 跳转到下一个更改
+      vim.keymap.set('n', '<S-F2>', function() git.prev_hunk({navigation_message=false}) end, {buffer=bufnr})
+    end,
   },
   {
     'folke/noice.nvim',

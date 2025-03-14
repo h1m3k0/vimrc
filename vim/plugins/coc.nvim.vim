@@ -58,6 +58,10 @@ function! GotoError(action)
   execute "call CocActionAsync('".a:action."')"
 endfunction
 
+" 跳转vcs
+nmap <F2>   <Plug>(coc-git-nextchunk)
+nmap <S-F2> <Plug>(coc-git-prevchunk)
+
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)

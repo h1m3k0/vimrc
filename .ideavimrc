@@ -240,6 +240,14 @@ nnoremap  <silent> <Leader>/  <Esc>:<C-U>noh<CR>
 
 " IdeaVim Action
 " Mappings {{{1
+" <F1> => GotoNextError => 跳转错误 F2 {{{2
+map <F1>   <Action>(GotoNextError)
+" <S-F1> => GotoPreviousError => 跳转错误 Shift-F2 {{{2
+map <S-F1> <Action>(GotoPreviousError)
+" <F2> => VcsShowNextChangeMarker => 跳转vsc改动 {{{2
+map <F2>   <Action>(VcsShowNextChangeMarker)
+" <S-F2> => VcsShowPrevChangeMarker => 跳转vsc改动 {{{2
+map <S-F2> <Action>(VcsShowPrevChangeMarker)
 " <Leader>r => RenameElement => 重命名 Shift-F6 {{{2
 map  <Leader>r <Action>(RenameElement)
 " <Leader>ff => GotoFile => 跳转文件 Ctrl-Shift-N {{{2

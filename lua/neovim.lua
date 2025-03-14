@@ -21,9 +21,9 @@ local diagnostic_level = function()
   end
   return level
 end
-vim.keymap.set('n', '<F2>', function()
+vim.keymap.set('n', '<F1>', function()
   vim.diagnostic.goto_next({severity = diagnostic_level()})
 end)
-vim.keymap.set('n', '<S-F2>', function()
+vim.keymap.set('n', '<S-F1>', function()
   vim.diagnostic.goto_prev({severity = diagnostic_level()})
 end)

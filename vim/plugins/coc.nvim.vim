@@ -45,8 +45,8 @@ omap ac <Plug>(coc-classobj-a)
 
 
 " 跳转告警
-noremap     <silent> <S-F2> <Esc>:<C-u>call GotoError('diagnosticPrevious')<CR>
-noremap     <silent> <F2>   <Esc>:<C-u>call GotoError('diagnosticNext')<CR>
+noremap     <silent> <S-F1> <Esc>:<C-u>call GotoError('diagnosticPrevious')<CR>
+noremap     <silent> <F1>   <Esc>:<C-u>call GotoError('diagnosticNext')<CR>
 function! GotoError(action)
   let s:list = CocAction('diagnosticList')
   for obj in s:list

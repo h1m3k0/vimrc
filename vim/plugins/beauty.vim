@@ -14,8 +14,8 @@ Plug 'vim-airline/vim-airline' # => 状态栏   {{{2
   g:airline#extensions#fern#enabled = 0
   # 只有一个tab时 显示buffers
   g:airline#extensions#tabline#enabled = 1
-  # 标题显示 最简的(包+文件名)
-  g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+  # 标题仅显示文件名
+  g:airline#extensions#tabline#formatter = 'unique_tail'
 
 Plug 'mhinz/vim-startify'      # => 启动页面 {{{2
   g:startify_custom_header = ['']

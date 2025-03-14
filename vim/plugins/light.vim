@@ -30,7 +30,7 @@ Plug 'kana/vim-textobj-entire' # => 全文文本对象 {{{2
 
 Plug 'michaeljsmith/vim-indent-object' # => 缩进文本对象 {{{2
 
-Plug 'vim-scripts/argtextobj.vim' # => 参数文本对象 {{{2
+# Plug 'vim-scripts/argtextobj.vim' # => 参数文本对象 {{{2
   g:argtextobj_pairs = '(:),{:},[:],<:>'
 # Plug 'chrisbra/matchit' # => 匹配 {{{2
 #   nmap M %

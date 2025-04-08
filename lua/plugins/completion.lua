@@ -20,34 +20,20 @@ return {
         ['<C-F>']   = { 'scroll_documentation_down', 'fallback' },
       },
       cmdline = {
-        enabled = false,
         keymap = {
           preset      = 'none',
-          ['<Tab>']   = {
-            function(cmp)
-              if cmp.is_ghost_text_visible() and not cmp.is_menu_visible() then return cmp.accept() end
-            end,
-            'show_and_insert',
-            'select_next',
-          },
+          ['<Tab>']   = { 'show_and_insert', 'select_next', 'fallback' },
           ['<S-Tab>'] = { 'select_prev', 'fallback' },
           ['<Down>']  = { 'select_next', 'fallback' },
           ['<Up>']    = { 'select_prev', 'fallback' },
           ['<C-N>']   = { 'select_next', 'fallback' },
           ['<C-P>']   = { 'select_prev', 'fallback' },
-          -- 退格和空格的同时隐藏
-          ['<BS>']    = {
-            function(cmp)
-              cmp.hide() return false
-            end,
-            'fallback',
-          },
-          ['<Space>'] = {
-            function(cmp)
-              cmp.hide() return false
-            end,
-            'fallback',
-          },
+          -- 空格删除的同时隐藏
+          ['<BS>']    = { function(cmp) cmp.hide() return false end, 'fallback' },
+          ['<Space>'] = { function(cmp) cmp.hide() return false end, 'fallback' },
+          ['<C-H>']   = { function(cmp) cmp.hide() return false end, 'fallback' },
+          ['<C-W>']   = { function(cmp) cmp.hide() return false end, 'fallback' },
+          ['<C-U>']   = { function(cmp) cmp.hide() return false end, 'fallback' },
         },
       },
       completion = {

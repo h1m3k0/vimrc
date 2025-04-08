@@ -122,7 +122,6 @@ set guioptions-=e " 取消标签
 set guioptions-=m " 取消菜单栏
 set guioptions-=r " 取消右侧滚动条
 set guioptions-=L " 取消左侧滚动条
-set guitablabel=%M\ %t
 set columns=120 " 宽
 set lines=30 " 高
 set guicursor+=a:blinkon0 " 取消光标闪烁

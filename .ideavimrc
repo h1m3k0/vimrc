@@ -1,13 +1,3 @@
-" Config {{{1
-" g:map_arrow_key => 1:映射方向键; 0:不映射方向键 {{{2
-if exists('g:map_arrow_key')
-  let g:map_arrow_key = 0 " 默认最小配置
-endif
-" g:map_esc_key => 1:映射esc键; 0:不映射esc键 {{{2
-if exists('g:map_esc_key')
-  let g:map_esc_key = 0 " 默认最小配置
-endif
-"}}}}}}
 " Leader键 => <Space>
 let g:mapleader=' '
 noremap  <Leader>  <Nop>
@@ -152,8 +142,6 @@ set matchit " 百分号增强 {{{2
 
 set multiple-curcors " 多光标 {{{2
 
-set NERDTree " 文件树 {{{2
-  " 光标移动到文件树
   nnoremap  <Leader>ee  :NERDTree<CR>
   " 在文件树找到当前文件
   nnoremap  <Leader>ef  :NERDTreeFind<CR>
@@ -203,13 +191,13 @@ noremap <Leader>D "_D
 xnoremap  <  <gv
 xnoremap  >  >gv
 " 方向键与Esc {{{2
-if g:map_arrow_key == 0
+if 0
   noremap <C-H>  <Left>|inoremap <C-H>  <Left>|cnoremap <C-H>  <Left>
   noremap <C-J>  <Down>|inoremap <C-J>  <Down>|cnoremap <C-J>  <Down>
   noremap <C-K>    <Up>|inoremap <C-K>    <Up>|cnoremap <C-K>    <Up>
   noremap <C-L> <Right>|inoremap <C-L> <Right>|cnoremap <C-L> <Right>
 endif
-if g:map_esc_key == 0
+if 0
   inoremap  jk  <Esc>
   " 可以接受j+任意非k => 一下蹦两个字母就不用映射这个
   " 不能接受一下蹦两个字母, 想输入j的时候就jj=>j

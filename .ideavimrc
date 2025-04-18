@@ -142,6 +142,8 @@ set matchit " 百分号增强 {{{2
 
 set multiple-curcors " 多光标 {{{2
 
+set NERDTree " 文件树 {{{2
+  " 光标移动到文件树
   nnoremap  <Leader>ee  :NERDTree<CR>
   " 在文件树找到当前文件
   nnoremap  <Leader>ef  :NERDTreeFind<CR>

@@ -25,9 +25,9 @@ return {
       local git = require('gitsigns')
       git.setup()
       -- 跳转到上一个更改
-      vim.keymap.set('n', '<F2>', function() git.next_hunk({navigation_message=false}) end, {buffer=bufnr})
+      vim.keymap.set('n', '<F2>', function() git.nav_hunk('next') end)
       -- 跳转到下一个更改
-      vim.keymap.set('n', '<S-F2>', function() git.prev_hunk({navigation_message=false}) end, {buffer=bufnr})
+      vim.keymap.set('n', '<S-F2>', function() git.nav_hunk('prev') end)
     end,
   },
   {

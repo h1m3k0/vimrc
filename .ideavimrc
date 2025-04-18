@@ -125,6 +125,10 @@ set trackactionids " 嫌烦再关闭
 " visualdelay => (TODO) {{{2
 " }}}
 " IdeaVim Plugins {{{1
+set argtextobj " 参数文本对象 (i/a)a {{{2
+  let g:argtextobj_pairs='(:),{:},[:],<:>'
+set commentary " 注释 gc {{{2
+
 set easymotion " (需要安装插件)快速跳转  {{{2
   " 智能大小写
   let g:EasyMotion_smartcase = 1
@@ -134,9 +138,19 @@ set easymotion " (需要安装插件)快速跳转  {{{2
   map  <Leader><Leader>F  <Plug>(easymotion-bd-f)
   map  <Leader><Leader>t  <Plug>(easymotion-bd-t)
   map  <Leader><Leader>T  <Plug>(easymotion-bd-t)
-" (禁用) set sneak " s跳转 {{{2
-"   map s <Plug>Sneak_s
-"   map S <Plug>Sneak_S
+set exchange " 互换 cx {{{2
+
+set functiontextobj " 方法文本对象(需要安装插件) (i/a)f {{{2
+
+set highlightedyank " 复制高亮 {{{2
+  let g:highlightedyank_highlight_duration = '2000'
+set textobj-indent " 缩进文本对象 (i/a)(i/I) {{{2
+
+set matchit " 百分号增强 {{{2
+  map M %
+" (禁用) set mini-ai " (i/a)q 引号  (i/a)b 括号 {{{2
+
+set multiple-curcors " 多光标 {{{2
 
 set NERDTree " 文件树 {{{2
   " 光标移动到文件树
@@ -145,48 +159,31 @@ set NERDTree " 文件树 {{{2
   nnoremap  <Leader>ef  :NERDTreeFind<CR>
   " 关闭/打开文件树
   nnoremap  <Leader>et  :NERDTreeToggle<CR>
-set surround " 环绕 (y/c/d)s {{{2
-
-set multiple-curcors " 多光标 {{{2
-
-set commentary " 注释 gc {{{2
-
-set ReplaceWithRegister " 替换 gr {{{2
-
-set argtextobj " 参数文本对象 (i/a)a {{{2
-  let g:argtextobj_pairs='(:),{:},[:],<:>'
-set exchange " 互换 cx {{{2
-
-set textobj-entire " 全文文本对象 (i/a)e {{{2
-
-set highlightedyank " 复制高亮 {{{2
-  let g:highlightedyank_highlight_duration = '2000'
 set vim-paragraph-motion " 大括号增强 {{{2
 
-set textobj-indent " 缩进文本对象 (i/a)(i/I) {{{2
-
-set matchit " 百分号增强 {{{2
-  map M %
+set peekaboo " 显示寄存器内容(需要安装插件) {{{2
 
 set quickscope " (需要安装插件)高亮f {{{2
   let g:qs_highlight_on_keys = ['f', 'F']
   " 命令符模式不高亮
   onoremap f f
   onoremap F F
+set ReplaceWithRegister " 替换 gr {{{2
 
-" (禁用) set mini-ai " (i/a)q 引号  (i/a)b 括号 {{{2
-
-set which-key " 显示组合键(需要安装插件) {{{2
-
-set peekaboo " 显示寄存器内容(需要安装插件) {{{2
-
-set functiontextobj " 方法文本对象(需要安装插件) (i/a)f {{{2
+" (禁用) set sneak " s跳转 {{{2
+"   map s <Plug>Sneak_s
+"   map S <Plug>Sneak_S
+set surround " 环绕 (y/c/d)s {{{2
 
 set switch " 切换(需要安装插件) {{{2
   " 比如true切换false, !=切换==
   let g:switch_definitions = 'group:basic'
   nnoremap <Tab>   :Switch<CR>
   nnoremap <S-Tab> :SwitchReverse<CR>
+set textobj-entire " 全文文本对象 (i/a)e {{{2
+
+set which-key " 显示组合键(需要安装插件) {{{2
+
 " }}}
 
 " Basic Mappings
@@ -264,6 +261,8 @@ map  gd <Action>(GotoDeclaration)
 map  gI <Action>(GotoImplementation)
 " gy => GotoTypeDeclaration => 跳转到类型 Ctrl-Shift-B {{{2
 map  gy <Action>(GotoTypeDeclaration)
+" gm => GotoSuperMethod => 跳转到父方法 Ctrl-U {{{2
+map  gm <Action>(GotoSuperMethod)
 " <Leader>v => IntroduceVariable => 引入变量 Alt-Ctrl-V {{{2
 map  <Leader>v <Action>(IntroduceVariable)
 " <Leader>; => EditorCompleteStatement => 补全 Ctrl-Shift-Enter {{{2

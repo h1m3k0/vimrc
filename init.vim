@@ -1,16 +1,16 @@
-let $MYVIMDIR = fnamemodify(resolve(expand('<sfile>:p')), ':h')
-let $MYVIMDIR = substitute($MYVIMDIR, '\', '/', 'g')
-let $MYVIMRC = $MYVIMDIR.'/init.vim'
+let g:vimdir = fnamemodify(resolve(expand('<sfile>:p')), ':h')
+let g:vimdir = substitute(g:vimdir, '\', '/', 'g')
+let g:vimdir = g:vimdir.'/init.vim'
 
-execute 'set runtimepath+='.$MYVIMDIR
+execute 'set runtimepath+=' . g:vimdir
 let &packpath = &runtimepath
 
-command! -nargs=1 LoadSource execute 'source ' . $MYVIMDIR . '/' . '<args>'
-command! -nargs=1 LoadLuafile execute 'luafile ' . $MYVIMDIR . '/' . '<args>'
+command! -nargs=1 LoadSource execute 'source ' . g:vimdir . '/' . '<args>'
+command! -nargs=1 LoadLuafile execute 'luafile ' . g:vimdir . '/' . '<args>'
 
 " 加载默认配置
 LoadSource vim/configs/config_example.vim
-if filereadable($MYVIMDIR.'/vim/configs/config.vim')
+if filereadable(g:vimdir . '/vim/configs/config.vim')
   " 加载自定义配置
   LoadSource vim/configs/config.vim
 endif

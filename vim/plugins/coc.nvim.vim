@@ -7,7 +7,7 @@
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " coc
-let g:coc_config_home = $MYVIMDIR
+let g:coc_config_home = g:vimdir
 let g:coc_global_extensions = [
       \ 'coc-marketplace',
       \ 'coc-highlight',

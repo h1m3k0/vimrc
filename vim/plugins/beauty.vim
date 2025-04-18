@@ -31,8 +31,8 @@ Plug 'mhinz/vim-startify'      # => 启动页面 {{{2
       'enew | execute "set filetype=".input("filetype=")']},
     {'p': ['new Pasted buffer: 粘贴剪切板内容', 
       'enew | execute "normal i\<S-Insert>\<Esc>"']},
-    {'v': ['edit Vimrc: ' .. substitute($MYVIMRC, '\\', '/', 'g'),
-      'edit ' .. $MYVIMRC]},
+    {'v': ['edit Vimrc: ' .. substitute(g:vimrc, '\\', '/', 'g'),
+      'edit ' .. g:vimrc]},
   ]
 
   if has('gui_running')

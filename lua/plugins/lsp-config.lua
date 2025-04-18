@@ -63,7 +63,7 @@ return {
           require('lspconfig')[server_name].setup {}
         end,
         ['vtsls'] = function()
-          vim.cmd.luafile(vim.env.MYVIMDIR .. '/lua/plugins/languages/typescript.lua')
+          vim.cmd.luafile(vim.g.vimdir .. '/lua/plugins/languages/typescript.lua')
         end,
       }
     },

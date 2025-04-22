@@ -120,7 +120,6 @@ autocmd ColorScheme * highlight Cursor guibg=bg guifg=fg
 set guioptions-=T " 取消工具栏
 set guioptions-=e " 取消标签
 set guioptions-=m " 取消菜单栏
-set guioptions-=r " 取消右侧滚动条
 set guioptions-=L " 取消左侧滚动条
 set columns=120 " 宽
 set lines=30 " 高

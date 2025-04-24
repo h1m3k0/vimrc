@@ -1,17 +1,6 @@
 ---@type LazySpec
 return {
   {
-    'nvim-neorg/neorg',
-    opts = {
-      load = {
-        ['core.defaults'] = {},
-        ['core.concealer'] = {
-          icon_preset = 'varied',
-        },
-      }
-    }
-  },
-  {
     'mfussenegger/nvim-lint', version = '*',
   },
   {

@@ -1,5 +1,7 @@
 vim9script
 # 色彩方案 {{{1
+g:colorscheme = 'everforest'
+
 Plug 'sainnhe/everforest'
 Plug 'sainnhe/gruvbox-material'
 Plug 'joshdick/onedark.vim'
@@ -8,14 +10,10 @@ Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 
 Plug 'ryanoasis/vim-devicons'  # => 图标     {{{2
 
-Plug 'vim-airline/vim-airline' # => 状态栏   {{{2
-  Plug 'vim-airline/vim-airline-themes'
-  # 兼容fern
-  g:airline#extensions#fern#enabled = 0
-  # 只有一个tab时 显示buffers
-  g:airline#extensions#tabline#enabled = 1
-  # 标题仅显示文件名
-  g:airline#extensions#tabline#formatter = 'unique_tail'
+Plug 'itchyny/lightline.vim'   # => 状态栏   {{{2
+  g:lightline = {
+    'colorscheme': g:colorscheme,
+  }
 
 Plug 'mhinz/vim-startify'      # => 启动页面 {{{2
   g:startify_custom_header = ['']

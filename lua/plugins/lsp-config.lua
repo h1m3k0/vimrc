@@ -77,7 +77,6 @@ return {
         'lazy.nvim',
         { path = '${3rd}/luv/library', word = { 'vim%.uv' } },
       },
-      enabled = true,
     },
   },
 }

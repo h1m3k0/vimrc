@@ -15,8 +15,13 @@ return {
       require('nvim-tree').setup(opts)
       local tree = require('nvim-tree.api').tree
       vim.keymap.set('n', '<Leader>e', '<Esc>:<C-U>NvimTree')
-      vim.keymap.set('n', '<Leader>ev', '<CMD>NvimTreeOpen ' .. vim.g.vimdir .. '<CR>')
-      vim.keymap.set('n', '<Leader>ef', '<CMD>NvimTreeFindFile<CR>')
+      vim.keymap.set('n', '<Leader>ev',function()
+        tree.open({ path = vim.g.vimdir })
+        tree.change_root(vim.g.vimdir)
+      end)
+      vim.keymap.set('n', '<Leader>ef', function()
+        tree.find_file({ open = true, focus = true})
+      end)
     end,
   },
 }

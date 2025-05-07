@@ -15,7 +15,10 @@ return {
       vim.keymap.set('n', '<Leader>ff', function()
         fzf.files({ cwd = vim.fn.expand('%:p:h') })
       end)
+      vim.keymap.set('n', '<Leader>fF', fzf.git_files)
+      vim.keymap.set('n', '<Leader>fg', fzf.grep)
       vim.keymap.set('n', '<Leader>fg', fzf.live_grep)
+      vim.keymap.set('n', '<Leader>f<Space>', '<Esc>:<C-U>FzfLua ')
     end,
 
   }

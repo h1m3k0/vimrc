@@ -15,19 +15,12 @@ vim.api.nvim_create_autocmd('InsertLeave', {
     callback = function() vim.g.neovide_input_ime = false end,
 })
 -- 命令行模式
--- 搜索时允许使用输入法
--- 命令允许通过<C-Space>开启输入法
-vim.keymap.set('c', '<C-Space>', function() vim.g.neovide_input_ime = true end, { noremap = true })
-vim.api.nvim_create_autocmd('CmdlineEnter', {
-    group = ime_input,
-    pattern = { '/', '?' },
-    callback = function() vim.g.neovide_input_ime = true end,
-})
 vim.api.nvim_create_autocmd('CmdlineLeave', {
     group = ime_input,
-    pattern = { ':', '/', '?' },
     callback = function() vim.g.neovide_input_ime = false end,
 })
+-- 允许通过<C-Space>开启输入法
+vim.keymap.set({ 'v', 'n', 'i', 'c', 't' }, '<C-Space>', function() vim.g.neovide_input_ime = true end, { noremap = true })
 
 vim.g.neovide_position_animation_length = 0
 vim.g.neovide_cursor_animation_length = 0.00

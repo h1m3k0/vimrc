@@ -12,12 +12,12 @@ return {
       vim.keymap.set('n', 'gD', fzf.lsp_declarations)
       vim.keymap.set('n', 'gI', fzf.lsp_implementations)
       vim.keymap.set('n', '<Leader>i', fzf.lsp_code_actions)
-      vim.keymap.set('n', '<Leader>ff', function()
-        fzf.files({ cwd = vim.fn.expand('%:p:h') })
-      end)
+      vim.keymap.set('n', '<Leader>ff', fzf.files)
       vim.keymap.set('n', '<Leader>fF', fzf.git_files)
-      vim.keymap.set('n', '<Leader>fg', fzf.grep)
       vim.keymap.set('n', '<Leader>fg', fzf.live_grep)
+      vim.keymap.set('n', '<Leader>fG', function()
+        fzf.live_grep { search_paths = fzf.path.git_root {} }
+      end)
       vim.keymap.set('n', '<Leader>f<Space>', '<Esc>:<C-U>FzfLua ')
     end,
 

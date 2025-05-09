@@ -66,7 +66,7 @@ return {
       require('neo-tree').setup(opts)
       vim.keymap.set('n', '<Leader>e ', '<Esc>:<C-U>Neotree ', { noremap = true } )
       vim.keymap.set('n', '<Leader>ee', '<CMD>Neotree<CR>', { noremap = true } )
-      vim.keymap.set('n', '<Leader>ef', '<Esc>:<C-U>Neotree dir=<C-R>=expand("%:p:h")<CR><CR>', { noremap = true, silent = true } )
+      vim.keymap.set('n', '<Leader>ef', '<CMD>Neotree reveal_force_cwd<CR>', { noremap = true } )
       vim.keymap.set('n', '<Leader>ev', '<CMD>Neotree dir=' .. vim.g.vimdir ..'<CR>', { noremap = true } )
     end,
   },

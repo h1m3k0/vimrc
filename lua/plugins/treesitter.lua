@@ -27,6 +27,7 @@ return {
           init_selection    = '<C-S>',
           node_incremental  = '<C-S>',
           node_decremental  = '<C-S-S>',
+          scope_incremental = '<C-A-S>',
         },
       },
       -- 文本对象

@@ -17,7 +17,14 @@ return {
   },
   { 'ZSaberLv0/vim-easymotion-chs',  dependencies = 'easymotion/vim-easymotion' },
   { 'tpope/vim-surround',            dependencies = 'tpope/vim-repeat' },
-  'vim-scripts/ReplaceWithRegister',
+  {
+    'vim-scripts/ReplaceWithRegister',
+    init = function()
+      vim.keymap.del('n', 'gri')
+      vim.keymap.del({'n','x'} , 'gra')
+      vim.keymap.del('n', 'grn')
+    end
+  },
   'tommcdo/vim-exchange',
   { 'kana/vim-textobj-entire',       dependencies = 'kana/vim-textobj-user' },
   {

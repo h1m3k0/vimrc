@@ -4,7 +4,6 @@ return {
     'saghen/blink.cmp',
     dependencies = 'rafamadriz/friendly-snippets',
     version = '*',
-    event = 'VeryLazy',
     ---@type blink.cmp.Config
     opts = {
       keymap = {

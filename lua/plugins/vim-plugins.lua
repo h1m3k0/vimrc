@@ -58,4 +58,15 @@ return {
   'tommcdo/vim-exchange',
   'yianwillis/vimcdoc',
   'mattn/emmet-vim',
+  {
+    'kana/vim-arpeggio',
+    config = function()
+      vim.cmd [[
+      autocmd VimEnter * call ArpeggioMapping()
+      function! ArpeggioMapping()
+        Arpeggio inoremap jk <Esc>
+      endfunction
+      ]]
+    end
+  }
 }

@@ -57,6 +57,11 @@ Plug 'mattn/emmet-vim' # => html/css {{{2
   g:user_emmet_install_global = 0
   autocmd FileType xml,html,javascriptreact,typescriptreact,css,sass,less EmmetInstall
 
+Plug 'kana/vim-arpeggio' # => 允许同时按键的映射 {{{2
+  autocmd VimEnter * call ArpeggioMapping()
+  def ArpeggioMapping()
+    Arpeggio inoremap jk <Esc>
+  enddef
 
 # 样式 {{{1
 Plug 'sainnhe/everforest' # => 色彩方案 {{{2

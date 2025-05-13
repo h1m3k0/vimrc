@@ -56,6 +56,13 @@ return {
     },
   },
   {
+    'lukas-reineke/indent-blankline.nvim',
+    main = 'ibl',
+    opts = {
+
+    },
+  },
+  {
     'folke/snacks.nvim',
     priority = 999,
     lazy = false,

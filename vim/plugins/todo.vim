@@ -14,37 +14,14 @@ g:VM_maps = {
 # Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
 
-Plug 'lambdalisue/vim-fern'
+# Plug 'lambdalisue/vim-fern'
 
 
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-var preview_obj = {
-  options: [
-    '--layout=reverse',
-    '--info=inline',
-    '--preview',
-    (has('win32') ? 'more' : 'cat') .. ' {}'
-  ]
-}
-# Files 预览
-command! -bang -nargs=? -complete=dir Files
-      \ call fzf#vim#files(
-      \   <q-args>,
-      \   preview_obj,
-      \   <bang>0)
-# GFiles 预览
-command! -bang -nargs=? GFiles
-      \ call fzf#vim#gitfiles(
-      \   <q-args>,
-      \   fzf#vim#with_preview(extendnew(preview_obj, <q-args> == '?' ? { 'placeholder': '' } : {})),
-      \   <bang>0)
-command! -bang -nargs=* GGrep
-      \ call fzf#vim#grep2(
-      \   'git grep --line-number -- ',
-      \   <q-args>,
-      \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
-nnoremap <Leader>ff <CMD>Files<CR>
-nnoremap <Leader>fF <CMD>GFiles<CR>
-nnoremap <Leader>fg <CMD>RG<CR>
-nnoremap <Leader>fG <CMD>GGrep<CR>
+
+Plug 'skywind3000/asyncrun.vim'
+  if has('win32')
+    # windows系统使用GBK
+    g:asyncrun_encs = 'gbk'
+  endif
+  # 自动打开copen
+  g:asyncrun_open = 6

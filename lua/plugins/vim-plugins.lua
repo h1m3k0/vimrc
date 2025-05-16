@@ -4,14 +4,14 @@ return {
     'easymotion/vim-easymotion',
     init = function()
       vim.cmd [[
-      " 智能大小写
-      let g:EasyMotion_smartcase = 1
-      " 禁用默认映射
-      let g:EasyMotion_do_mapping = 0
-      map  <Leader><Leader>f  <Plug>(easymotion-bd-f)
-      map  <Leader><Leader>F  <Plug>(easymotion-bd-f)
-      map  <Leader><Leader>t  <Plug>(easymotion-bd-t)
-      map  <Leader><Leader>T  <Plug>(easymotion-bd-t)
+        " 智能大小写
+        let g:EasyMotion_smartcase = 1
+        " 禁用默认映射
+        let g:EasyMotion_do_mapping = 0
+        map  <Leader><Leader>f  <Plug>(easymotion-bd-f)
+        map  <Leader><Leader>F  <Plug>(easymotion-bd-f)
+        map  <Leader><Leader>t  <Plug>(easymotion-bd-t)
+        map  <Leader><Leader>T  <Plug>(easymotion-bd-t)
       ]]
     end,
   },
@@ -32,7 +32,7 @@ return {
       dependencies = 'kana/vim-textobj-user',
       init = function()
          vim.cmd [[
-         let g:argtextobj_pairs = '(:),{:},[:],<:>'
+           let g:argtextobj_pairs = '(:),{:},[:],<:>'
          ]]
       end,
   },
@@ -40,7 +40,7 @@ return {
     'machakann/vim-highlightedyank',
     init = function()
       vim.cmd [[
-      let g:highlightedyank_highlight_duration = 2000
+        let g:highlightedyank_highlight_duration = 2000
       ]]
     end,
   },
@@ -49,8 +49,8 @@ return {
     'junegunn/vim-easy-align',
     config = function()
       vim.cmd [[
-      nmap  ga  <Plug>(EasyAlign)
-      xmap  ga  <Plug>(EasyAlign)
+        nmap  ga  <Plug>(EasyAlign)
+        xmap  ga  <Plug>(EasyAlign)
       ]]
     end,
   },
@@ -64,6 +64,19 @@ return {
       vim.cmd [[
         Arpeggio inoremap jk <Esc>
         Arpeggio nnoremap io  :
+      ]]
+    end
+  },
+  {
+    'skywind3000/asyncrun.vim',
+    config = function()
+      vim.cmd [[
+        if has('win32')
+          " windows系统使用GBK
+          let g:asyncrun_encs = 'gbk'
+        endif
+        " 自动打开copen
+        let g:asyncrun_open = 6
       ]]
     end
   }

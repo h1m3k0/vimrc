@@ -1,5 +1,5 @@
 function! FfTtColor()
-  highlight FfTtColor gui=reverse,bold
+  highlight FfTtColor gui=standout
 endfunction
 call FfTtColor()
 autocmd ColorScheme * call FfTtColor()

@@ -39,3 +39,24 @@
      手动安装插件，详见
      
      > https://github.com/JetBrains/ideavim/wiki/IdeaVim-Plugins
+
+4. Linux额外
+
+   - 无网环境
+
+     复制文件夹，执行
+
+     ~~~shell
+     find . -type f -exec sed -i 's/\r$//' {} \;
+     ~~~
+
+     去掉文件换行的 `^M`
+
+   - 无插件All-In-One
+     
+     复制 `vim/configs/config_expample.vim` 、 `vim/setting.vim` 、 `vim/mapping.vim` 、`vim/vim.vim` 里内容
+
+
+
+     
+  

@@ -396,8 +396,7 @@ endfunction
 
 
 " option. turn 1 to search the most toplevel function
-let g:argumentobject_force_toplevel =
-  \ get(g:, 'argumentobject_force_toplevel', 0)
+let g:argumentobject_force_toplevel = get(g:, 'argumentobject_force_toplevel', 0)
 
 vnoremap <silent> <Plug>(argtextobjI) :<C-U>call <SID>MotionArgument(1, 1)<CR>
 vnoremap <silent> <Plug>(argtextobjA) :<C-U>call <SID>MotionArgument(0, 1)<CR>

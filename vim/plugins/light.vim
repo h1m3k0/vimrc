@@ -59,8 +59,10 @@ Plug 'mattn/emmet-vim' # => html/css {{{2
 
 Plug 'kana/vim-arpeggio' # => 允许同时按键的映射 {{{2
   plug#load('vim-arpeggio')  # 立刻加载
-  Arpeggio inoremap jk <Esc>
-  Arpeggio nnoremap io  :
+  if exists('g:loaded_arpeggio')
+    Arpeggio inoremap jk <Esc>
+    Arpeggio nnoremap io  :
+  endif
 
 # 样式 {{{1
 Plug 'sainnhe/everforest' # => 色彩方案 {{{2

@@ -11,14 +11,14 @@ if has('gui_running')
 endif
 
 " 上移下移 {{{2
-nnoremap <silent> <C-S-Up>   <Cmd>m--<CR>
-nnoremap <silent> <C-S-Down> <Cmd>m+<CR>
+nnoremap <silent> <C-S-Up>   <Esc>:<C-U>m--<CR>
+nnoremap <silent> <C-S-Down> <Esc>:<C-U>m+<CR>
 xnoremap <silent> <C-S-Up>   :m '<--<CR>gv=gv
 xnoremap <silent> <C-S-Down> :m '>+<CR>gv=gv
 
 " 切换 buffer or tag {{{2
-nnoremap <silent> <A-Left>  <CMD>call GotoPrevPage()<CR>
-nnoremap <silent> <A-Right> <CMD>call GotoNextPage()<CR>
+nnoremap <silent> <A-Left>  <Esc>:<C-U>call GotoPrevPage()<CR>
+nnoremap <silent> <A-Right> <Esc>:<C-U>call GotoNextPage()<CR>
 function! GotoNextPage() " {{{3
   if tabpagenr('$') == 1
     bnext

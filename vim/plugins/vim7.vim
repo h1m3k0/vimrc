@@ -8,7 +8,6 @@ Plug 'preservim/nerdtree' " => 文件树 {{{2
   nnoremap <silent> <Leader>et <Esc>:<C-U>NERDTreeMirror<CR>:NERDTreeToggle<CR>
   nnoremap <silent> <Leader>ev <Esc>:<C-U>NERDTree <C-R>=g:vimdir<CR><CR>
   nnoremap <silent> <Leader>eh <Esc>:<C-U>NERDTree $HOME<CR>
-Plug 'Xuyuanp/nerdtree-git-plugin' " => NERDTree+Git {{{2
 
 " operator => .  y/c/d+s  gc  gr  ga  {{{1
 Plug 'tpope/vim-repeat' " => 重复 . {{{2
@@ -65,9 +64,7 @@ Plug 'kana/vim-arpeggio' " => 允许同时按键的映射 {{{2
     Arpeggio nnoremap io  :
   endif
 
-" 样式 {{{1
-Plug 'sainnhe/everforest' " => 色彩方案 {{{2
-
+" 其他 {{{1
 Plug 'machakann/vim-highlightedyank' " => 复制高亮 {{{2
   if !exists('##TextYankPost')
     nmap y <Plug>(highlightedyank)
@@ -75,6 +72,4 @@ Plug 'machakann/vim-highlightedyank' " => 复制高亮 {{{2
     omap y <Plug>(highlightedyank)
   endif
   let g:highlightedyank_highlight_duration = 2000
-
-" 其他 {{{1
 Plug 'tpope/vim-fugitive' " => Git {{{2

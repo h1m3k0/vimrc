@@ -35,7 +35,7 @@ cnoremap  <C-E>  <End>
 " 2.1 可视模式直接搜索当前选择内容  {{{2
 xnoremap  <silent> /  <CMD>let @/=VisualSelection()<CR><CMD>set hls<CR>
 " 2.2 取消搜索高亮 {{{2
-nnoremap  <silent> <Leader>/  <CMD>noh<CR>
+nnoremap  <silent> <Leader>/  <Esc>:<C-U>noh<CR>
 function! VisualSelection() " {{{3
     " 先保存寄存器的状态
     let unnamed_reg_data = getreg('"')

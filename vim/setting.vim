@@ -50,7 +50,7 @@ set laststatus=2
 " 懒重绘
 set lazyredraw
 " (行号左边的)标号列 yes:始终保留, number:替换行号 (auto:会闪)
-if has('signs')
+if has('signs') && v:version >= 800
     set signcolumn=yes
 endif
 
@@ -78,7 +78,9 @@ set regexpengine=0
 " 替换时默认为全局替换
 set gdefault
 " <C-A>和<C-X> 处理数字格式(二进制, 十六进制, 无符号数)
-set nrformats=hex,bin,unsigned
+if v:version >= 800
+    set nrformats=hex,bin,unsigned
+endif
 
 " 5. 文件 {{{2
 " 根据文件类型自动设置缩进

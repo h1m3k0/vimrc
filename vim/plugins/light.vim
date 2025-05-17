@@ -8,6 +8,7 @@ Plug 'preservim/nerdtree' " => 文件树 {{{2
   nnoremap <silent> <Leader>et <Esc>:<C-U>NERDTreeMirror<CR>:NERDTreeToggle<CR>
   nnoremap <silent> <Leader>ev <Esc>:<C-U>NERDTree <C-R>=g:vimdir<CR><CR>
   nnoremap <silent> <Leader>eh <Esc>:<C-U>NERDTree $HOME<CR>
+Plug 'Xuyuanp/nerdtree-git-plugin' " => NERDTree+Git {{{2
 
 " operator => .  y/c/d+s  gc  gr  ga  {{{1
 Plug 'tpope/vim-repeat' " => 重复 . {{{2
@@ -21,6 +22,7 @@ Plug 'vim-scripts/ReplaceWithRegister' " => 替换 gr {{{2
 Plug 'junegunn/vim-easy-align' " => 对齐 ga {{{2
   nmap  ga  <Plug>(EasyAlign)
   xmap  ga  <Plug>(EasyAlign)
+Plug 'tommcdo/vim-exchange' " => 互换操作 cx {{{2
 
 " motion => i/a+e  i/a+i/I  i/a+a  %  <L>f/F  {{{1
 Plug 'kana/vim-textobj-user' " => 自定义文本对象 {{{2
@@ -73,3 +75,6 @@ Plug 'machakann/vim-highlightedyank' " => 复制高亮 {{{2
     omap y <Plug>(highlightedyank)
   endif
   let g:highlightedyank_highlight_duration = 2000
+
+" 其他 {{{1
+Plug 'tpope/vim-fugitive' " => Git {{{2

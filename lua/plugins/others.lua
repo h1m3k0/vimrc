@@ -63,6 +63,11 @@ return {
     },
   },
   {
+    'NStefan002/screenkey.nvim',
+    lazy = false,
+    version = '*',
+  },
+  {
     'folke/snacks.nvim',
     priority = 999,
     lazy = false,

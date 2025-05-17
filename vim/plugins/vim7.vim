@@ -73,3 +73,4 @@ Plug 'machakann/vim-highlightedyank' " => 复制高亮 {{{2
   endif
   let g:highlightedyank_highlight_duration = 2000
 Plug 'tpope/vim-fugitive' " => Git {{{2
+

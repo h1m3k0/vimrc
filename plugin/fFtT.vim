@@ -29,8 +29,8 @@ function! HighlightChars(s)
     " bytes. It is preferable to let Vim split the line by characters for more
     " accurate handling.
     let found = {}
-    for ch in line->split('\zs')
-        if !found->has_key(ch)
+    for ch in split(line, '\zs')
+        if !has_key(found, ch)
             let found[ch] = 1
         endif
     endfor
@@ -39,10 +39,10 @@ function! HighlightChars(s)
     let locations = []
     let freq = {}
     let maxloc = max([100, &lines * &columns])
-    for ch in found->keys()
-        let loc = reverse ? line->strridx(ch, start) : line->stridx(ch, start)
+    for ch in keys(found)
+        let loc = reverse ? strridx(line, ch, start) : stridx(line, ch, start)
         while loc != -1
-            let freq[ch] = freq->get(ch, 0) + 1
+            let freq[ch] = get(freq, ch, 0) + 1
             if freq[ch] > maxloc
                 " If we encounter a super long line, there's no need to
                 " search for locations that are off screen.
@@ -51,11 +51,11 @@ function! HighlightChars(s)
             if freq[ch] == v:count1
                 let locations = add(locations, [lnum, loc + 1])
             endif
-            let loc = reverse ? line->strridx(ch, loc - 1) : line->stridx(ch, loc + 1)
+            let loc = reverse ? strridx(line, ch, loc - 1) : stridx(line, ch, loc + 1)
         endwhile
     endfor
 
-    if !locations->empty()
+    if !empty(locations)
         if s:id > 0
             let s:id = matchdelete(s:id, s:winid)
         endif

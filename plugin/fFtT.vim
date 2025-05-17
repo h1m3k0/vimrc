@@ -15,7 +15,7 @@ function! HighlightClear()
 endfunction
 
 augroup fFtTHighlight | autocmd!
-    if v:version >= 8000
+    if v:version >= 800
         autocmd ModeChanged,CmdWinLeave,SafeState * call HighlightClear()
     endif
     autocmd CursorMoved,TextChanged,WinEnter,WinLeave * call HighlightClear()

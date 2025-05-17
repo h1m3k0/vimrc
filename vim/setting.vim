@@ -50,12 +50,16 @@ set laststatus=2
 " 懒重绘
 set lazyredraw
 " (行号左边的)标号列 yes:始终保留, number:替换行号 (auto:会闪)
-set signcolumn=yes
+if has('signs')
+    set signcolumn=yes
+endif
 
 " 4. 编辑 {{{2
 " 命令行补全
 set wildmenu
-set wildoptions=fuzzy,pum
+if v:version >= 800
+  set wildoptions=fuzzy,pum
+endif
 " 搜索智能大小写 高亮 动态显示
 set ignorecase smartcase hlsearch incsearch
 nohlsearch
@@ -112,18 +116,22 @@ set foldenable
 set foldmethod=marker
 set foldlevel=1
 " 真色彩
-set termguicolors
+if has('termguicolors')
+  set termguicolors
+endif
 set t_Co=256
 " 光标颜色固定
 autocmd ColorScheme * highlight Cursor guibg=bg guifg=fg
 " 8. GUI {{{2
-set guioptions-=T " 取消工具栏
-set guioptions-=e " 取消标签
-set guioptions-=m " 取消菜单栏
-set guioptions-=L " 取消左侧滚动条
-set columns=120 " 宽
-set lines=30 " 高
-set guicursor+=a:blinkon0 " 取消光标闪烁
+if has('gui_running')
+  set guioptions-=T " 取消工具栏
+  set guioptions-=e " 取消标签
+  set guioptions-=m " 取消菜单栏
+  set guioptions-=L " 取消左侧滚动条
+  set columns=120 " 宽
+  set lines=30 " 高
+  set guicursor+=a:blinkon0 " 取消光标闪烁
+endif
 " 扩展名 {{{2
 set suffixes=.bak,~,.o,.h,.info,.swp,.obj,.pyc,.pyo,.egg-info,.class
 set wildignore=*.o,*.obj,*~,*.exe,*.a,*.pdb,*.lib "stuff to ignore when tab completing

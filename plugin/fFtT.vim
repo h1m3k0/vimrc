@@ -15,7 +15,10 @@ function! HighlightClear()
 endfunction
 
 augroup fFtTHighlight | autocmd!
-    autocmd CursorMoved,ModeChanged,TextChanged,WinEnter,WinLeave,CmdWinLeave,SafeState * call HighlightClear()
+    if v:version >= 8000
+        autocmd CursorMoved,TextChanged,WinEnter,WinLeave * call HighlightClear()
+    endif
+    autocmd ModeChanged,CmdWinLeave,SafeState * call HighlightClear()
 augroup END
 
 " Gather locations of characters to be dimmed.

@@ -1,7 +1,7 @@
 try
   if has('termguicolors')
     if has('g:colorscheme')
-      execute 'colorscheme ' .. g:colorscheme
+      execute 'colorscheme ' . g:colorscheme
     else
       colorscheme everforest
     endif

@@ -1,6 +1,6 @@
 let g:vimdir = fnamemodify(resolve(expand('<sfile>:p')), ':h')
 let g:vimdir = substitute(g:vimdir, '\', '/', 'g')
-let g:vimrc = g:vimdir.'/init.vim'
+let g:vimrc = g:vimdir . '/init.vim'
 
 execute 'set runtimepath+=' . g:vimdir
 let &packpath = &runtimepath

@@ -1,5 +1,5 @@
 " PlugVim加载插件
-call plug#begin(g:vimdir .. '/plugged')
+call plug#begin(g:vimdir . '/plugged')
 LoadScript vim/plugins/light.vim
 LoadScript vim/plugins/extend.vim
 LoadScript vim/plugins/beauty.vim

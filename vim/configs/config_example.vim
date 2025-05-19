@@ -12,4 +12,9 @@ let g:config_keyboard = 1
 let g:plug_url_format = 'git@github.com:%s.git'
 
 function! FinallySetting()
+  " " 服务器支持真色 但连接工具不支持真色
+  " if has('termguicolors')
+  "   set notermiguicolors
+  " endif
+  " colorscheme onedark
 endfunction

@@ -3,6 +3,7 @@ try
     if has('g:colorscheme')
       execute 'colorscheme ' . g:colorscheme
     else
+      set bg=dark
       colorscheme everforest
     endif
   else

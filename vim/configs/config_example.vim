@@ -10,3 +10,6 @@ let g:config_keyboard = 1
 " HTTPS  https://github.com/%s.git
 " SSH    git@github.com:%s.git
 let g:plug_url_format = 'git@github.com:%s.git'
+
+function! FinallySetting()
+endfunction

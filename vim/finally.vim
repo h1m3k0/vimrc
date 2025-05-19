@@ -10,3 +10,5 @@ try
   endif
 catch
 endtry
+
+call FinallySetting()

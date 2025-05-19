@@ -47,14 +47,14 @@ return {
   },
   {
     -- 安装lsp
-    'williamboman/mason.nvim',
+    'mason-org/mason.nvim',
     version = '*',
     opts = {
     },
   },
   {
-    'williamboman/mason-lspconfig.nvim',
-    dependencies = { 'williamboman/mason.nvim', 'neovim/nvim-lspconfig' },
+    'mason-org/mason-lspconfig.nvim',
+    dependencies = { 'mason-org/mason.nvim', 'neovim/nvim-lspconfig' },
     version = '*',
     opts = {
       ensure_installed = { 'vimls', 'lua_ls' },

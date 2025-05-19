@@ -1,3 +1,7 @@
+if v:version < 900
+  finish
+endif
+
 " coc.nvim
 
 

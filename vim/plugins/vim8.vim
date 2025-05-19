@@ -1,3 +1,7 @@
+if v:version < 800
+  finish
+endif
+
 Plug 'yianwillis/vimcdoc' " 中文文档
 
 Plug 'Xuyuanp/nerdtree-git-plugin' " => NERDTree+Git
@@ -25,10 +29,6 @@ Plug 'mg979/vim-visual-multi' " 多光标
         \  'Switch Mode':     '<Tab>',
         \ }
 
-Plug 'skywind3000/asyncrun.vim'
-  if has('win32')
-    " windows系统使用GBK
-    let g:asyncrun_encs = 'gbk'
-  endif
-  " 自动打开copen
-  let g:asyncrun_open = 6
+Plug 'voldikss/vim-floaterm'
+  let g:floaterm_wintype = 'split'
+  let g:floaterm_autoclose = 2

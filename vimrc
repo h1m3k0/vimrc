@@ -18,6 +18,6 @@ LoadScript vim/mapping.vim
 " 加载vim的配置
 LoadScript vim/vim.vim
 " 加载vim插件(vim-plug)
-LoadScript vim/vim.plugin.vim
+LoadScript vim/plugin.vim
 " 最后处理的事情
 LoadScript vim/finally.vim

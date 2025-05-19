@@ -1,3 +1,7 @@
+if v:version < 800
+  finish
+endif
+
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 

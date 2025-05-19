@@ -71,15 +71,11 @@ return {
     end
   },
   {
-    'skywind3000/asyncrun.vim',
+    'voldikss/vim-floaterm',
     config = function()
       vim.cmd [[
-        if has('win32')
-          " windows系统使用GBK
-          let g:asyncrun_encs = 'gbk'
-        endif
-        " 自动打开copen
-        let g:asyncrun_open = 6
+        let g:floaterm_wintype = 'split'
+        let g:floaterm_autoclose = 2
       ]]
     end
   }

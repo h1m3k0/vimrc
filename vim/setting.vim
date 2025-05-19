@@ -57,7 +57,7 @@ endif
 " 4. 编辑 {{{2
 " 命令行补全
 set wildmenu
-if v:version >= 800
+if v:version >= 900 || has('nvim')
   set wildoptions=fuzzy,pum
 endif
 " 搜索智能大小写 高亮 动态显示

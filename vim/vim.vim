@@ -34,6 +34,10 @@ function! GotoPrevPage() " {{{3
     tabprevious
   endif
 endfunction
+
+" Terminal
+nnoremap <Leader>t <CMD>botright terminal ++rows=5<CR>
+
 " GUI command {{{2
 if has('gui_running')
   " 调大字体

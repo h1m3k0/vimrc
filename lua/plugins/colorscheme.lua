@@ -7,6 +7,7 @@ return {
     config = function()
       vim.cmd.colorscheme('everforest')
       vim.o.background = 'dark'
+      vim.cmd('highlight! TermCursor gui=reverse')
     end,
   },
   'joshdick/onedark.vim',

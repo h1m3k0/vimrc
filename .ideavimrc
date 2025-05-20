@@ -241,6 +241,8 @@ map  <Leader>r <Action>(RenameElement)
 map  <Leader>ff <Action>(GotoFile)
 " <Leader>fg => FindInPath => 全局搜索 Ctrl-Shift-F {{{2
 map  <Leader>fg <Action>(FindInPath)
+" <Leader>t => ActivateTerminalToolWindow => 打开终端 Alt-F12 {{{2
+map  <Leader>t <Action>ActivateTerminalToolWindow
 " <Leader>l => ReformatCode => 格式化 Alt-Ctrl-L {{{2
 map  <Leader>l <Action>(ReformatCode)
 " <C-S> => EditorSelectWord => 选择 Ctrl-w {{{2
@@ -260,7 +262,7 @@ map  <Leader>; <Action>(EditorCompleteStatement)
 " <Leader>o => OptimizeImports => 优化导入 Ctrl-Shift-O {{{2
 map  <Leader>o <Action>(OptimizeImports)
 " <Leader>t => SurroundWith => 环绕 Alt-Ctrl-T {{{2
-map  <Leader>t <Action>(SurroundWith)
+map  <Leader>s <Action>(SurroundWith)
 " <Leader>i => ShowIntentionActions => 提示 Alt-Enter {{{2
 map  <Leader>i <Action>(ShowIntentionActions)
 " }}}
@@ -275,8 +277,6 @@ command! RunClass    call IdeaVimAction('RunClass')
 command! Debug       call IdeaVimAction('Debug')
 " Stop {{{2
 command! Stop        call IdeaVimAction('Stop')
-" ActivateTerminalToolWindow => 打开终端 {{{2
-command! Terminal    call IdeaVimAction('ActivateTerminalToolWindow')
 " MavenReload => 重新加载maven {{{2
 command! MavenReload call IdeaVimAction('Maven.Reimport Maven.UpdateFolders')
 " Git {{{2

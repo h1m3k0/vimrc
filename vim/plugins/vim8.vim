@@ -29,6 +29,10 @@ Plug 'mg979/vim-visual-multi' " 多光标
         \  'Switch Mode':     '<Tab>',
         \ }
 
-Plug 'voldikss/vim-floaterm'
-  let g:floaterm_wintype = 'split'
-  let g:floaterm_autoclose = 2
+Plug 'skywind3000/asyncrun.vim'  " 将特定命令绑定映射时用到
+  if has('win32')
+    " windows系统使用GBK
+    let g:asyncrun_encs = 'gbk'
+  endif
+  " 自动打开copen
+  let g:asyncrun_open = 6

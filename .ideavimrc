@@ -242,7 +242,7 @@ map  <Leader>ff <Action>(GotoFile)
 " <Leader>fg => FindInPath => 全局搜索 Ctrl-Shift-F {{{2
 map  <Leader>fg <Action>(FindInPath)
 " <Leader>t => ActivateTerminalToolWindow => 打开终端 Alt-F12 {{{2
-map  <Leader>t <Action>ActivateTerminalToolWindow
+map  <Leader>t <Action>(ActivateTerminalToolWindow)
 " <Leader>l => ReformatCode => 格式化 Alt-Ctrl-L {{{2
 map  <Leader>l <Action>(ReformatCode)
 " <C-S> => EditorSelectWord => 选择 Ctrl-w {{{2

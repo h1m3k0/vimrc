@@ -72,5 +72,17 @@ Plug 'machakann/vim-highlightedyank' " => 复制高亮 {{{2
     omap y <Plug>(highlightedyank)
   endif
   let g:highlightedyank_highlight_duration = 2000
+Plug 'haya14busa/vim-asterisk' " => 星号井号搜索增强 {{{2
+  let g:asterisk#keeppos = 1 " 保持光标位置
+  map *  <Plug>(asterisk-z*)
+  map #  <Plug>(asterisk-z#)
+  map g* <Plug>(asterisk-gz*)
+  map g# <Plug>(asterisk-gz#)
 Plug 'tpope/vim-fugitive' " => Git {{{2
+
+Plug 'simeji/winresizer' " => 窗口大小 {{{2
+  let g:winresizer_gui_enable = 1
+  let g:winresizer_start_key = '<C-E>'
+  let g:winresizer_vert_resize = 1
+  let g:winresizer_horiz_resize = 1
 

@@ -34,9 +34,20 @@ end)
 vim.api.nvim_create_autocmd('WinEnter', {
     pattern = 'term://*',
     callback = function()
-        if vim.fn.mode() == 'n' then
-            vim.cmd.startinsert()
-        end
+        local win_id = vim.api.nvim_get_current_win()
+
+        -- 自动改为startinsert()
+        vim.schedule(function()
+          -- winresizer 
+          if win_id == vim.api.nvim_get_current_win() then
+            local buf = vim.api.nvim_win_get_buf(win_id)
+            if vim.bo[buf].buftype == 'terminal' then
+              vim.api.nvim_win_call(win_id, function()
+                vim.cmd.startinsert()
+              end)
+            end
+          end
+        end)
     end
 })
 

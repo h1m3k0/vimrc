@@ -32,10 +32,6 @@ Plug 'michaeljsmith/vim-indent-object' " => 缩进文本对象 {{{2
 
 " Plug 'vim-scripts/argtextobj.vim' " => 参数文本对象 {{{2
   let g:argtextobj_pairs = '(:),{:},[:],<:>'
-Plug 'chrisbra/matchit' " => 匹配 {{{2
-  nmap M %
-  xmap M %
-  omap M %
 Plug 'wellle/targets.vim' " => 增强文本对象
 
 Plug 'easymotion/vim-easymotion' " {{{2

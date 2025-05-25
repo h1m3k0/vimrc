@@ -2,15 +2,18 @@ if v:version < 800
   finish
 endif
 
-Plug 'yianwillis/vimcdoc' " 中文文档
+Plug 'yianwillis/vimcdoc' " 中文文档 {{{2
 
-Plug 'Xuyuanp/nerdtree-git-plugin' " => NERDTree+Git
+Plug 'Xuyuanp/nerdtree-git-plugin' " => NERDTree+Git {{{2
 
-Plug 'LunarWatcher/auto-pairs' " 自动括号
+Plug 'LunarWatcher/auto-pairs' " 自动括号 {{{2
   " 右边为非空字符时不自动添加括号
   let g:AutoPairsCompleteOnlyOnSpace = 1
-
-Plug 'mg979/vim-visual-multi' " 多光标
+Plug 'chrisbra/matchit' " => 匹配 {{{2
+  nmap M %
+  xmap M %
+  omap M %
+Plug 'mg979/vim-visual-multi' " 多光标 {{{2
   let g:VM_maps = {
         "\  增强VM的撤销(原生undo会有问题)
         \  'Undo': 'u',
@@ -29,7 +32,7 @@ Plug 'mg979/vim-visual-multi' " 多光标
         \  'Switch Mode':     '<Tab>',
         \ }
 
-Plug 'skywind3000/asyncrun.vim'  " 将特定命令绑定映射时用到
+Plug 'skywind3000/asyncrun.vim'  " 将特定命令绑定映射时用到 {{{2
   if has('win32')
     " windows系统使用GBK
     let g:asyncrun_encs = 'gbk'

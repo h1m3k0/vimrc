@@ -32,10 +32,12 @@ Plug 'michaeljsmith/vim-indent-object' " => 缩进文本对象 {{{2
 
 " Plug 'vim-scripts/argtextobj.vim' " => 参数文本对象 {{{2
   let g:argtextobj_pairs = '(:),{:},[:],<:>'
-" Plug 'chrisbra/matchit' " => 匹配 {{{2
-"   nmap M %
-"   xmap M %
-"   omap M %
+Plug 'chrisbra/matchit' " => 匹配 {{{2
+  nmap M %
+  xmap M %
+  omap M %
+Plug 'wellle/targets.vim' " => 增强文本对象
+
 Plug 'easymotion/vim-easymotion' " {{{2
   Plug 'ZSaberLv0/vim-easymotion-chs'
   " 智能大小写
@@ -85,4 +87,6 @@ Plug 'simeji/winresizer' " => 窗口大小 {{{2
   let g:winresizer_start_key = '<C-E>'
   let g:winresizer_vert_resize = 1
   let g:winresizer_horiz_resize = 1
+
+Plug 'editorconfig/editorconfig-vim'
 

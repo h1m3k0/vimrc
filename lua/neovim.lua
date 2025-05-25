@@ -10,7 +10,7 @@ vim.opt.lazyredraw = false
 vim.keymap.set('n', '<Leader>t', '<CMD>botright terminal<CR>', { noremap = true })
 -- 终端 打开时 自动切换为startinsert
 vim.api.nvim_create_autocmd('TermOpen', {
-  pattern = '*', callback = function() vim.cmd.startinsert() end
+    pattern = '*', callback = function() vim.cmd.startinsert() end
 })
 -- 终端 <C-W>时
 vim.keymap.set('t', '<C-w>', function()
@@ -38,23 +38,23 @@ vim.api.nvim_create_autocmd('WinEnter', {
 
         -- 自动改为startinsert()
         vim.schedule(function()
-          -- winresizer 
-          if win_id == vim.api.nvim_get_current_win() then
-            local buf = vim.api.nvim_win_get_buf(win_id)
-            if vim.bo[buf].buftype == 'terminal' then
-              vim.api.nvim_win_call(win_id, function()
-                vim.cmd.startinsert()
-              end)
+            -- winresizer 
+            if win_id == vim.api.nvim_get_current_win() then
+                local buf = vim.api.nvim_win_get_buf(win_id)
+                if vim.bo[buf].buftype == 'terminal' then
+                    vim.api.nvim_win_call(win_id, function()
+                        vim.cmd.startinsert()
+                    end)
+                end
             end
-          end
         end)
     end
 })
 
 
 vim.keymap.set('n', '<F1>', function()
-  vim.diagnostic.jump({count = 1, _highest = true})
+    vim.diagnostic.jump({count = 1, _highest = true})
 end)
 vim.keymap.set('n', '<S-F1>', function()
-  vim.diagnostic.jump({count = -1, _highest = true})
+    vim.diagnostic.jump({count = -1, _highest = true})
 end)

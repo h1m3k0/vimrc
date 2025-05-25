@@ -70,8 +70,8 @@ set expandtab
 " 智能Tab
 set smarttab
 " 缩进
-set shiftwidth=2
-set tabstop=2
+set shiftwidth=4
+set tabstop=4
 set autoindent smartindent
 " 正则表达式引擎
 set regexpengine=0

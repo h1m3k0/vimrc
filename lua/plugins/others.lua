@@ -24,6 +24,9 @@ return {
         dependencies = { 'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify' },
         event = 'VeryLazy',
         opts = {
+            cmdline = {
+                enabled = false,
+            },
             messages = {
                 enabled = false,
             },

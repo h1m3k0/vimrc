@@ -7,8 +7,6 @@ Plug 'joshdick/onedark.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 
-Plug 'ryanoasis/vim-devicons'  " => 图标     {{{2
-
 Plug 'itchyny/lightline.vim'   " => 状态栏   {{{2
     let g:lightline = {
                 \   'colorscheme': g:colorscheme,

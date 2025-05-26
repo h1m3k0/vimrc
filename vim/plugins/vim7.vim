@@ -10,6 +10,12 @@ Plug 'preservim/nerdtree' " => 文件树 {{{2
     nnoremap <silent> <Leader>eh <Esc>:<C-U>NERDTree $HOME<CR>
     nnoremap <silent> <Leader>ep <Esc>:<C-U>NERDTree <C-R>=g:vimdir<CR>/plugged<CR>
 
+    if v:version >= 800 " => NERDTree+Git {{{2
+        Plug 'Xuyuanp/nerdtree-git-plugin'
+    endif
+
+    Plug 'ryanoasis/vim-devicons'  " => 图标     {{{2
+
 " operator => .  y/c/d+s  gc  gr  ga  {{{1
 Plug 'tpope/vim-repeat' " => 重复 . {{{2
 
@@ -86,8 +92,9 @@ Plug 'simeji/winresizer' " => 窗口大小 {{{2
     let g:winresizer_horiz_resize = 1
 
 Plug 'editorconfig/editorconfig-vim' " => editorconfig {{{2
-
-Plug 'vimwiki/vimwiki' " => 笔记 {{{2
+Plug 'godlygeek/tabular'
+Plug 'preservim/vim-markdown'
+" Plug 'vimwiki/vimwiki' " => 笔记 {{{2
     let g:vimwiki_list = [{
                 \ 'path': '~/vimwiki/',
                 \ 'syntax': 'markdown', 'ext': 'md'

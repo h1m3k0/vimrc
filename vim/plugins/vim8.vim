@@ -33,6 +33,7 @@ Plug 'mg979/vim-visual-multi' " 多光标 {{{2
         \ }
 
 Plug 'skywind3000/asyncrun.vim'  " 将特定命令绑定映射时用到 {{{2
+Plug 'skywind3000/asynctasks.vim'
   if has('win32')
     " windows系统使用GBK
     let g:asyncrun_encs = 'gbk'

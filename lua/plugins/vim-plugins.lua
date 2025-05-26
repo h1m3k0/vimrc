@@ -4,15 +4,15 @@ return {
         'easymotion/vim-easymotion',
         init = function()
             vim.cmd [[
-            " 智能大小写
-            let g:EasyMotion_smartcase = 1
-            " 禁用默认映射
-            let g:EasyMotion_do_mapping = 0
-            map  <Leader><Leader>f  <Plug>(easymotion-bd-f)
-            map  <Leader><Leader>F  <Plug>(easymotion-bd-f)
-            map  <Leader><Leader>t  <Plug>(easymotion-bd-t)
-            map  <Leader><Leader>T  <Plug>(easymotion-bd-t)
-            ]]
+                " 智能大小写
+                let g:EasyMotion_smartcase = 1
+                " 禁用默认映射
+                let g:EasyMotion_do_mapping = 0
+                map  <Leader><Leader>f  <Plug>(easymotion-bd-f)
+                map  <Leader><Leader>F  <Plug>(easymotion-bd-f)
+                map  <Leader><Leader>t  <Plug>(easymotion-bd-t)
+                map  <Leader><Leader>T  <Plug>(easymotion-bd-t)
+                ]]
         end,
     },
     { 'ZSaberLv0/vim-easymotion-chs', dependencies = 'easymotion/vim-easymotion' },
@@ -32,16 +32,16 @@ return {
         dependencies = 'kana/vim-textobj-user',
         init = function()
             vim.cmd [[
-            let g:argtextobj_pairs = '(:),{:},[:],<:>'
-            ]]
+                let g:argtextobj_pairs = '(:),{:},[:],<:>'
+                ]]
         end,
     },
     {
         'machakann/vim-highlightedyank',
         init = function()
             vim.cmd [[
-            let g:highlightedyank_highlight_duration = 2000
-            ]]
+                let g:highlightedyank_highlight_duration = 2000
+                ]]
         end,
     },
     { 'michaeljsmith/vim-indent-object', dependencies = 'kana/vim-textobj-user' },
@@ -49,9 +49,9 @@ return {
         'junegunn/vim-easy-align',
         config = function()
             vim.cmd [[
-            nmap  ga  <Plug>(EasyAlign)
-            xmap  ga  <Plug>(EasyAlign)
-            ]]
+                nmap  ga  <Plug>(EasyAlign)
+                xmap  ga  <Plug>(EasyAlign)
+                ]]
         end,
     },
     'tpope/vim-fugitive',
@@ -65,45 +65,49 @@ return {
         'kana/vim-arpeggio',
         config = function()
             vim.cmd [[
-            Arpeggio inoremap jk <Esc>
-            Arpeggio nnoremap io  :
-            ]]
+                Arpeggio inoremap jk <Esc>
+                Arpeggio nnoremap io  :
+                ]]
         end
     },
     {
         'skywind3000/asyncrun.vim',
         config = function()
             vim.cmd [[
-            if has('win32')
-                " windows系统使用GBK
-                let g:asyncrun_encs = 'gbk'
+                if has('win32')
+                    " windows系统使用GBK
+                    let g:asyncrun_encs = 'gbk'
                 endif
                 " 自动打开copen
                 let g:asyncrun_open = 6
                 ]]
-            end
-        },
-        {
-            'haya14busa/vim-asterisk',
-            config = function()
-                vim.cmd [[
+        end
+    },
+    {
+        'skywind3000/asynctasks.vim',
+        dependencies = { 'skywind3000/asyncrun.vim' },
+    },
+    {
+        'haya14busa/vim-asterisk',
+        config = function()
+            vim.cmd [[
                 let g:asterisk#keeppos = 1 " 保持光标位置
                 map *  <Plug>(asterisk-z*)
                 map #  <Plug>(asterisk-z#)
                 map g* <Plug>(asterisk-gz*)
                 map g# <Plug>(asterisk-gz#)
                 ]]
-            end
-        },
-        {
-            'simeji/winresizer',
-            config = function()
-                vim.cmd [[
+        end
+    },
+    {
+        'simeji/winresizer',
+        config = function()
+            vim.cmd [[
                 let g:winresizer_gui_enable = 1
                 let g:winresizer_start_key = '<C-E>'
                 let g:winresizer_vert_resize = 1
                 let g:winresizer_horiz_resize = 1
                 ]]
-            end
-        }
+        end
     }
+}

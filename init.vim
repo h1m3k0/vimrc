@@ -11,8 +11,8 @@ command! -nargs=1 LoadLuafile execute 'luafile ' . g:vimdir . '/' . '<args>'
 " 加载默认配置
 LoadSource vim/configs/config_example.vim
 if filereadable(g:vimdir . '/vim/configs/config.vim')
-  " 加载自定义配置
-  LoadSource vim/configs/config.vim
+    " 加载自定义配置
+    LoadSource vim/configs/config.vim
 endif
 
 " 加载基础配置(set)
@@ -24,8 +24,8 @@ LoadSource vim/vim.vim
 " 加载neovim的配置
 LoadLuafile lua/neovim.lua
 if exists('g:neovide')
-  " 加载neovide的配置
-  LoadLuafile lua/neovide.lua
+    " 加载neovide的配置
+    LoadLuafile lua/neovide.lua
 endif
 " 加载neovim插件(lazy.nvim)
 LoadLuafile lua/lazy.nvim.lua

@@ -7,8 +7,8 @@ execute 'set runtimepath+=' . g:vimdir
 " 加载默认配置
 LoadScript vim/configs/config_example.vim
 if filereadable(g:vimdir . '/vim/configs/config.vim')
-  " 加载自定义配置
-  LoadScript vim/configs/config.vim
+    " 加载自定义配置
+    LoadScript vim/configs/config.vim
 endif
 
 " 加载基础配置(set)

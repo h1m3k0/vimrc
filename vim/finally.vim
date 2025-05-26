@@ -1,14 +1,15 @@
 try
-  if has('termguicolors')
-    if has('g:colorscheme')
-      execute 'colorscheme ' . g:colorscheme
+    if has('termguicolors')
+        if has('g:colorscheme')
+            execute 'colorscheme ' . g:colorscheme
+        else
+            set bg=dark
+            colorscheme everforest
+        endif
     else
-      set bg=dark
-      colorscheme everforest
+        colorscheme onedark
     endif
-  else
-    colorscheme onedark
-  endif
+
 catch
 endtry
 

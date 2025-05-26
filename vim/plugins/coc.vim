@@ -1,5 +1,5 @@
 if v:version < 900
-  finish
+    finish
 endif
 
 " coc.nvim
@@ -13,29 +13,29 @@ endif
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " coc
 let g:coc_config_home = g:vimdir
 let g:coc_global_extensions = [
-      \ 'coc-marketplace',
-      \ 'coc-highlight',
-      \ 'coc-lists',
-      \ 'coc-pairs',
-      \ 'coc-prettier',
-      \ 'coc-yank',
-      \ 'coc-git',
-      \]
+            \ 'coc-marketplace',
+            \ 'coc-highlight',
+            \ 'coc-lists',
+            \ 'coc-pairs',
+            \ 'coc-prettier',
+            \ 'coc-yank',
+            \ 'coc-git',
+            \]
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Tab的实现
 inoremap <silent><expr> <Tab> 
-      \ coc#pum#visible() ? coc#pum#confirm() :
-      \ CheckBackspace() ? "\<Tab>" :
-      \ coc#refresh()
+            \ coc#pum#visible() ? coc#pum#confirm() :
+            \ CheckBackspace() ? "\<Tab>" :
+            \ coc#refresh()
 function! CheckBackspace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 " <CR>的实现
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-      \: "\<C-G>u\<CR>\<C-R>=coc#on_enter()\<CR>"
+            \: "\<C-G>u\<CR>\<C-R>=coc#on_enter()\<CR>"
 
 " function/class text-objects
 xmap if <Plug>(coc-funcobj-i)
@@ -52,14 +52,14 @@ omap ac <Plug>(coc-classobj-a)
 noremap     <silent> <S-F1> <Esc>:<C-u>call GotoError('diagnosticPrevious')<CR>
 noremap     <silent> <F1>   <Esc>:<C-u>call GotoError('diagnosticNext')<CR>
 function! GotoError(action)
-  let s:list = CocAction('diagnosticList')
-  for obj in s:list
-    if has_key(obj, 'severity') && obj.severity == 'Error'
-      execute "call CocActionAsync('".a:action."', 'error')"
-      return
-    endif
-  endfor
-  execute "call CocActionAsync('".a:action."')"
+    let s:list = CocAction('diagnosticList')
+    for obj in s:list
+        if has_key(obj, 'severity') && obj.severity == 'Error'
+            execute "call CocActionAsync('".a:action."', 'error')"
+            return
+        endif
+    endfor
+    execute "call CocActionAsync('".a:action."')"
 endfunction
 
 " 跳转vcs
@@ -73,25 +73,25 @@ nmap <silent> gR <Plug>(coc-references)
 "  K       的高级实现
 nnoremap <silent>  K  :call ShowDocumentation()<CR>
 function! ShowDocumentation()
-  if CocAction('hasProvider', 'hover')
-    call CocActionAsync('doHover')
-  else
-    call feedkeys('K', 'in')
-  endif
+    if CocAction('hasProvider', 'hover')
+        call CocActionAsync('doHover')
+    else
+        call feedkeys('K', 'in')
+    endif
 endfunction
 
 augroup IdeaVimAction
 
-  " 重命名
-  nmap <Leader>r <Plug>(coc-rename)
+    " 重命名
+    nmap <Leader>r <Plug>(coc-rename)
 
-  " 格式化
-  nmap <Leader>l  <Plug>(coc-format)
-  xmap <Leader>l  <Plug>(coc-format-selected)
+    " 格式化
+    nmap <Leader>l  <Plug>(coc-format)
+    xmap <Leader>l  <Plug>(coc-format-selected)
 
-  " 选择
-  nmap <silent> <C-S> <Plug>(coc-range-select)
-  xmap <silent> <C-S> <Plug>(coc-range-select)
+    " 选择
+    nmap <silent> <C-S> <Plug>(coc-range-select)
+    xmap <silent> <C-S> <Plug>(coc-range-select)
 
 augroup end
 

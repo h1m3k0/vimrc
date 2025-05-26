@@ -58,7 +58,7 @@ endif
 " 命令行补全
 set wildmenu
 if v:version >= 900 || has('nvim')
-  set wildoptions=fuzzy,pum
+    set wildoptions=fuzzy,pum
 endif
 " 搜索智能大小写 高亮 动态显示
 set ignorecase smartcase hlsearch incsearch
@@ -126,13 +126,13 @@ set t_Co=256
 autocmd ColorScheme * highlight Cursor guibg=bg guifg=fg
 " 8. GUI {{{2
 if has('gui_running')
-  set guioptions-=T " 取消工具栏
-  set guioptions-=e " 取消标签
-  set guioptions-=m " 取消菜单栏
-  set guioptions-=L " 取消左侧滚动条
-  set columns=120 " 宽
-  set lines=30 " 高
-  set guicursor+=a:blinkon0 " 取消光标闪烁
+    set guioptions-=T " 取消工具栏
+    set guioptions-=e " 取消标签
+    set guioptions-=m " 取消菜单栏
+    set guioptions-=L " 取消左侧滚动条
+    set columns=120 " 宽
+    set lines=30 " 高
+    set guicursor+=a:blinkon0 " 取消光标闪烁
 endif
 " 扩展名 {{{2
 set suffixes=.bak,~,.o,.h,.info,.swp,.obj,.pyc,.pyo,.egg-info,.class

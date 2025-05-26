@@ -66,21 +66,15 @@ function! HighlightChars(s)
     return ''
 endfunction
 
-noremap <silent><expr> <Plug>(fFtT-f) HighlightChars('f')
-noremap <silent><expr> <Plug>(fFtT-F) HighlightChars('F')
-noremap <silent><expr> <Plug>(fFtT-t) HighlightChars('t')
-noremap <silent><expr> <Plug>(fFtT-T) HighlightChars('T')
-noremap <silent><expr> <Plug>(fFtT-esc) HighlightClear()
-
-nnoremap f <Plug>(fFtT-f)f
-xnoremap f <Plug>(fFtT-f)f
-onoremap f <Plug>(fFtT-f)f
-nnoremap F <Plug>(fFtT-F)F
-xnoremap F <Plug>(fFtT-F)F
-onoremap F <Plug>(fFtT-F)F
-nnoremap t <Plug>(fFtT-t)t
-xnoremap t <Plug>(fFtT-t)t
-onoremap t <Plug>(fFtT-t)t
-nnoremap T <Plug>(fFtT-T)T
-xnoremap T <Plug>(fFtT-T)T
-onoremap T <Plug>(fFtT-T)T
+nnoremap <silent><expr> f HighlightChars('f') .. 'f'
+xnoremap <silent><expr> f HighlightChars('f') .. 'f'
+onoremap <silent><expr> f HighlightChars('f') .. 'f'
+nnoremap <silent><expr> F HighlightChars('F') .. 'F'
+xnoremap <silent><expr> F HighlightChars('F') .. 'F'
+onoremap <silent><expr> F HighlightChars('F') .. 'F'
+nnoremap <silent><expr> t HighlightChars('t') .. 't'
+xnoremap <silent><expr> t HighlightChars('t') .. 't'
+onoremap <silent><expr> t HighlightChars('t') .. 't'
+nnoremap <silent><expr> T HighlightChars('T') .. 'T'
+xnoremap <silent><expr> T HighlightChars('T') .. 'T'
+onoremap <silent><expr> T HighlightChars('T') .. 'T'

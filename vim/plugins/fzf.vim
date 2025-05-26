@@ -10,7 +10,7 @@ let preview_obj = {
             \     '--layout=reverse',
             \     '--info=inline',
             \     '--preview',
-            \     (has('win32') ? 'more' : 'cat') . ' {}'
+            \     (has('win32') ? 'type' : 'cat') . ' {}'
             \   ]
             \ }
 " Files 预览

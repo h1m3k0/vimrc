@@ -8,6 +8,7 @@ Plug 'preservim/nerdtree' " => 文件树 {{{2
   nnoremap <silent> <Leader>et <Esc>:<C-U>NERDTreeMirror<CR>:NERDTreeToggle<CR>
   nnoremap <silent> <Leader>ev <Esc>:<C-U>NERDTree <C-R>=g:vimdir<CR><CR>
   nnoremap <silent> <Leader>eh <Esc>:<C-U>NERDTree $HOME<CR>
+  nnoremap <silent> <Leader>ep <Esc>:<C-U>NERDTree <C-R>=g:vimdir<CR>/plugged<CR>
 
 " operator => .  y/c/d+s  gc  gr  ga  {{{1
 Plug 'tpope/vim-repeat' " => 重复 . {{{2

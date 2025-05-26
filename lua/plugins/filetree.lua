@@ -68,6 +68,7 @@ return {
             vim.keymap.set('n', '<Leader>ee', '<CMD>Neotree<CR>', { noremap = true } )
             vim.keymap.set('n', '<Leader>ef', '<CMD>Neotree reveal_force_cwd<CR>', { noremap = true } )
             vim.keymap.set('n', '<Leader>ev', '<CMD>Neotree dir=' .. vim.g.vimdir ..'<CR>', { noremap = true } )
+            vim.keymap.set('n', '<Leader>ep', '<CMD>Neotree dir=' .. vim.fn.stdpath('data') .. '/lazy<CR>', { noremap = true } )
         end,
     },
 }

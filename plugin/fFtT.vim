@@ -2,7 +2,7 @@ if v:version < 800
   finish
 endif
 function! FfTtColor()
-  highlight FfTtColor gui=reverse,bold
+  highlight FfTtColor term=reverse,bold cterm=reverse,bold gui=reverse,bold
 endfunction
 call FfTtColor()
 autocmd ColorScheme * call FfTtColor()

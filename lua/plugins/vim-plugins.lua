@@ -109,5 +109,16 @@ return {
                 let g:winresizer_horiz_resize = 1
                 ]]
         end
-    }
+    },
+    {
+        'vimwiki/vimwiki',
+        config = function()
+            vim.cmd [[
+                let g:vimwiki_list = [{
+                    \ 'path': '~/vimwiki/',
+                    \ 'syntax': 'markdown', 'ext': 'md'
+                    \}]
+                ]]
+        end
+    },
 }

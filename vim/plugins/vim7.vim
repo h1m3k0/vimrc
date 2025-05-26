@@ -85,5 +85,11 @@ Plug 'simeji/winresizer' " => 窗口大小 {{{2
   let g:winresizer_vert_resize = 1
   let g:winresizer_horiz_resize = 1
 
-Plug 'editorconfig/editorconfig-vim'
+Plug 'editorconfig/editorconfig-vim' " => editorconfig {{{2
+
+Plug 'vimwiki/vimwiki' " => 笔记 {{{2
+    let g:vimwiki_list = [{
+                \ 'path': '~/vimwiki/',
+                \ 'syntax': 'markdown', 'ext': 'md'
+                \}]
 

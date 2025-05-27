@@ -86,8 +86,10 @@ Plug 'haya14busa/vim-asterisk' " => 星号井号搜索增强 {{{2
 Plug 'tpope/vim-fugitive' " => Git {{{2
 
 Plug 'simeji/winresizer' " => 窗口大小 {{{2
+    let g:winresizer_enable = 1
+    let g:winresizer_start_key = '<Leader>we'
     let g:winresizer_gui_enable = 1
-    let g:winresizer_start_key = '<C-E>'
+    let g:winresizer_gui_start_key = '<Leader>wa'
     let g:winresizer_vert_resize = 1
     let g:winresizer_horiz_resize = 1
 

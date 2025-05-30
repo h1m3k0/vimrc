@@ -4,7 +4,7 @@ let g:colorscheme = 'everforest'
 Plug 'sainnhe/everforest'
 Plug 'sainnhe/gruvbox-material'
 Plug 'joshdick/onedark.vim'
-Plug 'altercation/vim-colors-solarized'
+Plug 'lifepillar/vim-solarized8'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 
 Plug 'itchyny/lightline.vim'   " => 状态栏   {{{2

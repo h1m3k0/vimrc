@@ -1,0 +1,1 @@
+[ -f "vimrc" ] && find . -type f -exec sed -i 's/\r$//' {} \; || ([ -f "../vimrc" ] && find ../ -type f -exec sed -i 's/\r$//' {} \;) || ([ -f ".vim/vimrc" ] && find .vim -type f -exec sed -i 's/\r$//' {} \;) || (echo 'NOT Find vimrc !!!')

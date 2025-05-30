@@ -16,10 +16,6 @@
 
      ~~~vimscript
      " 添加配置, 如
-     " 启用映射方向键
-     let g:map_arrow_key = 1
-     " 启用映射esc键映射
-     let g:map_esc_key = 1
      source ~/vimfiles/.ideavimrc
      " 部分idea插件异步加载存在问题, 导致有的配置没有加载
      " 通过再次source配置文件解决, 视情况可多次加载
@@ -44,19 +40,15 @@
 
    - 无网环境
 
-     复制文件夹，执行
+     `windows`运行`scripts/delete_.git.bat`，删掉`.git`和`plugged/**/.git`，精简大小。
 
-     ~~~shell
-     find . -type f -exec sed -i 's/\r$//' {} \;
-     ~~~
-
-     去掉文件换行的 `^M`
-
+     `linux`运行`scripts/replace_cr.sh`，将`windows换行`换成`linux换行`（去掉`^M`），即可运行。
+   
    - 无插件All-In-One
      
      复制 `vim/configs/config_expample.vim` 、 `vim/setting.vim` 、 `vim/mapping.vim` 、`vim/vim.vim` 里内容
 
 
 
-     
-  
+​     
+

@@ -9,10 +9,8 @@ Plug 'joshdick/onedark.vim'
 Plug 'lifepillar/vim-solarized8'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 
-Plug 'itchyny/lightline.vim'   " => 状态栏   {{{2
-    let g:lightline = {
-                \   'colorscheme': g:colorscheme,
-                \ }
+Plug 'vim-airline/vim-airline'   " => 状态栏   {{{2
+Plug 'vim-airline/vim-airline-themes'
 
 Plug 'mhinz/vim-startify'      " => 启动页面 {{{2
   let g:startify_custom_header = ['']

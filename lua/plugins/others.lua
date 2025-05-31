@@ -43,14 +43,14 @@ return {
     },
     {
         'akinsho/bufferline.nvim',
-        dependencies = 'nvim-tree/nvim-web-devicons',
+        dependencies = 'ryanoasis/vim-devicons',
         version = '*',
         event = 'VeryLazy',
         config = true,
     },
     {
         'nvim-lualine/lualine.nvim',
-        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        dependencies = { 'ryanoasis/vim-devicons' },
         event = 'VeryLazy',
         opts = {
             options = {

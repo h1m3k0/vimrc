@@ -29,6 +29,7 @@ return {
         'nvim-neo-tree/neo-tree.nvim',
         dependencies = { 'nvim-lua/plenary.nvim', 'nvim-tree/nvim-web-devicons', 'MunifTanjim/nui.nvim', },
         event = 'VeryLazy',
+        enabled = false,
         -- /neo-tree.nvim/lua/neo-tree/defaults.lua
         opts = {
             window = {

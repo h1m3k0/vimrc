@@ -2,7 +2,7 @@
 return {
     {
         'ibhagwan/fzf-lua',
-        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        dependencies = { 'ryanoasis/vim-devicons' },
         config = function(_, opts)
             require('fzf-lua').setup(opts)
             local fzf = require('fzf-lua')

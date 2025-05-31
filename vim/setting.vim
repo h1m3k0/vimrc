@@ -43,6 +43,8 @@ set ruler
 set number relativenumber
 " 高亮显示当前行
 set cursorline
+" 显示搜索匹配数
+set shortmess-=S
 " 显示当前命令
 set showcmd
 " 始终显示状态栏

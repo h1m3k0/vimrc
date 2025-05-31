@@ -1,6 +1,6 @@
 try
     if has('termguicolors')
-        if has('g:colorscheme')
+        if exists('g:colorscheme')
             execute 'colorscheme ' . g:colorscheme
         else
             set bg=dark

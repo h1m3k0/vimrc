@@ -1,5 +1,7 @@
 " 色彩方案 {{{1
-let g:colorscheme = 'everforest'
+if !exists('g:colorscheme')
+    let g:colorscheme = 'everforest'
+endif
 
 Plug 'sainnhe/everforest'
 Plug 'sainnhe/gruvbox-material'

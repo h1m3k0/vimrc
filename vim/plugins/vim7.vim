@@ -2,6 +2,8 @@
 Plug 'preservim/nerdtree' " => 文件树 {{{2
     " 切换目录时自动切换vim根目录
     let g:NERDTreeChDirMode = 2
+    " 取消CD
+    let g:NERDTreeMapCWD = '<Nop>'
     nnoremap <Leader>e <Esc>:<C-U>NERDTree
     nnoremap <silent> <Leader>ef <Esc>:<C-U>NERDTreeFind<CR>
     nnoremap <silent> <Leader>eF <Esc>:<C-U>NERDTreeFind<CR>:NERDTreeVCS<CR>

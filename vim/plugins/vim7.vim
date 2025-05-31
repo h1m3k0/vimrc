@@ -41,7 +41,7 @@ Plug 'kana/vim-textobj-entire' " => 全文文本对象 {{{2
 Plug 'michaeljsmith/vim-indent-object' " => 缩进文本对象 {{{2
 
 " Plug 'vim-scripts/argtextobj.vim' " => 参数文本对象 {{{2
-    let g:argtextobj_pairs = '(:),{:},[:],<:>'
+
 Plug 'wellle/targets.vim' " => 增强文本对象
 
 Plug 'easymotion/vim-easymotion' " {{{2

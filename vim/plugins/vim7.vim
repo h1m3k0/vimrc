@@ -4,6 +4,7 @@ Plug 'preservim/nerdtree' " => 文件树 {{{2
     let g:NERDTreeChDirMode = 2
     nnoremap <Leader>e <Esc>:<C-U>NERDTree
     nnoremap <silent> <Leader>ef <Esc>:<C-U>NERDTreeFind<CR>
+    nnoremap <silent> <Leader>eF <Esc>:<C-U>NERDTreeFind<CR>:NERDTreeVCS<CR>
     nnoremap <silent> <Leader>ee <Esc>:<C-U>NERDTreeMirror<CR>:NERDTreeFocus<CR>
     nnoremap <silent> <Leader>et <Esc>:<C-U>NERDTreeMirror<CR>:NERDTreeToggle<CR>
     nnoremap <silent> <Leader>ev <Esc>:<C-U>NERDTree <C-R>=g:vimdir<CR><CR>

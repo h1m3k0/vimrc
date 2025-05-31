@@ -101,6 +101,8 @@ Plug 'simeji/winresizer' " => 窗口大小 {{{2
 
 Plug 'editorconfig/editorconfig-vim' " => editorconfig {{{2
 
+Plug 'sheerun/vim-polyglot' " => 语言包 {{{2
+    let g:polyglot_disabled = ['sensible']
 Plug 'godlygeek/tabular' " => Markdown {{{2
 Plug 'preservim/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}

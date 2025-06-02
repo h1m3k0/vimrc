@@ -11,8 +11,12 @@ let g:config_keyboard = 1
 " SSH    git@github.com:%s.git
 let g:plug_url_format = 'git@github.com:%s.git'
 
+" default
+" LeaderF 
+" fzf
+let g:fuzzy = 'default'
 
-" let g:colorscheme = 'onedark'
+let g:colorscheme = 'everforest'
 function! FinallySetting()
   " " 服务器支持真色 但连接工具不支持真色
   " if has('termguicolors')

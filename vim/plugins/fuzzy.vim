@@ -1,22 +1,36 @@
-if has('win32') || ((has('python') || has('python3')) && executable('python'))
+let s:fuzzy = g:fuzzy
+if s:fuzzy == 'default'
+    if has('win32')
+        let s:fuzzy = 'LeaderF'
+    elseif (has('python') || has('python2') || has('python3')) && executable('python')
+        let s:fuzzy = 'LeaderF'
+    elseif v:version < 800
+        let s:fuzzy = 'LeaderF'
+    else
+        let s:fuzzy = 'fzf'
+    endif
+endif
+if s:fuzzy == 'LeaderF'
     Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
     let g:Lf_CommandMap = {
                 \     '<C-J>': ['<Down>', '<C-J>'],
                 \     '<C-K>': ['<Up>', '<C-K>'],
                 \ }
     let g:Lf_ShortcutF = '<Nop>'
-    nnoremap <Leader>ff <Esc>:<C-U>Leaderf file<CR>
-    nnoremap <Leader>fF <Esc>:<C-U>Leaderf file <C-R>=GetGitRoot('')<CR><CR>
-    nnoremap <Leader>fg <Esc>:<C-U>Leaderf rg --max-columns=300 --live<CR>
-    nnoremap <Leader>fG <Esc>:<C-U>Leaderf rg --max-columns=300 --live "" <C-R>=GetGitRoot('')<CR><CR>
+    nnoremap <Leader>f <Esc>:<C-U>Leaderf
+    nnoremap <silent> <Leader>ff <Esc>:<C-U>Leaderf file<CR>
+    nnoremap <silent> <Leader>fF <Esc>:<C-U>Leaderf file <C-R>=GetGitRoot('')<CR><CR>
+    nnoremap <silent> <Leader>fg <Esc>:<C-U>Leaderf rg --max-columns=300 --live<CR>
+    nnoremap <silent> <Leader>fG <Esc>:<C-U>Leaderf rg --max-columns=300 --live "" <C-R>=GetGitRoot('')<CR><CR>
 
     function! GetGitRoot(dir)
       let dir = len(a:dir) ? a:dir : substitute(split(expand('%:p:h'), '[/\\]\.git\([/\\]\|$\)')[0], '^fugitive://', '', '')
       let root = systemlist('git -C ' . shellescape(dir) . ' rev-parse --show-toplevel')[0]
       return v:shell_error ? '' : (len(a:dir) ? fnamemodify(a:dir, ':p') : root)
     endfunction
+endif
 
-elseif v:version >= 800
+if s:fuzzy == 'fzf'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
 

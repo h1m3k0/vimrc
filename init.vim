@@ -27,6 +27,6 @@ if exists('g:neovide')
     " 加载neovide的配置
     LoadLuafile lua/neovide.lua
 endif
+runtime! plugin/**/*.vim
 " 加载neovim插件(lazy.nvim)
 LoadLuafile lua/lazy.nvim.lua
-LoadSource plugin/fFtT.vim

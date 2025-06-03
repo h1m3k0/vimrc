@@ -3,6 +3,9 @@
 " <Space>或<CR>确认
 " <Esc>或q取消
 "
+if v:version < 800
+  finish
+endif
 let g:numbers = {';': 0, 'a': 1, 's': 2, 'd': 3, 'f': 4, 'g': 5, 'h': 6, 'j': 7, 'k': 8, 'l': 9}
 function! Number(x) 
     let s:chars = ''

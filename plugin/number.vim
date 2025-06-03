@@ -81,9 +81,9 @@ function! CalculateNumber(chars)
     endif
 endfunction
 function! NumberColorHighlightPrint(x, chars)
-    echo ' Number ' . a:x . ':' s:chars
-    call NumberColorClear()
     let s:result = CalculateNumber(a:chars)
+    echo ' Number: ' . s:result . a:x . ' <-- ' . a:chars 
+    call NumberColorClear()
     if a:x ==# 'j' 
         let s:result = line('.') + s:result
     elseif a:x ==# 'k'

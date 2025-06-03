@@ -3,13 +3,17 @@ return {
     {
         'preservim/nerdtree',
         lazy = false,
+        priority = 1,
         dependencies = {
             {
                 'Xuyuanp/nerdtree-git-plugin',
                 lazy = false,
-                dependencies = {
-                    'ryanoasis/vim-devicons',
-                },
+                priority = 2,
+            },
+            {
+                'ryanoasis/vim-devicons',
+                lazy = false,
+                priority = 3,
             },
         },
         init = function()
@@ -45,7 +49,7 @@ return {
             ]]
         end,
     },
-    { 'tpope/vim-surround',           dependencies = 'tpope/vim-repeat' },
+    { 'tpope/vim-surround',         dependencies = 'tpope/vim-repeat' },
     {
         'vim-scripts/ReplaceWithRegister',
         init = function()
@@ -102,47 +106,47 @@ return {
                 " 自动打开copen
                 let g:asyncrun_open = 6
                 ]]
-        end
-    },
-    { 'skywind3000/asynctasks.vim',      dependencies = 'skywind3000/asyncrun.vim' },
-    {
-        'haya14busa/vim-asterisk',
-        init = function()
-            vim.cmd [[
+            end
+        },
+        { 'skywind3000/asynctasks.vim',      dependencies = 'skywind3000/asyncrun.vim' },
+        {
+            'haya14busa/vim-asterisk',
+            init = function()
+                vim.cmd [[
                 let g:asterisk#keeppos = 1 " 保持光标位置
                 map *  <Plug>(asterisk-z*)
                 map #  <Plug>(asterisk-z#)
                 map g* <Plug>(asterisk-gz*)
                 map g# <Plug>(asterisk-gz#)
                 ]]
-        end
-    },
-    {
-        'mg979/vim-visual-multi',
-        init = function()
-            vim.g.VM_maps = {
-                --  增强VM的撤销(原生undo会有问题)
-                ['Undo'] = 'u',
-                --  增强VM的撤销(原生redo会有问题)
-                ['Redo'] = '<C-r>',
-                --  单词
-                ['Find Under'] = '<A-n>',
-                --  字符
-                ['Add Cursor Down'] = '<A-Down>',
-                --  字符
-                ['Add Cursor Up'] = '<A-Up>',
-                --  字符
-                ['Mouse Cursor'] = '<A-LeftMouse>',
-                --  单词
-                ['Mouse Word'] = '<A-RightMouse>',
-                ['Switch Mode'] = '<Tab>',
-            }
-        end,
-    },
-    {
-        'simeji/winresizer',
-        init = function()
-            vim.cmd [[
+            end
+        },
+        {
+            'mg979/vim-visual-multi',
+            init = function()
+                vim.g.VM_maps = {
+                    --  增强VM的撤销(原生undo会有问题)
+                    ['Undo'] = 'u',
+                    --  增强VM的撤销(原生redo会有问题)
+                    ['Redo'] = '<C-r>',
+                    --  单词
+                    ['Find Under'] = '<A-n>',
+                    --  字符
+                    ['Add Cursor Down'] = '<A-Down>',
+                    --  字符
+                    ['Add Cursor Up'] = '<A-Up>',
+                    --  字符
+                    ['Mouse Cursor'] = '<A-LeftMouse>',
+                    --  单词
+                    ['Mouse Word'] = '<A-RightMouse>',
+                    ['Switch Mode'] = '<Tab>',
+                }
+            end,
+        },
+        {
+            'simeji/winresizer',
+            init = function()
+                vim.cmd [[
                 let g:winresizer_enable = 1
                 let g:winresizer_start_key = '<Leader>we'
                 let g:winresizer_gui_enable = 1
@@ -150,16 +154,16 @@ return {
                 let g:winresizer_vert_resize = 1
                 let g:winresizer_horiz_resize = 1
                 ]]
-        end
-    },
-    {
-        'triglav/vim-visual-increment',
-        init = function()
-            vim.cmd [[
+            end
+        },
+        {
+            'triglav/vim-visual-increment',
+            init = function()
+                vim.cmd [[
                 vnoremap <Leader><C-A> <Plug>VisualIncrement
                 vnoremap <Leader><C-X> <Plug>VisualDecrement
                 ]]
-        end
-    },
-    { 'preservim/vim-markdown', dependencies = 'godlygeek/tabular', },
-}
+            end
+        },
+        { 'preservim/vim-markdown', dependencies = 'godlygeek/tabular', },
+    }

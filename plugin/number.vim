@@ -57,7 +57,7 @@ function! Number(x)
     endwhile
     call NumberColorHighlightPrint(a:x, s:chars)
     let s:result = CalculateNumber(s:chars)
-    execute 'normal! '. s:result . a:x 
+    execute 'normal! '. s:result . a:x
     call NumberColorClear()
 endfunction
 function! CalculateNumber(chars)
@@ -91,10 +91,14 @@ function! NumberColorHighlightPrint(x, chars)
     endif
     call NumberColorHighlight(s:result)
 endfunction
-noremap <silent> <Leader>j <CMD>call Number('j')<CR>
-noremap <silent> <Leader>k <CMD>call Number('k')<CR>
-noremap <silent> <Leader>gg <CMD>call Number('gg')<CR>
-noremap <silent> <Leader>G <CMD>call Number('G')<CR>
+nnoremap <silent> <Leader>j <CMD>call Number('j')<CR>
+nnoremap <silent> <Leader>k <CMD>call Number('k')<CR>
+nnoremap <silent> <Leader>gg <CMD>call Number('gg')<CR>
+nnoremap <silent> <Leader>G <CMD>call Number('G')<CR>
+onoremap <silent> <Leader>j V<CMD>call Number('j')<CR>
+onoremap <silent> <Leader>k V<CMD>call Number('k')<CR>
+onoremap <silent> <Leader>gg V<CMD>call Number('gg')<CR>
+onoremap <silent> <Leader>G V<CMD>call Number('G')<CR>
 
 
 function! NumberColor()

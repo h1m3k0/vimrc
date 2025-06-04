@@ -124,23 +124,22 @@ return {
         {
             'mg979/vim-visual-multi',
             init = function()
-                vim.g.VM_maps = {
-                    --  增强VM的撤销(原生undo会有问题)
-                    ['Undo'] = 'u',
-                    --  增强VM的撤销(原生redo会有问题)
-                    ['Redo'] = '<C-r>',
-                    --  单词
-                    ['Find Under'] = '<A-n>',
-                    --  字符
-                    ['Add Cursor Down'] = '<A-Down>',
-                    --  字符
-                    ['Add Cursor Up'] = '<A-Up>',
-                    --  字符
-                    ['Mouse Cursor'] = '<A-LeftMouse>',
-                    --  单词
-                    ['Mouse Word'] = '<A-RightMouse>',
-                    ['Switch Mode'] = '<Tab>',
-                }
+                vim.cmd [[
+                let g:VM_maps                    = {}
+                " 增强VM的撤销(原生undo会有问题)
+                let g:VM_maps['Undo']            = 'u'
+                " 增强VM的撤销(原生redo会有问题)
+                let g:VM_maps['Redo']            = '<C-r>'
+                " 单词
+                let g:VM_maps['Find Under']      = '<A-n>'
+                " 字符
+                let g:VM_maps['Add Cursor Down'] = '<A-Down>'
+                " 字符
+                let g:VM_maps['Add Cursor Up']   = '<A-Up>'
+                let g:VM_maps['Mouse Cursor']    = '<A-LeftMouse>'
+                let g:VM_maps['Mouse Word']      = '<A-RightMouse>'
+                let g:VM_maps['Switch Mode']     = '<Tab>'
+                ]]
             end,
         },
         {

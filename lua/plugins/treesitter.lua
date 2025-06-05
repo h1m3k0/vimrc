@@ -8,6 +8,7 @@ return {
         opts = {
             ensure_installed = { 'vim', 'regex', 'lua', 'bash', 'markdown', 'markdown_inline', },
             auto_install = true,
+            parser_install_dir = vim.g.vimdir .. '/nvim-data/parsers',
             -- 高亮
             highlight = {
                 enable = true,
@@ -56,6 +57,9 @@ return {
                 enable = true,
             },
         },
+        init = function()
+            vim.opt.runtimepath:prepend(vim.g.vimdir .. '/nvim-data/parsers')
+        end,
         config = function(_, opts)
             require'nvim-treesitter.install'.prefer_git = true
             -- 将git地址从https改为ssh 下载失败尝试关闭VPN

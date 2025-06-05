@@ -50,6 +50,7 @@ return {
         'mason-org/mason.nvim',
         version = '*',
         opts = {
+            install_root_dir = vim.g.vimdir .. '/nvim-data/mason',
         },
     },
     {

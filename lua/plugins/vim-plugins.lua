@@ -9,6 +9,12 @@ return {
                 'Xuyuanp/nerdtree-git-plugin',
                 lazy = false,
                 priority = 2,
+                init = function()
+                    vim.cmd [[
+                        let g:NERDTreeGitStatusUseNerdFonts = 1
+                        let g:NERDTreeGitStatusShowIgnored = 1
+                    ]]
+                end
             },
             {
                 'ryanoasis/vim-devicons',

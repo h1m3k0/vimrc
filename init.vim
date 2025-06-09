@@ -1,4 +1,5 @@
 let g:vimdir = fnamemodify(resolve(expand('<sfile>:p')), ':h')
+let g:vimdir = substitute(g:vimdir, '\v^([a-z]):([\/])', '\u\1:\2', '')
 let g:vimdir = substitute(g:vimdir, '\', '/', 'g')
 let g:vimrc = g:vimdir . '/init.vim'
 

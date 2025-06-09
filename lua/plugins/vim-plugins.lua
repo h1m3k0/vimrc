@@ -81,7 +81,6 @@ return {
     },
     'tpope/vim-fugitive',
     'tommcdo/vim-exchange',
-    'yianwillis/vimcdoc',
     {
         'mattn/emmet-vim',
         submodules = false, -- 禁用子模块(可能导致Lazy安装失败)

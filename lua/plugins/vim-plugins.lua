@@ -26,6 +26,8 @@ return {
             vim.cmd [[
                 " 切换目录时自动切换vim根目录
                 let g:NERDTreeChDirMode = 2
+                " 取消顶部UI
+                let g:NERDTreeMinimalUI = 1
                 " 取消CD
                 let g:NERDTreeMapCWD = '<Nop>'
                 nnoremap <Leader>e <Esc>:<C-U>NERDTree

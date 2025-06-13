@@ -35,3 +35,4 @@ Plug 'skywind3000/asynctasks.vim'
     endif
     " 自动打开copen
     let g:asyncrun_open = 6
+    nnoremap <Leader>t :AsyncTask 

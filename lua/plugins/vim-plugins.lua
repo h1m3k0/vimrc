@@ -115,7 +115,15 @@ return {
             ]]
         end
     },
-    { 'skywind3000/asynctasks.vim',      dependencies = 'skywind3000/asyncrun.vim' },
+    {
+        'skywind3000/asynctasks.vim',
+        dependencies = 'skywind3000/asyncrun.vim',
+        init = function()
+            vim.cmd [[
+                nnoremap <Leader>t :AsyncTask 
+            ]]
+        end,
+    },
     {
         'haya14busa/vim-asterisk',
         init = function()

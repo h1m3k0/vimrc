@@ -21,7 +21,6 @@ let g:coc_global_extensions = [
             \ 'coc-yank',
             \ 'coc-git',
             \]
-autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Tab的实现
 inoremap <silent><expr> <Tab> 

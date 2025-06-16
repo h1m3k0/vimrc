@@ -1,4 +1,5 @@
 {
+  "color.enable": true,
   "editor.formatOnType": false,
   "editor.formatOnPaste": false,
   "typescript": {

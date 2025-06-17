@@ -26,31 +26,31 @@ function! Number(x)
             return
         elseif s:char ==# "\<Up>"
             if empty(s:chars) || s:chars[len(s:chars) - 1] ==# '-' || s:chars[len(s:chars) - 1] ==# '+'
-                let s:chars = s:chars . '1'
+                let s:chars = s:chars .. '1'
             endif
             if a:x == 'k'
-                let s:chars = s:chars . '+'
+                let s:chars = s:chars .. '+'
             else
-                let s:chars = s:chars . '-'
+                let s:chars = s:chars .. '-'
             endif
         elseif s:char ==# "\<Down>"
             if empty(s:chars) || s:chars[len(s:chars) - 1] ==# '-' || s:chars[len(s:chars) - 1] ==# '+'
-                let s:chars = s:chars . '1'
+                let s:chars = s:chars .. '1'
             endif
             if a:x == 'k'
-                let s:chars = s:chars . '-'
+                let s:chars = s:chars .. '-'
             else
-                let s:chars = s:chars . '+'
+                let s:chars = s:chars .. '+'
             endif
-        elseif s:char =~# '^[' . join(keys(g:numbers), '') . ']$'
-            let s:chars = s:chars . g:numbers[s:char]
+        elseif s:char =~# '^[' .. join(keys(g:numbers), '') .. ']$'
+            let s:chars = s:chars .. g:numbers[s:char]
         elseif s:char =~# '^[0123456789]'
-            let s:chars = s:chars . s:char
+            let s:chars = s:chars .. s:char
         elseif s:char ==# "\'" || s:char ==# '-'
             if s:chars[len(s:chars) - 1] ==# '-' || s:chars[len(s:chars) - 1] ==# '+'
-                let s:chars = s:chars . '1'
+                let s:chars = s:chars .. '1'
             endif
-            let s:chars = s:chars . '-'
+            let s:chars = s:chars .. '-'
         elseif s:char ==# "\"" || s:char ==# '+'
             if s:chars[len(s:chars) - 1] ==# '-' || s:chars[len(s:chars) - 1] ==# '+'
                 let s:chars = s:chars . '1'
@@ -58,19 +58,19 @@ function! Number(x)
             let s:chars = s:chars . '+'
         endif
     endwhile
-    call NumberColorHighlightPrint(a:x, s:chars)
     let s:result = CalculateNumber(s:chars)
-    execute 'normal! '. s:result . a:x
+    execute 'normal! ' .. s:result .. a:x
     call NumberColorClear()
+    echo ''
 endfunction
 function! CalculateNumber(chars)
     let s:result = 0
     if empty(a:chars)
         let s:result = 0
     elseif a:chars[len(a:chars) - 1] ==# '-'
-        let s:result = eval(a:chars . '1')
+        let s:result = eval(a:chars .. '1')
     elseif a:chars[len(a:chars) - 1] ==# '+'
-        let s:result = eval(a:chars . '1')
+        let s:result = eval(a:chars .. '1')
     else
         let s:result = eval(a:chars)
     endif
@@ -85,7 +85,7 @@ function! CalculateNumber(chars)
 endfunction
 function! NumberColorHighlightPrint(x, chars)
     let s:result = CalculateNumber(a:chars)
-    echo ' Number: ' . s:result . a:x . ' <-- ' . a:chars 
+    echo ' Number: ' .. s:result .. a:x .. ' <-- ' .. a:chars 
     call NumberColorClear()
     if a:x ==# 'j' 
         let s:result = line('.') + s:result

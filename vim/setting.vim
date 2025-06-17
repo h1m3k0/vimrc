@@ -16,6 +16,7 @@ autocmd VimEnter * set t_vb=
 set clipboard^=unnamed,unnamedplus
 " 鼠标 (不支持共享系统剪切板时不启用鼠标, 鼠标用于复制)
 if has('clipboard')
+    " :messages 选中后, 用<C-Y>复制
     set mouse+=a
 else
     set mouse-=a

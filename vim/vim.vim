@@ -49,7 +49,7 @@ if has('gui_running')
 endif
 
 " FastCmd {{{2
-function! FastCmd(line1, line2, cmd) range
+function! FastCmd(bang, line1, line2, cmd) range
     " 保存当前设置(如果有其他影响的配置项, 需要补充)
     let runtimepath = &runtimepath
     let eventignore = &eventignore
@@ -68,7 +68,8 @@ function! FastCmd(line1, line2, cmd) range
 
     try
         " 执行命令
-        execute 'noautocmd ' . a:line1 . ',' . a:line2 . 'normal! ' . a:cmd
+        execute 'noautocmd ' . a:line1 . ',' . a:line2 .
+                    \ 'normal' . (a:bang ? '! ' : ' ') . a:cmd
     finally
         " 恢复设置
         let &runtimepath = l:runtimepath
@@ -85,4 +86,4 @@ function! FastCmd(line1, line2, cmd) range
 endfunction
 
 " FastCmd 命令
-command! -range -nargs=* FastCmd call FastCmd(<line1>, <line2>, <q-args>)
+command! -bang -range -nargs=* FastCmd call FastCmd(<bang>0, <line1>, <line2>, <q-args>)

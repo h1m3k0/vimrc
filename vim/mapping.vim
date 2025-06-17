@@ -29,7 +29,6 @@ noremap  L  $
 noremap  M  %
 " 1.5 命令行模式 与Shell保持一致  {{{2
 cnoremap  <C-A>  <Home>
-cnoremap  <C-E>  <End>
 if has('terminal')
     tnoremap  <C-A>  <Home>
     tnoremap  <C-E>  <End>

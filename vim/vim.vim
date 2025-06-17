@@ -48,8 +48,10 @@ if has('gui_running')
     command! GuiFullScreen simalt ~x
 endif
 
+let g:fast_cmd = 0
 " FastCmd {{{2
 function! FastCmd(bang, line1, line2, cmd) range
+    let g:fast_cmd = 1
     " 保存当前设置(如果有其他影响的配置项, 需要补充)
     let runtimepath = &runtimepath
     let eventignore = &eventignore
@@ -57,6 +59,8 @@ function! FastCmd(bang, line1, line2, cmd) range
     let indentexpr = &indentexpr
     let foldmethod = &foldmethod
     let clipboard = &clipboard
+    " auto-pairs 
+    let autopairs_enabled = b:autopairs_enabled
 
     " 清空设置
     set runtimepath=
@@ -65,12 +69,14 @@ function! FastCmd(bang, line1, line2, cmd) range
     set indentexpr=
     set foldmethod=manual
     set clipboard=
+    let b:autopairs_enabled = v:false
 
     try
         " 执行命令
         execute 'noautocmd ' . a:line1 . ',' . a:line2 .
                     \ 'normal' . (a:bang ? '! ' : ' ') . a:cmd
     finally
+        let g:fast_cmd = 0
         " 恢复设置
         let &runtimepath = l:runtimepath
         let &eventignore = l:eventignore
@@ -78,6 +84,7 @@ function! FastCmd(bang, line1, line2, cmd) range
         let &indentexpr = l:indentexpr
         let &foldmethod = l:foldmethod
         let &clipboard = l:clipboard
+        let b:autopairs_enabled = autopairs_enabled
         " 强制重载文件类型
         if l:filetype != ''
             silent! doautocmd FileType

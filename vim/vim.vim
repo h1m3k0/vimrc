@@ -48,8 +48,8 @@ if has('gui_running')
     command! GuiFullScreen simalt ~x
 endif
 
-" FastCmd {{{2
-function! FastCmd(line1, line2, cmd) range
+" FastNormalCommand {{{2
+function! FastNormalCommand(line1, line2, cmd) range
     " 保存当前设置(如果有其他影响的配置项, 需要补充)
     let runtimepath = &runtimepath
     let eventignore = &eventignore
@@ -87,5 +87,6 @@ function! FastCmd(line1, line2, cmd) range
     endtry
 endfunction
 
-" FastCmd 命令
-command! -range -nargs=* FastCmd call FastCmd(<line1>, <line2>, <q-args>)
+" FastNormalCommand 命令
+command! -range -nargs=* NORMAL call FastNormalCommand(<line1>, <line2>, <q-args>)
+command! -range -nargs=* Normal call FastNormalCommand(<line1>, <line2>, <q-args>)

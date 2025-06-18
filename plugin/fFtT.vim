@@ -23,9 +23,6 @@ augroup END
 
 " Gather locations of characters to be dimmed.
 function! HighlightChars(s)
-    if g:fast_cmd == 1
-        return ''
-    endif
     let [_, lnum, col, _] = getpos('.')
     let line = getline('.')
     " Extended ASCII characters can pose a challenge if we simply iterate over

@@ -1,8 +1,4 @@
 " 色彩方案 {{{1
-if !exists('g:colorscheme')
-    let g:colorscheme = 'everforest'
-endif
-
 Plug 'sainnhe/everforest'
 Plug 'sainnhe/gruvbox-material'
 Plug 'joshdick/onedark.vim'

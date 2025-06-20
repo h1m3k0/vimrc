@@ -3,6 +3,7 @@
 sessions
 plugged
 nvim-data
-vim/configs/config.vim
+vim/configs/*
+!vim/configs/*_example.vim
 autoload/plug.vim.old
 

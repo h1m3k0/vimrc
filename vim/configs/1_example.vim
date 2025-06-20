@@ -1,4 +1,5 @@
-" 自定义参数
+" 优先加载
+
 " Leader键
 let g:mapleader = ' '
 let g:maplocalleader = ' '
@@ -16,10 +17,8 @@ let g:plug_url_format = 'git@github.com:%s.git'
 " fzf
 let g:fuzzy = 'default'
 
-let g:colorscheme = 'everforest'
-function! FinallySetting()
-  " " 服务器支持真色 但连接工具不支持真色
-  " if has('termguicolors')
-  "   set notermguicolors
-  " endif
-endfunction
+" 加载自定义配置
+let s:match = matchlist(resolve(expand('<sfile>:p')), '\(\d\)_example\.vim$')
+if !empty(s:match)
+  execute 'source <sfile>:h/' . s:match[1] . '.vim'
+endif

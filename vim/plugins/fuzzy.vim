@@ -10,27 +10,33 @@ if s:fuzzy == 'default'
         let s:fuzzy = 'fzf'
     endif
 endif
+
 if s:fuzzy == 'LeaderF'
+
     Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
     let g:Lf_CommandMap = {
                 \     '<C-J>': ['<Down>', '<C-J>'],
                 \     '<C-K>': ['<Up>', '<C-K>'],
                 \ }
-    let g:Lf_ShortcutF = '<Nop>'
+    let g:Lf_RgConfig = [
+                \ "--max-columns=300",
+                \ "--type-add web:*.{html,css,js}*",
+                \ "--glob=!git/*",
+                \ "--hidden"
+                \ ]
+    let g:Lf_ShortcutF = '<Nop>' " vim lazy"
     nnoremap <Leader>f <Esc>:<C-U>Leaderf
-    nnoremap <silent> <Leader>ff <Esc>:<C-U>Leaderf file<CR>
-    nnoremap <silent> <Leader>fF <Esc>:<C-U>Leaderf file <C-R>=GetGitRoot('')<CR><CR>
-    nnoremap <silent> <Leader>fg <Esc>:<C-U>Leaderf rg --max-columns=300 --live<CR>
-    nnoremap <silent> <Leader>fG <Esc>:<C-U>Leaderf rg --max-columns=300 --live "" <C-R>=GetGitRoot('')<CR><CR>
 
-    function! GetGitRoot(dir)
-      let dir = len(a:dir) ? a:dir : substitute(split(expand('%:p:h'), '[/\\]\.git\([/\\]\|$\)')[0], '^fugitive://', '', '')
-      let root = systemlist('git -C ' . shellescape(dir) . ' rev-parse --show-toplevel')[0]
-      return v:shell_error ? '' : (len(a:dir) ? fnamemodify(a:dir, ':p') : root)
-    endfunction
+    nnoremap <silent> <Leader>ff :<C-U><C-R>=printf('Leaderf file')<CR><CR>
+    xnoremap <silent> <Leader>ff :<C-U><C-R>=printf('Leaderf file --input %s', leaderf#Rg#visual())<CR><CR>
+
+    nnoremap <silent> <Leader>fg :<C-U><C-R>=printf('Leaderf rg')<CR><CR>
+    xnoremap <silent> <Leader>fg :<C-U><C-R>=printf('Leaderf rg %s', leaderf#Rg#visual())<CR><CR>
+
 endif
 
 if s:fuzzy == 'fzf'
+
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
 
@@ -48,20 +54,9 @@ if s:fuzzy == 'fzf'
                 \   <q-args>,
                 \   preview_obj,
                 \   <bang>0)
-    " GFiles 预览
-    command! -bang -nargs=? GFiles
-                \ call fzf#vim#gitfiles(
-                \   <q-args>,
-                \   fzf#vim#with_preview(extendnew(preview_obj, <q-args> == '?' ? { 'placeholder': '' } : {})),
-                \   <bang>0)
-    command! -bang -nargs=* GGrep
-                \ call fzf#vim#grep2(
-                \   'git grep --line-number -- ',
-                \   <q-args>,
-                \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
     nnoremap <Leader>ff <CMD>Files<CR>
-    nnoremap <Leader>fF <CMD>GFiles<CR>
+
     nnoremap <Leader>fg <CMD>RG<CR>
-    nnoremap <Leader>fG <CMD>GGrep<CR>
+
 endif
 

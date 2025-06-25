@@ -1,15 +1,3 @@
-" 设置字体 {{{2
-if has('gui_running')
-    try
-        set guifont=JetBrainsMonoNL_NFM:h12
-    catch
-        try
-            set guifont=Consolas:h12
-        catch
-        endtry
-    endtry
-endif
-
 " 上移下移 {{{2
 nnoremap <silent> <C-S-Up>   <Esc>:<C-U>m--<CR>
 nnoremap <silent> <C-S-Down> <Esc>:<C-U>m+<CR>

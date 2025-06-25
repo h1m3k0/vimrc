@@ -47,3 +47,11 @@ if has('gui_running')
     " 全屏
     command! GuiFullScreen simalt ~x
 endif
+
+" IME {{{2
+if has('multi_byte_ime')
+    augroup IME
+        autocmd!
+        autocmd VimEnter * set imdisable | set noimdisable
+    augroup END
+endif

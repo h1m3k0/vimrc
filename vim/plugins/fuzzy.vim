@@ -24,6 +24,9 @@ if s:fuzzy == 'LeaderF'
                 \ "--glob=!git/*",
                 \ "--hidden"
                 \ ]
+    let g:Lf_PreviewResult = {
+                \ "ColorScheme": 1,
+                \ }
     let g:Lf_ShortcutF = '<Nop>' " vim lazy"
     nnoremap <Leader>f <Esc>:<C-U>Leaderf
 

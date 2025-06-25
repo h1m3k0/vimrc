@@ -4,8 +4,8 @@ Plug 'preservim/nerdtree' " => 文件树 {{{2
     let g:NERDTreeChDirMode = 2
     " 取消顶部UI
     let g:NERDTreeMinimalUI = 1
-    " 取消CD
-    let g:NERDTreeMapCWD = '<Nop>'
+    " 将CD改为cD
+    let g:NERDTreeMapCWD = 'cD'
     nnoremap <Leader>e <Esc>:<C-U>NERDTree
     nnoremap <silent> <Leader>ef <Esc>:<C-U>NERDTreeFind<CR>
     nnoremap <silent> <Leader>eF <Esc>:<C-U>NERDTreeFind<CR>:NERDTreeVCS<CR>

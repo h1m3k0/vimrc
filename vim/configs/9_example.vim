@@ -23,6 +23,6 @@ endif
 
 " 加载自定义配置
 let s:match = matchlist(resolve(expand('<sfile>:p')), '\(\d\)_example\.vim$')
-if !empty(s:match)
+if !empty(s:match) && filereadable(expand('<sfile>:h') . '/' . s:match[1] . '.vim')
   execute 'source <sfile>:h/' . s:match[1] . '.vim'
 endif

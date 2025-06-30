@@ -179,5 +179,4 @@ return {
             ]]
         end
     },
-    { 'preservim/vim-markdown', dependencies = 'godlygeek/tabular', },
 }

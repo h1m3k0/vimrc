@@ -1,11 +1,13 @@
-if v:version < 900 || !executable('node')
-    Plug 'lifepillar/vim-mucomplete'
-    finish
+let s:cmp = g:config_cmp
+if s:cmp == 'default'
+    if v:version >= 900 && executable('node')
+        let s:cmp = 'coc'
+    else
+        let s:cmp = 'mu'
+    endif
 endif
 
-" coc.nvim
-
-
+if s:cmp == 'coc'
 " Use tab for trigger completion with characters ahead and navigate
 " NOTE: There's always complete item selected by default, you may want to enable
 " no select by `"suggest.noselect": true` in your configuration file
@@ -136,3 +138,8 @@ let g:airline#extensions#coc#enabled = 1
 " nnoremap <silent><nowait> <Leader>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 " nnoremap <silent><nowait> <Leader>p  :<C-u>CocListResume<CR>
+endif
+
+if s:cmp == 'mu'
+    Plug 'lifepillar/vim-mucomplete'
+endif

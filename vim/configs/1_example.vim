@@ -19,6 +19,10 @@ let g:plug_url_format = 'git@github.com:%s.git'
 " fuzzyy
 let g:config_fuzzy = 'default'
 
+" default
+" con
+" mu
+let g:config_cmp = 'default'
 " 1
 " 0
 let g:config_nerdfont = 1

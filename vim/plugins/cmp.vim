@@ -1,4 +1,5 @@
-if v:version < 900
+if v:version < 900 || !executable('node')
+    Plug 'lifepillar/vim-mucomplete'
     finish
 endif
 

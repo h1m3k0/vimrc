@@ -4,5 +4,5 @@ LoadVim vim/plugins/vim7.vim
 LoadVim vim/plugins/beauty.vim
 LoadVim vim/plugins/vim8.vim
 LoadVim vim/plugins/fuzzy.vim
-LoadVim vim/plugins/coc.vim
+LoadVim vim/plugins/cmp.vim
 call plug#end()

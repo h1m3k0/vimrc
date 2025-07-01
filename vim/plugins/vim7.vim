@@ -17,12 +17,12 @@ Plug 'preservim/nerdtree' " => 文件树 {{{2
 
     if v:version >= 800 " => NERDTree+Git {{{2
         Plug 'Xuyuanp/nerdtree-git-plugin'
-        if g:nerdfont
+        if g:config_nerdfont
             let g:NERDTreeGitStatusUseNerdFonts = 1
         endif
         let g:NERDTreeGitStatusShowIgnored = 1
     endif
-    if g:nerdfont
+    if g:config_nerdfont
         Plug 'ryanoasis/vim-devicons'  " => 图标     {{{2
     endif
 

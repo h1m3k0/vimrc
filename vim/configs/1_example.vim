@@ -15,11 +15,12 @@ let g:plug_url_format = 'git@github.com:%s.git'
 " default
 " LeaderF 
 " fzf
-let g:fuzzy = 'default'
+" ctrlp || grepper
+let g:config_fuzzy = 'default'
 
 " 1
 " 0
-let g:nerdfont = 1
+let g:config_nerdfont = 1
 
 " 加载自定义配置
 let s:match = matchlist(resolve(expand('<sfile>:p')), '\(\d\)_example\.vim$')

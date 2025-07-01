@@ -1,13 +1,13 @@
-let s:fuzzy = g:fuzzy
+let s:fuzzy = g:config_fuzzy
 if s:fuzzy == 'default'
     if has('win32')
         let s:fuzzy = 'LeaderF'
     elseif (has('python') || has('python2') || has('python3')) && executable('python')
         let s:fuzzy = 'LeaderF'
-    elseif v:version < 800
-        let s:fuzzy = 'LeaderF'
-    else
+    elseif v:version >= 800
         let s:fuzzy = 'fzf'
+    else
+        let s:fuzzy = 'ctrlp'
     endif
 endif
 
@@ -54,9 +54,21 @@ if s:fuzzy == 'fzf'
                 \   <q-args>,
                 \   preview_obj,
                 \   <bang>0)
-    nnoremap <Leader>ff <CMD>Files<CR>
+    nnoremap <silent> <Leader>ff <CMD>Files<CR>
 
-    nnoremap <Leader>fg <CMD>RG<CR>
+    nnoremap <silent> <Leader>fg <CMD>RG<CR>
 
 endif
 
+if s:fuzzy == 'ctrlp' || s:fuzzy == 'grepper'
+
+    Plug 'ctrlpvim/ctrlp.vim'
+    let g:ctrlp_map = '<Nop>'
+    nnoremap <silent> <Leader>ff :<C-U><C-R>=printf('CtrlP %s', getcwd())<CR><CR>
+
+    Plug 'mhinz/vim-grepper'
+    let g:grepper = {}
+    let g:grepper.highlight = 1
+    nnoremap <silent> <Leader>fg :<C-U>Grepper<CR>
+
+endif

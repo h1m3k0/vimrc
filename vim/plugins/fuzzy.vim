@@ -1,11 +1,11 @@
 let s:fuzzy = g:config_fuzzy
 if s:fuzzy == 'default'
-    if has('win32')
+    if (has('python') || has('python2') || has('python3')) && executable('python')
         let s:fuzzy = 'LeaderF'
-    elseif (has('python') || has('python2') || has('python3')) && executable('python')
-        let s:fuzzy = 'LeaderF'
-    elseif v:version >= 800
+    elseif !has('win32') && v:version >= 800
         let s:fuzzy = 'fzf'
+    elseif v:version >= 900
+        let s:fuzzy = 'fuzzyy'
     else
         let s:fuzzy = 'ctrlp'
     endif
@@ -14,6 +14,7 @@ endif
 if s:fuzzy == 'LeaderF'
 
     Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+
     let g:Lf_CommandMap = {
                 \     '<C-J>': ['<Down>', '<C-J>'],
                 \     '<C-K>': ['<Up>', '<C-K>'],
@@ -24,7 +25,8 @@ if s:fuzzy == 'LeaderF'
                 \ "--glob=!git/*",
                 \ "--hidden"
                 \ ]
-    let g:Lf_ShortcutF = '<Nop>' " vim lazy"
+    let g:Lf_ShortcutF = '<Nop>'
+
     nnoremap <Leader>f <Esc>:<C-U>Leaderf
 
     nnoremap <silent> <Leader>ff :<C-U><C-R>=printf('Leaderf file')<CR><CR>
@@ -70,5 +72,14 @@ if s:fuzzy == 'ctrlp' || s:fuzzy == 'grepper'
     let g:grepper = {}
     let g:grepper.highlight = 1
     nnoremap <silent> <Leader>fg :<C-U>Grepper<CR>
+
+endif
+
+if s:fuzzy == 'fuzzyy'
+
+    Plug 'Donaldttt/fuzzyy'
+    let g:fuzzyy_enable_mappings = 0
+    nnoremap <silent> <Leader>ff <CMD>FuzzyFiles<CR>
+    nnoremap <silent> <Leader>fg <CMD>FuzzyGrep<CR>
 
 endif

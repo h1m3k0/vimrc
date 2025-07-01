@@ -16,6 +16,7 @@ let g:plug_url_format = 'git@github.com:%s.git'
 " LeaderF 
 " fzf
 " ctrlp || grepper
+" fuzzyy
 let g:config_fuzzy = 'default'
 
 " 1

@@ -26,6 +26,8 @@ if s:fuzzy == 'LeaderF'
                 \ "--hidden"
                 \ ]
     let g:Lf_ShortcutF = '<Nop>'
+    let g:Lf_UseCache = 0
+    let g:UseVersionControlTool = 0
 
     nnoremap <Leader>f <Esc>:<C-U>Leaderf
 

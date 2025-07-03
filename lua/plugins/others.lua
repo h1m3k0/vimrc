@@ -57,11 +57,6 @@ return {
             bufdelete = {},
             input = {},
             picker = {},
-            dashboard = {
-                preset = {
-                    header = [[]],
-                },
-            },
         },
     },
 }

@@ -2,7 +2,7 @@
 *.iml
 sessions
 plugged
-nvim-data
+lazy
 vim/configs/*
 !vim/configs/*_example.vim
 autoload/plug.vim.old

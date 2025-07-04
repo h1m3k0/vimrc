@@ -1,4 +1,4 @@
-let s:fuzzy = g:config_fuzzy
+let s:fuzzy = g:config_plugins.fuzzy
 if s:fuzzy == 'default'
     if (has('python') || has('python2') || has('python3')) && executable('python')
         let s:fuzzy = 'LeaderF'

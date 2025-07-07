@@ -22,7 +22,7 @@ let g:config_plugins.fuzzy = 'default'
 let g:config_plugins.coc = 1
 
 " 加载自定义配置
-let s:match = matchlist(resolve(expand('<sfile>:p')), '\(\d\)_example\.vim$')
-if !empty(s:match) && filereadable(expand('<sfile>:h') . '/' . s:match[1] . '.vim')
-  execute 'source <sfile>:h/' . s:match[1] . '.vim'
+if !empty(matchlist(resolve(expand('<sfile>:p')), 'gg_example\.vim$'))
+    \  && filereadable(expand('<sfile>:h') . '/gg.vim')
+  source <sfile>:h/gg.vim
 endif

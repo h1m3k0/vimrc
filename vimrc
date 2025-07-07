@@ -10,7 +10,7 @@ execute 'set runtimepath+=' . g:vimdir
 let &packpath = &runtimepath
 
 " 优先加载
-LoadVim vim/configs/1_example.vim
+LoadVim vim/configs/gg_example.vim
 
 " 加载基础配置(set)
 LoadVim vim/setting.vim
@@ -18,10 +18,6 @@ LoadVim vim/setting.vim
 LoadVim vim/mapping.vim
 " 加载vim的配置
 LoadVim vim/vim.vim
-if !has('nvim')
-    " 加载vim插件(vim-plug)
-    LoadVim vim/plugin.vim
-endif
 if has('nvim')
     " 加载neovim的配置
     LoadLua lua/neovim.lua
@@ -29,9 +25,13 @@ if has('nvim')
         " 加载neovide的配置
         LoadLua lua/neovide.lua
     endif
+endif
+" 加载vim插件(vim-plug)
+LoadVim vim/plugin.vim
+if has('nvim')
     " 加载neovim插件(lazy.nvim)
     LoadLua lua/lazy.nvim.lua
 endif
 
 " 最后加载
-LoadVim vim/configs/9_example.vim
+LoadVim vim/configs/G_example.vim

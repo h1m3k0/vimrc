@@ -22,7 +22,7 @@ if has('gui_running')
 endif
 
 " 加载自定义配置
-let s:match = matchlist(resolve(expand('<sfile>:p')), '\(\d\)_example\.vim$')
-if !empty(s:match) && filereadable(expand('<sfile>:h') . '/' . s:match[1] . '.vim')
-  execute 'source <sfile>:h/' . s:match[1] . '.vim'
+if !empty(matchlist(resolve(expand('<sfile>:p')), 'G_example\.vim$'))
+    \  && filereadable(expand('<sfile>:h') . '/G.vim')
+  source <sfile>:h/G.vim
 endif

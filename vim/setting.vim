@@ -114,8 +114,9 @@ set fileformats=unix,dos,mac
 
 " 7. 样式  {{{2
 " 高亮
-syntax enable
-syntax on
+if !exists('g:syntax_on')
+    syntax enable
+endif
 " 折叠
 set foldenable
 set foldmethod=marker

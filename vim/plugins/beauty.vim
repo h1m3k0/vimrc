@@ -1,11 +1,18 @@
 " 色彩方案 {{{1
 Plug 'sainnhe/everforest'
 Plug 'morhetz/gruvbox'
+Plug 'lifepillar/vim-gruvbox8'
+Plug 'sainnhe/gruvbox-material'
 Plug 'joshdick/onedark.vim'
 Plug 'altercation/vim-colors-solarized'
+Plug 'lifepillar/vim-solarized8'
 Plug 'nordtheme/vim', { 'as': 'nord' }
 Plug 'cocopon/iceberg.vim'
+Plug 'junegunn/seoul256.vim'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+Plug 'ku1ik/vim-monokai'
+Plug 'tomasr/molokai'
+Plug 'nanotech/jellybeans.vim'
 
 Plug 'vim-airline/vim-airline'   " => 状态栏   {{{2
     Plug 'vim-airline/vim-airline-themes'

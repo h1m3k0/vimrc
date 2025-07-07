@@ -7,7 +7,7 @@ if v:version < 800
   finish
 endif
 let g:numbers = {';': 0, 'a': 1, 's': 2, 'd': 3, 'f': 4, 'g': 5, 'h': 6, 'j': 7, 'k': 8, 'l': 9}
-function! Number(x) 
+function! NumberLine(x)
     let s:chars = ''
     while v:true
         call NumberColorHighlightPrint(a:x, s:chars)
@@ -94,14 +94,14 @@ function! NumberColorHighlightPrint(x, chars)
     endif
     call NumberColorHighlight(s:result)
 endfunction
-nnoremap <silent> <Leader>j <CMD>call Number('j')<CR>
-nnoremap <silent> <Leader>k <CMD>call Number('k')<CR>
-nnoremap <silent> <Leader>gg <CMD>call Number('gg')<CR>
-nnoremap <silent> <Leader>G <CMD>call Number('G')<CR>
-onoremap <silent> <Leader>j V<CMD>call Number('j')<CR>
-onoremap <silent> <Leader>k V<CMD>call Number('k')<CR>
-onoremap <silent> <Leader>gg V<CMD>call Number('gg')<CR>
-onoremap <silent> <Leader>G V<CMD>call Number('G')<CR>
+nnoremap <silent> <Leader>j <CMD>call NumberLine('j')<CR>
+nnoremap <silent> <Leader>k <CMD>call NumberLine('k')<CR>
+nnoremap <silent> <Leader>gg <CMD>call NumberLine('gg')<CR>
+nnoremap <silent> <Leader>G <CMD>call NumberLine('G')<CR>
+onoremap <silent> <Leader>j V<CMD>call NumberLine('j')<CR>
+onoremap <silent> <Leader>k V<CMD>call NumberLine('k')<CR>
+onoremap <silent> <Leader>gg V<CMD>call NumberLine('gg')<CR>
+onoremap <silent> <Leader>G V<CMD>call NumberLine('G')<CR>
 
 
 function! NumberColor()

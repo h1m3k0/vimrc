@@ -1,9 +1,9 @@
-.idea
-*.iml
-sessions
-plugged
-lazy
-vim/configs/*
-!vim/configs/*_example.vim
-autoload/plug.vim.old
+/.idea
+/*.iml
+/sessions
+/plugged
+/lazy
+/vim/configs/*
+!/vim/configs/*_example.vim
+/autoload/plug.vim.old
 

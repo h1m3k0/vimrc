@@ -13,7 +13,6 @@ Plug 'kana/vim-textobj-user' " => 自定义文本对象
 Plug 'kana/vim-textobj-entire' " => 全文文本对象
 Plug 'michaeljsmith/vim-indent-object' " => 缩进文本对象
 " Plug 'vim-scripts/argtextobj.vim' " => 参数文本对象
-Plug 'wellle/targets.vim' " => 增强文本对象
 Plug 'easymotion/vim-easymotion' "
 Plug 'ZSaberLv0/vim-easymotion-chs'
 " 智能大小写

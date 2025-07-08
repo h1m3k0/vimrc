@@ -11,6 +11,10 @@ let g:user_emmet_expandabbr_key = '<Tab>'
 let g:user_emmet_install_global = 0
 autocmd FileType xml,html,javascriptreact,typescriptreact,css,sass,less EmmetInstall
 
+if has('nvim')
+    finish
+endif
+
 Plug 'godlygeek/tabular' " => Markdown
 Plug 'preservim/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}

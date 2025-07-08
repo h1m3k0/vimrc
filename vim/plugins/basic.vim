@@ -59,13 +59,15 @@ if v:version < 800
     finish
 endif
 
-Plug 'LunarWatcher/auto-pairs' " 自动括号
-" 右边为非空字符时不自动添加括号
-let g:AutoPairsCompleteOnlyOnSpace = 1
-Plug 'chrisbra/matchit' " => 匹配
-nmap M %
-xmap M %
-omap M %
+if !has('nvim')
+    Plug 'LunarWatcher/auto-pairs' " 自动括号
+    " 右边为非空字符时不自动添加括号
+    let g:AutoPairsCompleteOnlyOnSpace = 1
+    Plug 'chrisbra/matchit' " => 匹配
+    nmap M %
+    xmap M %
+    omap M %
+endif
 Plug 'mg979/vim-visual-multi' " 多光标
 let g:VM_maps                    = {}
 let g:VM_maps['Undo']            = 'u'

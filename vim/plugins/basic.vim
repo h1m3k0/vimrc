@@ -2,7 +2,7 @@
 Plug 'tpope/vim-repeat' " => 重复 .
 Plug 'tpope/vim-surround' " => 环绕 y/c/d+s
 Plug 'tpope/vim-commentary' " => 注释 gc
-Plug 'vim-scripts/ReplaceWithRegister' " => 替换 gr
+Plug 'inkarkat/vim-ReplaceWithRegister' " => 替换 gr
 Plug 'junegunn/vim-easy-align' " => 对齐 ga
 nmap  ga  <Plug>(EasyAlign)
 xmap  ga  <Plug>(EasyAlign)

@@ -12,6 +12,7 @@ if s:fuzzy == 'default'
 endif
 
 if s:fuzzy == 'LeaderF'
+    " 快; 需要python
 
     Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
@@ -40,6 +41,7 @@ if s:fuzzy == 'LeaderF'
 endif
 
 if s:fuzzy == 'fzf'
+    " 快; 对windows支持不好
 
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
@@ -65,6 +67,7 @@ if s:fuzzy == 'fzf'
 endif
 
 if s:fuzzy == 'ctrlp' || s:fuzzy == 'grepper'
+    " 慢; grepper仅依赖git(findstr有bug)
 
     Plug 'ctrlpvim/ctrlp.vim'
     let g:ctrlp_map = '<Nop>'
@@ -78,6 +81,7 @@ if s:fuzzy == 'ctrlp' || s:fuzzy == 'grepper'
 endif
 
 if s:fuzzy == 'fuzzyy'
+    " 慢; 需要vim9, 无依赖
 
     Plug 'Donaldttt/fuzzyy'
     let g:fuzzyy_enable_mappings = 0

@@ -3,6 +3,15 @@ return {
     {
         'ibhagwan/fzf-lua',
         dependencies = { 'ryanoasis/vim-devicons' },
+        opts = {
+            winopts = {
+                fullscreen = true,
+                preview = {
+                    layout = 'vertical',
+                    vertical = 'up'
+                },
+            },
+        },
         config = function(_, opts)
             require('fzf-lua').setup(opts)
             local fzf = require('fzf-lua')
@@ -11,8 +20,9 @@ return {
             vim.keymap.set('n', 'gy', fzf.lsp_typedefs)
             vim.keymap.set('n', 'gD', fzf.lsp_declarations)
             vim.keymap.set('n', 'gI', fzf.lsp_implementations)
+            fzf.register_ui_select()
             vim.keymap.set('n', '<Leader>i', fzf.lsp_code_actions)
-            vim.keymap.set('n', '<Leader>ff', fzf.files)
+            vim.keymap.set({'n', 'v'}, '<Leader>ff', fzf.files)
             vim.keymap.set('n', '<Leader>fF', fzf.git_files)
             vim.keymap.set('n', '<Leader>fg', fzf.live_grep)
             vim.keymap.set('n', '<Leader>fG', function()

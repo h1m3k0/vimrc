@@ -17,6 +17,7 @@ function! fastcmd#clean()
     let g:fastcmd.normal.config.indentexpr  = &indentexpr
     let g:fastcmd.normal.config.foldmethod  = &foldmethod
     let g:fastcmd.normal.config.clipboard   = &clipboard
+    let g:fastcmd.normal.config.lazyredraw  = &lazyredraw
     " 清空设置
     set runtimepath=
     set eventignore=all
@@ -24,6 +25,7 @@ function! fastcmd#clean()
     set indentexpr=
     set foldmethod=manual
     set clipboard=
+    set lazyredraw
     " number
     let g:fastcmd.number.batch = v:true
     let g:fastcmd.number.count = 0
@@ -38,6 +40,7 @@ function! fastcmd#load()
     let &indentexpr  = g:fastcmd.normal.config.indentexpr
     let &foldmethod  = g:fastcmd.normal.config.foldmethod
     let &clipboard   = g:fastcmd.normal.config.clipboard
+    let &lazyredraw  = g:fastcmd.normal.config.lazyredraw
     " 强制重载文件类型
     if g:fastcmd.normal.config.filetype != ''
         silent! doautocmd FileType
@@ -48,6 +51,7 @@ function! fastcmd#load()
 endfunction
 
 function! g:fastcmd#normal(line1, line2, command) range
+    Timer
     if !g:fastcmd.normal.batch
         " 清空环境
         call fastcmd#clean()
@@ -63,6 +67,7 @@ function! g:fastcmd#normal(line1, line2, command) range
         " 恢复环境
         call fastcmd#load()
     endif
+    Timer
 endfunction
 
 " 查找字符串中第一个非转义的斜杠位置

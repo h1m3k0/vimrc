@@ -51,7 +51,6 @@ function! fastcmd#load()
 endfunction
 
 function! g:fastcmd#normal(line1, line2, command) range
-    Timer
     if !g:fastcmd.normal.batch
         " 清空环境
         call fastcmd#clean()
@@ -67,7 +66,6 @@ function! g:fastcmd#normal(line1, line2, command) range
         " 恢复环境
         call fastcmd#load()
     endif
-    Timer
 endfunction
 
 " 查找字符串中第一个非转义的斜杠位置

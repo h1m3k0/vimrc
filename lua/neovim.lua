@@ -6,6 +6,9 @@ vim.keymap.set('v', '<C-Insert>', '"+y', { noremap = true })
 vim.keymap.set({'i','c'}, '<S-Insert>', '<C-R>+', { noremap = true })
 -- 重绘
 vim.opt.lazyredraw = false
+-- ReplaceWithRegister
+vim.keymap.del('n', 'gri')
+vim.keymap.del({ 'n', 'x' }, 'gra')
 -- 终端
 vim.keymap.set('n', '<Leader>t', '<CMD>botright terminal<CR>', { noremap = true })
 -- 终端 打开时 自动切换为startinsert

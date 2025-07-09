@@ -30,7 +30,7 @@ if s:fuzzy == 'LeaderF'
     let g:Lf_UseCache = 0
     let g:UseVersionControlTool = 0
 
-    nnoremap <Leader>f <Esc>:<C-U>Leaderf
+    nnoremap <Leader>f<Space> <Esc>:<C-U>Leaderf<Space>
 
     nnoremap <silent> <Leader>ff :<C-U><C-R>=printf('Leaderf file')<CR><CR>
     xnoremap <silent> <Leader>ff :<C-U><C-R>=printf('Leaderf file --input %s', leaderf#Rg#visual())<CR><CR>

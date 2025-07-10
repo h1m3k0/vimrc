@@ -1,3 +1,5 @@
+Plug 'tpope/vim-sensible'   " => 默认配置
+Plug 'tpope/vim-unimpaired' " => []相关的映射
 " operator
 Plug 'tpope/vim-repeat' " => 重复 .
 Plug 'tpope/vim-surround' " => 环绕 y/c/d+s

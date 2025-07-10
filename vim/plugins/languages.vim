@@ -11,6 +11,8 @@ let g:user_emmet_expandabbr_key = '<Tab>'
 let g:user_emmet_install_global = 0
 autocmd FileType xml,html,javascriptreact,typescriptreact,css,sass,less EmmetInstall
 
+Plug 'tpope/vim-scriptease' " 调试VimScript
+
 if has('nvim')
     finish
 endif

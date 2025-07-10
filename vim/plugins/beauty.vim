@@ -1,4 +1,4 @@
-" 色彩方案 {{{1
+" 主题
 Plug 'sainnhe/everforest'
 Plug 'morhetz/gruvbox'
 Plug 'lifepillar/vim-gruvbox8'
@@ -15,7 +15,7 @@ Plug 'tomasr/molokai'
 Plug 'nanotech/jellybeans.vim'
 
 if !has('nvim')
-  Plug 'vim-airline/vim-airline'   " => 状态栏   {{{2
+  Plug 'vim-airline/vim-airline' " 状态栏
   Plug 'vim-airline/vim-airline-themes'
   " 只有一个tab时 显示buffers
   let g:airline#extensions#tabline#enabled = 1
@@ -23,7 +23,7 @@ if !has('nvim')
   let g:airline#extensions#tabline#formatter = 'unique_tail'
 endif
 
-Plug 'mhinz/vim-startify'      " => 启动页面 {{{2
+Plug 'mhinz/vim-startify' " 启动页面
   let g:startify_custom_header = ['']
   let g:startify_lists = [
               \   {'type': 'commands' }, 

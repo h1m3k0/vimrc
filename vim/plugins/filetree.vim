@@ -1,4 +1,4 @@
-Plug 'preservim/nerdtree' " => 文件树
+Plug 'preservim/nerdtree' " 文件树
 " 切换目录时自动切换vim根目录
 let g:NERDTreeChDirMode = 2
 " 取消顶部UI
@@ -14,7 +14,7 @@ nnoremap <silent> <Leader>ev <Esc>:<C-U>NERDTree <C-R>=g:vimdir<CR><CR>
 nnoremap <silent> <Leader>eh <Esc>:<C-U>NERDTree $HOME<CR>
 nnoremap <silent> <Leader>ep <Esc>:<C-U>NERDTree <C-R>=g:vimdir<CR>/plugged<CR>
 
-if v:version >= 800 && executable('git') " => NERDTree+Git
+if v:version >= 800 && executable('git') " NERDTree+Git
     Plug 'Xuyuanp/nerdtree-git-plugin'
     if g:config_nerdfont
         let g:NERDTreeGitStatusUseNerdFonts = 1
@@ -22,5 +22,5 @@ if v:version >= 800 && executable('git') " => NERDTree+Git
     let g:NERDTreeGitStatusShowIgnored = 1
 endif
 if g:config_nerdfont
-    Plug 'ryanoasis/vim-devicons'  " => 图标
+    Plug 'ryanoasis/vim-devicons'  " 图标
 endif

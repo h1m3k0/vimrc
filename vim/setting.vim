@@ -1,4 +1,4 @@
-" 1. 通用 {{{2
+" 1. 通用
 " 取消兼容模式
 set nocompatible
 " 历史命令数量
@@ -11,7 +11,7 @@ set visualbell
 set t_vb=
 autocmd VimEnter * set t_vb=
 
-" 2. 键入 {{{2
+" 2. 键入
 " 共享系统剪切板
 set clipboard^=unnamed,unnamedplus
 " 鼠标 (不支持共享系统剪切板时不启用鼠标, 鼠标用于复制)
@@ -30,7 +30,7 @@ set backspace=eol,start,indent
 " Windows禁用Alt菜单
 set winaltkeys=no
 
-" 3. 界面 {{{2
+" 3. 界面
 " 不自动换行
 set nowrap
 " 光标上下两侧最少保留的屏幕行数
@@ -57,7 +57,7 @@ if has('signs') && v:version >= 800
     set signcolumn=yes
 endif
 
-" 4. 编辑 {{{2
+" 4. 编辑
 " 命令行补全
 set wildmenu
 if v:version >= 900 || has('nvim')
@@ -85,7 +85,7 @@ if v:version >= 800
     set nrformats=hex,bin,unsigned
 endif
 
-" 5. 文件 {{{2
+" 5. 文件
 " 根据文件类型自动设置缩进
 filetype plugin indent on
 " 文件被外部修改后自动读入
@@ -98,7 +98,7 @@ set nobackup
 set nowritebackup 
 set noswapfile
 
-" 6. 编码 {{{2
+" 6. 编码
 " 内部工作编码
 set encoding=utf-8
 " 文件默认编码
@@ -112,21 +112,17 @@ set formatoptions+=B
 " 文件换行符，默认使用 unix 换行符
 set fileformats=unix,dos,mac
 
-" 7. 样式  {{{2
+" 7. 样式
 " 高亮
 if !exists('g:syntax_on')
     syntax enable
 endif
-" 折叠
-set foldenable
-set foldmethod=marker
-set foldlevel=1
 " 真色彩
 if has('termguicolors')
   set termguicolors
 endif
 set t_Co=256
-" 8. GUI {{{2
+" 8. GUI
 if has('gui_running')
     set guioptions-=T " 取消工具栏
     set guioptions-=e " 取消标签
@@ -136,7 +132,7 @@ if has('gui_running')
     set lines=30 " 高
     set guicursor+=a:blinkon0 " 取消光标闪烁
 endif
-" 扩展名 {{{2
+" 扩展名
 set suffixes=.bak,~,.o,.h,.info,.swp,.obj,.pyc,.pyo,.egg-info,.class
 set wildignore=*.o,*.obj,*~,*.exe,*.a,*.pdb,*.lib "stuff to ignore when tab completing
 set wildignore+=*.so,*.dll,*.swp,*.egg,*.jar,*.class,*.pyc,*.pyo,*.bin,*.dex

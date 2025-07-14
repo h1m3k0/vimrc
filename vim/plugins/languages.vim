@@ -1,8 +1,5 @@
 Plug 'editorconfig/editorconfig-vim' " editorconfig
 
-Plug 'sheerun/vim-polyglot'          " 语言包
-let g:polyglot_disabled = ['sensible']
-
 Plug 'tpope/vim-endwise'             " 轻量结尾补全
 Plug 'mattn/emmet-vim'               " html/css
 " 使用<Tab>键
@@ -17,6 +14,8 @@ if has('nvim')
     finish
 endif
 
+Plug 'sheerun/vim-polyglot'          " 语言包
+let g:polyglot_disabled = ['sensible']
 Plug 'godlygeek/tabular' " Markdown
 Plug 'preservim/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}

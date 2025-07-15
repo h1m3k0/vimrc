@@ -222,7 +222,7 @@ function! VisualRegister() " {{{3
   let @* = l:tmp
 endfunction
 " 取消搜索高亮 {{{2
-nnoremap  <silent> <Leader>/  <Esc>:<C-U>noh<CR>
+nnoremap  <silent> <C-L>  <Esc>:<C-U>noh<CR><C-L>
 " }}}
 
 " IdeaVim Action

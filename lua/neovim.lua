@@ -35,6 +35,8 @@ vim.keymap.del('n', '[<Space>')
 vim.keymap.del('n', ']<Space>')
 -- ReplaceWithRegister
 vim.keymap.del('n', 'gri')
+vim.keymap.del('n', 'grt')
+vim.keymap.del('n', 'grn')
 vim.keymap.del({ 'n', 'x' }, 'gra')
 -- 终端
 vim.keymap.set('n', '<Leader>t', '<CMD>botright terminal<CR>', { noremap = true })

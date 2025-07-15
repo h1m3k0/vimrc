@@ -2,124 +2,73 @@
 let g:mapleader=' '
 noremap  <Leader>  <Nop>
 " Setting
-" List of Supported Options {{{1
-" clipboard => (共享系统剪切板) {{{2
-set clipboard=unnamed,unnamedplus
-" digraph => (禁用) 禁用插入模式{c1}<BS>{c2}输入二合字母的功能 {{{2
-set nodigraph " 没什么用, 反而会影响输入
-" gedefault => (启用) 替换时默认为全局(g) {{{2
-set gdefault " :s/pattern-a/pattern-b 本身要选范围, 是范围内的全局
-" guicursor => (建议默认) 光标样式设置 {{{2
-" set guicursorٍٍ+=a:blinkoff0 " vim可以这样添加光标禁止闪烁, 但ideavim没有实现
-" history => (默认) 记录:命令的历史数量 {{{2
-" set history=50
-" hlsearch => (启用) 高亮搜索 {{{2
-set hlsearch
-" ignorecase => (启用) 无视大小写搜索 {{{2
-set ignorecase
-" incsearch => (启用) 实时显示搜索高亮 {{{2
-set incsearch
-" iskeyword => (TODO) {{{2
-
-" keymodel => (TODO) {{{2
-
-" matchpairs =>((){}[]) 设置%匹配的内容 {{{2
-set matchpairs=(:),{:},[:] " 后面有%增强的插件
-" maxmapdepth => (建议默认) 映射的递归深度 {{{2
-" set maxmapdepth=20 " 20够用了, 可能是考虑到死循环时的性能, ideavim这个值默认比vim少很多
-" more => (TODO) {{{2
-
-" nrformats => (hex) <C-A>和<C-X>递增递减时会考虑到16进制数 {{{2
+" List of Supported Options
+set clipboard=unnamed,unnamedplus " 共享系统剪切板
+set nodigraph " 禁用插入模式{c1}<BS>{c2}输入二合字母的功能
+set gdefault " 替换时默认为全局(g)
+" set guicursor+=a:blinkoff0 " (默认) vim可以这样添加光标禁止闪烁, 但ideavim没有实现
+" set history=50 " (默认) 记录:命令的历史数量
+set hlsearch " 高亮搜索
+set ignorecase " 无视大小写搜索
+set incsearch " 实时显示搜索高亮
+" iskeyword => (TODO)
+" keymodel => (TODO)
+set matchpairs=(:),{:},[:] " 设置%匹配的内容
+" set maxmapdepth=20 " (默认) 映射的递归深度
+" more => (TODO)
 set nrformats=hex " 还有bin(二进制), unsigned(非负数), 但这两个ideavim都没有实现
-" operatorfunc => (TODO) {{{2
+" operatorfunc => (TODO)
+" set scroll=10 " (默认) 使用<C-U>和<C-D>向上向下滚动的行数
+" selection => (TODO)
+set selectmode= " 都是默认进入可视模式, 而不是选择模式
+" shell,shellcmdflag,shellxescape,shellxquote => (默认) 执行shell命令(:!)相关配置
+" showcmd => (TODO)
+set showmode " 显示当前的模式
+set smartcase " 智能大小写搜索(全小写时为忽略大小写搜索, 有大写时为精确搜索)
+" startofline => (TODO)
+set timeout " 组合键等待超时时间后会执行原始按键功能
+set timeoutlen=1500 " 组合键等待1.5秒
+" viminfo => (TODO)
+" virtualedit => (TODO)
+set visualbell " 启用了就没有警告铃
+set whichwrap=b,s " 允许跨行的键(<BS>,<Space>)
+set wrapscan " 搜索能从结尾回绕到开头
 
-" scroll => (默认) 使用<C-U>和<C-D>向上向下滚动的行数 {{{2
-" set scroll=10
-" selection => (TODO) {{{2
+" IdeaVim options mapped to IntelliJ-based IDE settings
+set scrolljump=1 " 上下滚动的最小行数
+set scrolloff=5 " 上下保留的最小行数
+set sidescroll=1 " 左右滚动的最小列数
+set sidescrolloff=20 " 左右保留的最小列数
 
-" selectmode => () 都是默认进入可视模式, 而不是选择模式 {{{2
-set selectmode=
-" shell,shellcmdflag,shellxescape,shellxquote => (建议默认) 执行shell命令(:!)相关配置 {{{2
-
-" showcmd => (TODO) {{{2
-
-" showmode => (启用) 显示当前的模式 {{{2
-set showmode
-" smartcase => (启用) 智能大小写搜索(全小写时为忽略大小写搜索, 有大写时为精确搜索) {{{2
-set smartcase
-" startofline => (TODO) {{{2
-
-" timeout => (启用) 组合键等待超时时间后会执行原始按键功能 {{{2
-set timeout
-" timeoutlen => (1500) 组合键等待1.5秒 {{{2
-set timeoutlen=1500
-" viminfo => (TODO) {{{2
-
-" virtualedit => (TODO) {{{2
-
-" visualbell => (启用) 启用了就没有警告铃 {{{2
-set visualbell
-" whichwrap => (<BS>,<Space>) 允许跨行的键 {{{2
-set whichwrap=b,s
-" wrapscan => (开启) 搜索能从结尾回绕到开头 {{{2
-set wrapscan
-" IdeaVim options mapped to IntelliJ-based IDE settings {{{1
-" scrolljump => (1) 上下滚动的最小行数 {{{2
-set scrolljump=1 " 设小点平滑, 否则突然蹦好几行
-" scrolloff => (5) 上下保留的最小行数 {{{2
-set scrolloff=5 " 适当保留几行
-" sidescroll => (1) 左右滚动的最小列数 {{{2
-set sidescroll=1 " 设小点平滑, 否则会蹦好几列
-" sidescrolloff => (20) 左右保留的最小列数 {{{2
-set sidescrolloff=20 " 值太大, 没怎么动就滚一下; 值太小, (因为虚拟文本提示的bug)右边会显示不全
-" IdeaVim options for IntelliJ-based IDE features {{{1
-" bomb => (TODO) {{{2
-
-" breakindent => (TODO) {{{2
-
-" colorcolumn => (TODO) {{{2
-
-" fileencoding => (建议默认) 文件编码 {{{2
-
-" fileformat => (建议默认) 设置不同系统的(换行符)格式 {{{2
-
-" number => (启用) 显示行号 {{{2
-set number
-" relativenumber => (启用) 关闭相对行号 {{{2
-set relativenumber
+" IdeaVim options for IntelliJ-based IDE features
+" bomb => (TODO)
+" breakindent => (TODO)
+" colorcolumn => (TODO)
+" fileencoding => (默认) 文件编码
+" fileformat => (默认) 设置不同系统的(换行符)格式
+set number " 显示行号
+set relativenumber " 启用相对行号
 " textwidth => (TODO)
+set nowrap " 长行不自动换行
 
-" wrap => (禁用) 长行不自动换行 {{{2
-set nowrap
-" IdeaVim only options {{{1
-" ideacopypreprocess => (TODO) {{{2
+" IdeaVim only options
+" ideacopypreprocess => (TODO)
+" ideaglobalmode => (TODO)
+set ideajoin " J合并行时更智能
+set ideamarks " marks使用idea的标记
+set idearefactormode=select " 执行重命名后进入选择模式
+set ideastatusicon=enable " 展示ideavim图标
+set ideavimsupport=dialog " ideavim包含日志
+set ideawrite=all " :w保存所有文件
+set lookupkeys-=<C-J> " 这些键某些情况下不被映射, 去掉<C-J>(如果要映射为<Down>的话)
+set trackactionids " 触发了action时会提示actionid(方便写IdeaAction)
+" visualdelay => (TODO)
 
-" ideaglobalmode => (TODO) {{{2
-
-" ideajoin => (启用) J合并行时更智能 {{{2
-set ideajoin
-" ideamarks => (启用) marks使用idea的标记 {{{2
-set ideamarks
-" idearefactormode => (选择模式) 执行重命名后进入选择模式 {{{2
-set idearefactormode=select
-" ideastatusicon => (展示) 展示ideavim图标 {{{2
-set ideastatusicon=enable
-" ideavimsupport => (包含日志) ideavim包含日志 {{{2
-set ideavimsupport=dialog
-" ideawrite => (所有) :w保存所有文件 {{{2
-set ideawrite=all
-" lookupkeys => (-<C-J>) 这些键某些情况下不被映射(默认是<Tab>,<Down>,<Up>,<Enter>,<Left>,<Right>,<C-Down>,<C-Up>,<PageUp>,<PageDown>,<C-J>,<C-Q>) {{{2
-set lookupkeys-=<C-J> " 至少去掉<C-J>(如果要映射为<Down>的话)
-" trackactionids => (启用) 触发了action时会提示actionid(方便写IdeaAction) {{{2
-set trackactionids " 嫌烦再关闭
-" visualdelay => (TODO) {{{2
-" }}}
-" IdeaVim Plugins {{{1
-set argtextobj " 参数文本对象 (i/a)a {{{2
+" IdeaVim Plugins
+set argtextobj " 参数文本对象 (i/a)a
   let g:argtextobj_pairs='(:),{:},[:],<:>'
-set commentary " 注释 gc {{{2
-
-set easymotion " (需要安装插件)快速跳转  {{{2
+set commentary " 注释 gc
+set easymotion " (需要安装插件)快速跳转
   " 智能大小写
   let g:EasyMotion_smartcase = 1
   " 禁用默认映射
@@ -128,58 +77,46 @@ set easymotion " (需要安装插件)快速跳转  {{{2
   map  <Leader><Leader>F  <Plug>(easymotion-bd-f)
   map  <Leader><Leader>t  <Plug>(easymotion-bd-t)
   map  <Leader><Leader>T  <Plug>(easymotion-bd-t)
-set exchange " 互换 cx {{{2
-
-set functiontextobj " 方法文本对象(需要安装插件) (i/a)f {{{2
-
-set highlightedyank " 复制高亮 {{{2
+set exchange " 互换 cx
+set functiontextobj " 方法文本对象(需要安装插件) (i/a)f
+set highlightedyank " 复制高亮
   let g:highlightedyank_highlight_duration = '2000'
-set textobj-indent " 缩进文本对象 (i/a)(i/I) {{{2
-
-set matchit " 百分号增强 {{{2
+set textobj-indent " 缩进文本对象 (i/a)(i/I)
+set matchit " 百分号增强
   map M %
-" (禁用) set mini-ai " (i/a)q 引号  (i/a)b 括号 {{{2
-
-set multiple-curcors " 多光标 {{{2
-
-set NERDTree " 文件树 {{{2
+" (禁用) set mini-ai " (i/a)q 引号  (i/a)b 括号
+set multiple-curcors " 多光标
+set NERDTree " 文件树
   " 光标移动到文件树
   nnoremap  <Leader>ee  :NERDTree<CR>
   " 在文件树找到当前文件
   nnoremap  <Leader>ef  :NERDTreeFind<CR>
   " 关闭/打开文件树
   nnoremap  <Leader>et  :NERDTreeToggle<CR>
-set vim-paragraph-motion " 大括号增强 {{{2
-
-set peekaboo " 显示寄存器内容(需要安装插件) {{{2
-
-set quickscope " (需要安装插件)高亮f {{{2
+set vim-paragraph-motion " 大括号增强
+set peekaboo " 显示寄存器内容(需要安装插件)
+set quickscope " (需要安装插件)高亮f
   let g:qs_highlight_on_keys = ['f', 'F']
   " 命令符模式不高亮
   onoremap f f
   onoremap F F
-set ReplaceWithRegister " 替换 gr {{{2
-
-" (禁用) set sneak " s跳转 {{{2
+set ReplaceWithRegister " 替换 gr
+" (禁用) set sneak " s跳转
 "   map s <Plug>Sneak_s
 "   map S <Plug>Sneak_S
-set surround " 环绕 (y/c/d)s {{{2
-
-set switch " 切换(需要安装插件) {{{2
+set surround " 环绕 (y/c/d)s
+set switch " 切换(需要安装插件)
   " 比如true切换false, !=切换==
   let g:switch_definitions = 'group:basic'
   nnoremap <Tab>   :Switch<CR>
   nnoremap <S-Tab> :SwitchReverse<CR>
-set textobj-entire " 全文文本对象 (i/a)e {{{2
-
-set which-key " 显示组合键(需要安装插件) {{{2
-
-" }}}
+set textobj-entire " 全文文本对象 (i/a)e
+set which-key " 显示组合键(需要安装插件)
 
 " Basic Mappings
-" 更符合逻辑的 Y => y$ {{{2
+" 更符合逻辑的 Y => y$
 map Y y$
-" 删除不进入缓存 {{{2
+" 删除不进入缓存
 noremap  s  "_s
 " 如果用到surround, 这里不要映射xmap S
 nnoremap S  "_S
@@ -189,10 +126,10 @@ noremap <Leader>c "_c
 noremap <Leader>C "_C
 noremap <Leader>d "_d
 noremap <Leader>D "_D
-" 水平移动时保留光标 {{{2
+" 水平移动时保留光标
 xnoremap  <  <gv
 xnoremap  >  >gv
-" 方向键与Esc {{{2
+" 方向键与Esc
 if 0
   noremap <C-H>  <Left>|inoremap <C-H>  <Left>|cnoremap <C-H>  <Left>
   noremap <C-J>  <Down>|inoremap <C-J>  <Down>|cnoremap <C-J>  <Down>
@@ -200,97 +137,68 @@ if 0
   noremap <C-L> <Right>|inoremap <C-L> <Right>|cnoremap <C-L> <Right>
 endif
 if 0
-  inoremap  jk  <Esc>
-  " 可以接受j+任意非k => 一下蹦两个字母就不用映射这个
-  " 不能接受一下蹦两个字母, 想输入j的时候就jj=>j
-  inoremap  jj  j
+  inoremap jk <Esc>
+  inoremap jj j
 endif
-" HLM映射 {{{2
-noremap  H  ^
-noremap  L  $
+" HLM映射
+noremap H ^
+noremap L $
 " noremap  M  %  " 如果不用matchit
-" Emasc模式(Shell模式) {{{2
-inoremap <C-A> <Home>|cnoremap  <C-A>  <Home>
-inoremap <C-E>  <End>|cnoremap  <C-E>   <End>
-" 可视模式直接搜索当前选择内容  {{{2
+" Emasc模式(Shell模式)
+inoremap <C-A> <Home>|cnoremap <C-A> <Home>
+inoremap <C-E>  <End>|cnoremap <C-E>  <End>
+" 可视模式直接搜索当前选择内容
 xnoremap  <silent> /  :call VisualRegister()<CR>:set hls<CR>
-function! VisualRegister() " {{{3
+function! VisualRegister()
   let l:tmp = @"
   normal! gvy
   let @/ = @"
   let @" = l:tmp
   let @* = l:tmp
 endfunction
-" 取消搜索高亮 {{{2
-nnoremap  <silent> <C-L>  <Esc>:<C-U>noh<CR><C-L>
-" }}}
+" 取消搜索高亮
+nnoremap <silent> <C-L> <Esc>:<C-U>noh<CR><C-L>
 
 " IdeaVim Action
-" Mappings {{{1
-" <F1> => GotoNextError => 跳转错误 F2 {{{2
-map <F1>   <Action>(GotoNextError)
-" <S-F1> => GotoPreviousError => 跳转错误 Shift-F2 {{{2
-map <S-F1> <Action>(GotoPreviousError)
-" <F2> => VcsShowNextChangeMarker => 跳转vsc改动 {{{2
-map <F2>   <Action>(VcsShowNextChangeMarker)
-" <S-F2> => VcsShowPrevChangeMarker => 跳转vsc改动 {{{2
-map <S-F2> <Action>(VcsShowPrevChangeMarker)
-" <Leader>r => RenameElement => 重命名 Shift-F6 {{{2
-map  <Leader>r <Action>(RenameElement)
-" <Leader>ff => GotoFile => 跳转文件 Ctrl-Shift-N {{{2
-map  <Leader>ff <Action>(GotoFile)
-" <Leader>fg => FindInPath => 全局搜索 Ctrl-Shift-F {{{2
-map  <Leader>fg <Action>(FindInPath)
-" <Leader>t => ActivateTerminalToolWindow => 打开终端 Alt-F12 {{{2
-map  <Leader>t <Action>(ActivateTerminalToolWindow)
-" <Leader>l => ReformatCode => 格式化 Alt-Ctrl-L {{{2
-map  <Leader>l <Action>(ReformatCode)
-" <C-S> => EditorSelectWord => 选择 Ctrl-w {{{2
-map  <C-S>     <Action>(EditorSelectWord)
-" gd => GotoDeclaration => 跳转到定义 Ctrl-B {{{2
-map  gd <Action>(GotoDeclaration)
-" gI => GotoImplementation => 跳转到实现 Alt-Ctrl-B {{{2
-map  gI <Action>(GotoImplementation)
-" gy => GotoTypeDeclaration => 跳转到类型 Ctrl-Shift-B {{{2
-map  gy <Action>(GotoTypeDeclaration)
-" gm => GotoSuperMethod => 跳转到父方法 Ctrl-U {{{2
-map  gm <Action>(GotoSuperMethod)
-" <Leader>v => IntroduceVariable => 引入变量 Alt-Ctrl-V {{{2
-map  <Leader>v <Action>(IntroduceVariable)
-" <Leader>; => EditorCompleteStatement => 补全 Ctrl-Shift-Enter {{{2
-map  <Leader>; <Action>(EditorCompleteStatement)
-" <Leader>o => OptimizeImports => 优化导入 Ctrl-Shift-O {{{2
-map  <Leader>o <Action>(OptimizeImports)
-" <Leader>t => SurroundWith => 环绕 Alt-Ctrl-T {{{2
-map  <Leader>s <Action>(SurroundWith)
-" <Leader>i => ShowIntentionActions => 提示 Alt-Enter {{{2
-map  <Leader>i <Action>(ShowIntentionActions)
-" }}}
-" Commands {{{1
-" VimReload => 重新加载ideavimrc {{{2
-command! VimReload   call IdeaVimAction('IdeaVim.ReloadVimRc.reload')
-" Run {{{2
-command! Run         call IdeaVimAction('Run')
-" RunClass {{{2
-command! RunClass    call IdeaVimAction('RunClass')
-" Debug {{{2
-command! Debug       call IdeaVimAction('Debug')
-" Stop {{{2
-command! Stop        call IdeaVimAction('Stop')
-" MavenReload => 重新加载maven {{{2
-command! MavenReload call IdeaVimAction('Maven.Reimport Maven.UpdateFolders')
-" Git {{{2
-command! Git         call IdeaVimAction('Git.Menu')
-" Vim => 关闭ideavim {{{2
-command! Vim         call IdeaVimAction('VimPluginToggle')
+" Mappings
+map   <F1> <Action>(GotoNextError)     " 跳转错误 F2
+map <S-F1> <Action>(GotoPreviousError) " 跳转错误 Shift-F2
+map   <F2> <Action>(VcsShowNextChangeMarker) " 跳转vsc改动
+map <S-F2> <Action>(VcsShowPrevChangeMarker) " 跳转vsc改动
+map <Leader>r <Action>(RenameElement) " 重命名 Shift-F6
+map <Leader>ff <Action>(GotoFile)   " 文件搜索 Ctrl-Shift-N
+map <Leader>fg <Action>(FindInPath) " 文本搜索 Ctrl-Shift-F
+map <Leader>t <Action>(ActivateTerminalToolWindow) " 打开终端 Alt-F12
+map <Leader>l <Action>(ReformatCode) " 格式化 Alt-Ctrl-L
+map <C-S> <Action>(EditorSelectWord) " 选择 Ctrl-w
+map gd <Action>(GotoDeclaration)     " 跳转到定义 Ctrl-B (不完全是)
+map gR <Action>(GotoDeclaration)     " 跳转到关联 Ctrl-B (不完全是)
+map gI <Action>(GotoImplementation)  " 跳转到实现 Alt-Ctrl-B
+map gy <Action>(GotoTypeDeclaration) " 跳转到类型 Ctrl-Shift-B
+map gm <Action>(GotoSuperMethod)     " 跳转到父方法 Ctrl-U
+map <Leader>v <Action>(IntroduceVariable) " 引入变量 Alt-Ctrl-V
+map <Leader>; <Action>(EditorCompleteStatement) " 补全 Ctrl-Shift-Enter
+map <Leader>o <Action>(OptimizeImports) " 优化导入 Ctrl-Shift-O
+map <Leader>s <Action>(SurroundWith) " 环绕 Alt-Ctrl-T
+map <Leader>i <Action>(ShowIntentionActions) " 提示 Alt-Enter
 
-" Function {{{1
-function! IdeaVimAction(actions) " {{{2
+" Commands
+command! VimReload call IdeaVimAction('IdeaVim.ReloadVimRc.reload')
+command! Run call IdeaVimAction('Run')
+command! RunClass call IdeaVimAction('RunClass')
+command! Debug call IdeaVimAction('Debug')
+command! Stop call IdeaVimAction('Stop')
+command! MavenReload call IdeaVimAction('Maven.Reimport Maven.UpdateFolders')
+command! Git call IdeaVimAction('Git.Menu')
+command! Vim call IdeaVimAction('VimPluginToggle')
+
+" Function
+function! IdeaVimAction(actions)
     let l:actions = split(a:actions, ' ')
     for action in l:actions
         execute 'action '.l:action
     endfor
 endfunction
 
-" 清除选择模式的映射 {{{2
+" 清除选择模式的映射
 smapclear

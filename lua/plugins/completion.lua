@@ -8,6 +8,7 @@ return {
         opts = {
             keymap = {
                 preset      = 'none',
+                ['<Esc>']   = { 'snippet_forward', 'fallback'},
                 ['<CR>']    = { 'accept', 'fallback' },
                 ['<Tab>']   = { 'snippet_forward', 'select_and_accept', 'fallback' },
                 ['<S-Tab>'] = { 'snippet_backward', 'fallback' },

@@ -1,8 +1,45 @@
 ---@type LazySpec
 return {
     {
+        'nvim-telescope/telescope.nvim',
+        config = function(_, opts)
+            local actions = require('telescope.actions')
+            local builtin = require('telescope.builtin')
+            require('telescope').setup({
+                defaults = {
+                    mappings = {
+                        i = {
+                            ['<Esc>'] = actions.close,
+                            ['<C-U>'] = false,
+                        },
+                    },
+                },
+            })
+            vim.keymap.set('n', '<leader>ff', builtin.find_files)
+            vim.keymap.set('n', '<leader>fg', builtin.live_grep)
+            vim.keymap.set('n', 'gR', builtin.lsp_references)
+            vim.keymap.set('n', 'gd', builtin.lsp_definitions)
+            vim.keymap.set('n', 'gy', builtin.lsp_type_definitions)
+            vim.keymap.set('n', 'gD', vim.lsp.buf.declaration)
+            vim.keymap.set('n', 'gI', builtin.lsp_implementations)
+            vim.keymap.set('n', '<Leader>i', vim.lsp.buf.code_action)
+
+            vim.keymap.set('n', '<Leader>f<Space>', '<Esc>:<C-U>Telescope ')
+        end,
+    },
+    {
+        'nvim-telescope/telescope-ui-select.nvim',
+        dependencies = 'nvim-telescope/telescope.nvim',
+        config = function(_, opts)
+            vim.schedule(function()
+                require('telescope').load_extension('ui-select')
+            end)
+        end
+    },
+    {
         'ibhagwan/fzf-lua',
         dependencies = { 'ryanoasis/vim-devicons' },
+        enabled = false,
         opts = {
             winopts = {
                 fullscreen = true,

@@ -34,10 +34,10 @@ vim.keymap.del('n', ']B')
 vim.keymap.del('n', '[<Space>')
 vim.keymap.del('n', ']<Space>')
 -- ReplaceWithRegister
-vim.keymap.del('n', 'gri')
-vim.keymap.del('n', 'grt')
-vim.keymap.del('n', 'grn')
-vim.keymap.del({ 'n', 'x' }, 'gra')
+pcall(vim.keymap.del, 'n', 'gri')
+pcall(vim.keymap.del, 'n', 'grt')
+pcall(vim.keymap.del, 'n', 'grn')
+pcall(vim.keymap.del, { 'n', 'x' }, 'gra')
 -- 终端
 vim.keymap.set('n', '<Leader>t', '<CMD>botright terminal<CR>', { noremap = true })
 -- 终端 打开时 自动切换为startinsert

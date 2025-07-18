@@ -1,4 +1,7 @@
--- 初始不允许使用舒服法
+if not vim.g.neovide then
+    return
+end
+-- 初始不允许使用输入法
 vim.g.neovide_input_ime = false
 
 local ime_input = vim.api.nvim_create_augroup('ime_input', { clear = true })

@@ -16,7 +16,7 @@ if has('nvim')
     Plug 'WTFox/jellybeans.nvim'
 
     " nvim独有的主题
-    Plug 'Mofiqul/vscode.nvim'
+    Plug 'Mofiqul/vscode.nvim', { 'as': 'vscode-theme' }
     Plug 'projekt0n/github-nvim-theme'
     Plug 'xiantang/darcula-dark.nvim'
     Plug 'folke/tokyonight.nvim'

@@ -7,6 +7,10 @@ return {
         'stevearc/conform.nvim', version = '*',
     },
     {
+        'folke/trouble.nvim',
+        opts = {},
+    },
+    {
         -- git相关
         'lewis6991/gitsigns.nvim',
         event = 'VeryLazy',
@@ -55,8 +59,39 @@ return {
         ---@type snacks.Config
         opts = {
             bufdelete = {},
+            dashboard = {
+                preset = {
+                    header = [[]],
+                },
+            },
             input = {},
-            picker = {},
+            picker = {
+                win = {
+                    input = {
+                        keys = {
+                            ['<Esc>'] = { 'close', mode = { 'i', 'n' } },
+                            ['<C-U>'] = false,
+                        },
+                    },
+                },
+            },
         },
+    },
+    {
+        'echasnovski/mini.nvim',
+        config = function()
+            local minimap = require('mini.map')
+            minimap.setup({
+                symbols = {
+                    encode = minimap.gen_encode_symbols.dot('4x2'),
+                },
+                window = {
+                    width = 10,
+                    winblend = 100,
+                    show_integration_count = true,
+                }
+            })
+            vim.keymap.set('n', '<Leader>mm', minimap.toggle)
+        end
     },
 }

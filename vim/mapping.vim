@@ -33,23 +33,3 @@ if has('terminal')
     tnoremap  <C-A>  <Home>
     tnoremap  <C-E>  <End>
 endif
-
-" 2. 额外功能
-" 2.1 可视模式直接搜索当前选择内容
-xnoremap  <silent> /  <CMD>let @/=VisualSelection()<CR><CMD>set hls<CR>
-" 2.2 取消搜索高亮
-nnoremap  <silent> <Leader>/  <Esc>:<C-U>noh<CR>
-function! VisualSelection()
-    " 先保存寄存器的状态
-    let unnamed_reg_data = getreg('"')
-    let unnamed_reg_type = getregtype('"')
-    " 执行 "y" 命令来复制选中的文本到默认寄存器中
-    normal! y
-    " 获取默认寄存器的内容，即选中的文本
-    let selection = getreg('"')
-    " 恢复寄存器的状态
-    call setreg('"', unnamed_reg_data, unnamed_reg_type)
-    call setreg('*', unnamed_reg_data, unnamed_reg_type)
-    " 返回选中的文本
-    return selection
-endfunction

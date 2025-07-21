@@ -161,26 +161,46 @@ nnoremap <silent> <C-L> <Esc>:<C-U>noh<CR><C-L>
 
 " IdeaVim Action
 " Mappings
-map   <F1> <Action>(GotoNextError)     " 跳转错误 F2
-map <S-F1> <Action>(GotoPreviousError) " 跳转错误 Shift-F2
-map   <F2> <Action>(VcsShowNextChangeMarker) " 跳转vsc改动
-map <S-F2> <Action>(VcsShowPrevChangeMarker) " 跳转vsc改动
-map <Leader>r <Action>(RenameElement) " 重命名 Shift-F6
-map <Leader>ff <Action>(GotoFile)   " 文件搜索 Ctrl-Shift-N
-map <Leader>fg <Action>(FindInPath) " 文本搜索 Ctrl-Shift-F
-map <Leader>t <Action>(ActivateTerminalToolWindow) " 打开终端 Alt-F12
-map <Leader>l <Action>(ReformatCode) " 格式化 Alt-Ctrl-L
-map <C-S> <Action>(EditorSelectWord) " 选择 Ctrl-w
-map gd <Action>(GotoDeclaration)     " 跳转到定义 Ctrl-B (不完全是)
-map gR <Action>(GotoDeclaration)     " 跳转到关联 Ctrl-B (不完全是)
-map gI <Action>(GotoImplementation)  " 跳转到实现 Alt-Ctrl-B
-map gy <Action>(GotoTypeDeclaration) " 跳转到类型 Ctrl-Shift-B
-map gm <Action>(GotoSuperMethod)     " 跳转到父方法 Ctrl-U
-map <Leader>v <Action>(IntroduceVariable) " 引入变量 Alt-Ctrl-V
-map <Leader>; <Action>(EditorCompleteStatement) " 补全 Ctrl-Shift-Enter
-map <Leader>o <Action>(OptimizeImports) " 优化导入 Ctrl-Shift-O
-map <Leader>s <Action>(SurroundWith) " 环绕 Alt-Ctrl-T
-map <Leader>i <Action>(ShowIntentionActions) " 提示 Alt-Enter
+" 跳转错误 F2
+map   <F1> <Action>(GotoNextError)
+" 跳转错误 Shift-F2
+map <S-F1> <Action>(GotoPreviousError)
+" 跳转vsc改动
+map   <F2> <Action>(VcsShowNextChangeMarker)
+" 跳转vsc改动
+map <S-F2> <Action>(VcsShowPrevChangeMarker)
+" 重命名 Shift-F6
+map <Leader>r <Action>(RenameElement)
+" 文件搜索 Ctrl-Shift-N
+map <Leader>ff <Action>(GotoFile)
+" 文本搜索 Ctrl-Shift-F
+map <Leader>fg <Action>(FindInPath)
+" 打开终端 Alt-F12
+map <Leader>t <Action>(ActivateTerminalToolWindow)
+" 格式化 Alt-Ctrl-L
+map <Leader>l <Action>(ReformatCode)
+" 选择 Ctrl-w
+map <C-S> <Action>(EditorSelectWord)
+" 跳转到定义 Ctrl-B (不完全是)
+map gd <Action>(GotoDeclaration)
+" 跳转到关联 Ctrl-B (不完全是)
+map gR <Action>(GotoDeclaration)
+" 跳转到实现 Alt-Ctrl-B
+map gI <Action>(GotoImplementation)
+" 跳转到类型 Ctrl-Shift-B
+map gy <Action>(GotoTypeDeclaration)
+" 跳转到父方法 Ctrl-U
+map gm <Action>(GotoSuperMethod)
+" 引入变量 Alt-Ctrl-V
+map <Leader>v <Action>(IntroduceVariable)
+" 补全 Ctrl-Shift-Enter
+map <Leader>; <Action>(EditorCompleteStatement)
+" 优化导入 Ctrl-Shift-O
+map <Leader>o <Action>(OptimizeImports)
+" 环绕 Alt-Ctrl-T
+map <Leader>s <Action>(SurroundWith)
+" 提示 Alt-Enter
+map <Leader>i <Action>(ShowIntentionActions)
 
 " Commands
 command! VimReload call IdeaVimAction('IdeaVim.ReloadVimRc.reload')
@@ -204,4 +224,5 @@ endfunction
 smapclear
 
 " Maybe Bug
-inoremap <Esc> <Esc><Esc> " 部分情况需要按两下<Esc>
+" 部分情况需要按两下<Esc>
+inoremap <Esc> <Esc><Esc>

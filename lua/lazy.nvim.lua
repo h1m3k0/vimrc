@@ -1,3 +1,6 @@
+if vim.g.vscode then
+    return
+end
 -- Bootstrap lazy.nvim
 local rootpath = vim.g.vimdir .. '/lazy'
 if not vim.uv.fs_stat(rootpath .. '/lazy.nvim') then

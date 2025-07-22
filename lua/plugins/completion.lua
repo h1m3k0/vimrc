@@ -20,24 +20,6 @@ return {
                 ['<C-B>']   = { 'scroll_documentation_up', 'fallback' },
                 ['<C-F>']   = { 'scroll_documentation_down', 'fallback' },
             },
-            cmdline = {
-                keymap = {
-                    preset      = 'none',
-                    ['<Tab>']   = { 'show_and_insert', 'select_next', 'fallback' },
-                    ['<S-Tab>'] = { 'select_prev', 'fallback' },
-                    ['<C-E>']   = { 'hide', 'fallback' },
-                    ['<Down>']  = { 'select_next', 'fallback' },
-                    ['<Up>']    = { 'select_prev', 'fallback' },
-                    ['<C-N>']   = { 'select_next', 'fallback' },
-                    ['<C-P>']   = { 'select_prev', 'fallback' },
-                    -- 空格删除的同时隐藏
-                    ['<BS>']    = { function(cmp) cmp.hide() return false end, 'fallback' },
-                    ['<Space>'] = { function(cmp) cmp.hide() return false end, 'fallback' },
-                    ['<C-H>']   = { function(cmp) cmp.hide() return false end, 'fallback' },
-                    ['<C-W>']   = { function(cmp) cmp.hide() return false end, 'fallback' },
-                    ['<C-U>']   = { function(cmp) cmp.hide() return false end, 'fallback' },
-                },
-            },
             completion = {
                 list = {
                     selection = {
@@ -60,6 +42,29 @@ return {
                         name = 'LazyDev',
                         module = 'lazydev.integrations.blink',
                         score_offset = 100,
+                    },
+                },
+            },
+            cmdline = {
+                keymap = {
+                    preset      = 'none',
+                    ['<Tab>']   = { 'show_and_insert', 'select_next', 'fallback' },
+                    ['<S-Tab>'] = { 'show_and_insert', 'select_prev', 'fallback' },
+                    ['<C-E>']   = { 'cancel', 'fallback' },
+                    ['<Down>']  = { 'select_next', 'fallback' },
+                    ['<Up>']    = { 'select_prev', 'fallback' },
+                    ['<C-N>']   = { 'select_next', 'fallback' },
+                    ['<C-P>']   = { 'select_prev', 'fallback' },
+                    -- 空格删除的同时隐藏
+                    ['<BS>']    = { function(cmp) cmp.hide() return false end, 'fallback' },
+                    ['<Space>'] = { function(cmp) cmp.hide() return false end, 'fallback' },
+                    ['<C-H>']   = { function(cmp) cmp.hide() return false end, 'fallback' },
+                    ['<C-W>']   = { function(cmp) cmp.hide() return false end, 'fallback' },
+                    ['<C-U>']   = { function(cmp) cmp.hide() return false end, 'fallback' },
+                },
+                completion = {
+                    ghost_text = {
+                        enabled = true,
                     },
                 },
             },

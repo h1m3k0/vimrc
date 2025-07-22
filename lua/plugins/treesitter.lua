@@ -2,7 +2,7 @@
 return {
     {
         'nvim-treesitter/nvim-treesitter',
-        build = ':TSUpdate',  -- 需要安装c语言环境
+        build = ':TSUpdate', -- 需要安装c语言环境
         version = '*',
         event = 'VeryLazy',
         opts = {
@@ -11,7 +11,7 @@ return {
             -- 高亮
             highlight = {
                 enable = true,
-                disable = function(_, buf)  -- 高亮100KB以内的文件
+                disable = function(_, buf) -- 高亮100KB以内的文件
                     local max_filesize = 100 * 1024
                     local ok, stats = pcall(vim.uv.fs_stat, vim.api.nvim_buf_get_name(buf))
                     if ok and stats and stats.size > max_filesize then
@@ -22,7 +22,7 @@ return {
             },
             -- 范围选取
             incremental_selection = {
-                enable =  true,
+                enable = true,
                 keymaps = {
                     init_selection    = '<C-S>',
                     node_incremental  = '<C-S>',
@@ -40,13 +40,13 @@ return {
                         ['if'] = '@function.inner',
                         ['ac'] = '@class.outer',
                         ['ic'] = '@class.inner',
-                        --             ['as'] = { query = '@local.scope', query_group = 'locals' },
-                        --             ['is'] = { query = '@local.scope', query_group = 'locals' },
+                        -- ['as'] = { query = '@local.scope', query_group = 'locals' },
+                        -- ['is'] = { query = '@local.scope', query_group = 'locals' },
                         ['aa'] = '@parameter.outer',
                         ['ia'] = '@parameter.inner',
                     },
                     selection_modes = {
-                        ['@class.outer']    = 'V', -- linewise
+                        ['@class.outer'] = 'V', -- linewise
                     },
                     include_surrounding_whitespace = true,
                 },
@@ -59,7 +59,7 @@ return {
         init = function()
         end,
         config = function(_, opts)
-            require'nvim-treesitter.install'.prefer_git = true
+            require 'nvim-treesitter.install'.prefer_git = true
             -- 将git地址从https改为ssh 下载失败尝试关闭VPN
             -- https://github.com/who/what => git@github.com:who/what
             for _, config in pairs(require('nvim-treesitter.parsers').get_parser_configs()) do
@@ -68,7 +68,7 @@ return {
                     'git@github.com:'
                 )
             end
-            require'nvim-treesitter.configs'.setup(opts)
+            require 'nvim-treesitter.configs'.setup(opts)
             -- 使用git下载
         end,
     },
@@ -85,6 +85,7 @@ return {
         dependencies = { 'nvim-treesitter/nvim-treesitter' },
         version = '*',
         event = 'VeryLazy',
+        config = true,
     },
     {
         -- 自动Tag
@@ -100,7 +101,7 @@ return {
         dependencies = { 'nvim-treesitter/nvim-treesitter' },
         event = 'VeryLazy',
         config = function()
-            vim.keymap.set({'n','x','o'}, 'M', '%', { remap = true })
+            vim.keymap.set({ 'n', 'x', 'o' }, 'M', '%', { remap = true })
         end,
     },
     {

@@ -1,21 +1,21 @@
-let s:fuzzy = g:config_plugins.fuzzy
-if s:fuzzy == 'default'
+let fuzzy = g:config_plugins.fuzzy
+if fuzzy == 'default'
     if (has('python') || has('python2') || has('python3')) && executable('python')
-        let s:fuzzy = 'LeaderF'
+        let fuzzy = 'LeaderF'
     elseif !has('win32') && v:version >= 800
-        let s:fuzzy = 'fzf'
+        let fuzzy = 'fzf'
     elseif v:version >= 900
-        let s:fuzzy = 'fuzzyy'
+        let fuzzy = 'fuzzyy'
     else
-        let s:fuzzy = 'ctrlp'
+        let fuzzy = 'ctrlp-grepper'
     endif
 endif
+if has('nvim')
+    let fuzzy = 'nvim'
+endif
 
-if s:fuzzy == 'LeaderF'
-    " 快; 需要python
-
-    Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
-
+Plug 'Yggdroot/LeaderF', Cond(fuzzy == 'LeaderF', { 'do': ':LeaderfInstallCExtension' })
+if fuzzy == 'LeaderF'  " 快; 需要python
     let g:Lf_CommandMap = {
                 \     '<C-J>': ['<Down>', '<C-J>'],
                 \     '<C-K>': ['<Up>', '<C-K>'],
@@ -37,15 +37,11 @@ if s:fuzzy == 'LeaderF'
 
     nnoremap <silent> <Leader>fg :<C-U><C-R>=printf('Leaderf rg')<CR><CR>
     xnoremap <silent> <Leader>fg :<C-U><C-R>=printf('Leaderf rg %s', leaderf#Rg#visual())<CR><CR>
-
 endif
 
-if s:fuzzy == 'fzf'
-    " 快; 对windows支持不好
-
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
-
+Plug 'junegunn/fzf', Cond(fuzzy == 'fzf', { 'do': { -> fzf#install() } })
+Plug 'junegunn/fzf.vim', Cond(fuzzy == 'fzf')
+if fuzzy == 'fzf'  " 快; 对windows支持不好
     let preview_obj = {
                 \ 'options': [
                 \     '--layout=reverse',
@@ -63,29 +59,26 @@ if s:fuzzy == 'fzf'
     nnoremap <silent> <Leader>ff <CMD>Files<CR>
 
     nnoremap <silent> <Leader>fg <CMD>RG<CR>
-
 endif
 
-if s:fuzzy == 'ctrlp' || s:fuzzy == 'grepper'
-    " 慢; grepper仅依赖git(findstr有bug)
-
-    Plug 'ctrlpvim/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim', Cond(fuzzy == 'ctrlp-grepper')
+Plug 'mhinz/vim-grepper', Cond(fuzzy == 'ctrlp-grepper')
+if fuzzy == 'ctrlp' || fuzzy == 'grepper'  " 慢; grepper仅依赖git(findstr有bug)
+    " ctrlp
     let g:ctrlp_map = '<Nop>'
     nnoremap <silent> <Leader>ff :<C-U><C-R>=printf('CtrlP %s', getcwd())<CR><CR>
 
-    Plug 'mhinz/vim-grepper'
+    " grepper
     let g:grepper = {}
     let g:grepper.highlight = 1
     nnoremap <silent> <Leader>fg :<C-U>Grepper<CR>
-
 endif
 
-if s:fuzzy == 'fuzzyy'
-    " 慢; 需要vim9, 无依赖
-
-    Plug 'Donaldttt/fuzzyy'
+Plug 'Donaldttt/fuzzyy', Cond(fuzzy == 'fuzzyy')
+if fuzzy == 'fuzzyy'  " 慢; 需要vim9, 无依赖
     let g:fuzzyy_enable_mappings = 0
     nnoremap <silent> <Leader>ff <CMD>FuzzyFiles<CR>
     nnoremap <silent> <Leader>fg <CMD>FuzzyGrep<CR>
-
 endif
+
+unlet fuzzy

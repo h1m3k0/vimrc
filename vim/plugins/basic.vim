@@ -1,3 +1,4 @@
+" vim7
 Plug 'tpope/vim-sensible'     " 默认配置
 Plug 'tpope/vim-unimpaired'   " []相关的映射
 " operator
@@ -57,42 +58,42 @@ let g:winresizer_gui_start_key = '<C-W><C-A>' " gui大小
 let g:winresizer_vert_resize = 1
 let g:winresizer_horiz_resize = 1
 
-if v:version < 800
-    finish
-endif
-
-if !has('nvim')
-    Plug 'LunarWatcher/auto-pairs'  " 自动括号
+" vim8
+Plug 'LunarWatcher/auto-pairs', Cond(v:version >= 800 && !has('nvim'))  " 自动括号
+if v:version >= 800 && !has('nvim')
     " 右边为非空字符时不自动添加括号
     let g:AutoPairsCompleteOnlyOnSpace = 1
-    Plug 'chrisbra/matchit'         " 百分号%匹配
+endif
+Plug 'chrisbra/matchit', Cond(v:version >= 800 && !has('nvim'))         " 百分号%匹配
+if v:version >= 800 && !has('nvim')
     nmap M %
     xmap M %
     omap M %
 endif
-Plug 'mg979/vim-visual-multi' " 多光标
-let g:VM_maps                    = {}
-let g:VM_maps['Undo']            = 'u'
-let g:VM_maps['Redo']            = '<C-r>'
-let g:VM_maps['Find Under']      = '<A-n>'        " 单词
-let g:VM_maps['Add Cursor Down'] = '<A-Down>'     " 字符
-let g:VM_maps['Add Cursor Up']   = '<A-Up>'       " 字符
-let g:VM_maps['Mouse Cursor']    = '<A-LeftMouse>'
-let g:VM_maps['Mouse Word']      = '<A-RightMouse>'
-let g:VM_maps['Switch Mode']     = '<Tab>'
-
-Plug 'skywind3000/asyncrun.vim'   " 异步运行
-Plug 'skywind3000/asynctasks.vim' " 异步任务
-if has('win32')
-    " windows系统使用GBK
-    let g:asyncrun_encs = 'gbk'
-endif
-" 自动打开copen
-let g:asyncrun_open = 6
-nnoremap <Leader>t :AsyncTask 
-
-if v:version < 900
-    finish
+Plug 'mg979/vim-visual-multi', Cond(v:version >= 800) " 多光标
+if v:version >= 800
+    let g:VM_maps                    = {}
+    let g:VM_maps['Undo']            = 'u'
+    let g:VM_maps['Redo']            = '<C-r>'
+    let g:VM_maps['Find Under']      = '<A-n>'        " 单词
+    let g:VM_maps['Add Cursor Down'] = '<A-Down>'     " 字符
+    let g:VM_maps['Add Cursor Up']   = '<A-Up>'       " 字符
+    let g:VM_maps['Mouse Cursor']    = '<A-LeftMouse>'
+    let g:VM_maps['Mouse Word']      = '<A-RightMouse>'
+    let g:VM_maps['Switch Mode']     = '<Tab>'
 endif
 
-Plug 'yianwillis/vimcdoc' " 中文文档
+Plug 'skywind3000/asyncrun.vim', Cond(v:version >= 800)   " 异步运行
+Plug 'skywind3000/asynctasks.vim', Cond(v:version >= 800) " 异步任务
+if v:version >= 800
+    if has('win32')
+        " windows系统使用GBK
+        let g:asyncrun_encs = 'gbk'
+    endif
+    " 自动打开copen
+    let g:asyncrun_open = 6
+    nnoremap <Leader>t :AsyncTask 
+endif
+
+" vim9
+Plug 'yianwillis/vimcdoc', Cond(v:version >= 900) " 中文文档

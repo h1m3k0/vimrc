@@ -1,10 +1,11 @@
+Plug 'neoclide/coc.nvim', Cond(!has('nvim') && g:config_plugins.coc, {'branch': 'release'}) " coc
+Plug 'lifepillar/vim-mucomplete', Cond(!has('nvim') && !g:config_plugins.coc)
 if g:config_plugins.coc
     " Use tab for trigger completion with characters ahead and navigate
     " NOTE: There's always complete item selected by default, you may want to enable
     " no select by `"suggest.noselect": true` in your configuration file
     " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
     " other plugin before putting this into your config
-    Plug 'neoclide/coc.nvim', {'branch': 'release'} " coc
     let g:coc_config_home = g:vimdir
     let g:coc_global_extensions = [
                 \ 'coc-marketplace',
@@ -122,8 +123,4 @@ if g:config_plugins.coc
     " nnoremap <silent><nowait> <Leader>k  :<C-u>CocPrev<CR>
     " Resume latest coc list
     " nnoremap <silent><nowait> <Leader>p  :<C-u>CocListResume<CR>
-endif
-
-if !g:config_plugins.coc
-    Plug 'lifepillar/vim-mucomplete'
 endif

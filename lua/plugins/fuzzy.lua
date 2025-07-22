@@ -2,11 +2,35 @@
 return {
     {
         'nvim-telescope/telescope.nvim',
+        cond = true,
+        dependencies = {
+            {
+                'nvim-telescope/telescope-ui-select.nvim',
+                dependencies = 'nvim-telescope/telescope.nvim',
+                config = function(_, opts)
+                    vim.schedule(function()
+                        require('telescope').load_extension('ui-select')
+                    end)
+                end
+            },
+        },
         config = function(_, opts)
+            local telescope = require("telescope")
             local actions = require('telescope.actions')
             local builtin = require('telescope.builtin')
-            require('telescope').setup({
+            telescope.setup({
                 defaults = {
+                    layout_strategy = 'vertical',
+                    layout_config = {
+                        width = 0.999,
+                        height = 0.999,
+                    },
+                    borderchars = {
+                                  { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
+                        preview = { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
+                        results = { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
+                        prompt =  { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
+                    },
                     mappings = {
                         i = {
                             ['<Esc>'] = actions.close,
@@ -28,18 +52,9 @@ return {
         end,
     },
     {
-        'nvim-telescope/telescope-ui-select.nvim',
-        dependencies = 'nvim-telescope/telescope.nvim',
-        config = function(_, opts)
-            vim.schedule(function()
-                require('telescope').load_extension('ui-select')
-            end)
-        end
-    },
-    {
         'ibhagwan/fzf-lua',
         dependencies = { 'ryanoasis/vim-devicons' },
-        enabled = false,
+        cond = false,
         opts = {
             winopts = {
                 fullscreen = true,

@@ -1,6 +1,6 @@
 Plug 'neoclide/coc.nvim', Cond(!has('nvim') && g:config_plugins.coc, {'branch': 'release'}) " coc
 Plug 'lifepillar/vim-mucomplete', Cond(!has('nvim') && !g:config_plugins.coc)
-if g:config_plugins.coc
+if !has('nvim') && g:config_plugins.coc
     " Use tab for trigger completion with characters ahead and navigate
     " NOTE: There's always complete item selected by default, you may want to enable
     " no select by `"suggest.noselect": true` in your configuration file

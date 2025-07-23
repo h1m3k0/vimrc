@@ -25,14 +25,12 @@ return {
     },
     {
         'akinsho/bufferline.nvim',
-        dependencies = 'ryanoasis/vim-devicons',
         version = '*',
         event = 'VeryLazy',
         config = true,
     },
     {
         'nvim-lualine/lualine.nvim',
-        dependencies = { 'ryanoasis/vim-devicons' },
         event = 'VeryLazy',
         opts = {
             options = {

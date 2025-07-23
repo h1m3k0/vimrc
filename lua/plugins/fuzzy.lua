@@ -53,7 +53,6 @@ return {
     },
     {
         'ibhagwan/fzf-lua',
-        dependencies = { 'ryanoasis/vim-devicons' },
         cond = false,
         opts = {
             winopts = {

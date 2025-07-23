@@ -10,7 +10,10 @@ return {
                 preset      = 'none',
                 ['<Esc>']   = { 'snippet_forward', 'fallback'},
                 ['<CR>']    = { 'accept', 'fallback' },
-                ['<Tab>']   = { 'snippet_forward', 'show_and_insert', 'select_and_accept', 'fallback' },
+                ['<Tab>']   = { function(cmp)
+                    if cmp.snippet_active() then return cmp.accept()
+                    else return cmp.select_and_accept() end
+                end, 'snippet_forward', 'fallback' },
                 ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
                 ['<C-E>']   = { 'hide', 'fallback' },
                 ['<Down>']  = { 'select_next', 'fallback' },

@@ -46,9 +46,18 @@ return {
         },
     },
     {
-        'NStefan002/screenkey.nvim',
-        lazy = false,
-        version = '*',
+        -- 实时显示按键
+        {
+            'NStefan002/screenkey.nvim',
+            lazy = false,
+            version = '*',
+        },
+        {
+            'nvzone/showkeys',
+            opts = {
+                maxkeys = 15,
+            },
+        },
     },
     {
         'folke/snacks.nvim',
@@ -91,5 +100,8 @@ return {
             })
             vim.keymap.set('n', '<Leader>mm', minimap.toggle)
         end
+    },
+    {
+        'RRethy/vim-illuminate', -- 光标当前词高亮
     },
 }

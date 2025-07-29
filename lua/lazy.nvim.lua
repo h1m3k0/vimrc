@@ -22,6 +22,7 @@ require("lazy").setup({
     root = rootpath,
     spec = {
         { import = 'plugins' },
+        { import = 'plugins/languages' },
     },
     install = {
         colorscheme = { 'everforest', 'habamax' },

@@ -53,8 +53,9 @@ return {
     },
     {
         'ibhagwan/fzf-lua',
-        cond = false,
+        cond = true,
         opts = {
+            fzf_bin = vim.g.vimdir .. '/plugged/fzf/bin/fzf',
             winopts = {
                 fullscreen = true,
                 preview = {
@@ -64,6 +65,7 @@ return {
             },
         },
         config = function(_, opts)
+            if true then return end
             require('fzf-lua').setup(opts)
             local fzf = require('fzf-lua')
             vim.keymap.set('n', 'gR', fzf.lsp_references)

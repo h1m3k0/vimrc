@@ -104,4 +104,8 @@ return {
     {
         'RRethy/vim-illuminate', -- 光标当前词高亮
     },
+    {
+        'lewis6991/satellite.nvim',
+        opts = {}
+    },
 }

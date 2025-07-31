@@ -1,8 +1,11 @@
 " PlugVim加载插件
-function! Cond(cond, ...)
+function! Plug(repo, cond, ...)
     let opts = get(a:000, 0, {})
-    return a:cond ? opts : extend(opts, { 'on': [], 'for': [] })
+    call plug#(a:repo, a:cond ? opts : extend(opts, { 'on': [], 'for': [] }))
+    return a:cond
 endfunction
+command! -nargs=+ -bar PlugIf call Plug(<args>)
+
 call plug#begin(g:vimdir . '/plugged')
 LoadVim vim/plugins/basic.vim
 LoadVim vim/plugins/filetree.vim

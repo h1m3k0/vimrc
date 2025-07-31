@@ -59,19 +59,18 @@ let g:winresizer_vert_resize = 1
 let g:winresizer_horiz_resize = 1
 
 " vim8
-Plug 'LunarWatcher/auto-pairs', Cond(v:version >= 800 && !has('nvim'))  " 自动括号
-if v:version >= 800 && !has('nvim')
+if Plug('LunarWatcher/auto-pairs', v:version >= 800 && !has('nvim'))  " 自动括号
     " 右边为非空字符时不自动添加括号
     let g:AutoPairsCompleteOnlyOnSpace = 1
 endif
-Plug 'chrisbra/matchit', Cond(v:version >= 800 && !has('nvim'))         " 百分号%匹配
-if v:version >= 800 && !has('nvim')
+
+if Plug('chrisbra/matchit', v:version >= 800 && !has('nvim'))         " 百分号%匹配
     nmap M %
     xmap M %
     omap M %
 endif
-Plug 'mg979/vim-visual-multi', Cond(v:version >= 800) " 多光标
-if v:version >= 800
+
+if Plug('mg979/vim-visual-multi', v:version >= 800) " 多光标
     let g:VM_maps                    = {}
     let g:VM_maps['Undo']            = 'u'
     let g:VM_maps['Redo']            = '<C-r>'
@@ -83,9 +82,8 @@ if v:version >= 800
     let g:VM_maps['Switch Mode']     = '<Tab>'
 endif
 
-Plug 'skywind3000/asyncrun.vim', Cond(v:version >= 800)   " 异步运行
-Plug 'skywind3000/asynctasks.vim', Cond(v:version >= 800) " 异步任务
-if v:version >= 800
+PlugIf 'skywind3000/asyncrun.vim', v:version >= 800     " 异步运行
+if Plug('skywind3000/asynctasks.vim', v:version >= 800)  " 异步任务
     if has('win32')
         " windows系统使用GBK
         let g:asyncrun_encs = 'gbk'
@@ -96,4 +94,4 @@ if v:version >= 800
 endif
 
 " vim9
-Plug 'yianwillis/vimcdoc', Cond(v:version >= 900) " 中文文档
+PlugIf 'yianwillis/vimcdoc', v:version >= 900  " 中文文档

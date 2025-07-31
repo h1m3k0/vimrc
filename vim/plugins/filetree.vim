@@ -14,9 +14,10 @@ nnoremap <silent> <Leader>ev <Esc>:<C-U>NERDTree <C-R>=g:vimdir<CR><CR>
 nnoremap <silent> <Leader>eh <Esc>:<C-U>NERDTree $HOME<CR>
 nnoremap <silent> <Leader>ep <Esc>:<C-U>NERDTree <C-R>=g:vimdir<CR>/plugged<CR>
 
-Plug 'Xuyuanp/nerdtree-git-plugin', Cond(v:version >= 800 && executable('git'))
-if g:config_nerdfont
-    let g:NERDTreeGitStatusUseNerdFonts = 1
+if Plug('Xuyuanp/nerdtree-git-plugin', v:version >= 800 && executable('git'))
+    if g:config_nerdfont
+        let g:NERDTreeGitStatusUseNerdFonts = 1
+    endif
+    let g:NERDTreeGitStatusShowIgnored = 1
 endif
-let g:NERDTreeGitStatusShowIgnored = 1
-Plug 'ryanoasis/vim-devicons', Cond(g:config_nerdfont) " 图标
+PlugIf 'ryanoasis/vim-devicons', g:config_nerdfont  " 图标

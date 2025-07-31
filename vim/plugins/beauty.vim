@@ -8,38 +8,36 @@ Plug 'junegunn/seoul256.vim'
 Plug 'ku1ik/vim-monokai'
 Plug 'tomasr/molokai'
 " vim版的主题
-Plug 'morhetz/gruvbox', Cond(!has('nvim'))
-Plug 'joshdick/onedark.vim', Cond(!has('nvim'))
-Plug 'altercation/vim-colors-solarized', Cond(!has('nvim'))
-Plug 'catppuccin/vim', Cond(!has('nvim'), { 'as': 'cappuccin.vim' })
-Plug 'nanotech/jellybeans.vim', Cond(!has('nvim'))
+PlugIf 'morhetz/gruvbox', !has('nvim')
+PlugIf 'joshdick/onedark.vim', !has('nvim')
+PlugIf 'altercation/vim-colors-solarized', !has('nvim')
+PlugIf 'catppuccin/vim', !has('nvim'), { 'as': 'cappuccin.vim' }
+PlugIf 'nanotech/jellybeans.vim', !has('nvim')
 " nvim版本的主题
-Plug 'ellisonleao/gruvbox.nvim', Cond(has('nvim'))
-Plug 'navarasu/onedark.nvim', Cond(has('nvim'))
-Plug 'craftzdog/solarized-osaka.nvim', Cond(has('nvim'))
-Plug 'catppuccin/nvim', Cond(has('nvim'), { 'as': 'catppuccin.nvim' })
-Plug 'WTFox/jellybeans.nvim', Cond(has('nvim'))
+PlugIf 'ellisonleao/gruvbox.nvim', has('nvim')
+PlugIf 'navarasu/onedark.nvim', has('nvim')
+PlugIf 'craftzdog/solarized-osaka.nvim', has('nvim')
+PlugIf 'catppuccin/nvim', has('nvim'), { 'as': 'catppuccin.nvim' }
+PlugIf 'WTFox/jellybeans.nvim', has('nvim')
 
 " nvim独有的主题
-Plug 'Mofiqul/vscode.nvim', Cond(has('nvim'), { 'as': 'vscode-theme' })
-Plug 'projekt0n/github-nvim-theme', Cond(has('nvim'))
-Plug 'xiantang/darcula-dark.nvim', Cond(has('nvim'))
-Plug 'folke/tokyonight.nvim', Cond(has('nvim'))
-Plug 'rebelot/kanagawa.nvim', Cond(has('nvim'))
-Plug 'rose-pine/neovim', Cond(has('nvim'), { 'as': 'rose-pine' })
-Plug 'EdenEast/nightfox.nvim', Cond(has('nvim'))
+PlugIf 'Mofiqul/vscode.nvim', has('nvim'), { 'as': 'vscode-theme' }
+PlugIf 'projekt0n/github-nvim-theme', has('nvim')
+PlugIf 'xiantang/darcula-dark.nvim', has('nvim')
+PlugIf 'folke/tokyonight.nvim', has('nvim')
+PlugIf 'rebelot/kanagawa.nvim', has('nvim')
+PlugIf 'rose-pine/neovim', has('nvim'), { 'as': 'rose-pine' }
+PlugIf 'EdenEast/nightfox.nvim', has('nvim')
 
-Plug 'vim-airline/vim-airline', Cond(!has('nvim')) " 状态栏
-Plug 'vim-airline/vim-airline-themes', Cond(!has('nvim'))
-if !has('nvim')
+PlugIf 'vim-airline/vim-airline', !has('nvim')  " 状态栏
+if Plug('vim-airline/vim-airline-themes', !has('nvim'))
     " 只有一个tab时 显示buffers
     let g:airline#extensions#tabline#enabled = 1
     " 标题仅显示文件名
     let g:airline#extensions#tabline#formatter = 'unique_tail'
 endif
 
-Plug 'mhinz/vim-startify', Cond(!has('nvim')) " 启动页面
-if !has('nvim')
+if Plug('mhinz/vim-startify', !has('nvim')) " 启动页面
     let g:startify_custom_header = ['']
     let g:startify_lists = [
                 \   {'type': 'commands' }, 

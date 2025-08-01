@@ -5,7 +5,7 @@ end
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.uv.fs_stat(lazypath) then
     local lazyrepo = vim.fn.printf(
-        vim.g.plug_url_format or 'https://git::@github.com/%s.git',
+        vim.g.plug_url_format or 'https://github.com/%s.git',
         'folke/lazy.nvim'
     )
     local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath})

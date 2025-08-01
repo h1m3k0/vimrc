@@ -7,8 +7,17 @@ return {
         'stevearc/conform.nvim', version = '*',
     },
     {
-        'folke/trouble.nvim',
-        opts = {},
+        {
+            'folke/trouble.nvim',
+            opts = {},
+        },
+        {
+            'rachartier/tiny-inline-diagnostic.nvim',
+            priority = 1000,
+            opts = {
+                preset = 'classic'
+            }
+        },
     },
     {
         -- git相关

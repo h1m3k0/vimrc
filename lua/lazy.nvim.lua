@@ -2,10 +2,13 @@ if vim.g.vscode then
     return
 end
 -- Bootstrap lazy.nvim
-local rootpath = vim.g.vimdir .. '/lazy'
-if not vim.uv.fs_stat(rootpath .. '/lazy.nvim') then
-    local lazyrepo = "git@github.com:folke/lazy.nvim.git"
-    local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, rootpath .. '/lazy.nvim' })
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+if not vim.uv.fs_stat(lazypath) then
+    local lazyrepo = vim.fn.printf(
+        vim.g.plug_url_format or 'https://git::@github.com/%s.git',
+        'folke/lazy.nvim'
+    )
+    local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath})
     if vim.v.shell_error ~= 0 then
         vim.api.nvim_echo({
             { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
@@ -16,16 +19,12 @@ if not vim.uv.fs_stat(rootpath .. '/lazy.nvim') then
         os.exit(1)
     end
 end
-vim.opt.rtp:prepend(rootpath .. '/lazy.nvim')
+vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    root = rootpath,
     spec = {
         { import = 'plugins' },
         { import = 'plugins/languages' },
-    },
-    install = {
-        colorscheme = { 'everforest', 'habamax' },
     },
     git = {
         url_format = vim.g.plug_url_format,
@@ -37,11 +36,11 @@ require("lazy").setup({
     performance = {
         reset_packpath = false,
         rtp = {
+            -- 不重置runtimepath, 与plugin vim-plug共用
             reset = false,
         },
     },
     readme = {
         enabled = true,
-        root = rootpath .. '/readme',
     },
 })

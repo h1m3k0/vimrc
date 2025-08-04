@@ -131,7 +131,6 @@ if has('gui_running')
     set columns=120 " 宽
     set lines=30 " 高
     set guicursor+=a:blinkon0 " 取消光标闪烁
-    set mousemoveevent " 鼠标
 endif
 " 扩展名
 set suffixes=.bak,~,.o,.h,.info,.swp,.obj,.pyc,.pyo,.egg-info,.class

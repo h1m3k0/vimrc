@@ -106,10 +106,7 @@ return {
     },
     {
         -- 注释
-        'folke/ts-comments.nvim',
-        version = '*',
-        event = 'VeryLazy',
-        opts = {},
+        'JoosepAlviste/nvim-ts-context-commentstring',
     },
     {
         -- 自动括号

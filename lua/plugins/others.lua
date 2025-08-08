@@ -48,10 +48,10 @@ return {
         },
     },
     {
+        -- 缩进线
         'lukas-reineke/indent-blankline.nvim',
         main = 'ibl',
         opts = {
-
         },
     },
     {
@@ -111,9 +111,11 @@ return {
         end
     },
     {
-        'RRethy/vim-illuminate', -- 光标当前词高亮
+        -- 光标当前词高亮
+        'RRethy/vim-illuminate',
     },
     {
+        -- 侧边
         'lewis6991/satellite.nvim',
         opts = {
             handlers = {
@@ -124,4 +126,8 @@ return {
             },
         },
     },
+    {
+        -- 用颜色显示颜色的文本
+        'brenoprata10/nvim-highlight-colors',
+    }
 }

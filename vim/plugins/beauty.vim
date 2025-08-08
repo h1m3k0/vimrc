@@ -21,7 +21,6 @@ PlugIf 'catppuccin/nvim', has('nvim'), { 'as': 'catppuccin.nvim' }
 PlugIf 'WTFox/jellybeans.nvim', has('nvim')
 
 " nvim独有的主题
-PlugIf 'Mofiqul/vscode.nvim', has('nvim'), { 'as': 'vscode-theme' }
 PlugIf 'projekt0n/github-nvim-theme', has('nvim')
 PlugIf 'xiantang/darcula-dark.nvim', has('nvim')
 PlugIf 'folke/tokyonight.nvim', has('nvim')

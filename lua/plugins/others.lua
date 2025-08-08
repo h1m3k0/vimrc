@@ -115,6 +115,13 @@ return {
     },
     {
         'lewis6991/satellite.nvim',
-        opts = {}
+        opts = {
+            handlers = {
+                -- 去掉m标记(与nerdtree的m冲突)
+                marks = {
+                    enable = false,
+                },
+            },
+        },
     },
 }

@@ -222,7 +222,3 @@ endfunction
 
 " 清除选择模式的映射
 smapclear
-
-" Maybe Bug
-" 部分情况需要按两下<Esc>
-inoremap <Esc> <Esc><Esc>

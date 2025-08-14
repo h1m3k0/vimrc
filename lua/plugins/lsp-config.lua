@@ -20,7 +20,7 @@ return {
     },
     {
         'mason-org/mason-lspconfig.nvim',
-        dependencies = { 'mason-org/mason.nvim', 'neovim/nvim-lspconfig' },
+        dependencies = { 'mason-org/mason.nvim' },
         version = '*',
         opts = {
             ensure_installed = { 'vimls', 'lua_ls' },

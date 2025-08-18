@@ -24,11 +24,6 @@ return {
         version = '*',
         opts = {
             ensure_installed = { 'vimls', 'lua_ls' },
-            handlers = {
-                function (server_name)
-                    require('lspconfig')[server_name].setup {}
-                end,
-            }
         },
     },
     {

@@ -4,15 +4,8 @@ return {
         'nvim-telescope/telescope.nvim',
         cond = true,
         dependencies = {
-            {
-                'nvim-telescope/telescope-ui-select.nvim',
-                dependencies = 'nvim-telescope/telescope.nvim',
-                config = function(_, opts)
-                    vim.schedule(function()
-                        require('telescope').load_extension('ui-select')
-                    end)
-                end
-            },
+            'nvim-lua/plenary.nvim',
+            'nvim-telescope/telescope-ui-select.nvim',
         },
         config = function(_, opts)
             local telescope = require("telescope")
@@ -38,7 +31,14 @@ return {
                         },
                     },
                 },
+                extensions = {
+                    ['ui-select'] = {},
+                    fzf = {
+                        fuzzy = true,
+                    },
+                }
             })
+
             vim.keymap.set('n', '<leader>ff', builtin.find_files)
             vim.keymap.set('n', '<leader>fg', builtin.live_grep)
             vim.keymap.set('n', 'gR', builtin.lsp_references)
@@ -49,6 +49,10 @@ return {
             vim.keymap.set('n', '<Leader>i', vim.lsp.buf.code_action)
 
             vim.keymap.set('n', '<Leader>f<Space>', '<Esc>:<C-U>Telescope ')
+
+            vim.schedule(function()
+                telescope.load_extension('ui-select')
+            end)
         end,
     },
     {

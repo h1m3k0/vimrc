@@ -15,5 +15,3 @@ LoadVim vim/plugins/fuzzy.vim
 LoadVim vim/plugins/coc.vim
 LoadVim vim/plugins/languages.vim
 call plug#end()
-
-delcommand PlugIf

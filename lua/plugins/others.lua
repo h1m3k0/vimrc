@@ -117,6 +117,7 @@ return {
     {
         -- 侧边
         'lewis6991/satellite.nvim',
+        -- 鼠标功能 neovide需要添加启动参数 neovide --no-multigrid
         opts = {
             handlers = {
                 -- 去掉m标记(与nerdtree的m冲突)
